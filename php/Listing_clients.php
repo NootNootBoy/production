@@ -13,7 +13,7 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-$stmt = $pdo->query('SELECT name, position, office, age, startDate, salary FROM your_table');
+$stmt = $pdo->query('SELECT id, nom, societe, mail, commercial_id FROM clients');
 ?>
 
 <!DOCTYPE html>
