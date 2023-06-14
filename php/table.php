@@ -85,28 +85,20 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
             </thead>
             <tbody class="table-border-bottom-0">
                 <?php
-                  // $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
-                  // $response = file_get_contents($url);
-                  // $site_info = json_decode($response, true);
-                  // include './components/project_row.php';
-                  ini_set('display_errors', 1);
-                  ini_set('display_startup_errors', 1);
-                  error_reporting(E_ALL);
-                  
                   $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
                   $response = file_get_contents($url);
-                  $site_info = json_decode($response, true); // Utilisez directement $response_data
+                  $site_info = json_decode($response, true);
+                  include 'project_row.php';
+                  // $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
+                  // $response = file_get_contents($url);
+                  // $site_info = json_decode($response, true); // Utilisez directement $response_data
                   
-                  var_dump($site_info); // Vérifiez le contenu de $site_info
-                  
-                  echo getcwd(); // Vérifiez le chemin actuel
-                  
-                  if (file_exists('project_row.php')) {
-                      include 'project_row.php';
-                  } else {
-                      echo "Le fichier 'project_row.php' n'existe pas.";
-                      exit;
-                  }
+                  // if (file_exists('project_row.php')) {
+                  //     include 'project_row.php';
+                  // } else {
+                  //     echo "Le fichier 'project_row.php' n'existe pas.";
+                  //     exit;
+                  // }
                   
                   ?>
             </tbody>
