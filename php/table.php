@@ -69,11 +69,16 @@
             </thead>
             <tbody class="table-border-bottom-0">
             <?php
+              // $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
+              // $response = file_get_contents($url);
+              // $site_info = json_decode($response, true);
+              // include './components/project_row.php';
               $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
               $response = file_get_contents($url);
-              $site_info = json_decode($response, true);
+              $response_data = json_decode($response, true);
+              $site_info = json_decode($response_data['content'], true);
               include './components/project_row.php';
-
+              
               ?>
             </tbody>
           </table>
