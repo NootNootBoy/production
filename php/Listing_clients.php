@@ -81,10 +81,10 @@
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">DataTables /</span> Basic</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
 
                         <div class="card">
-                            <h5 class="card-header">Listes des sites : </h5>
+                            <h5 class="card-header">Listes des clients : </h5>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">
                                     <thead>
@@ -92,6 +92,7 @@
                                             <th>Client</th>
                                             <th>Societé</th>
                                             <th>Gerant</th>
+                                            <th>Email</th>
                                             <th>Commerciaux</th>
                                             <th>Actions</th>
                                         </tr>
