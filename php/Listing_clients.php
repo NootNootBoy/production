@@ -106,10 +106,10 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php
-                                            $stmt = $pdo->query('SELECT * FROM clients');
-                                            while ($client = $stmt->fetch()) {
-                                                include 'components/client_row.php';
-                                            }
+                                           $stmt = $pdo->query('SELECT * FROM clients');
+                                           while ($client = $stmt->fetch()) {
+                                               include 'components/client_row.php';
+                                           }
                                             ?>
                                     </tbody>
                                 </table>
