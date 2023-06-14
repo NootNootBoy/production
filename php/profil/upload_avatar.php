@@ -43,7 +43,8 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
         echo "The file ". htmlspecialchars( basename( $_FILES["avatar"]["name"])). " has been uploaded.";
-        echo '<img src="' . htmlspecialchars($target_file) . '" alt="Uploaded Image">';
+        $relative_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $target_file);
+        echo '<img src="' . htmlspecialchars($relative_path) . '" alt="Uploaded Image">';
         $stmt = $pdo->prepare("UPDATE users SET avatar = ? WHERE id = ?");
         $stmt->execute([$target_file, $_SESSION['user_id']]);
     } else {
