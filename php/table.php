@@ -94,7 +94,9 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                   $response_data = json_decode($response, true);
                   $site_info = json_decode($response_data['content'], true);
                   include './components/project_row.php';
-                  
+                  ini_set('display_errors', 1);
+                  ini_set('display_startup_errors', 1);
+                  error_reporting(E_ALL);
                   ?>
             </tbody>
           </table>
