@@ -9,7 +9,7 @@
         $stmt2->execute([$client['commercial_id']]);
         $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
         if ($commercial && isset($commercial['avatar'])) {
-            echo "<img src='{$commercial['avatar']}' alt='Avatar'>";
+            echo "<img src='{$commercial['avatar']}' alt='Avatar' class='img-fluid rounded-circle' style='width: 30px; height: 30px;'>";
         } else {
             echo $client['commercial_id'];
         }
