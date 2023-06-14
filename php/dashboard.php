@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
 include 'db_connection.php';
 
 $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
