@@ -46,7 +46,7 @@ if ($uploadOk == 0) {
         $relative_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $target_file);
         echo '<img src="' . htmlspecialchars($relative_path) . '" alt="Uploaded Image">';
         $stmt = $pdo->prepare("UPDATE users SET avatar = ? WHERE id = ?");
-        $stmt->execute([$target_file, $_SESSION['user_id']]);
+        $stmt->execute([$relative_path, $_SESSION['user_id']]);
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
