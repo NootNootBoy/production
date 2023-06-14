@@ -89,14 +89,32 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                   // $response = file_get_contents($url);
                   // $site_info = json_decode($response, true);
                   // include './components/project_row.php';
-                  $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
-                  $response = file_get_contents($url);
-                  $response_data = json_decode($response, true);
-                  $site_info = json_decode($response_data['content'], true);
-                  include './components/project_row.php';
                   ini_set('display_errors', 1);
                   ini_set('display_startup_errors', 1);
                   error_reporting(E_ALL);
+                  
+                  $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
+                  $response = file_get_contents($url);
+                  $response_data = json_decode($response, true);
+                  
+                  var_dump($response_data); // Vérifiez le contenu de $response_data
+                  
+                  if (isset($response_data['content'])) {
+                      $site_info = json_decode($response_data['content'], true);
+                  } else {
+                      echo "La clé 'content' n'existe pas dans la réponse de l'API.";
+                      exit;
+                  }
+                  
+                  echo getcwd(); // Vérifiez le chemin actuel
+                  
+                  if (file_exists('./components/project_row.php')) {
+                      include './components/project_row.php';
+                  } else {
+                      echo "Le fichier './components/project_row.php' n'existe pas.";
+                      exit;
+                  }
+                  
                   ?>
             </tbody>
           </table>
