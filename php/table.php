@@ -101,10 +101,10 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                   
                   echo getcwd(); // Vérifiez le chemin actuel
                   
-                  if (file_exists('./components/project_row.php')) {
-                      include './components/project_row.php';
+                  if (file_exists('/components/project_row.php')) {
+                      include '/components/project_row.php';
                   } else {
-                      echo "Le fichier './components/project_row.php' n'existe pas.";
+                      echo "Le fichier '/components/project_row.php' n'existe pas.";
                       exit;
                   }
                   
