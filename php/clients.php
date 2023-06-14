@@ -95,7 +95,7 @@ $commerciaux = $stmt->fetchAll();
             <tbody class="table-border-bottom-0">
             </tbody>
           </table>
-          <form action="./php/add_client.php" method="post">
+          <form action="add_client.php" method="post">
               <label for="nom">Nom:</label><br>
               <input type="text" id="nom" name="nom"><br>
               <label for="prenom">Prénom:</label><br>
