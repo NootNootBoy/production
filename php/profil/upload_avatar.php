@@ -1,8 +1,9 @@
 <?php
 session_start();
-$_SESSION['user_id'] = $user_id; // Remplacez $user_id par l'identifiant de l'utilisateur approprié
 
 include 'db_connection.php';
+
+$user_id = $_GET['user_id']; // Récupérer l'identifiant de l'utilisateur depuis l'URL
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/avatars/";
 $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
@@ -48,7 +49,7 @@ if ($uploadOk == 0) {
         $relative_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $target_file);
         echo '<img src="' . htmlspecialchars($relative_path) . '" alt="Uploaded Image">';
         $stmt = $pdo->prepare("UPDATE users SET avatar = ? WHERE id = ?");
-        $stmt->execute([$relative_path, $_SESSION['user_id']]);
+        $stmt->execute([$target_file, $user_id]);
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
