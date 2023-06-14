@@ -95,16 +95,9 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                   
                   $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
                   $response = file_get_contents($url);
-                  $response_data = json_decode($response, true);
+                  $site_info = json_decode($response, true); // Utilisez directement $response_data
                   
-                  var_dump($response_data); // Vérifiez le contenu de $response_data
-                  
-                  if (isset($response_data['content'])) {
-                      $site_info = json_decode($response_data['content'], true);
-                  } else {
-                      echo "La clé 'content' n'existe pas dans la réponse de l'API.";
-                      exit;
-                  }
+                  var_dump($site_info); // Vérifiez le contenu de $site_info
                   
                   echo getcwd(); // Vérifiez le chemin actuel
                   
