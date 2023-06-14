@@ -4,9 +4,9 @@ session_start();
 
 
 $host = '176.31.132.185';
-$db   = 'ohetkg_dashboar_db';
-$user = 'ohetkg_dashboar_db';
-$pass = '3-t2_UfA1s*Q0Iu!';
+$db   = 'vesqbc_producti_db';
+$user = 'vesqbc_producti_db';
+$pass = '7f-yp!QZWOg6_%49';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

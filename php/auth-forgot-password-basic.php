@@ -6,15 +6,14 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
     // Générer un jeton unique
     $token = bin2hex(random_bytes(50));
-    $user = "ohetkg_dashboar_db";
-    $pass = "3-t2_UfA1s*Q0Iu!";
-    $pdo = new PDO('mysql:host=176.31.132.185;dbname=ohetkg_dashboar_db', $user, $pass);
+    $user = 'vesqbc_producti_db';
+    $pass = '7f-yp!QZWOg6_%49';
+    $pdo = new PDO('mysql:host=176.31.132.185;dbname=vesqbc_producti_db', $user, $pass);
 
     // Stocker le jeton dans la base de données
     $stmt = $pdo->prepare('INSERT INTO password_resets (email, token) VALUES (?, ?)');

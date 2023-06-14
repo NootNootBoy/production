@@ -6,9 +6,9 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-$user = "ohetkg_dashboar_db";
-$pass = "3-t2_UfA1s*Q0Iu!";
-$pdo = new PDO('mysql:host=176.31.132.185;dbname=ohetkg_dashboar_db', $user, $pass);
+$user = 'vesqbc_producti_db';
+$pass = '7f-yp!QZWOg6_%49';
+$pdo = new PDO('mysql:host=176.31.132.185;dbname=vesqbc_producti_db', $user, $pass);
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $token = $_GET['token'];
