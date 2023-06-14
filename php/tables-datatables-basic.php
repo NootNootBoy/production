@@ -97,23 +97,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        <?php
-                                            $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
-                                            $response = file_get_contents($url);
-                                            $site_info = json_decode($response, true);
-                                            include 'project_row.php';
-                                            // $url = 'https://cabinet-mindset-marketing.com/wp-json/mindsetapi/v1/site-info';
-                                            // $response = file_get_contents($url);
-                                            // $site_info = json_decode($response, true); // Utilisez directement $response_data
-                                            
-                                            // if (file_exists('project_row.php')) {
-                                            //     include 'project_row.php';
-                                            // } else {
-                                            //     echo "Le fichier 'project_row.php' n'existe pas.";
-                                            //     exit;
-                                            // }
-                                            
-                                            ?>
+
                                     </tbody>
                                 </table>
                             </div>
