@@ -10,20 +10,13 @@ if (isset($_SESSION['username'])) {
 
 <!DOCTYPE html>
 
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../assets/"
-  data-template="vertical-menu-template-free"
->
-  <head>
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>S'inscire au Dashboard</title>
 
@@ -36,9 +29,8 @@ if (isset($_SESSION['username'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
@@ -60,85 +52,77 @@ if (isset($_SESSION['username'])) {
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Content -->
 
     <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register Card -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="../index.php" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <div class="d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+        <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner">
+                <!-- Register Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Logo -->
+                        <div class="app-brand justify-content-center">
+                            <a href="../index.php" class="app-brand-link gap-2">
+                                <span class="app-brand-logo demo">
+                                    <div class="d-flex align-items-center justify-content-center"
+                                        style="width: 80px; height: 80px;">
 
-                      <img src="assets/img/favicon/logo--mindset_black.png" class="img-thumbnail" alt="...">
-                      </div>
-                  </span>
-                </a>
-              </div>
-              <!-- /Logo -->
-              <h4 class="mb-2">Faites votre demande d'accès </h4>
-              <p class="mb-4">au dashboard de Mindset 🚀</p>
+                                        <img src="assets/img/favicon/logo--mindset_black.png" class="img-thumbnail"
+                                            alt="...">
+                                    </div>
+                                </span>
+                            </a>
+                        </div>
+                        <!-- /Logo -->
+                        <h4 class="mb-2">Faites votre demande d'accès </h4>
+                        <p class="mb-4">au dashboard de Mindset 🚀</p>
 
-              <form id="formAuthentication" class="mb-3" action="inscription.php" method="POST">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Utilisateur</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Entrer votre nom d'utilisateur"
-                    autofocus
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Entrer votre email" />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Mot de passe</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
+                        <form id="formAuthentication" class="mb-3" action="inscription.php" method="POST">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Utilisateur</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Entrer votre nom d'utilisateur" autofocus />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Entrer votre email" />
+                            </div>
+                            <div class="mb-3 form-password-toggle">
+                                <label class="form-label" for="password">Mot de passe</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                </div>
+                            </div>
 
-                <div class="mb-3">
-                </div>
-                <button class="btn btn-primary d-grid w-100">S'inscire</button>
-              </form>
-              <?php
+                            <div class="mb-3">
+                            </div>
+                            <button class="btn btn-primary d-grid w-100">S'inscire</button>
+                        </form>
+                        <?php
                 if (isset($_SESSION['error_message'])) {
                   echo "<p class='text-danger'>" . $_SESSION['error_message'] . "</p>";
                   unset($_SESSION['error_message']);
               }
               ?>
 
-              <p class="text-center">
-                <span>Vous avez déjà un compte?                </span>
-                <a href="../index.php">
-                  <span>Connectez-vous à la place</span>
-                </a>
-              </p>
+                        <p class="text-center">
+                            <span>Vous avez déjà un compte? </span>
+                            <a href="../index.php">
+                                <span>Connectez-vous à la place</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Register Card -->
             </div>
-          </div>
-          <!-- Register Card -->
         </div>
-      </div>
     </div>
 
 
@@ -161,5 +145,6 @@ if (isset($_SESSION['username'])) {
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+</body>
+
 </html>
