@@ -1,5 +1,5 @@
 <tr>
-              <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $site_info['name']; ?></strong></td>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $site_info['name']; ?></strong></td>
               <td><?php echo $site_info['description']; ?></td>
                 <td>
                   <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">

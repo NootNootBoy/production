@@ -1,3 +1,19 @@
+<?php 
+$host = '176.31.132.185';
+$db   = 'vesqbc_producti_db';
+$user = 'vesqbc_producti_db';
+$pass = '7f-yp!QZWOg6_%49';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$opt = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+$pdo = new PDO($dsn, $user, $pass, $opt);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <html
@@ -80,57 +96,6 @@
                   include './components/project_row.php';
                   
                   ?>
-                  <tr>
-        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $site_info['name']; ?></strong></td>
-              <td><?php echo $site_info['description']; ?></td>
-                <td>
-                  <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      class="avatar avatar-xs pull-up"
-                      title="Lilian Fuller"
-                    >
-                      <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      class="avatar avatar-xs pull-up"
-                      title="Sophia Wilkerson"
-                    >
-                      <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                    </li>
-                    <li
-                      data-bs-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-bs-placement="top"
-                      class="avatar avatar-xs pull-up"
-                      title="Christina Parker"
-                    >
-                      <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                    </li>
-                  </ul>
-                </td>
-                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $site_info['version']; ?></strong></td>
-                <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                      >
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-trash me-1"></i> Delete</a
-                      >
-                    </div>
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
