@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user_id = $_POST['user_id'];
 if (!isset($_SESSION['username'])) {
     // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
     header('Location: ../index.php');
@@ -672,6 +673,8 @@ if (isset($_SESSION['error_message'])) {
                 <div class="content-wrapper">
                     <!-- Content -->
                     <form action="profil/upload_avatar.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+
                         Select image to upload:
                         <input type="file" name="avatar" id="fileToUpload">
                         <input type="submit" value="Upload Image" name="submit">
