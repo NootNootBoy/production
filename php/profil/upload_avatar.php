@@ -3,7 +3,7 @@ session_start();
 include 'db_connection.php';
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/avatars/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . basename($_FILES["avatar"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
