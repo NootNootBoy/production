@@ -42,7 +42,7 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons group"></i>
                 <div data-i18n="Fichier clients">Fichier clients</div>
             </a>
             <ul class="menu-sub">
@@ -102,7 +102,7 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons group"></i>
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                 <div data-i18n="Maitenance">Maitenance</div>
             </a>
             <ul class="menu-sub">
