@@ -29,7 +29,8 @@
             $dateActuelle = new DateTime();
             $interval = $dateActuelle->diff($dateFinEngagement);
             $moisRestants = ($interval->format('%y') * 12) + $interval->format('%m');
-            echo "<td>" . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>"; // date de fin d'engagement
+            echo "<p>"  . htmlspecialchars($moisRestants->format('Y-m-d')) . "</p>";
+            echo "<td>"  . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>"; // date de fin d'engagement
         ?>
 
     <td>
