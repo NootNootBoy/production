@@ -24,7 +24,7 @@
     </td>
     <?php 
             $dateFinEngagement = new DateTime($client['date_signature']);
-
+            echo "<p>{$client['date_signature']}</p>";
             // Calculer le temps restant en mois
             $dateActuelle = new DateTime();
             $interval = $dateActuelle->diff($dateFinEngagement);
