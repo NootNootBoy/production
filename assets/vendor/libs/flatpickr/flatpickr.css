@@ -809,10 +809,10 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
   color: #a3a4cc;
 }
 .dark-style .flatpickr-time .numInputWrapper span.arrowUp:after {
-  border-bottom-color: #7071a4;
+  border-bottom-color: #ffb108;
 }
 .dark-style .flatpickr-time .numInputWrapper span.arrowDown:after {
-  border-top-color: #7071a4;
+  border-top-color: #ffb108;
 }
 .dark-style .flatpickr-time .flatpickr-am-pm {
   color: #a3a4cc;

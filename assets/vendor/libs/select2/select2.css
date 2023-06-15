@@ -182,7 +182,7 @@ html:not([dir=rtl]) .select2-container--default .select2-selection--single .sele
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: rgba(105, 108, 255, 0.08) !important;
-  color: #696cff !important;
+  color: #ff810a !important;
 }
 .select2-container--default,
 .select2-container--default * {
@@ -562,7 +562,7 @@ html:not([dir=rtl]) .select2-container--default .select2-selection--multiple .se
   color: #7c7db6;
 }
 .dark-style .select2-container--default .select2-results__group {
-  color: #7071a4;
+  color: #ffb108;
 }
 .dark-style .select2-container--default .select2-selection--single {
   height: calc(1.53em + 0.875rem + 2px);

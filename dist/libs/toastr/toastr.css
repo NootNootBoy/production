@@ -401,7 +401,7 @@ html:not([dir=rtl]) .toast-close-button {
 }
 .dark-style #toast-container .toast-close-button {
   font-weight: 300;
-  color: #7071a4 !important;
+  color: #ffb108 !important;
   background-color: #2b2c40;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }

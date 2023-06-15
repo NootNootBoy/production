@@ -428,10 +428,10 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
 }
 .dark-style .daterangepicker td.disabled,
 .dark-style .daterangepicker option.disabled {
-  color: #7071a4;
+  color: #ffb108;
 }
 .dark-style .daterangepicker td.off {
-  color: #7071a4;
+  color: #ffb108;
 }
 .dark-style .daterangepicker .ranges li {
   cursor: pointer;
@@ -463,7 +463,7 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
   background: #2b2c40;
 }
 .dark-style .daterangepicker select.monthselect option:disabled, .dark-style .daterangepicker select.yearselect option:disabled {
-  color: #7071a4;
+  color: #ffb108;
 }
 .dark-style .daterangepicker .calendar-time select.disabled {
   color: #7c7db6;

@@ -10,7 +10,7 @@
 // JS global variables
 let config = {
   colors: {
-    primary: '#696cff',
+    primary: '#ff810a',
     secondary: '#8592a3',
     success: '#71dd37',
     info: '#03c3ec',
@@ -40,7 +40,7 @@ let config = {
     bodyBg: '#232333',
     bodyColor: '#a3a4cc',
     headingColor: '#cbcbe2',
-    textMuted: '#7071a4',
+    textMuted: '#ffb108',
     borderColor: '#444564'
   },
   enableMenuLocalStorage: true // Enable menu state with local storage support
