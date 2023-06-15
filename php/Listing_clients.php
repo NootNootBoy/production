@@ -125,7 +125,7 @@ $commerciaux = $stmt->fetchAll();
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php
-                                           $stmt = $pdo->query('SELECT * FROM clients');
+                                           $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                            while ($client = $stmt->fetch()) {
                                                include 'components/client_row.php';
                                            }
