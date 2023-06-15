@@ -21,7 +21,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class="menu-icon tf-icons bx bx-bell"></i>
                 <div data-i18n="Alertes">Alertes</div>
             </a>
             <ul class="menu-sub">
@@ -42,7 +42,7 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons group"></i>
+                <i class="menu-icon tf-icons bx bx-group"></i>
                 <div data-i18n="Fichier clients">Fichier clients</div>
             </a>
             <ul class="menu-sub">
@@ -60,7 +60,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons bx bx-cube"></i>
                 <div data-i18n="Projets">Projets</div>
             </a>
             <ul class="menu-sub">
@@ -81,7 +81,7 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons bx bx-task"></i>
                 <div data-i18n="Mes missions">Mes missions</div>
             </a>
             <ul class="menu-sub">
@@ -102,7 +102,7 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons bx bx-sitemap"></i>
                 <div data-i18n="Maitenance">Maitenance</div>
             </a>
             <ul class="menu-sub">
@@ -115,7 +115,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="Paramètres">Paramètres</div>
             </a>
             <ul class="menu-sub">
