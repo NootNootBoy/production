@@ -91,7 +91,7 @@ $agences = explode("','", $matches[1]);
                                     <div class="d-flex align-items-center justify-content-center"
                                         style="width: 80px; height: 80px;">
 
-                                        <img src="assets/img/favicon/logo--mindset_black.png" class="img-thumbnail"
+                                        <img src="/assets/img/favicon/logo--mindset_black.png" class="img-thumbnail"
                                             alt="...">
                                     </div>
                                 </span>
