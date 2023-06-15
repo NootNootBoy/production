@@ -102,10 +102,10 @@ $commerciaux = $stmt->fetchAll();
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Listes des clients :</h5>
-                                <div style="max-width: 150px;">
-                                    <button type="button" class="btn btn-primary mr-3" data-bs-toggle="modal"
+                                <div style="max-width: 150px;" class="me-3">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#editUser">
-                                        Show
+                                        Ajouter un client
                                     </button>
                                 </div>
                             </div>
