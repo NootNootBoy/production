@@ -29,12 +29,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Defaillance site client">Defaillance site client</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Notifications">Notifications</div>
                     </a>
                 </li>
