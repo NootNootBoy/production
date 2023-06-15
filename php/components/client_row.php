@@ -5,7 +5,7 @@
     <td><?php echo htmlspecialchars($client['email']) ?></td>
     <td>
         <?php
-        $stmt2 = $pdo->prepare("SELECT avatar FROM users WHERE id = ?");
+        $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
         $stmt2->execute([$client['commercial_id']]);
         $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
         if ($commercial && isset($commercial['avatar'])) {
