@@ -18,7 +18,7 @@
         </ul>
         <?php
         } else {
-            echo $client['commercial_id'];
+            echo $client['nom'];
         }
         ?>
     </td>
