@@ -11,7 +11,6 @@
         if ($commercial && isset($commercial['avatar'])) {
             echo "<div>";
             echo "<img src='{$commercial['avatar']}' alt='Avatar' class='img-fluid rounded-circle' style='width: 30px; height: 30px;' title='" . htmlspecialchars($commercial['nom']) . "'>";
-            echo "<p>" . htmlspecialchars($commercial['nom']) . "</p>";
             echo "</div>";
         } else {
             echo $client['commercial_id'];
