@@ -92,6 +92,10 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
                             <h5 class="card-header">Listes des clients : </h5>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#editUser">
+                                Show
+                            </button>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">
                                     <thead>
@@ -117,23 +121,6 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                 </table>
                             </div>
                         </div>
-                        <!-- Modal to add new record -->
-                        <!--  Edit User -->
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <i class="mb-3 bx bx-md bx-user"></i>
-                                    <h5>Edit User</h5>
-                                    <p>Easily update the user data on the go, built in form validation and custom
-                                        controls.</p>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#editUser">
-                                        Show
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/  Edit User -->
 
 
                         <!--/ DataTable with Buttons -->
@@ -150,117 +137,103 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                             <h3>Edit User Information</h3>
                                             <p>Updating user details will receive a privacy audit.</p>
                                         </div>
-                                        <form id="editUserForm" class="row g-3" onsubmit="return false">
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserFirstName">First
-                                                    Name</label>
-                                                <input type="text" id="modalEditUserFirstName"
-                                                    name="modalEditUserFirstName" class="form-control"
-                                                    placeholder="John" />
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserLastName">Last Name</label>
-                                                <input type="text" id="modalEditUserLastName"
-                                                    name="modalEditUserLastName" class="form-control"
-                                                    placeholder="Doe" />
-                                            </div>
-                                            <div class="col-12">
-                                                <label class="form-label" for="modalEditUserName">Username</label>
-                                                <input type="text" id="modalEditUserName" name="modalEditUserName"
-                                                    class="form-control" placeholder="john.doe.007" />
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserEmail">Email</label>
-                                                <input type="text" id="modalEditUserEmail" name="modalEditUserEmail"
-                                                    class="form-control" placeholder="example@domain.com" />
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserStatus">Status</label>
-                                                <select id="modalEditUserStatus" name="modalEditUserStatus"
-                                                    class="form-select" aria-label="Default select example">
-                                                    <option selected>Status</option>
-                                                    <option value="1">Active</option>
-                                                    <option value="2">Inactive</option>
-                                                    <option value="3">Suspended</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditTaxID">Tax ID</label>
-                                                <input type="text" id="modalEditTaxID" name="modalEditTaxID"
-                                                    class="form-control modal-edit-tax-id" placeholder="123 456 7890" />
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserPhone">Phone Number</label>
-                                                <div class="input-group input-group-merge">
-                                                    <span class="input-group-text">+1</span>
-                                                    <input type="text" id="modalEditUserPhone" name="modalEditUserPhone"
-                                                        class="form-control phone-number-mask"
-                                                        placeholder="202 555 0111" />
+                                        <form action="add_client.php" method="post" class="card-body">
+                                            <h6>1. Informations Générales</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="nom">Nom</label>
+                                                    <input type="text" id="nom" name="nom" class="form-control"
+                                                        placeholder="Dupont" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="prenom">Prénom</label>
+                                                    <input type="text" id="prenom" name="prenom" class="form-control"
+                                                        placeholder="Jean" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="societe">Société</label>
+                                                    <input type="text" id="societe" name="societe" class="form-control"
+                                                        placeholder="Dupont SA" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="siret">SIRET</label>
+                                                    <input type="text" id="siret" name="siret" class="form-control"
+                                                        placeholder="123 456 789 00012" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="email">Email</label>
+                                                    <input type="email" id="email" name="email" class="form-control"
+                                                        placeholder="jean.dupont@example.com" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="temps_engagement">Temps d'engagement
+                                                        (mois)</label>
+                                                    <input type="number" id="temps_engagement" name="temps_engagement"
+                                                        class="form-control" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="date_signature">Date de
+                                                        signature</label>
+                                                    <input type="date" id="date_signature" name="date_signature"
+                                                        class="form-control" required>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserLanguage">Language</label>
-                                                <select id="modalEditUserLanguage" name="modalEditUserLanguage"
-                                                    class="select2 form-select" multiple>
-                                                    <option value="">Select</option>
-                                                    <option value="english" selected>English</option>
-                                                    <option value="spanish">Spanish</option>
-                                                    <option value="french">French</option>
-                                                    <option value="german">German</option>
-                                                    <option value="dutch">Dutch</option>
-                                                    <option value="hebrew">Hebrew</option>
-                                                    <option value="sanskrit">Sanskrit</option>
-                                                    <option value="hindi">Hindi</option>
-                                                </select>
+
+                                            <hr class="my-4 mx-n4" />
+                                            <h6>2. Adresse</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="adresse">Adresse</label>
+                                                    <input type="text" id="adresse" name="adresse" class="form-control"
+                                                        placeholder="123 rue du Pont" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="ville">Ville</label>
+                                                    <input type="text" id="ville" name="ville" class="form-control"
+                                                        placeholder="Paris" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="code_postal">Code Postal</label>
+                                                    <input type="text" id="code_postal" name="code_postal"
+                                                        class="form-control" placeholder="75001" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="pays">Pays</label>
+                                                    <input type="text" id="pays" name="pays" class="form-control"
+                                                        placeholder="France" required>
+                                                </div>
                                             </div>
-                                            <div class="col-12 col-md-6">
-                                                <label class="form-label" for="modalEditUserCountry">Country</label>
-                                                <select id="modalEditUserCountry" name="modalEditUserCountry"
-                                                    class="select2 form-select" data-allow-clear="true">
-                                                    <option value="">Select</option>
-                                                    <option value="Australia">Australia</option>
-                                                    <option value="Bangladesh">Bangladesh</option>
-                                                    <option value="Belarus">Belarus</option>
-                                                    <option value="Brazil">Brazil</option>
-                                                    <option value="Canada">Canada</option>
-                                                    <option value="China">China</option>
-                                                    <option value="France">France</option>
-                                                    <option value="Germany">Germany</option>
-                                                    <option value="India">India</option>
-                                                    <option value="Indonesia">Indonesia</option>
-                                                    <option value="Israel">Israel</option>
-                                                    <option value="Italy">Italy</option>
-                                                    <option value="Japan">Japan</option>
-                                                    <option value="Korea">Korea, Republic of</option>
-                                                    <option value="Mexico">Mexico</option>
-                                                    <option value="Philippines">Philippines</option>
-                                                    <option value="Russia">Russian Federation</option>
-                                                    <option value="South Africa">South Africa</option>
-                                                    <option value="Thailand">Thailand</option>
-                                                    <option value="Turkey">Turkey</option>
-                                                    <option value="Ukraine">Ukraine</option>
-                                                    <option value="United Arab Emirates">United Arab Emirates</option>
-                                                    <option value="United Kingdom">United Kingdom</option>
-                                                    <option value="United States">United States</option>
-                                                </select>
+
+                                            <hr class="my-4 mx-n4" />
+                                            <h6>3. Options et Commercial</h6>
+                                            <div class="row g-3">
+                                                <?php foreach ($options as $option): ?>
+                                                <div class="col-md-4">
+                                                    <input type="checkbox" id="option<?php echo $option['id']; ?>"
+                                                        name="options[]" class="form-check-input"
+                                                        value="<?php echo $option['id']; ?>">
+                                                    <label class="form-check-label"
+                                                        for="option<?php echo $option['id']; ?>"><?php echo $option['nom']; ?></label>
+                                                </div>
+                                                <?php endforeach; ?>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="commercial_id">Commercial</label>
+                                                    <select id="commercial_id" name="commercial_id"
+                                                        class="select2 form-select">
+                                                        <?php foreach ($commerciaux as $commercial): ?>
+                                                        <option value="<?php echo $commercial['id']; ?>">
+                                                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
+                                                        </option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col-12">
-                                                <label class="switch">
-                                                    <input type="checkbox" class="switch-input" />
-                                                    <span class="switch-toggle-slider">
-                                                        <span class="switch-on"></span>
-                                                        <span class="switch-off"></span>
-                                                    </span>
-                                                    <span class="switch-label">Use as a billing address?</span>
-                                                </label>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <button type="submit"
-                                                    class="btn btn-primary me-sm-3 me-1">Submit</button>
-                                                <button type="reset" class="btn btn-label-secondary"
-                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                    Cancel
-                                                </button>
+                                            <hr class="my-4 mx-n4" />
+                                            <div class="pt-4">
+                                                <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
+                                                    Client</button>
+                                                <button type="reset" class="btn btn-label-secondary">Annuler</button>
                                             </div>
                                         </form>
                                     </div>
