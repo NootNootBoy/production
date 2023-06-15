@@ -9,9 +9,14 @@
         $stmt2->execute([$client['commercial_id']]);
         $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
         if ($commercial && isset($commercial['avatar'])) {
-            echo "<div>";
-            echo "<img src='{$commercial['avatar']}' alt='Avatar' class='img-fluid rounded-circle' style='width: 30px; height: 30px;' title='" . htmlspecialchars($commercial['nom']) . "'>";
-            echo "</div>";
+        ?>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
+                <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar" class="rounded-circle" />
+            </li>
+        </ul>
+        <?php
         } else {
             echo $client['commercial_id'];
         }
