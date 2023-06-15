@@ -3,26 +3,27 @@
     <td><?php echo htmlspecialchars($client['nom']) ?></td>
     <td><?php echo htmlspecialchars($client['societe']) ?></td>
     <td><?php echo htmlspecialchars($client['email']) ?></td>
-    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-        <strong><?php echo htmlspecialchars($client['statut']) ?></strong></td>
-    <td>
-        <?php
+    <?php
         $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
         $stmt2->execute([$client['commercial_id']]);
         $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
         if ($commercial && isset($commercial['avatar'])) {
         ?>
-        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
-                <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar" class="rounded-circle" />
-            </li>
-        </ul>
-        <?php
+    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+            class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
+            <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar" class="rounded-circle" />
+        </li>
+    </ul>
+    <?php
         } else {
             echo $client['commercial_id'];
         }
         ?>
+    <td>
+        <span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($client['statut']) ?></span>
+    </td>
+    <td>
     <td>
         <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
