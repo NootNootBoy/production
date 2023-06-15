@@ -79,6 +79,12 @@
                 <div data-i18n="Basic">Ajout d'un utilisateur</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="../php/auth-register-basic.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Ajout d'un client</div>
+            </a>
+        </li>
         <!-- User interface -->
 
 
