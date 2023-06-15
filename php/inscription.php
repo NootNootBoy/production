@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) {
-    // L'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
-    header('Location: dashboard.php');
-    exit;
-}
+// if (isset($_SESSION['username'])) {
+//     // L'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
+//     header('Location: dashboard.php');
+//     exit;
+// }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = '176.31.132.185';
     $db   = 'vesqbc_producti_db';
@@ -43,9 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: auth-register-basic.php'); // Redirigez vers inscription.php
         exit;
     }
+    $rang = $_POST['rang'];
+    $agence = $_POST['agence'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
 
-    $stmt = $pdo->prepare('INSERT INTO users (username, email, password) VALUES (?, ?, ?)');
-    $stmt->execute([$username, $email, $password]);
+    $stmt = $pdo->prepare('INSERT INTO users (username, email, password, rang, agence, nom, prenom) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$username, $email, $password, $rang, $agence, $nom, $prenom]);
 
     // L'inscription a réussi
     $_SESSION['success_message'] = 'Inscription réussie. Vous pouvez maintenant vous connecter.';
@@ -55,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Inscription</title>
@@ -72,4 +76,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </body>
-</html>
+</html> -->

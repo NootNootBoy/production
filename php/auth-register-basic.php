@@ -1,11 +1,32 @@
 <?php
-session_start();
-if (isset($_SESSION['username'])) {
-    // L'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
-    header('Location: dashboard.php');
-    exit;
-}
+$host = '176.31.132.185';
+$db   = 'vesqbc_producti_db';
+$user = 'vesqbc_producti_db';
+$pass = '7f-yp!QZWOg6_%49';
+$charset = 'utf8mb4';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$opt = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+$pdo = new PDO($dsn, $user, $pass, $opt);
+
+// Récupération des rangs
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$rangs = explode("','", $matches[1]);
+
+// Récupération des agences
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$agences = explode("','", $matches[1]);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -87,6 +108,16 @@ if (isset($_SESSION['username'])) {
                                     placeholder="Entrer votre nom d'utilisateur" autofocus />
                             </div>
                             <div class="mb-3">
+                                <label for="nom" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="nom" name="nom"
+                                    placeholder="Entrer votre nom " autofocus />
+                            </div>
+                            <div class="mb-3">
+                                <label for="prenom" class="form-label">Prenom</label>
+                                <input type="text" class="form-control" id="prenom" name="prenom"
+                                    placeholder="Entrer votre prenom" autofocus />
+                            </div>
+                            <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="Entrer votre email" />
@@ -100,6 +131,24 @@ if (isset($_SESSION['username'])) {
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="rang">Rang:</label>
+                                <select name="rang" id="rang" class="form-control" required>
+                                    <?php foreach ($rangs as $rang): ?>
+                                    <option value="<?php echo $rang; ?>"><?php echo ucfirst($rang); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="agence">Agence:</label>
+                                <select name="agence" id="agence" class="form-control" required>
+                                    <?php foreach ($agences as $agence): ?>
+                                    <option value="<?php echo $agence; ?>"><?php echo ucfirst($agence); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
 
                             <div class="mb-3">
                             </div>

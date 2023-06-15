@@ -101,8 +101,8 @@ $auth-basic-bottom-svg: "data:image/svg+xml,%3Csvg width='243px' height='240px' 
         &:after {
           background-image: url(light.str-replace(
             light.str-replace(
-              light.str-replace($auth-basic-bottom-svg, '#111111', light.$primary),
-              '#111111',
+              light.str-replace($auth-basic-bottom-svg, 'currentColor', light.$primary),
+              'strokeColor',
               light.$gray-500
             ),
             '#',
