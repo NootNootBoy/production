@@ -47,6 +47,6 @@ if ($stmt->rowCount() > 0) {
     $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'ajout du client.';
 }
 
-header('Location: dashboard.php');
+header('Location: Listing_clients.php');
 exit;
 ?>
