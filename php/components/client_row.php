@@ -3,6 +3,8 @@
     <td><?php echo htmlspecialchars($client['nom']) ?></td>
     <td><?php echo htmlspecialchars($client['societe']) ?></td>
     <td><?php echo htmlspecialchars($client['email']) ?></td>
+    <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+        <strong><?php echo htmlspecialchars($client['statut']) ?></strong></td>
     <td>
         <?php
         $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");

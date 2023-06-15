@@ -101,6 +101,7 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                             <th>Gerant</th>
                                             <th>Email</th>
                                             <th>Commerciaux</th>
+                                            <th>Statut</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
