@@ -92,87 +92,80 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
                             <h5 class="card-header">Listes des clients : </h5>
-                            <div class="offcanvas offcanvas-end" id="add-new-record">
-                                <div class="offcanvas-header border-bottom">
-                                    <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
-                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="table-responsive text-nowrap">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Societé</th>
-                                                <th>Gerant</th>
-                                                <th>Telephone</th>
-                                                <th>Vendeur</th>
-                                                <th>Fin du contrat</th>
-                                                <th>Statut</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-border-bottom-0">
-                                            <?php
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Societé</th>
+                                            <th>Gerant</th>
+                                            <th>Telephone</th>
+                                            <th>Vendeur</th>
+                                            <th>Fin du contrat</th>
+                                            <th>Statut</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                        <?php
                                            $stmt = $pdo->query('SELECT * FROM clients');
                                            while ($client = $stmt->fetch()) {
                                                include 'components/client_row.php';
                                            }
                                             ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- Modal to add new record -->
-                            <div class="offcanvas offcanvas-end" id="add-new-record">
-                                <!-- Your modal content here -->
-                            </div>
-                            <!--/ DataTable with Buttons -->
-                            <hr class="my-5" />
-                            <!-- / Content -->
-                            <div class="content-backdrop fade"></div>
                         </div>
-
-                        <!-- Content wrapper -->
+                        <!-- Modal to add new record -->
+                        <div class="offcanvas offcanvas-end" id="add-new-record">
+                            <!-- Your modal content here -->
+                        </div>
+                        <!--/ DataTable with Buttons -->
+                        <hr class="my-5" />
+                        <!-- / Content -->
+                        <div class="content-backdrop fade"></div>
                     </div>
-                    <!-- / Layout page -->
+                    <!-- Content wrapper -->
                 </div>
-                <!-- Overlay -->
-                <div class="layout-overlay layout-menu-toggle"></div>
-                <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-                <div class="drag-target"></div>
+                <!-- / Layout page -->
             </div>
-            <!-- / Layout wrapper -->
+            <!-- Overlay -->
+            <div class="layout-overlay layout-menu-toggle"></div>
+            <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+            <div class="drag-target"></div>
+        </div>
+        <!-- / Layout wrapper -->
 
-            <!-- Core JS -->
-            <!-- build:js assets/vendor/js/core.js -->
-            <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-            <script src="../../assets/vendor/libs/popper/popper.js"></script>
-            <script src="../../assets/vendor/js/bootstrap.js"></script>
-            <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../../assets/vendor/libs/popper/popper.js"></script>
+        <script src="../../assets/vendor/js/bootstrap.js"></script>
+        <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-            <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-            <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-            <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+        <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+        <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+        <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-            <script src="../../assets/vendor/js/menu.js"></script>
-            <!-- endbuild -->
+        <script src="../../assets/vendor/js/menu.js"></script>
+        <!-- endbuild -->
 
-            <!-- Vendors JS -->
-            <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
-            <!-- Flat Picker -->
-            <script src="../../assets/vendor/libs/moment/moment.js"></script>
-            <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
-            <!-- Form Validation -->
-            <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
-            <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-            <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+        <!-- Vendors JS -->
+        <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+        <!-- Flat Picker -->
+        <script src="../../assets/vendor/libs/moment/moment.js"></script>
+        <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
+        <!-- Form Validation -->
+        <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+        <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
 
-            <!-- Main JS -->
-            <script src="../../assets/js/main.js"></script>
+        <!-- Main JS -->
+        <script src="../../assets/js/main.js"></script>
 
-            <!-- Page JS -->
-            <script src="../../assets/js/tables-datatables-basic.js"></script>
+        <!-- Page JS -->
+        <script src="../../assets/js/tables-datatables-basic.js"></script>
 </body>
 
 </html>
