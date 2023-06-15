@@ -21,7 +21,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Outils</span>
+            <span class="menu-header-text">Profil</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -65,12 +65,18 @@
             </ul>
         </li>
         <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Outils</span></li>
         <!-- Cards -->
         <li class="menu-item">
             <a href="../php/Listing_clients.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Clients</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="../php/auth-register-basic.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Ajout d'un utilisateur</div>
             </a>
         </li>
         <!-- User interface -->
