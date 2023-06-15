@@ -16,7 +16,7 @@
         <li class="menu-item active">
             <a href="../php/dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
         <li class="menu-item">
@@ -58,9 +58,6 @@
                 </li>
             </ul>
         </li>
-        <!-- Séparateur -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Production</span></li>
-        <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
@@ -101,11 +98,11 @@
             </ul>
         </li>
         <!-- Séparateur -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Maintenance</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Outils</span></li>
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <i class="menu-icon tf-icons fa-solid fa-users"></i>
                 <div data-i18n="Maitenance">Maitenance</div>
             </a>
             <ul class="menu-sub">
@@ -116,9 +113,6 @@
                 </li>
             </ul>
         </li>
-        <!-- Séparateur -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Paramètres</span></li>
-        <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
