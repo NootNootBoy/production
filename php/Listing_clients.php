@@ -12,6 +12,15 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
+
+$stmt = $pdo->prepare('SELECT * FROM options');
+$stmt->execute();
+$options = $stmt->fetchAll();
+
+$stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial"');
+$stmt->execute();
+$commerciaux = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -91,11 +100,15 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
-                            <h5 class="card-header">Listes des clients : </h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#editUser">
-                                Show
-                            </button>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-header">Listes des clients :</h5>
+                                <div style="max-width: 150px;">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editUser">
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">
                                     <thead>
@@ -134,8 +147,8 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
-                                            <h3>Edit User Information</h3>
-                                            <p>Updating user details will receive a privacy audit.</p>
+                                            <h3>Ajouter un client</h3>
+                                            <p>Toutes les informations sont obligatoires</p>
                                         </div>
                                         <form action="add_client.php" method="post" class="card-body">
                                             <h6>1. Informations Générales</h6>
@@ -233,7 +246,10 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
                                                     Client</button>
-                                                <button type="reset" class="btn btn-label-secondary">Annuler</button>
+                                                <button type="reset" class="btn btn-label-secondary"
+                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    Cancel
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
