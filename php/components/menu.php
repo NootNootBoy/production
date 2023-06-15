@@ -80,7 +80,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="../php/auth-register-basic.php" class="menu-link">
+            <a href="../php/clients.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Ajout d'un client">Ajout d'un client</div>
             </a>

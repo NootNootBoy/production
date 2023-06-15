@@ -100,7 +100,7 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                             <th>Societé</th>
                                             <th>Gerant</th>
                                             <th>Telephone</th>
-                                            <th>Commerciaux</th>
+                                            <th>Vendeur</th>
                                             <th>Fin du contrat</th>
                                             <th>Statut</th>
                                             <th>Actions</th>
