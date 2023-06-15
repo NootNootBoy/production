@@ -122,6 +122,11 @@ $commerciaux = $stmt->fetchAll();
                                         <input type="number" id="temps_engagement" name="temps_engagement"
                                             class="form-control" required>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="date_signature">Date de signature</label>
+                                        <input type="date" id="date_signature" name="date_signature"
+                                            class="form-control" required>
+                                    </div>
                                 </div>
 
                                 <hr class="my-4 mx-n4" />
