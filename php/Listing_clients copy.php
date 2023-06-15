@@ -17,7 +17,7 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
+    data-assets-path="../../assets/">
 
 <head>
     <meta charset="utf-8" />
