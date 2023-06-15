@@ -96,11 +96,12 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Client</th>
+                                            <th>ID</th>
                                             <th>Societé</th>
                                             <th>Gerant</th>
-                                            <th>Email</th>
+                                            <th>Telephone</th>
                                             <th>Commerciaux</th>
+                                            <th></th>
                                             <th>Statut</th>
                                             <th>Actions</th>
                                         </tr>

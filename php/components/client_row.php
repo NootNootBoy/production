@@ -1,7 +1,7 @@
 <tr>
     <td><?php echo htmlspecialchars($client['id']) ?></td>
-    <td><?php echo htmlspecialchars($client['nom']) ?></td>
     <td><?php echo htmlspecialchars($client['societe']) ?></td>
+    <td><?php echo htmlspecialchars($client['nom']) ?></td>
     <td><?php echo htmlspecialchars($client['email']) ?></td>
     <td>
         <?php
@@ -22,6 +22,16 @@
         }
         ?>
     </td>
+    <?php 
+            $dateFinEngagement = new DateTime($client['date_fin']);
+
+            // Calculer le temps restant en mois
+            $dateActuelle = new DateTime();
+            $interval = $dateActuelle->diff($dateFinEngagement);
+            $moisRestants = ($interval->format('%y') * 12) + $interval->format('%m');
+            echo "<td>" . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>"; // date de fin d'engagement
+        ?>
+
     <td>
         <span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($client['statut']) ?></span>
     </td>
