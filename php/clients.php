@@ -72,51 +72,91 @@ $commerciaux = $stmt->fetchAll();
 
 <body>
 
-    <div class="card">
-        <h5 class="card-header">Ajouter un client : </h5>
-        <form action="add_client.php" method="post">
-            <label for="nom">Nom:</label><br>
-            <input type="text" id="nom" name="nom"><br>
-            <label for="prenom">Prénom:</label><br>
-            <input type="text" id="prenom" name="prenom"><br>
-            <label for="societe">Société:</label><br>
-            <input type="text" id="societe" name="societe"><br>
-            <label for="siret">SIRET:</label><br>
-            <input type="text" id="siret" name="siret"><br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <label for="temps_engagement">Temps d'engagement:</label><br>
-            <input type="number" id="temps_engagement" name="temps_engagement"><br>
-            <label for="date_signature">Date de signature:</label><br>
-            <input type="date" id="date_signature" name="date_signature"><br>
-            <label for="adresse">Adresse:</label><br>
-            <input type="text" id="adresse" name="adresse"><br>
-            <label for="ville">Ville:</label><br>
-            <input type="text" id="ville" name="ville"><br>
-            <label for="code_postal">Code Postal:</label><br>
-            <input type="text" id="code_postal" name="code_postal"><br>
-            <label for="pays">Pays:</label><br>
-            <input type="text" id="pays" name="pays"><br>
-
-            <?php foreach ($options as $option): ?>
-            <div>
-                <input type="checkbox" id="option<?php echo $option['id']; ?>" name="options[]"
-                    value="<?php echo $option['id']; ?>">
-                <label for="option<?php echo $option['id']; ?>"><?php echo $option['nom']; ?></label>
+    <div class="card mb-4">
+        <h5 class="card-header">Ajouter un Client</h5>
+        <form action="add_client.php" method="post" class="card-body">
+            <h6>1. Informations Générales</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label" for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" class="form-control" placeholder="Dupont" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Jean" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="societe">Société</label>
+                    <input type="text" id="societe" name="societe" class="form-control" placeholder="Dupont SA"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="siret">SIRET</label>
+                    <input type="text" id="siret" name="siret" class="form-control" placeholder="123 456 789 00012"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control"
+                        placeholder="jean.dupont@example.com" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="temps_engagement">Temps d'engagement (mois)</label>
+                    <input type="number" id="temps_engagement" name="temps_engagement" class="form-control" required>
+                </div>
             </div>
-            <?php endforeach; ?>
 
-            <label for="commercial_id">Commercial:</label><br>
-            <select id="commercial_id" name="commercial_id">
-                <?php foreach ($commerciaux as $commercial): ?>
-                <option value="<?php echo $commercial['id']; ?>">
-                    <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
-                </option>
+            <hr class="my-4 mx-n4" />
+            <h6>2. Adresse</h6>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label" for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" class="form-control" placeholder="123 rue du Pont"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" class="form-control" placeholder="Paris" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="code_postal">Code Postal</label>
+                    <input type="text" id="code_postal" name="code_postal" class="form-control" placeholder="75001"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="pays">Pays</label>
+                    <input type="text" id="pays" name="pays" class="form-control" placeholder="France" required>
+                </div>
+            </div>
+
+            <hr class="my-4 mx-n4" />
+            <h6>3. Options et Commercial</h6>
+            <div class="row g-3">
+                <?php foreach ($options as $option): ?>
+                <div class="col-md-4">
+                    <input type="checkbox" id="option<?php echo $option['id']; ?>" name="options[]"
+                        class="form-check-input" value="<?php echo $option['id']; ?>">
+                    <label class="form-check-label"
+                        for="option<?php echo $option['id']; ?>"><?php echo $option['nom']; ?></label>
+                </div>
                 <?php endforeach; ?>
-            </select><br>
-            <!-- Votre code pour les options et le commercial va ici -->
 
-            <input type="submit" value="Ajouter le Client">
+                <div class="col-md-6">
+                    <label class="form-label" for="commercial_id">Commercial</label>
+                    <select id="commercial_id" name="commercial_id" class="select2 form-select">
+                        <?php foreach ($commerciaux as $commercial): ?>
+                        <option value="<?php echo $commercial['id']; ?>">
+                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <hr class="my-4 mx-n4" />
+            <div class="pt-4">
+                <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le Client</button>
+                <button type="reset" class="btn btn-label-secondary">Annuler</button>
+            </div>
         </form>
     </div>
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
