@@ -23,7 +23,7 @@
         ?>
     </td>
     <?php 
-            $dateFinEngagement = new DateTime($client['date_fin']);
+            $dateFinEngagement = new DateTime($client['date_signature']);
 
             // Calculer le temps restant en mois
             $dateActuelle = new DateTime();
