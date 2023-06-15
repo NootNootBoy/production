@@ -70,19 +70,19 @@
         <li class="menu-item">
             <a href="../php/Listing_clients.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Clients</div>
+                <div data-i18n="Clients">Clients</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="../php/auth-register-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Ajout d'un utilisateur</div>
+                <div data-i18n="Ajout d'un utilisateur">Ajout d'un utilisateur</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="../php/auth-register-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Ajout d'un client</div>
+                <div data-i18n="Ajout d'un client">Ajout d'un client</div>
             </a>
         </li>
         <!-- User interface -->
