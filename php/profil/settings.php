@@ -132,6 +132,7 @@ $agences = explode("','", $matches[1]);
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body">
+                                        <?php echo $user['username']; ?>
                                         <form id="formAuthentication" class="mb-3" action="modify_profile.php"
                                             method="POST">
                                             <div class="mb-3">
