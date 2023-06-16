@@ -21,6 +21,9 @@ $stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial"');
 $stmt->execute();
 $commerciaux = $stmt->fetchAll();
 
+$clientCount = 0;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +104,7 @@ $commerciaux = $stmt->fetchAll();
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des clients :</h5>
+                                <h5 class="card-header">Listes des clients (<?php echo $clientCount; ?>) :</h5>
                                 <div style="max-width: 190px;" class="me-3">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#editUser">
@@ -127,6 +130,7 @@ $commerciaux = $stmt->fetchAll();
                                            $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                            while ($client = $stmt->fetch()) {
                                                include 'components/client_row.php';
+                                               $clientCount++;
                                            }
                                             ?>
                                     </tbody>
