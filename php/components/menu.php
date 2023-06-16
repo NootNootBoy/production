@@ -128,7 +128,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../php/dashboard.php" class="menu-link">
+                    <a href="../php/Listing_users.php" class="menu-link">
                         <div data-i18n="Liste utilisateurs">Liste utilisateurs</div>
                     </a>
                 </li>
