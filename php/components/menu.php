@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="../../php/dashboard.php" class="app-brand-link">
+        <a href="../php/dashboard.php" class="app-brand-link">
             <span class="app-brand-text demo menu-text fw-bolder ">Mindset</span>
         </a>
 
@@ -14,7 +14,7 @@
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item active">
-            <a href="../../php/php/dashboard.php" class="menu-link">
+            <a href="../php/dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
@@ -29,17 +29,17 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Defaillance site client">Defaillance site client</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Avancement des projets">Avancement des projets</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Notifications">Notifications</div>
                     </a>
                 </li>
@@ -55,12 +55,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/php/Listing_clients.php" class="menu-link">
+                    <a href="../php/Listing_clients.php" class="menu-link">
                         <div data-i18n="Listes clients">Liste des clients</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/php/clients.php" class="menu-link">
+                    <a href="../php/clients.php" class="menu-link">
                         <div data-i18n="Ajout d'un client">Ajout d'un client</div>
                     </a>
                 </li>
@@ -73,12 +73,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Créer un projet">Créer un projet</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Listes des projets">Liste des projets</div>
                     </a>
                 </li>
@@ -94,12 +94,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Listes de mes projets">Consulter mes projets</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Ajout d'un client">Mes tâches</div>
                     </a>
                 </li>
@@ -115,7 +115,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Etat des sites">État des sites</div>
                     </a>
                 </li>
@@ -128,17 +128,17 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../../php/Listing_users.php" class="menu-link">
+                    <a href="../php/Listing_users.php" class="menu-link">
                         <div data-i18n="Liste utilisateurs">Liste utilisateurs</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/auth-register-basic.php" class="menu-link">
+                    <a href="../php/auth-register-basic.php" class="menu-link">
                         <div data-i18n="Ajout d'un utilisateur">Ajout d'un utilisateur</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../../php/dashboard.php" class="menu-link">
+                    <a href="../php/dashboard.php" class="menu-link">
                         <div data-i18n="Transférer les clients">Transférer les clients</div>
                     </a>
                 </li>
