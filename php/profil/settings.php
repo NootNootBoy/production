@@ -162,6 +162,7 @@ $agences = explode("','", $matches[1]);
                                                     placeholder="Entrer votre email"
                                                     value="<?php echo $user['email']; ?>" />
                                             </div>
+                                            <?php if ($_SESSION['rang'] == 'administrateur'): ?>
                                             <div class="form-group">
                                                 <label for="rang">Rang:</label>
                                                 <select name="rang" id="rang" class="form-control" required>
@@ -173,6 +174,13 @@ $agences = explode("','", $matches[1]);
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
+                                            <?php elseif ($_SESSION['rang'] !== 'administrateur'): ?>
+                                            <div class="form-group">
+                                                <label for="rang">Rang:</label>
+                                                <input type="text" id="rang" name="rang" class="form-control"
+                                                    value="<?php echo ucfirst($user['rang']); ?>" readonly>
+                                            </div>
+                                            <?php endif; ?>
 
                                             <div class="form-group">
                                                 <label for="agence">Agence:</label>
