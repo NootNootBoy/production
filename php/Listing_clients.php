@@ -103,7 +103,7 @@ $commerciaux = $stmt->fetchAll();
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des clients (<?php echo $clientCount; ?>) :</h5>
+                                <h5 class="card-header">Listes des clients :</h5>
                                 <div style="max-width: 190px;" class="me-3">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#editUser">
@@ -137,7 +137,7 @@ $commerciaux = $stmt->fetchAll();
                                 </table>
                             </div>
                         </div>
-
+                        <?php echo $clientCount; ?>
 
                         <!--/ DataTable with Buttons -->
                         <hr class="my-5" />
