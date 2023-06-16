@@ -30,6 +30,7 @@ if ($user && password_verify($password, $user['password'])) {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['rang'] = $user['rang']; // Stockez le rang dans la session
+    $_SESSION['avatar'] = $user['avatar']; // Stockez le rang dans la session
     header('Location: dashboard.php');
 } else {
     // Échec de la connexion
