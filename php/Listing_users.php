@@ -114,6 +114,7 @@ $agences = explode("','", $matches[1]);
                                         data-bs-target="#editUser">
                                         Ajouter un utilisateur
                                     </button>
+                                    <button type="button" class="btn btn-success" id="type-success">Success</button>
                                 </div>
                             </div>
                             <div class="table-responsive text-nowrap">
