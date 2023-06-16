@@ -4,8 +4,8 @@
     <td><?php echo htmlspecialchars($user['prenom']) ?></td>
     <td><?php echo htmlspecialchars($user['email']) ?></td>
     <td><?php echo htmlspecialchars($user['rang']) ?></td>
-    <td><?php echo htmlspecialchars($user['Agence']) ?></td>
-    <td><span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($user['Statut']) ?></span></td>
+    <td><?php echo htmlspecialchars($user['agence']) ?></td>
+    <td><span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($user['statut']) ?></span></td>
     <td>
         <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
