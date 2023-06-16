@@ -65,8 +65,9 @@ if ($uploadOk == 0) {
     $avatar_path = $target_file;
     $stmt = $pdo->prepare("UPDATE users SET avatar = :avatar WHERE id = :id");
     $stmt->execute(['avatar' => $avatar_path, 'id' => $user_id]);
+    header('Location: settings.php?upload=success'); // Redirigez vers settings.php avec le paramètre 'upload=success'
   } else {
-    echo "Sorry, there was an error uploading your file.";
+    header('Location: settings.php?upload=failure'); // Redirigez vers settings.php avec le paramètre 'upload=failure'
   }
 }
 ?>

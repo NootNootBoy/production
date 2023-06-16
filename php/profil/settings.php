@@ -262,6 +262,47 @@ $agences = explode("','", $matches[1]);
                             </div>
                         </div>
                     </div>
+                    <!-- Modal pour le succès du téléchargement -->
+                    <div class="modal fade" id="uploadSuccessModal" tabindex="-1" role="dialog"
+                        aria-labelledby="uploadSuccessModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="uploadSuccessModalLabel">Succès du téléchargement</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Votre image a été téléchargée avec succès.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal pour l'échec du téléchargement -->
+                    <div class="modal fade" id="uploadFailureModal" tabindex="-1" role="dialog"
+                        aria-labelledby="uploadFailureModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="uploadFailureModalLabel">Échec du téléchargement</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Une erreur s'est produite lors du téléchargement de votre image.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- / Content -->
 
                     <div class="content-backdrop fade"></div>
@@ -307,6 +348,19 @@ $agences = explode("','", $matches[1]);
 
     <!-- Page JS -->
     <script src="../../assets/js/pages-account-settings-account.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Obtenez le paramètre 'upload' de l'URL
+        var upload = new URLSearchParams(window.location.search).get('upload');
+
+        // Ouvrez le modal approprié en fonction de la valeur du paramètre
+        if (upload === 'success') {
+            $('#uploadSuccessModal').modal('show');
+        } else if (upload === 'failure') {
+            $('#uploadFailureModal').modal('show');
+        }
+    });
+    </script>
 </body>
 
 </html>
