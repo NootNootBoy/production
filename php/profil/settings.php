@@ -6,13 +6,6 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (isset($_SESSION['username'])) {
-    echo $_SESSION['username'];
-} else {
-    echo 'Non connecté';
-}
-
-
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
@@ -143,7 +136,6 @@ $agences = explode("','", $matches[1]);
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body">
-                                        <?php echo $user['username']; ?>
                                         <form id="formAuthentication" class="mb-3" action="modify_profile.php"
                                             method="POST">
                                             <div class="mb-3">
