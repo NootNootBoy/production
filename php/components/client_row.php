@@ -23,12 +23,12 @@
         ?>
     </td>
     <?php 
-            $dateFinEngagement = new DateTime($client['date_signature']);
-            // Calculer le temps restant en mois
-            $dateActuelle = new DateTime();
-            $interval = $dateActuelle->diff($dateFinEngagement);
-            $moisRestants = ($interval->format('%y') * 12) + $interval->format('%m');
-            echo "<td>"  . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>"; // date de fin d'engagement
+            $dateSignature = new DateTime($client['date_signature']);
+            $engagementPeriodInMonths = 12;
+            $dateFinEngagement = clone $dateSignature;
+            $dateFinEngagement->add(new DateInterval('P' . $engagementPeriodInMonths . 'M'));
+            echo "<td>"  . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>";
+
         ?>
     <td>
         <div class="dropdown">
