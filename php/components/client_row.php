@@ -38,7 +38,7 @@
             $daysRemaining = $interval->format('%d');
             
             // Display the months and days remaining
-            echo "<td>" . htmlspecialchars($monthsRemaining . " mois " . $daysRemaining . " jours restant") . "</td>";
+            echo "<td>" . htmlspecialchars($monthsRemaining . " mois " . $daysRemaining . " jours restants") . "</td>";
         ?>
     <td>
         <div class="dropdown">
