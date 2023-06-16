@@ -33,11 +33,13 @@
             // Calcul de la différence entre la date actuelle et la date de fin d'engagement
             $dateActuelle = new DateTime();
             $interval = $dateActuelle->diff($dateFinEngagement);
-            $monthsRemaining = $interval->format('%m');
+            
+            // Conversion des années restantes en mois et ajout aux mois restants
+            $totalMonthsRemaining = ($interval->format('%y') * 12) + $interval->format('%m');
             $daysRemaining = $interval->format('%d');
             
-            // Display the months and days remaining
-            echo "<td>" . htmlspecialchars($monthsRemaining . " mois " . $daysRemaining . " jours restants") . "</td>";
+            // Affichage du temps restant en mois et jours
+            echo "<td>" . htmlspecialchars($totalMonthsRemaining . " mois " . $daysRemaining . " jours restants") . "</td>";
         ?>
     <td>
         <div class="dropdown">
