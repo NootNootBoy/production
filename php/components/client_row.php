@@ -25,7 +25,7 @@
     <?php 
             $dateSignature = new DateTime($client['date_signature']);
             // Assuming the engagement period is 12 months
-            $engagementPeriodInMonths = 12;
+            $engagementPeriodInMonths = $client['temps_engagement'];
         
             // Calculate the end date of the engagement
             $dateFinEngagement = clone $dateSignature;
