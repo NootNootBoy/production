@@ -44,7 +44,7 @@ if ($stmt->rowCount() > 0) {
     $_SESSION['success_message'] = 'Le client a été ajouté avec succès.';
 } else {
     // L'insertion a échoué
-    $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'ajout du client.';
+    header('Location: Listing_clients.php?error=true');
 }
 
 // header('Location: Listing_clients.php');

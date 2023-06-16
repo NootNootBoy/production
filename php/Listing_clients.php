@@ -274,16 +274,29 @@ $commerciaux = $stmt->fetchAll();
         <!-- / Layout wrapper -->
         <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Vérifie si le paramètre 'userAdded' est présent dans l'URL
+            // Vérifie les paramètres dans l'URL
             var urlParams = new URLSearchParams(window.location.search);
             var userAdded = urlParams.get('userAdded');
+            var error = urlParams.get('error');
 
-            // Si 'userAdded' est vrai, afficher l'alerte de succès
+            // Si 'userAdded' est vrai, affiche l'alerte de succès
             if (userAdded === 'true') {
                 Swal.fire({
                     title: 'Bien joué!',
                     text: "L'utilisateur a été ajouté avec succès!",
                     icon: 'success',
+                    customClass: {
+                        confirmButton: 'btn btn-primary'
+                    },
+                    buttonsStyling: false
+                });
+            }
+            // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
+            else if (error === 'true') {
+                Swal.fire({
+                    title: 'Erreur!',
+                    text: "Une erreur s'est produite lors de l'ajout de l'utilisateur.",
+                    icon: 'error',
                     customClass: {
                         confirmButton: 'btn btn-primary'
                     },
