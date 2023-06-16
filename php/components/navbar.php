@@ -365,8 +365,7 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <span
-                                                class="fw-semibold d-block"><?php echo $username = $user['username'];?></span>
+                                            <span class="fw-semibold d-block">Username</span>
                                             <small class="text-muted">Admin</small>
                                         </div>
                                     </div>
