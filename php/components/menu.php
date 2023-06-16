@@ -133,7 +133,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../php/dashboard.php" class="menu-link">
+                    <a href="../php/auth-register-basic.php" class="menu-link">
                         <div data-i18n="Ajout d'un utilisateur">Ajout d'un utilisateur</div>
                     </a>
                 </li>
