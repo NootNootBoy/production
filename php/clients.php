@@ -129,6 +129,11 @@ $commerciaux = $stmt->fetchAll();
                                             placeholder="jean.dupont@example.com" required>
                                     </div>
                                     <div class="col-md-6">
+                                        <label class="form-label" for="phone_number">Email</label>
+                                        <input type="tel" id="phone_number" name="phone_number" class="form-control"
+                                            placeholder="065120...." required>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label class="form-label" for="temps_engagement">Temps d'engagement
                                             (mois)</label>
                                         <input type="number" id="temps_engagement" name="temps_engagement"
@@ -139,6 +144,7 @@ $commerciaux = $stmt->fetchAll();
                                         <input type="date" id="date_signature" name="date_signature"
                                             class="form-control" required>
                                     </div>
+
                                 </div>
 
                                 <hr class="my-4 mx-n4" />
