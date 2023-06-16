@@ -24,14 +24,13 @@
     </td>
     <?php 
             $dateSignature = new DateTime($client['date_signature']);
-            // Assuming the engagement period is 12 months
             $engagementPeriodInMonths = intval($client['temps_engagement']);
-        
-            // Calculate the end date of the engagement
+
+            // Calcul de la date de fin d'engagement
             $dateFinEngagement = clone $dateSignature;
             $dateFinEngagement->add(new DateInterval('P' . $engagementPeriodInMonths . 'M'));
-        
-            // Calculate the difference between the current date and the end date of engagement
+
+            // Calcul de la différence entre la date actuelle et la date de fin d'engagement
             $dateActuelle = new DateTime();
             $interval = $dateActuelle->diff($dateFinEngagement);
             $monthsRemaining = $interval->format('%m');
