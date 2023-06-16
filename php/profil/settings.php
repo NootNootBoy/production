@@ -150,9 +150,12 @@ $agences = explode("','", $matches[1]);
                                                             class="account-file-input" hidden
                                                             accept="image/png, image/jpeg" />
                                                     </label>
-                                                    <input type="submit" name="submit" class="btn btn-primary">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <span class="tf-icons bx bx-upload"></span>Upload
+                                                    </button>
+                                                    <!-- <input type="submit" name="submit" class="btn btn-primary">
                                                     <span class="tf-icons bx bx-upload">Téléverser</span>
-                                                    </input>
+                                                    </input> -->
                                                     <p class="text-muted mb-0">JPG, GIF ou PNG autorisés. Taille
                                                         maximale de 5Mo</p>
                                                 </form>
