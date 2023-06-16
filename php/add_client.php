@@ -29,7 +29,7 @@ $code_postal = $_POST['code_postal'];
 $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
 
-$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
 $stmt->execute([$nom, $prenom, $societe, $siret, $email, $phone_number, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id]);
 
 $client_id = $pdo->lastInsertId();
