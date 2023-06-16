@@ -179,7 +179,7 @@ $commerciaux = $stmt->fetchAll();
                                                         placeholder="jean.dupont@example.com" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="phone_number">Email</label>
+                                                    <label class="form-label" for="phone_number">Numéro de tel</label>
                                                     <input type="tel" id="phone_number" name="phone_number"
                                                         class="form-control" placeholder="065120...." required>
                                                 </div>
