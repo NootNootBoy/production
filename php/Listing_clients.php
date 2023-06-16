@@ -56,7 +56,7 @@ $commerciaux = $stmt->fetchAll();
     <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../assets/css/demo.css" />
-
+    <link rel="stylesheet" href="../../assets/vendor/libs/sweetalert2/sweetalert2.css" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
@@ -272,7 +272,26 @@ $commerciaux = $stmt->fetchAll();
             <div class="drag-target"></div>
         </div>
         <!-- / Layout wrapper -->
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Vérifie si le paramètre 'userAdded' est présent dans l'URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var userAdded = urlParams.get('userAdded');
 
+            // Si 'userAdded' est vrai, afficher l'alerte de succès
+            if (userAdded === 'true') {
+                Swal.fire({
+                    title: 'Bien joué!',
+                    text: "L'utilisateur a été ajouté avec succès!",
+                    icon: 'success',
+                    customClass: {
+                        confirmButton: 'btn btn-primary'
+                    },
+                    buttonsStyling: false
+                });
+            }
+        });
+        </script>
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
@@ -288,6 +307,8 @@ $commerciaux = $stmt->fetchAll();
         <!-- endbuild -->
 
         <!-- Vendors JS -->
+        <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+        <script src="../../assets/js/extended-ui-sweetalert2.js"></script>
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
         <!-- Flat Picker -->
         <script src="../../assets/vendor/libs/moment/moment.js"></script>
