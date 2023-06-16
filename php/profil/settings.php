@@ -109,7 +109,7 @@ $agences = explode("','", $matches[1]);
                                                 class="bx bx-user me-1"></i> Mes informations</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="pages-account-settings-security.html"><i
+                                        <a class="nav-link" href="/php/auth-forgot-password-basic.php"><i
                                                 class="bx bx-lock-alt me-1"></i> Changer de mot de passe</a>
                                     </li>
                                     <li class="nav-item">
