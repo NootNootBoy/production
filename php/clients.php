@@ -18,7 +18,7 @@ $stmt = $pdo->prepare('SELECT * FROM options');
 $stmt->execute();
 $options = $stmt->fetchAll();
 
-$stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "administrateur"');
+$stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial"');
 $stmt->execute();
 $commerciaux = $stmt->fetchAll();
 ?>
