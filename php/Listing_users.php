@@ -13,13 +13,13 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-$stmt = $pdo->prepare('SELECT * FROM options');
+$stmt = $pdo->prepare('SELECT DISTINCT rang FROM users');
 $stmt->execute();
-$options = $stmt->fetchAll();
+$rangs = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-$stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial"');
+$stmt = $pdo->prepare('SELECT DISTINCT agence FROM users');
 $stmt->execute();
-$commerciaux = $stmt->fetchAll();
+$agences = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 ?>
 
