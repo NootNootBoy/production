@@ -36,7 +36,8 @@ if(isset($_POST["submit"])) {
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
+  $errorMessage = urlencode("Désolé, le fichier existe déjà");
+  header('Location: settings.php?upload=failure&error=' . $errorMessage); // Redirigez vers settings.php avec le paramètre 'upload=failure' et le message d'erreur
   $uploadOk = 0;
 }
 
