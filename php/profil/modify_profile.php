@@ -26,7 +26,7 @@ session_start();
     
         // Les informations de l'utilisateur ont été mises à jour avec succès
         $_SESSION['success_message'] = 'Les informations de votre profil ont été mises à jour avec succès.';
-        header('Location: profile.php'); // Redirigez vers la page de profil
+        header('Location: settings.php'); // Redirigez vers la page de profil
         exit;
     
 ?>
