@@ -6,6 +6,9 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if (!isset($_SESSION['user_id'])) {
+    die('User ID not set in session');
+}
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");

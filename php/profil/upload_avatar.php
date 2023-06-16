@@ -52,8 +52,17 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
+  
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+
+    // Vérifiez si le répertoire existe et créez-le si nécessaire
+    if (!file_exists($target_dir)) {
+      mkdir($target_dir, 0755, true);
+    }
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
     $avatar_path = $target_file;
     $stmt = $pdo->prepare("UPDATE users SET avatar = :avatar WHERE id = :id");
     $stmt->execute(['avatar' => $avatar_path, 'id' => $user_id]);
