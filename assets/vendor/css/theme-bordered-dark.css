@@ -294,7 +294,7 @@ button.list-group-item-primary.active {
   color: #fff;
   background-color: #ff810a;
   border-color: #ff810a;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(28, 28, 29, 0.4);
 }
 .btn-primary:hover {
   color: #fff !important;
@@ -311,8 +311,8 @@ button.list-group-item-primary.active {
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .btn-primary.show.dropdown-toggle, .show > .btn-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #595cd9 !important;
-  border-color: #595cd9 !important;
+  background-color: #ff9109 !important;
+  border-color: #ff9109 !important;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .btn-primary.show.dropdown-toggle:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: none;
@@ -333,7 +333,7 @@ button.list-group-item-primary.active {
   border-color: transparent !important;
   background: #ff9109 !important;
   color: #fff !important;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4) !important;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(28, 28, 29, 0.4) !important;
   transform: translateY(-1px) !important;
 }
 .btn-label-primary:focus, .btn-label-primary.focus {
@@ -344,7 +344,7 @@ button.list-group-item-primary.active {
 }
 .btn-label-primary:active, .btn-label-primary.active, .btn-label-primary.show.dropdown-toggle, .show > .btn-label-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #595cd9 !important;
+  background-color: #111111 !important;
   border-color: transparent !important;
 }
 .btn-label-primary:active:focus, .btn-label-primary.active:focus, .btn-label-primary.show.dropdown-toggle:focus, .show > .btn-label-primary.dropdown-toggle:focus {
@@ -365,7 +365,7 @@ button.list-group-item-primary.active {
   color: #fff !important;
   background-color: #ff9109 !important;
   border-color: #ff9109 !important;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4) !important;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(28, 28, 29, 0.4) !important;
   transform: translateY(-1px) !important;
 }
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
@@ -377,8 +377,8 @@ button.list-group-item-primary.active {
 }
 .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #fff !important;
-  background-color: #595cd9 !important;
-  border-color: #595cd9 !important;
+  background-color: #111 !important;
+  border-color: #111 !important;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
   box-shadow: none;
@@ -407,13 +407,13 @@ button.list-group-item-primary.active {
 
 .dropdown-item:not(.disabled).active,
 .dropdown-item:not(.disabled):active {
-  background-color: rgba(105, 108, 255, 0.08);
+  background-color: rgba(28, 28, 29, 0.4);
   color: #ff810a !important;
 }
 
 .dropdown-menu > li:not(.disabled) > a:not(.dropdown-item):active,
 .dropdown-menu > li.active:not(.disabled) > a:not(.dropdown-item) {
-  background-color: rgba(105, 108, 255, 0.08);
+  background-color: rgba(28, 28, 29, 0.4);
   color: #ff810a !important;
 }
 
@@ -424,7 +424,7 @@ button.list-group-item-primary.active {
 .nav-pills .nav-link.active, .nav-pills .nav-link.active:hover, .nav-pills .nav-link.active:focus {
   background-color: #ff810a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  box-shadow: 0 2px 4px 0 rgba(28, 28, 29, 0.4);
 }
 
 .form-control:focus,
@@ -439,7 +439,7 @@ button.list-group-item-primary.active {
 
 .form-check-input:focus {
   border-color: #ff810a;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  box-shadow: 0 2px 4px 0 rgba(28, 28, 29, 0.4);
 }
 .form-check-input:disabled {
   background-color: #444564;
@@ -447,7 +447,7 @@ button.list-group-item-primary.active {
 .form-check-input:checked, .form-check-input[type=checkbox]:indeterminate {
   background-color: #ff810a;
   border-color: #ff810a;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  box-shadow: 0 2px 4px 0 rgba(28, 28, 29, 0.4);
 }
 
 .custom-option.checked {

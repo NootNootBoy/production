@@ -283,7 +283,7 @@ $commerciaux = $stmt->fetchAll();
             if (userAdded === 'true') {
                 Swal.fire({
                     title: 'Bien joué!',
-                    text: "L'utilisateur a été ajouté avec succès!",
+                    text: "Le client a été ajouté avec succès!",
                     icon: 'success',
                     customClass: {
                         confirmButton: 'btn btn-primary'
@@ -295,7 +295,7 @@ $commerciaux = $stmt->fetchAll();
             else if (error === 'true') {
                 Swal.fire({
                     title: 'Erreur!',
-                    text: "Une erreur s'est produite lors de l'ajout de l'utilisateur.",
+                    text: "Une erreur s'est produite lors de l'ajout du client.",
                     icon: 'error',
                     customClass: {
                         confirmButton: 'btn btn-primary'
