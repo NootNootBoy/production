@@ -13,13 +13,19 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-$stmt = $pdo->prepare('SELECT DISTINCT rang FROM users');
-$stmt->execute();
-$rangs = $stmt->fetchAll(PDO::FETCH_COLUMN);
+// Récupération des rangs
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$rangs = explode("','", $matches[1]);
 
-$stmt = $pdo->prepare('SELECT DISTINCT agence FROM users');
-$stmt->execute();
-$agences = $stmt->fetchAll(PDO::FETCH_COLUMN);
+// Récupération des agences
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$agences = explode("','", $matches[1]);
 
 ?>
 
