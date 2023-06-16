@@ -24,11 +24,21 @@
     </td>
     <?php 
             $dateSignature = new DateTime($client['date_signature']);
+            // Assuming the engagement period is 12 months
             $engagementPeriodInMonths = 12;
+        
+            // Calculate the end date of the engagement
             $dateFinEngagement = clone $dateSignature;
             $dateFinEngagement->add(new DateInterval('P' . $engagementPeriodInMonths . 'M'));
-            echo "<td>"  . htmlspecialchars($dateFinEngagement->format('Y-m-d')) . "</td>";
-
+        
+            // Calculate the difference between the current date and the end date of engagement
+            $dateActuelle = new DateTime();
+            $interval = $dateActuelle->diff($dateFinEngagement);
+            $monthsRemaining = $interval->format('%m');
+            $daysRemaining = $interval->format('%d');
+            
+            // Display the months and days remaining
+            echo "<td>" . htmlspecialchars($monthsRemaining . " months " . $daysRemaining . " days remaining") . "</td>";
         ?>
     <td>
         <div class="dropdown">
