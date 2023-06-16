@@ -248,6 +248,7 @@ $agences = explode("','", $matches[1]);
         <!-- endbuild -->
 
         <!-- Vendors JS -->
+        <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
         <!-- Flat Picker -->
         <script src="../../assets/vendor/libs/moment/moment.js"></script>
