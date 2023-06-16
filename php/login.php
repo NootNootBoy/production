@@ -27,7 +27,7 @@ $user = $stmt->fetch();
 if ($user && password_verify($password, $user['password'])) {
     // L'utilisateur est connecté
     
-    $_SESSION['id'] = $user['id'];
+    $_SESSION['user_id'] = $user['id']; // Change 'id' to 'user_id'
     $_SESSION['username'] = $user['username'];
     $_SESSION['rang'] = $user['rang']; // Stockez le rang dans la session
     $_SESSION['avatar'] = $user['avatar']; // Stockez le rang dans la session
