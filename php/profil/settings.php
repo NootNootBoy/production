@@ -150,7 +150,7 @@ $agences = explode("','", $matches[1]);
                                                             class="account-file-input" hidden
                                                             accept="image/png, image/jpeg" />
                                                     </label>
-                                                    <button type="submit" class="btn btn-primary">
+                                                    <button type="submit" class="btn btn-dark">
                                                         <span class="tf-icons bx bx-upload"></span>Upload
                                                     </button>
                                                     <!-- <input type="submit" name="submit" class="btn btn-primary">
