@@ -21,7 +21,6 @@ $stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial"');
 $stmt->execute();
 $commerciaux = $stmt->fetchAll();
 
-$clientCount = 0;
 
 
 ?>
@@ -128,6 +127,7 @@ $clientCount = 0;
                                     <tbody class="table-border-bottom-0">
                                         <?php
                                            $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+                                           $clientCount = 0;
                                            while ($client = $stmt->fetch()) {
                                                include 'components/client_row.php';
                                                $clientCount++;
