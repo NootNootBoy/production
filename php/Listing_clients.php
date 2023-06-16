@@ -278,6 +278,7 @@ $commerciaux = $stmt->fetchAll();
             var urlParams = new URLSearchParams(window.location.search);
             var userAdded = urlParams.get('userAdded');
             var error = urlParams.get('error');
+            var errorMessage = urlParams.get('errorMessage');
 
             // Si 'userAdded' est vrai, affiche l'alerte de succès
             if (userAdded === 'true') {
@@ -295,7 +296,7 @@ $commerciaux = $stmt->fetchAll();
             else if (error === 'true') {
                 Swal.fire({
                     title: 'Erreur!',
-                    text: "Une erreur s'est produite lors de l'ajout du client.",
+                    text: errorMessage,
                     icon: 'error',
                     customClass: {
                         confirmButton: 'btn btn-primary'
