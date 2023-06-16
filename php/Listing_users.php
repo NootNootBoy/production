@@ -75,7 +75,7 @@ $agences = explode("','", $matches[1]);
     <link rel="stylesheet" href="../../assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
     <!-- Form Validation -->
     <link rel="stylesheet" href="../../assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
-
+    <link rel="stylesheet" href="../../assets/vendor/libs/sweetalert2/sweetalert2.css" />
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -249,6 +249,7 @@ $agences = explode("','", $matches[1]);
 
         <!-- Vendors JS -->
         <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+        <script src="../../assets/js/extended-ui-sweetalert2.js"></script>
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
         <!-- Flat Picker -->
         <script src="../../assets/vendor/libs/moment/moment.js"></script>
