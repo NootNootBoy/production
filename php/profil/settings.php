@@ -95,19 +95,19 @@ $agences = explode("','", $matches[1]);
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span>
-                            Account</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Profil /</span>
+                            Paremètres</h4>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                                     <li class="nav-item">
                                         <a class="nav-link active" href="javascript:void(0);"><i
-                                                class="bx bx-user me-1"></i> Account</a>
+                                                class="bx bx-user me-1"></i> Mes informations</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="pages-account-settings-security.html"><i
-                                                class="bx bx-lock-alt me-1"></i> Security</a>
+                                                class="bx bx-lock-alt me-1"></i> Changer de mot de passe</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="pages-account-settings-notifications.html"><i
