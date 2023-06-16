@@ -139,8 +139,8 @@ $agences = explode("','", $matches[1]);
                                             <img src="<?php echo $user['avatar']; ?>" alt="user-avatar"
                                                 class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
                                             <div class="button-wrapper">
-                                                <form action="upload_avatar.php?user_id=<?php echo $user_id; ?>"
-                                                    method="post" enctype="multipart/form-data">
+                                                <form action="upload_avatar.php" method="post"
+                                                    enctype="multipart/form-data">
                                                     <label for="fileToUpload" class="btn btn-primary me-2 mb-4"
                                                         tabindex="0">
                                                         <span class="d-none d-sm-block">Ajouter une nouvelle

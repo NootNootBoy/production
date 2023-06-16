@@ -2,7 +2,7 @@
 session_start();
 include 'db_connection.php';
 
-$user_id = $_GET['user_id']; // Récupérer l'identifiant de l'utilisateur depuis l'URL
+$user_id = $_SESSION['user_id'];
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/avatars/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
