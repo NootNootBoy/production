@@ -139,7 +139,7 @@ $agences = explode("','", $matches[1]);
                                             <img src="<?php echo $user['avatar']; ?>" alt="user-avatar"
                                                 class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
                                             <div class="button-wrapper">
-                                                <form action="profil/upload_avatar.php?user_id=<?php echo $user_id; ?>"
+                                                <form action="upload_avatar.php?user_id=<?php echo $user_id; ?>"
                                                     method="post" enctype="multipart/form-data">
                                                     <label for="fileToUpload" class="btn btn-primary me-2 mb-4"
                                                         tabindex="0">
@@ -150,7 +150,9 @@ $agences = explode("','", $matches[1]);
                                                             class="account-file-input" hidden
                                                             accept="image/png, image/jpeg" />
                                                     </label>
-                                                    <input type="submit" value="Upload Image" name="submit">
+                                                    <input type="submit" name="submit" class="btn btn-primary">
+                                                    <span class="tf-icons bx bx-upload">Téléverser</span>
+                                                    </input>
                                                     <p class="text-muted mb-0">JPG, GIF ou PNG autorisés. Taille
                                                         maximale de 5Mo</p>
                                                 </form>
