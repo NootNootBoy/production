@@ -350,13 +350,18 @@ $agences = explode("','", $matches[1]);
     <script src="../../assets/js/pages-account-settings-account.js"></script>
     <script>
     $(document).ready(function() {
-        // Obtenez le paramètre 'upload' de l'URL
-        var upload = new URLSearchParams(window.location.search).get('upload');
+        // Obtenez les paramètres 'upload' et 'error' de l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var upload = urlParams.get('upload');
+        var error = urlParams.get('error');
 
         // Ouvrez le modal approprié en fonction de la valeur du paramètre
         if (upload === 'success') {
             $('#uploadSuccessModal').modal('show');
         } else if (upload === 'failure') {
+            // Décodez le message d'erreur et affichez-le dans le modal
+            var errorMessage = decodeURIComponent(error);
+            $('#uploadFailureModal .modal-body').text(errorMessage);
             $('#uploadFailureModal').modal('show');
         }
     });

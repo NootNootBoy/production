@@ -47,9 +47,9 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 }
 
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+  $errorMessage = urlencode("Désolé, seuls les fichiers JPG, JPEG, PNG & GIF sont autorisés.");
+  header('Location: settings.php?upload=failure&error=' . $errorMessage); // Redirigez vers settings.php avec le paramètre 'upload=failure' et le message d'erreur
   $uploadOk = 0;
 }
 
