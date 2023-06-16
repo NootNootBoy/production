@@ -27,7 +27,9 @@ $user = $stmt->fetch();
 if ($user && password_verify($password, $user['password'])) {
     // L'utilisateur est connecté
     
-    $_SESSION['username'] = $username;
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    
     header('Location: dashboard.php');
 } else {
     // Échec de la connexion
