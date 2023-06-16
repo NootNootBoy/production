@@ -119,7 +119,6 @@ $commerciaux = $stmt->fetchAll();
                                             <th>Telephone</th>
                                             <th>Vendeur</th>
                                             <th>Fin du contrat</th>
-                                            <th>Statut</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
