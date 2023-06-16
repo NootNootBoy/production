@@ -150,7 +150,7 @@ $agences = explode("','", $matches[1]);
                                                             class="account-file-input" hidden
                                                             accept="image/png, image/jpeg" />
                                                     </label>
-                                                    <input type="submit" value="Upload Image" name="submit" hidden>
+                                                    <input type="submit" value="Upload Image" name="submit">
                                                     <p class="text-muted mb-0">JPG, GIF ou PNG autorisés. Taille
                                                         maximale de 5Mo</p>
                                                 </form>
