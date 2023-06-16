@@ -203,6 +203,7 @@ $agences = explode("','", $matches[1]);
                                     <!-- /Account -->
                                 </div>
                                 <div class="card">
+                                    <?php if ($_SESSION['rang'] == 'administrateur'): ?>
                                     <h5 class="card-header">Delete Account</h5>
                                     <div class="card-body">
                                         <div class="mb-3 col-12 mb-0">
@@ -224,40 +225,13 @@ $agences = explode("','", $matches[1]);
                                                 Account</button>
                                         </form>
                                     </div>
+                                    <?php elseif ($_SESSION['rang'] !== 'administrateur'): ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- / Content -->
-
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div
-                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
-                                document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="https://themeselection.com" target="_blank"
-                                    class="footer-link fw-bolder">ThemeSelection</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                    target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                    Themes</a>
-
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
-
-                                <a href="https://themeselection.com/support/" target="_blank"
-                                    class="footer-link d-none d-sm-inline-block">Support</a>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
                 </div>
