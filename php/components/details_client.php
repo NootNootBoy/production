@@ -94,13 +94,13 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include '/php/components/menu.php'; ?>
+            <?php include 'menu.php'; ?>
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <?php include '/php/components/navbar.php'; ?>
+                <?php include 'navbar.php'; ?>
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->
