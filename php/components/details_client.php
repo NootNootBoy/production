@@ -544,6 +544,9 @@
         var errorMessage = urlParams.get('errorMessage');
 
         // Si 'userAdded' est vrai, affiche l'alerte de succès
+        console.log("clientUpdate:", clientUpdate);
+        console.log("error:", error);
+        console.log("errorMessage:", errorMessage);
         if (clientUpdate === 'true') {
             Swal.fire({
                 title: 'Bien joué!',
