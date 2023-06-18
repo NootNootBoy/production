@@ -160,11 +160,23 @@ WHERE clients.id = ?";
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Date de signature:</span>
-                                                    <?php echo $client['date_signature']?>
+                                                    <?php 
+
+                                                    $dateString = $client['date_signature'];
+
+                                                        // Créer un objet DateTime à partir de la chaîne de date récupérée
+                                                        $date = new DateTime($dateString);
+
+                                                        // Créer un formateur de date avec la locale en français
+                                                        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+                                                        // Afficher la date dans le format 'd F Y' en français
+                                                        echo $formatter->format($date);
+                                                    ?>
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Adresse postal:</span>
-                                                    <?php echo $client['adresse'] . $client['ville'] . $client['code_postal']?>
+                                                    <?php echo $client['adresse'] . ' '. $client['ville'] . ' ' .  $client['code_postal']?>
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Statut:</span>

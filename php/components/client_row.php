@@ -45,7 +45,7 @@
             }
             
             // Affichage du temps restant en mois et jours avec la classe de texte appropriée
-            echo "<td style='color: #556B2F !important;' class=\"$textClass\">" . htmlspecialchars($totalMonthsRemaining . " m " . $daysRemaining . " j") . "</td>";
+            echo "<td style='color: #556B2F !important;' class=\"$textClass\">" . htmlspecialchars($totalMonthsRemaining . " mois " . $daysRemaining . " j") . "</td>";
         ?>
     <td>
         <div class="dropdown">
