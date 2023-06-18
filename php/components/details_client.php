@@ -42,11 +42,9 @@
     $stmt->execute([$client_id]);
     $client_options = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 
-    // Récupérer la liste des commerciaux
-    $stmt = $pdo->prepare('SELECT * FROM commerciaux');
+    $stmt = $pdo->prepare("SELECT id, prenom, nom FROM users WHERE rang = 'commercial'");
     $stmt->execute();
     $commerciaux = $stmt->fetchAll();
-
     ?>
 
 <!DOCTYPE html>
