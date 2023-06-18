@@ -90,7 +90,7 @@ if (isset($_SESSION['error_message'])) {
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
 </head>
-
+88
 
 <body>
     <!-- Layout wrapper -->
@@ -111,12 +111,6 @@ if (isset($_SESSION['error_message'])) {
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-                    <form action="profil/upload_avatar.php?user_id=<?php echo $user_id; ?>" method="post"
-                        enctype="multipart/form-data">
-                        Select image to upload:
-                        <input type="file" name="fileToUpload" id="fileToUpload">
-                        <input type="submit" value="Upload Image" name="submit">
-                    </form>
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
                             <div class="col-lg-8 mb-4 order-0">

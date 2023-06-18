@@ -235,25 +235,26 @@ $agences = explode("','", $matches[1]);
                                 </div>
                                 <div class="card">
                                     <?php if ($_SESSION['rang'] == 'administrateur'): ?>
-                                    <h5 class="card-header">Delete Account</h5>
+                                    <h5 class="card-header">Supprimer votre compte</h5>
                                     <div class="card-body">
                                         <div class="mb-3 col-12 mb-0">
                                             <div class="alert alert-warning">
-                                                <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete
-                                                    your account?</h6>
-                                                <p class="mb-0">Once you delete your account, there is no going back.
-                                                    Please be certain.</p>
+                                                <h6 class="alert-heading fw-bold mb-1">Êtes-vous sûr de vouloir
+                                                    supprimer votre compte ?</h6>
+                                                <p class="mb-0">Une fois que vous avez supprimé votre compte, il n'y a
+                                                    plus de retour en arrière.
+                                                    Soyez certain.</p>
                                             </div>
                                         </div>
                                         <form id="formAccountDeactivation" onsubmit="return false">
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" type="checkbox" name="accountActivation"
                                                     id="accountActivation" />
-                                                <label class="form-check-label" for="accountActivation">I confirm my
-                                                    account deactivation</label>
+                                                <label class="form-check-label" for="accountActivation">Je confirme
+                                                    cette action</label>
                                             </div>
-                                            <button type="submit" class="btn btn-danger deactivate-account">Deactivate
-                                                Account</button>
+                                            <button type="submit" class="btn btn-danger deactivate-account">Desactiver
+                                                le compte</button>
                                         </form>
                                     </div>
                                     <?php elseif ($_SESSION['rang'] !== 'administrateur'): ?>
