@@ -122,8 +122,8 @@ WHERE clients.id = ?";
                                         <div class="user-avatar-section">
                                             <div class="d-flex align-items-center flex-column">
                                                 <img class="img-fluid rounded my-4"
-                                                    src="../../assets/img/avatars/10.png" height="110" width="110"
-                                                    alt="User avatar" />
+                                                    src="../../assets/img/avatars/interface-mindset-technologie.png"
+                                                    height="110" width="110" alt="User avatar" />
                                                 <div class="user-info text-center">
                                                     <h4 class="mb-2"><?php echo $client['nom']?></h4>
                                                     <span
