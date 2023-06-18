@@ -128,16 +128,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-around flex-wrap my-4 py-3">
-                                            <div class="d-flex align-items-start mt-3 gap-3">
-                                                <span class="badge bg-label-primary p-2 rounded"><i
-                                                        class="bx bx-time"></i></span>
-                                                <div>
-                                                    <h5 class="mb-0"><?php echo $client['temps_engagement']?></h5>
-                                                    <span>Mois d'engagement</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <h5 class="pb-2 border-bottom mb-4">Details</h5>
                                         <div class="info-container">
                                             <ul class="list-unstyled">
