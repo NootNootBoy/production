@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
       deactivateButton.onclick = function () {
         if (accountActivation.checked == true) {
           Swal.fire({
-            text: 'Are you sure you would like to deactivate your account?',
+            text: 'Êtes-vous sûr de vouloir désactiver votre compte ?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Yes',
+            confirmButtonText: 'Oui',
             customClass: {
               confirmButton: 'btn btn-primary me-2',
               cancelButton: 'btn btn-label-secondary'
