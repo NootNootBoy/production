@@ -252,9 +252,10 @@ WHERE clients.id = ?";
                                                 <div class="timeline-event">
                                                     <div class="timeline-header mb-1">
                                                         <h6 class="mb-0">Rendez-vous client</h6>
+                                                        <small class="text-muted">28/04/2023</small>
                                                     </div>
-                                                    <small class="text-muted">1h ago</small>
                                                     <p class="mb-2">Remise du projet client</p>
+
                                                     <div class="d-flex flex-wrap">
                                                         <div class="avatar me-3">
                                                             <?php if (isset($client['commercial_avatar'])) {
