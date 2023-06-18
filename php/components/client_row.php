@@ -37,7 +37,7 @@
             // Conversion des années restantes en mois et ajout aux mois restants
             $totalMonthsRemaining = ($interval->format('%y') * 12) + $interval->format('%m');
             $daysRemaining = $interval->format('%d');
-            $textClass = 'text-success';
+            $textClass = 'text';
             if ($totalMonthsRemaining < 3) {
                 $textClass = 'text-danger';
             } elseif ($totalMonthsRemaining >= 3 && $totalMonthsRemaining <= 6) {
@@ -45,7 +45,7 @@
             }
             
             // Affichage du temps restant en mois et jours avec la classe de texte appropriée
-            echo "<td class=\"$textClass\">" . htmlspecialchars($totalMonthsRemaining . " mois " . $daysRemaining . " jours restants") . "</td>";
+            echo "<td style='color: #008000 !important;' class=\"$textClass\">" . htmlspecialchars($totalMonthsRemaining . " m " . $daysRemaining . " j") . "</td>";
         ?>
     <td>
         <div class="dropdown">
