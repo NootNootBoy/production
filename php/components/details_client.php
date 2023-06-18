@@ -228,12 +228,10 @@ WHERE clients.id = ?";
                                                 class="bx bx-user me-1"></i>Fiche client</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="app-user-view-billing.html"><i
-                                                class="bx bx-detail me-1"></i>Contrat</a>
+                                        <a class="nav-link" href="#"><i class="bx bx-detail me-1"></i>Contrat</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="app-user-view-notifications.html"><i
-                                                class="bx bx-bell me-1"></i>Projets</a>
+                                        <a class="nav-link" href="#"><i class="bx bx-bell me-1"></i>Projets</a>
                                     </li>
                                 </ul>
                                 <!--/ User Pills -->
@@ -248,7 +246,7 @@ WHERE clients.id = ?";
                                     <div class="card-body">
                                         <ul class="timeline">
                                             <li class="timeline-item timeline-item-transparent">
-                                                <span class="timeline-point timeline-point-warning"></span>
+                                                <span class="timeline-point timeline-point-success"></span>
                                                 <div class="timeline-event">
                                                     <div class="timeline-header mb-1">
                                                         <h6 class="mb-0">Rendez-vous client</h6>
@@ -261,6 +259,28 @@ WHERE clients.id = ?";
                                                             <?php if (isset($client['commercial_avatar'])) {
               echo "<img src=\"{$client['commercial_avatar']}\" alt=\"Avatar du commercial\" class=\"rounded-circle\">";
           }?>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0"><?php $client['commercial_nom']?></h6>
+                                                            <span class="text-muted">Commercial</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="timeline-item timeline-item-transparent">
+                                                <span class="timeline-point timeline-point-warning"></span>
+                                                <div class="timeline-event">
+                                                    <div class="timeline-header mb-1">
+                                                        <h6 class="mb-0">Cahier des charges</h6>
+                                                        <small class="text-muted">22/03/2023</small>
+                                                    </div>
+                                                    <p class="mb-2">Complétion du cahier des charges</p>
+
+                                                    <div class="d-flex flex-wrap">
+                                                        <div class="avatar me-3">
+                                                            <?php if (isset($client['commercial_avatar'])) {
+                                                                echo "<img src=\"{$client['commercial_avatar']}\" alt=\"Avatar du commercial\" class=\"rounded-circle\">";
+                                                            }?>
                                                         </div>
                                                         <div>
                                                             <h6 class="mb-0"><?php $client['commercial_nom']?></h6>
