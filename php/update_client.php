@@ -52,7 +52,7 @@ if (isset($_POST['options'])) {
 
 if ($stmt->rowCount() > 0) {
     $_SESSION['success_message'] = 'La fiche client a été modifiée avec succès.';
-    header('Location: /php/components/details_client.php?userAdded=true');
+    header('Location: /php/components/details_client.php?clienUpdate=true');
 } else {
     // La mise à jour a échoué
     $error_message = "La mise à jour a échoué.";
