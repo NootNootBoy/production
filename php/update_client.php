@@ -49,6 +49,18 @@ if (isset($_POST['options'])) {
     }
 }
 
+if (!preg_match('/^(\+33|0)[1-9](\d{2}){4}$/', $phoneNumber)) {
+    $error_message = "Numéro de téléphone invalide.";
+    header('Location: Listing_clients.php?error=true&errorMessage=' . urlencode($error_message));
+    exit();
+}
+
+// Vérification de la validité de l'adresse e-mail
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $error_message = "Adresse e-mail invalide.";
+    header('Location: Listing_clients.php?error=true&errorMessage=' . urlencode($error_message));
+    exit();
+}
 
 if ($stmt->rowCount() > 0) {
     $_SESSION['success_message'] = 'La fiche client a été modifiée avec succès.';
