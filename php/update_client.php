@@ -56,7 +56,7 @@ if ($stmt->rowCount() > 0) {
 } else {
     // La mise à jour a échoué
     $error_message = "La mise à jour a échoué.";
-    header('Location:  /php/components/details_client.php?id=' . $client_id . '&error=true&errorMessage=' . urlencode($error_message));
+    header('Location: /php/components/details_client.php?id=' . $client_id . '&error=true&errorMessage=' . urlencode($error_message));
 }
 
 exit;
