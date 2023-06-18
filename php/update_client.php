@@ -37,6 +37,19 @@ $stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_en
 
 // Mettre à jour les options ici si nécessaire...
 
+if (isset($_POST['options'])) {
+    // Supprimer les associations existantes
+    $stmt = $pdo->prepare('DELETE FROM client_options WHERE client_id = ?');
+    $stmt->execute([$client_id]);
+
+    // Ajouter les nouvelles associations
+    $stmt = $pdo->prepare('INSERT INTO client_options (client_id, option_id) VALUES (?, ?)');
+    foreach ($_POST['options'] as $option_id) {
+        $stmt->execute([$client_id, $option_id]);
+    }
+}
+
+
 if ($stmt->rowCount() > 0) {
     $_SESSION['success_message'] = 'La fiche client a été modifiée avec succès.';
     header('Location: details_client.php?id=' . $client_id . '&updateSuccess=true');
