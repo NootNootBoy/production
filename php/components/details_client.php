@@ -22,16 +22,31 @@
       $query = "SELECT clients.*, 
       offres.nom AS offre_nom, offres.prix_mensuel, offres.nombre_villes, offres.nombre_longues_traines,
       users.nom AS commercial_nom, users.avatar AS commercial_avatar
-FROM clients
-JOIN offres ON clients.offre_id = offres.id
-JOIN users ON clients.commercial_id = users.id
-WHERE clients.id = ?";
+        FROM clients
+        JOIN offres ON clients.offre_id = offres.id
+        JOIN users ON clients.commercial_id = users.id
+        WHERE clients.id = ?";
       $stmt = $pdo->prepare($query);
       $stmt->execute([$client_id]);
       $client = $stmt->fetch();
     }else {
       echo "<p>ID de client invalide.</p>";
   }
+
+    $stmt = $pdo->prepare('SELECT * FROM options');
+    $stmt->execute();
+    $options = $stmt->fetchAll();
+
+    // Récupérer les options associées au client
+    $stmt = $pdo->prepare('SELECT option_id FROM client_options WHERE client_id = ?');
+    $stmt->execute([$client_id]);
+    $client_options = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
+    // Récupérer la liste des commerciaux
+    $stmt = $pdo->prepare('SELECT * FROM commerciaux');
+    $stmt->execute();
+    $commerciaux = $stmt->fetchAll();
+
     ?>
 
 <!DOCTYPE html>
