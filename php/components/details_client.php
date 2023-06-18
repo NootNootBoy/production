@@ -122,23 +122,16 @@
                                                     src="../../assets/img/avatars/10.png" height="110" width="110"
                                                     alt="User avatar" />
                                                 <div class="user-info text-center">
-                                                    <h4 class="mb-2">Violet Mendoza</h4>
-                                                    <span class="badge bg-label-secondary">Author</span>
+                                                    <h4 class="mb-2"><?php echo $client['nom']?></h4>
+                                                    <span
+                                                        class="badge bg-label-secondary"><?php echo $client['offre_nom']?></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-around flex-wrap my-4 py-3">
-                                            <div class="d-flex align-items-start me-4 mt-3 gap-3">
-                                                <span class="badge bg-label-primary p-2 rounded"><i
-                                                        class="bx bx-check bx-sm"></i></span>
-                                                <div>
-                                                    <h5 class="mb-0">0</h5>
-                                                    <span>Projet(s) attitré(s)</span>
-                                                </div>
-                                            </div>
                                             <div class="d-flex align-items-start mt-3 gap-3">
                                                 <span class="badge bg-label-primary p-2 rounded"><i
-                                                        class="bx bx-customize bx-sm"></i></span>
+                                                        class="bx bx-time"></i></span>
                                                 <div>
                                                     <h5 class="mb-0"><?php echo $client['temps_engagement']?></h5>
                                                     <span>Mois d'engagement</span>
@@ -161,8 +154,8 @@
                                                     <?php echo $client['email']?>
                                                 </li>
                                                 <li class="mb-3">
-                                                    <span class="fw-bold me-2">Role:</span>
-                                                    <?php echo $client['rang']?>
+                                                    <span class="fw-bold me-2">Date de signature:</span>
+                                                    <?php echo $client['date_signature']?>
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Numero de téléphone:</span>
@@ -181,8 +174,9 @@
                                                     <?php echo $client['adresse'] . $client['ville'] . $client['code_postal']?>
                                                 </li>
                                                 <li class="mb-3">
-                                                    <span class="fw-bold me-2">Status:</span>
-                                                    <span class="badge bg-label-success">Active</span>
+                                                    <span class="fw-bold me-2">Statut:</span>
+                                                    <span class="badge bg-label-success">
+                                                        <?php echo $client['statut']?></span>
                                                 </li>
                                             </ul>
                                             <div class="d-flex justify-content-center pt-3">
@@ -212,12 +206,12 @@
                                             <li class="mb-2">Nombre de villes: <?php echo $client['nombre_villes']?>
                                             </li>
                                             <li class="mb-2">Nombre de Longues
-                                                Traînes:<?php echo $client['nombre_longues_traines']?></li>
+                                                Traînes: <?php echo $client['nombre_longues_traines']?></li>
                                             <li>Support Basic</li>
                                         </ul>
                                         <div class="progress mb-1" style="height: 8px">
-                                            <div class="progress-bar" role="progressbar" style="width: 65%"
-                                                aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar" role="progressbar" style="width: 100%"
+                                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
 
                                         <div class="d-grid w-100 mt-4 pt-2">
