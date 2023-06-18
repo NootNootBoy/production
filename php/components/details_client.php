@@ -5,7 +5,7 @@
     $user = 'vesqbc_producti_db';
     $pass = '7f-yp!QZWOg6_%49';
     $charset = 'utf8mb4';
-    
+
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
     $opt = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -21,11 +21,9 @@
     if ($client_id) {
         // Récupération des informations du client de la base de données.
         $query = "SELECT * FROM clients WHERE id = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $client_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $client = $result->fetch_assoc();
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$client_id]);
+        $client = $stmt->fetch();
 
         // Affichage des informations du client.
         if ($client) {
