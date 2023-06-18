@@ -448,7 +448,7 @@
                                                         <?php foreach ($commerciaux as $commercial): ?>
                                                         <option value="<?php echo $commercial['id']; ?>"
                                                             <?php if ($commercial['id'] == $client['commercial_id']) echo 'selected'; ?>>
-
+                                                            <?php echo htmlspecialchars($commercial['prenom'] . ' ' . $commercial['nom']); ?>
                                                         </option>
                                                         <?php endforeach; ?>
                                                     </select>
