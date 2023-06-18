@@ -53,9 +53,9 @@
                 <i class="bx bx-dots-vertical-rounded"></i>
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="/components/details_client.php?id=<?php echo $client['id']; ?>"><i
+                <a class="dropdown-item" href="/php/components/details_client.php?id=<?php echo $client['id']; ?>"><i
                         class="bx bx-edit-alt me-1"></i> Voir la fiche</a>
-                <a class="dropdown-item" href="/components/details_client.php?id=<?php echo $client['id']; ?>"><i
+                <a class="dropdown-item" href="/php/components/details_client.php?id=<?php echo $client['id']; ?>"><i
                         class="bx bx-trash me-1"></i> Archiver</a>
             </div>
         </div>
