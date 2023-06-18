@@ -19,10 +19,13 @@
 
     if ($client_id) {
       // Récupération des informations du client de la base de données.
-      $query = "SELECT clients.*, offres.nom AS offre_nom, offres.prix_mensuel, offres.nombre_villes, offres.nombre_longues_traines
-                FROM clients
-                JOIN offres ON clients.offre_id = offres.id
-                WHERE clients.id = ?";
+      $query = "SELECT clients.*, 
+      offres.nom AS offre_nom, offres.prix_mensuel, offres.nombre_villes, offres.nombre_longues_traines,
+      users.nom AS commercial_nom, users.avatar AS commercial_avatar
+FROM clients
+JOIN offres ON clients.offre_id = offres.id
+JOIN users ON clients.commercial_id = users.id
+WHERE clients.id = ?";
       $stmt = $pdo->prepare($query);
       $stmt->execute([$client_id]);
       $client = $stmt->fetch();
@@ -253,69 +256,18 @@
                                                     <p class="mb-2">Remise du projet client prévu : (date)</p>
                                                     <div class="d-flex flex-wrap">
                                                         <div class="avatar me-3">
-                                                            <img src="../../assets/img/avatars/3.png" alt="Avatar"
-                                                                class="rounded-circle" />
+                                                            <?php if (isset($client['commercial_avatar'])) {
+              echo "<img src=\"{$client['commercial_avatar']}\" alt=\"Avatar du commercial\" class=\"rounded-circle\">";
+          }?>
                                                         </div>
                                                         <div>
-                                                            <h6 class="mb-0">Lester McCarthy (Client)</h6>
-                                                            <span class="text-muted">CEO of ThemeSelection</span>
+                                                            <h6 class="mb-0"><?php $client['commercial_nom']?></h6>
+                                                            <span class="text-muted">Commercial</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="timeline-item timeline-item-transparent">
-                                                <span class="timeline-point timeline-point-info"></span>
-                                                <div class="timeline-event">
-                                                    <div class="timeline-header mb-1">
-                                                        <h6 class="mb-0">Create a new project for client</h6>
-                                                        <small class="text-muted">2 Day Ago</small>
-                                                    </div>
-                                                    <p class="mb-2">5 team members in a project</p>
-                                                    <div class="d-flex align-items-center avatar-group">
-                                                        <div class="avatar pull-up" data-bs-toggle="tooltip"
-                                                            data-popup="tooltip-custom" data-bs-placement="top"
-                                                            title="Vinnie Mostowy">
-                                                            <img src="../../assets/img/avatars/5.png" alt="Avatar"
-                                                                class="rounded-circle" />
-                                                        </div>
-                                                        <div class="avatar pull-up" data-bs-toggle="tooltip"
-                                                            data-popup="tooltip-custom" data-bs-placement="top"
-                                                            title="Marrie Patty">
-                                                            <img src="../../assets/img/avatars/12.png" alt="Avatar"
-                                                                class="rounded-circle" />
-                                                        </div>
-                                                        <div class="avatar pull-up" data-bs-toggle="tooltip"
-                                                            data-popup="tooltip-custom" data-bs-placement="top"
-                                                            title="Jimmy Jackson">
-                                                            <img src="../../assets/img/avatars/9.png" alt="Avatar"
-                                                                class="rounded-circle" />
-                                                        </div>
-                                                        <div class="avatar pull-up" data-bs-toggle="tooltip"
-                                                            data-popup="tooltip-custom" data-bs-placement="top"
-                                                            title="Kristine Gill">
-                                                            <img src="../../assets/img/avatars/6.png" alt="Avatar"
-                                                                class="rounded-circle" />
-                                                        </div>
-                                                        <div class="avatar pull-up" data-bs-toggle="tooltip"
-                                                            data-popup="tooltip-custom" data-bs-placement="top"
-                                                            title="Nelson Wilson">
-                                                            <img src="../../assets/img/avatars/14.png" alt="Avatar"
-                                                                class="rounded-circle" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item timeline-item-transparent">
-                                                <span class="timeline-point timeline-point-success"></span>
-                                                <div class="timeline-event">
-                                                    <div class="timeline-header mb-1">
-                                                        <h6 class="mb-0">Design Review</h6>
-                                                        <small class="text-muted">5 days Ago</small>
-                                                    </div>
-                                                    <p class="mb-0">Weekly review of freshly prepared design for our new
-                                                        app.</p>
-                                                </div>
-                                            </li>
+
                                             <li class="timeline-end-indicator">
                                                 <i class="bx bx-check-circle"></i>
                                             </li>
@@ -511,35 +463,6 @@
                         <!-- /Modal -->
                     </div>
                     <!-- / Content -->
-
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div
-                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
-                                document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="https://themeselection.com" target="_blank"
-                                    class="footer-link fw-bolder">ThemeSelection</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                    target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                    Themes</a>
-
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
-
-                                <a href="https://themeselection.com/support/" target="_blank"
-                                    class="footer-link d-none d-sm-inline-block">Support</a>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
                 </div>
