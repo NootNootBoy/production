@@ -224,7 +224,7 @@ button.list-group-item-primary.active {
 .tooltip-primary .tooltip-inner, .tooltip-primary > .tooltip .tooltip-inner, .ngb-tooltip-primary + ngb-tooltip-window .tooltip-inner {
   background: #ff810a;
   color: #fff;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(37, 37, 39, 0.4);
 }
 .tooltip-primary.bs-tooltip-auto[data-popper-placement=top] .tooltip-arrow::before, .tooltip-primary > .tooltip.bs-tooltip-auto[data-popper-placement=top] .tooltip-arrow::before, .ngb-tooltip-primary + ngb-tooltip-window.bs-tooltip-auto[data-popper-placement=top] .tooltip-arrow::before {
   border-top-color: #ff810a;
@@ -242,7 +242,7 @@ button.list-group-item-primary.active {
 .popover.popover-primary, .popover .popover-primary > .popover, .popover .ngb-popover-primary + ngb-popover-window {
   border-color: transparent;
   background: #ff810a;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  box-shadow: rgba(37, 37, 39, 0.4);
 }
 .popover.popover-primary .popover-header, .popover .popover-primary > .popover .popover-header, .popover .ngb-popover-primary + ngb-popover-window .popover-header {
   border-color: rgba(255, 255, 255, 0.2);
@@ -1042,7 +1042,7 @@ li.ui-timepicker-selected,
   color: #fff;
 }
 .fc .fc-button-primary:not(.fc-prev-button):not(.fc-next-button):hover {
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  box-shadow: rgba(37, 37, 39, 0.4);
 }
 
 .swal2-progress-steps[class] .swal2-progress-step.swal2-active-progress-step,
@@ -1087,7 +1087,7 @@ li.ui-timepicker-selected,
   color: #fff;
   background-color: #ff810a;
   border-color: #ff810a;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  box-shadow: rgba(37, 37, 39, 0.4);
 }
 .shepherd-element .shepherd-button:not(:disabled).btn-primary:hover {
   color: #fff !important;
