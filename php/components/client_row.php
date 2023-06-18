@@ -53,10 +53,10 @@
                 <i class="bx bx-dots-vertical-rounded"></i>
             </button>
             <div class="dropdown-menu">
-    <td><a href="details_client.php?id=<?php echo $client['id']; ?>">Voir la fiche client</a></td>
-    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-    </div>
-    </div>
+                <a href="details_client.php?id=<?php echo $client['id']; ?>">Voir la fiche client</a>
+                <a href="details_client.php?id=<?php echo $client['id']; ?>">Archiver</a>
+            </div>
+        </div>
     </td>
     </td>
 </tr>
