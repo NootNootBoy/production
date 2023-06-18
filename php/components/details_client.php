@@ -340,46 +340,46 @@ WHERE clients.id = ?";
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="prenom">Prénom</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="prenom" name="prenom" class="form-control"
+                                                        placeholder="jean" required
                                                         value="<?php echo htmlspecialchars($client['prenom']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="societe">Société</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="societe" name="societe" class="form-control"
+                                                        placeholder="societe" required
                                                         value="<?php echo htmlspecialchars($client['societe']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="siret">SIRET</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="siret" name="siret" class="form-control"
+                                                        placeholder="siret" required
                                                         value="<?php echo htmlspecialchars($client['siret']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="email">Email</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="email" id="email" name="email" class="form-control"
+                                                        placeholder="email" required
                                                         value="<?php echo htmlspecialchars($client['email']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="phone_number">Numéro de tel</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="tel" id="phone_number" name="phone_number"
+                                                        class="form-control" placeholder="065137" required
                                                         value="<?php echo htmlspecialchars($client['phone_number']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="temps_engagement">Temps d'engagement
                                                         (mois)</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="number" id="temps_engagement" name="temps_engagement"
+                                                        class="form-control" placeholder="temps" required
                                                         value="<?php echo htmlspecialchars($client['temps_engagement']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="date_signature">Date de
                                                         signature</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="date" id="date_signature" name="date_signature"
+                                                        class="form-control" placeholder="Dupont" required
                                                         value="<?php echo htmlspecialchars($client['date_signature']); ?>">
                                                 </div>
                                             </div>
@@ -389,26 +389,26 @@ WHERE clients.id = ?";
                                             <div class="row g-3">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="adresse">Adresse</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="adresse" name="adresse" class="form-control"
+                                                        placeholder="adresse" required
                                                         value="<?php echo htmlspecialchars($client['adresse']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="ville">Ville</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="ville" name="ville" class="form-control"
+                                                        placeholder="ville" required
                                                         value="<?php echo htmlspecialchars($client['ville']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="code_postal">Code Postal</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="number" id="code_postal" name="code_postal"
+                                                        class="form-control" placeholder="27400.." required
                                                         value="<?php echo htmlspecialchars($client['code_postal']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="pays">Pays</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required
+                                                    <input type="text" id="pays" name="pays" class="form-control"
+                                                        placeholder="pays" required
                                                         value="<?php echo htmlspecialchars($client['pays']); ?>">
                                                 </div>
                                             </div>
