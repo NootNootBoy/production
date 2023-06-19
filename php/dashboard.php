@@ -37,15 +37,13 @@ if (isset($_SESSION['error_message'])) {
 <html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
     data-assets-path="../assets/">
 
+<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+    data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Clients List</title>
-
-    <meta name="description" content="" />
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
 
