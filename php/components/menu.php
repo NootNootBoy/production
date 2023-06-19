@@ -22,7 +22,7 @@
         <!-- Séparateur -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
         <!-- Séparateur -->
-        <li class="menu-item">
+        <!-- <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-bell"></i>
                 <div data-i18n="Alertes">Alertes</div>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
         <!-- Séparateur -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Vendeur</span></li>
         <!-- Séparateur -->
