@@ -1234,7 +1234,7 @@ li.ui-timepicker-selected,
 
 .bg-navbar-theme {
   background-color: #222222 !important;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-brand,
 .bg-navbar-theme .navbar-brand a {
@@ -1247,17 +1247,17 @@ li.ui-timepicker-selected,
 }
 .bg-navbar-theme .navbar-search-wrapper .navbar-search-icon,
 .bg-navbar-theme .navbar-search-wrapper .search-input {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-navbar-theme .search-input-wrapper .search-input,
 .bg-navbar-theme .search-input-wrapper .search-toggler {
   background-color: #222222 !important;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-nav > .nav-link,
 .bg-navbar-theme .navbar-nav > .nav-item > .nav-link,
 .bg-navbar-theme .navbar-nav > .nav > .nav-item > .nav-link {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-nav > .nav-link:hover, .bg-navbar-theme .navbar-nav > .nav-link:focus,
 .bg-navbar-theme .navbar-nav > .nav-item > .nav-link:hover,
@@ -1278,14 +1278,14 @@ li.ui-timepicker-selected,
   color: #cbcbe2;
 }
 .bg-navbar-theme .navbar-toggler {
-  color: #a3a4cc;
+  color: #ffffff;
   border-color: rgba(203, 203, 226, 0.06);
 }
 .bg-navbar-theme .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3Csvg width='14px' height='11px' viewBox='0 0 14 11' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M0,0 L14,0 L14,1.75 L0,1.75 L0,0 Z M0,4.375 L14,4.375 L14,6.125 L0,6.125 L0,4.375 Z M0,8.75 L14,8.75 L14,10.5 L0,10.5 L0,8.75 Z' id='path-1'%3E%3C/path%3E%3C/defs%3E%3Cg id='💎-UI-Elements' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='12)-Navbar' transform='translate(-1174.000000, -1290.000000)'%3E%3Cg id='Group' transform='translate(1174.000000, 1288.000000)'%3E%3Cg id='Icon-Color' transform='translate(0.000000, 2.000000)'%3E%3Cuse fill='#7c7db6' xlink:href='%23path-1'%3E%3C/use%3E%3Cuse fill-opacity='0.1' fill='#7c7db6' xlink:href='%23path-1'%3E%3C/use%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .bg-navbar-theme .navbar-text {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-text a {
   color: #cbcbe2;
@@ -1321,12 +1321,12 @@ li.ui-timepicker-selected,
 
 .bg-menu-theme {
   background-color: #222222 !important;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-menu-theme .menu-link,
 .bg-menu-theme .menu-horizontal-prev,
 .bg-menu-theme .menu-horizontal-next {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-menu-theme .menu-link:hover, .bg-menu-theme .menu-link:focus,
 .bg-menu-theme .menu-horizontal-prev:hover,
@@ -1361,7 +1361,7 @@ li.ui-timepicker-selected,
 .bg-menu-theme .menu-inner > .menu-item.menu-item-closing .menu-item.open .menu-sub,
 .bg-menu-theme .menu-inner > .menu-item.menu-item-closing .menu-item.open .menu-toggle {
   background: transparent;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-menu-theme .menu-inner-shadow {
   background: linear-gradient(#222222 41%, rgba(43, 44, 64, 0.11) 95%, rgba(43, 44, 64, 0));
@@ -1440,7 +1440,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
   border: 1px solid #444564;
 }
 .bg-menu-theme .menu-sub > .menu-item > .menu-link:before {
-  background-color: #a3a4cc !important;
+  background-color: #ffffff !important;
 }
 .bg-menu-theme .menu-sub > .menu-item.active > .menu-link:not(.menu-toggle):before {
   background-color: #ff810a !important;
@@ -1478,10 +1478,10 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 
 .bg-footer-theme {
   background-color: #222222 !important;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-footer-theme .footer-link {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .bg-footer-theme .footer-link:hover, .bg-footer-theme .footer-link:focus {
   color: #cbcbe2;

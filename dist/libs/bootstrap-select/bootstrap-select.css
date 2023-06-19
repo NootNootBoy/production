@@ -554,7 +554,7 @@ html[class] .bootstrap-select.form-select {
   border: 1px solid var(--bs-border-color-translucent);
 }
 .dark-style .bootstrap-select .dropdown-menu .popover-header button {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .bootstrap-select .dropdown-menu .bs-actionsbox .actions-btn {
   background-color: rgba(133, 146, 163, 0.16);

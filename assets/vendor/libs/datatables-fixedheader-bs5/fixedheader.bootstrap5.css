@@ -33,11 +33,11 @@ table.dataTable.fixedHeader-locked {
 }
 
 .dark-style .dtfh-floatingparenthead {
-  border-bottom: 2px solid #232333;
+  border-bottom: 2px solid #111111;
 }
 .dark-style .dt-fixedheader.fixedHeader-floating.table.dataTable thead > tr > th,
 .dark-style .dt-fixedheader.fixedHeader-locked.table.dataTable thead > tr > th {
   background-color: #222222;
   border-bottom-width: 1px;
-  border-color: #232333;
+  border-color: #111111;
 }

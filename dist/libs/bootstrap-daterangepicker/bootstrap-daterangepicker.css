@@ -418,7 +418,7 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
 }
 .dark-style .daterangepicker td.week,
 .dark-style .daterangepicker th.week {
-  color: #a3a4cc;
+  color: #ffffff;
   background: #38384e;
   border-radius: 0;
 }
@@ -442,24 +442,24 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
 }
 .dark-style .daterangepicker .calendar-table .next span,
 .dark-style .daterangepicker .calendar-table .prev span {
-  border-color: #a3a4cc;
+  border-color: #ffffff;
 }
 .dark-style .daterangepicker .calendar-table .next:hover span,
 .dark-style .daterangepicker .calendar-table .prev:hover span {
-  border-color: #a3a4cc;
+  border-color: #ffffff;
 }
 .dark-style .daterangepicker select {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .daterangepicker select.hourselect, .dark-style .daterangepicker select.minuteselect, .dark-style .daterangepicker select.secondselect, .dark-style .daterangepicker select.ampmselect {
   background: #444564;
   border: 1px solid transparent;
   border-radius: 0.25rem;
   font-size: 0.75rem;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .daterangepicker select.monthselect option, .dark-style .daterangepicker select.yearselect option {
-  color: #a3a4cc;
+  color: #ffffff;
   background: #222222;
 }
 .dark-style .daterangepicker select.monthselect option:disabled, .dark-style .daterangepicker select.yearselect option:disabled {

@@ -81,7 +81,7 @@ $color-scheme: 'dark' !default; // (C)
 // * Body
 // *******************************************************************************
 
-$body-bg: #232333 !default;
+$body-bg: #111111 !default;
 $rgba-to-hex-bg: $base !default; // (C)
 $body-color: rgba-to-hex($gray-400, $rgba-to-hex-bg) !default;
 $rgba-to-hex-bg-inverted: rgb(160, 149, 149) !default; // (C)

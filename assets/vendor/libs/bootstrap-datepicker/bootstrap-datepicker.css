@@ -261,8 +261,8 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
   background-color: #444564;
 }
 .dark-style th.prev::after, .dark-style th.next::after {
-  color: #a3a4cc;
-  border-color: #a3a4cc;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 .dark-style .datepicker.datepicker-inline table {
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
@@ -274,7 +274,7 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
   color: #ffb108;
 }
 .dark-style .datepicker table tr td {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .datepicker table tr td.old, .dark-style .datepicker table tr td.old:hover, .dark-style .datepicker table tr td.old:focus, .dark-style .datepicker table tr td.disabled {
   color: #ffb108;
@@ -284,7 +284,7 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
 }
 .dark-style .datepicker table tr td.day:hover, .dark-style .datepicker table tr td.focused {
   background: rgba(124, 125, 182, 0.1);
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .datepicker table tr td span {
   border-radius: 0.375rem;

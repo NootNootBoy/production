@@ -69,10 +69,10 @@
 }
 
 .dark-style .tagify__dropdown.users-list .tagify__dropdown__item__avatar-wrap {
-  background: #232333;
+  background: #111111;
 }
 .dark-style .tagify__tag .tagify__tag__avatar-wrap {
-  background: #232333;
+  background: #111111;
 }
 .dark-style .tagify__dropdown.users-list .addAll {
   border-bottom: 1px solid #444564;
@@ -101,7 +101,7 @@
 
 .dark-style .tags-inline .tagify__dropdown__item {
   border: 1px solid #444564;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 
 :root {
@@ -713,13 +713,13 @@
   box-shadow: 0 0 0 1.1em rgba(124, 125, 182, 0.08) inset;
 }
 .dark-style .tagify__tag > div .tagify__tag-text {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .tagify__tag:hover:not([readonly]) div::before, .dark-style .tagify__tag:focus div::before {
   box-shadow: 0 0 0 1.1em rgba(124, 125, 182, 0.16) inset;
 }
 .dark-style .tagify__tag__removeBtn {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .tagify:hover:not([readonly]) {
   border-color: #444564;
@@ -743,7 +743,7 @@
 }
 .dark-style .tagify__dropdown__item--active {
   background: rgba(124, 125, 182, 0.1) !important;
-  color: #a3a4cc;
+  color: #ffffff;
 }
 
 .tagify-email-list {

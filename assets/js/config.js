@@ -37,8 +37,8 @@ let config = {
   },
   colors_dark: {
     cardColor: '#222222',
-    bodyBg: '#232333',
-    bodyColor: '#a3a4cc',
+    bodyBg: '#111111',
+    bodyColor: '#ffffff',
     headingColor: '#cbcbe2',
     textMuted: '#ffb108',
     borderColor: '#444564'

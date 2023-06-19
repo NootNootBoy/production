@@ -63,7 +63,7 @@
 }
 
 .dark-style .twitter-typeahead .tt-menu {
-  color: #a3a4cc;
+  color: #ffffff;
   min-width: 12rem;
   padding: 0.3125rem 0;
   margin: 0.125rem 0;
@@ -75,7 +75,7 @@
 }
 .dark-style .twitter-typeahead .tt-menu .tt-suggestion {
   font-weight: 400;
-  color: #a3a4cc;
+  color: #ffffff;
   padding: 0.532rem 1.25rem;
 }
 .dark-style .twitter-typeahead .tt-menu .tt-suggestion:hover, .dark-style .twitter-typeahead .tt-menu .tt-suggestion:focus {

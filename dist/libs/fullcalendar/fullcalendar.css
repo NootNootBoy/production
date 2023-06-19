@@ -243,7 +243,7 @@
 
 .dark-style .fc .fc-toolbar .fc-prev-button .fc-icon,
 .dark-style .fc .fc-toolbar .fc-next-button .fc-icon {
-  color: #a3a4cc;
+  color: #ffffff;
 }
 .dark-style .fc .fc-toolbar .fc-sidebarToggle-button {
   color: #fff;
@@ -265,7 +265,7 @@
   color: #ff3e1d;
 }
 .dark-style .fc .fc-day-today {
-  background-color: #232333 !important;
+  background-color: #111111 !important;
 }
 .dark-style .fc .fc-day-today .fc-popover-body {
   background-color: #222222 !important;
@@ -275,7 +275,7 @@
   border-color: #444564;
 }
 .dark-style .fc .fc-popover {
-  background-color: #232333;
+  background-color: #111111;
   border: 0;
 }
 .dark-style .fc .fc-popover .fc-popover-header {
@@ -286,7 +286,7 @@
 }
 .dark-style .fc .fc-list .fc-list-table th {
   border: 0;
-  background: #232333;
+  background: #111111;
 }
 .dark-style .fc .fc-list .fc-list-table .fc-list-event {
   cursor: pointer;
@@ -298,7 +298,7 @@
   border-color: #444564;
 }
 .dark-style .fc .fc-list .fc-list-empty {
-  background-color: #232333;
+  background-color: #111111;
 }
 .dark-style .fc table,
 .dark-style .fc .fc-timegrid-axis,
