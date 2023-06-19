@@ -395,10 +395,10 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
   color: #ffffff;
 }
 .dark-style .bs-stepper .step.crossed .bs-stepper-label {
-  color: #ffb108 !important;
+  color: #ff810a !important;
 }
 .dark-style .bs-stepper .step .bs-stepper-subtitle {
-  color: #ffb108;
+  color: #ff810a;
 }
 .dark-style .bs-stepper.vertical .bs-stepper-header {
   border-bottom: none;

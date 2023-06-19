@@ -1369,10 +1369,10 @@ li.ui-timepicker-selected,
 }
 
 .bg-menu-theme .menu-header {
-  color: #ffb108;
+  color: #ff810a;
 }
 .bg-menu-theme .menu-header:before {
-  background-color: #ffb108 !important;
+  background-color: #ff810a !important;
 }
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item.open > .menu-link, .layout-menu-hover.layout-menu-collapsed .bg-menu-theme .menu-inner .menu-item.open > .menu-link,
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-link:not(.active):hover,

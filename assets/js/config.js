@@ -40,7 +40,7 @@ let config = {
     bodyBg: '#111111',
     bodyColor: '#ffffff',
     headingColor: '#ffffff',
-    textMuted: '#ffb108',
+    textMuted: '#ff810a',
     borderColor: '#333333'
   },
   enableMenuLocalStorage: true // Enable menu state with local storage support

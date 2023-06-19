@@ -562,7 +562,7 @@ html:not([dir=rtl]) .select2-container--default .select2-selection--multiple .se
   color: #cf8946;
 }
 .dark-style .select2-container--default .select2-results__group {
-  color: #ffb108;
+  color: #ff810a;
 }
 .dark-style .select2-container--default .select2-selection--single {
   height: calc(1.53em + 0.875rem + 2px);

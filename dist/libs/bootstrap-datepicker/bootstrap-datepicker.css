@@ -271,13 +271,13 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
 .dark-style .datepicker table tr th.new,
 .dark-style .datepicker table tr th.new:hover,
 .dark-style .datepicker table tr th.new:focus {
-  color: #ffb108;
+  color: #ff810a;
 }
 .dark-style .datepicker table tr td {
   color: #ffffff;
 }
 .dark-style .datepicker table tr td.old, .dark-style .datepicker table tr td.old:hover, .dark-style .datepicker table tr td.old:focus, .dark-style .datepicker table tr td.disabled {
-  color: #ffb108;
+  color: #ff810a;
 }
 .dark-style .datepicker table tr td.cw {
   background: #38384e;
@@ -293,8 +293,8 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
   background: rgba(124, 125, 182, 0.1);
 }
 .dark-style .datepicker table tr td span.disabled, .dark-style .datepicker table tr td span.disabled:hover {
-  color: #ffb108;
+  color: #ff810a;
 }
 .dark-style .datepicker table tr td span.old, .dark-style .datepicker table tr td span.new, .dark-style .datepicker table tr td span.old:hover, .dark-style .datepicker table tr td span.new:hover, .dark-style .datepicker table tr td span.old:focus, .dark-style .datepicker table tr td span.new:focus {
-  color: #ffb108;
+  color: #ff810a;
 }
