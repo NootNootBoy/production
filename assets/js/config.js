@@ -93,7 +93,7 @@ if (typeof TemplateCustomizer !== 'undefined') {
     displayCustomizer: true,
     // lang: 'fr',
     // defaultTheme: 2,
-    // defaultStyle: 'light',
+    defaultStyle: 'dark',
     // defaultTextDir: 'ltr',
     // defaultLayoutType: 'fixed',
     // defaultMenuCollapsed: true,
