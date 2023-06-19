@@ -61,7 +61,8 @@ if (isset($_SESSION['error_message'])) {
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../../assets/vendor/css/rtl/core-dark.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default-dark.css"
+        class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../assets/css/demo.css" />
 
     <!-- Vendors CSS -->
