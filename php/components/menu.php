@@ -16,12 +16,9 @@
         <li class="menu-item active">
             <a href="/php/dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Dashboard">Dashboard</div>
+                <div data-i18n="Tableau de bord">Tableau de bord</div>
             </a>
         </li>
-        <!-- Séparateur -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
-        <!-- Séparateur -->
         <!-- <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-bell"></i>
