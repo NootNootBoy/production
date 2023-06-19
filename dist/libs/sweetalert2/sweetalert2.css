@@ -1363,7 +1363,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   color: #ffffff;
 }
 .dark-style .swal2-popup .swal2-footer {
-  border-top: 1px solid #444564;
+  border-top: 1px solid #333333;
 }
 .dark-style .swal2-popup .swal2-html-container {
   color: #ffffff;
@@ -1372,7 +1372,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .dark-style .swal2-popup .swal2-file,
 .dark-style .swal2-popup .swal2-textarea {
   color: #ffffff;
-  border: 1px solid #444564 !important;
+  border: 1px solid #333333 !important;
   font-size: 1rem;
   border-radius: 0.5rem;
 }

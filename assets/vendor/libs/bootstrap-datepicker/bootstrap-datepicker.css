@@ -258,7 +258,7 @@ html:not([dir=rtl]) .datepicker table tr td.range-end:not(.range-start) {
   z-index: 1091 !important;
 }
 .dark-style th.prev, .dark-style th.next {
-  background-color: #444564;
+  background-color: #333333;
 }
 .dark-style th.prev::after, .dark-style th.next::after {
   color: #ffffff;

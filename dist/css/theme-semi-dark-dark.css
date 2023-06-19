@@ -442,7 +442,7 @@ button.list-group-item-primary.active {
   box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
 }
 .form-check-input:disabled {
-  background-color: #444564;
+  background-color: #333333;
 }
 .form-check-input:checked, .form-check-input[type=checkbox]:indeterminate {
   background-color: #ff810a;

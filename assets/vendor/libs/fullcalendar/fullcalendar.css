@@ -249,16 +249,16 @@
   color: #fff;
 }
 .dark-style .fc table.fc-scrollgrid {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc table.fc-scrollgrid .fc-col-header tbody {
   border: none;
 }
 .dark-style .fc table.fc-scrollgrid .fc-col-header .fc-col-header-cell {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc table.fc-scrollgrid td {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc .private-event .fc-event-time,
 .dark-style .fc .private-event .fc-event-title {
@@ -271,8 +271,8 @@
   background-color: #222222 !important;
 }
 .dark-style .fc .fc-divider {
-  background: #444564;
-  border-color: #444564;
+  background: #333333;
+  border-color: #333333;
 }
 .dark-style .fc .fc-popover {
   background-color: #111111;
@@ -282,7 +282,7 @@
   background-color: #6b6c9d;
 }
 .dark-style .fc .fc-list {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc .fc-list .fc-list-table th {
   border: 0;
@@ -295,7 +295,7 @@
   background-color: rgba(255, 255, 255, 0.03);
 }
 .dark-style .fc .fc-list .fc-list-table .fc-list-event td {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc .fc-list .fc-list-empty {
   background-color: #111111;
@@ -305,7 +305,7 @@
 .dark-style .fc tbody,
 .dark-style .fc thead,
 .dark-style .fc tbody td {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .fc-event-primary:not(.fc-list-event) {
   background-color: #111111 !important;

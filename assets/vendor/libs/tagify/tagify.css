@@ -75,7 +75,7 @@
   background: #111111;
 }
 .dark-style .tagify__dropdown.users-list .addAll {
-  border-bottom: 1px solid #444564;
+  border-bottom: 1px solid #333333;
 }
 
 .tags-inline .tagify__dropdown__wrapper {
@@ -100,7 +100,7 @@
 }
 
 .dark-style .tags-inline .tagify__dropdown__item {
-  border: 1px solid #444564;
+  border: 1px solid #333333;
   color: #ffffff;
 }
 
@@ -722,13 +722,13 @@
   color: #ffffff;
 }
 .dark-style .tagify:hover:not([readonly]) {
-  border-color: #444564;
+  border-color: #333333;
 }
 .dark-style .tagify__input::before {
   color: #7c7db6 !important;
 }
 .dark-style .tagify[readonly]:not(.tagify--mix) .tagify__tag > div::before {
-  background: linear-gradient(45deg, #444564 25%, transparent 25%, transparent 50%, #444564 50%, #444564 75%, transparent 75%, transparent) 0/5px 5px;
+  background: linear-gradient(45deg, #333333 25%, transparent 25%, transparent 50%, #333333 50%, #333333 75%, transparent 75%, transparent) 0/5px 5px;
   box-shadow: 0 0 0 1.1em rgba(124, 125, 182, 0.16) inset;
 }
 .dark-style .tagify__dropdown {
@@ -739,7 +739,7 @@
   border: none;
 }
 .dark-style .tagify--focus {
-  border-color: #444564 !important;
+  border-color: #333333 !important;
 }
 .dark-style .tagify__dropdown__item--active {
   background: rgba(124, 125, 182, 0.1) !important;
@@ -799,5 +799,5 @@
 }
 
 .dark-style .tagify-email-list .tagify__tag--editable:not(.tagify--invalid) > div::before {
-  box-shadow: 0 0 0 2px #444564 inset !important;
+  box-shadow: 0 0 0 2px #333333 inset !important;
 }

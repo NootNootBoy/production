@@ -261,11 +261,11 @@
 }
 
 .dark-style .dropzone {
-  border: 2px dashed #444564;
+  border: 2px dashed #333333;
 }
 .dark-style .dz-preview {
   background: #222222;
-  border: 0 solid #444564;
+  border: 0 solid #333333;
   border-radius: 0.375rem;
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
 }
@@ -279,13 +279,13 @@
   background: #222222;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  border-bottom: 0 solid #444564;
+  border-bottom: 0 solid #333333;
 }
 .dark-style .dz-size {
   color: #ffb108;
 }
 .dark-style .dz-thumbnail {
-  border-bottom: 1px solid #444564;
+  border-bottom: 1px solid #333333;
   background: rgba(255, 255, 255, 0.015);
   border-top-left-radius: calc(0.375rem - 1px);
   border-top-right-radius: calc(0.375rem - 1px);
@@ -295,7 +295,7 @@
 }
 .dark-style .dz-remove {
   color: #ffffff;
-  border-top: 1px solid #444564;
+  border-top: 1px solid #333333;
   border-bottom-right-radius: calc(0.375rem - 1px);
   border-bottom-left-radius: calc(0.375rem - 1px);
 }

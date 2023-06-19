@@ -133,11 +133,11 @@
 @media (min-width: 992px) {
   .dark-style .app-calendar-sidebar {
     box-shadow: none !important;
-    border-right: 1px solid #444564;
+    border-right: 1px solid #333333;
   }
   .dark-style[dir=rtl] .app-calendar-sidebar {
     border-right: 0;
-    border-left: 1px solid #444564;
+    border-left: 1px solid #333333;
   }
 }
 

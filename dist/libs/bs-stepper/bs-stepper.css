@@ -376,7 +376,7 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
 }
 .dark-style .bs-stepper .bs-stepper-header {
-  border-bottom: 1px solid #444564;
+  border-bottom: 1px solid #333333;
 }
 .dark-style .bs-stepper .bs-stepper-header .bs-stepper-label {
   color: #ffffff;
@@ -407,7 +407,7 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
   .dark-style .bs-stepper.vertical .bs-stepper-header {
     border-right: none !important;
     border-left: none !important;
-    border-bottom: 1px solid #444564;
+    border-bottom: 1px solid #333333;
   }
 }
 .dark-style .bs-stepper.wizard-modern {
@@ -428,11 +428,11 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
 }
 
 [dir=rtl].dark-style .bs-stepper.vertical .bs-stepper-header {
-  border-left: 1px solid #444564;
+  border-left: 1px solid #333333;
 }
 
 html:not([dir=rtl]).dark-style .bs-stepper.vertical .bs-stepper-header {
-  border-right: 1px solid #444564;
+  border-right: 1px solid #333333;
 }
 
 [dir=rtl] .bs-stepper .bs-stepper-content .btn-next i,

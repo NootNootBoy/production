@@ -266,7 +266,7 @@
   background-color: transparent;
 }
 .dark-style .app-email .email-list li.email-list-item {
-  border-bottom: 1px solid #444564;
+  border-bottom: 1px solid #333333;
 }
 .dark-style .app-email .email-list li.email-list-item.email-marked-read {
   background-color: rgba(124, 125, 182, 0.06);

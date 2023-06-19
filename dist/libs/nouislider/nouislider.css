@@ -653,13 +653,13 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .dark-style .noUi-target {
-  background: #444564;
+  background: #333333;
 }
 .dark-style .noUi-connect {
   background: #7c7db6;
 }
 .dark-style .noUi-handle {
-  background: #444564;
+  background: #333333;
   box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.6);
 }
 .dark-style .noUi-target[disabled] {

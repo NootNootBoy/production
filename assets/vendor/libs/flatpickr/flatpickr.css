@@ -703,7 +703,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
 }
 .dark-style .flatpickr-prev-month,
 .dark-style .flatpickr-next-month {
-  background-color: #444564;
+  background-color: #333333;
 }
 .dark-style .flatpickr-prev-month svg,
 .dark-style .flatpickr-next-month svg {
@@ -749,7 +749,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
   display: none !important;
 }
 .dark-style .flatpickr-calendar.hasTime .flatpickr-time {
-  box-shadow: 0 1px 0 #444564 inset;
+  box-shadow: 0 1px 0 #333333 inset;
 }
 .dark-style .flatpickr-month {
   border-top-left-radius: 0.375rem;

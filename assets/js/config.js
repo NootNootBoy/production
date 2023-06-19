@@ -41,7 +41,7 @@ let config = {
     bodyColor: '#ffffff',
     headingColor: '#ffffff',
     textMuted: '#ffb108',
-    borderColor: '#444564'
+    borderColor: '#333333'
   },
   enableMenuLocalStorage: true // Enable menu state with local storage support
 };
