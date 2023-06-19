@@ -34,8 +34,8 @@ if (isset($_SESSION['error_message'])) {
 
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-dark" data-assets-path="../assets/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+    data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
