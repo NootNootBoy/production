@@ -39,7 +39,7 @@ let config = {
     cardColor: '#222222',
     bodyBg: '#111111',
     bodyColor: '#ffffff',
-    headingColor: '#cbcbe2',
+    headingColor: '#ffffff',
     textMuted: '#ffb108',
     borderColor: '#444564'
   },

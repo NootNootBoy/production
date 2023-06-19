@@ -763,7 +763,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
   font-size: 112%;
 }
 .dark-style .flatpickr-current-month .cur-month {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .dark-style .flatpickr-day {
   color: #ffffff;

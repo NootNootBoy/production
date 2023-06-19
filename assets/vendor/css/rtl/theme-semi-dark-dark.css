@@ -1238,12 +1238,12 @@ li.ui-timepicker-selected,
 }
 .bg-navbar-theme .navbar-brand,
 .bg-navbar-theme .navbar-brand a {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-brand:hover, .bg-navbar-theme .navbar-brand:focus,
 .bg-navbar-theme .navbar-brand a:hover,
 .bg-navbar-theme .navbar-brand a:focus {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-search-wrapper .navbar-search-icon,
 .bg-navbar-theme .navbar-search-wrapper .search-input {
@@ -1264,7 +1264,7 @@ li.ui-timepicker-selected,
 .bg-navbar-theme .navbar-nav > .nav-item > .nav-link:focus,
 .bg-navbar-theme .navbar-nav > .nav > .nav-item > .nav-link:hover,
 .bg-navbar-theme .navbar-nav > .nav > .nav-item > .nav-link:focus {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-nav > .nav-link.disabled,
 .bg-navbar-theme .navbar-nav > .nav-item > .nav-link.disabled,
@@ -1275,7 +1275,7 @@ li.ui-timepicker-selected,
 .bg-navbar-theme .navbar-nav .active > .nav-link,
 .bg-navbar-theme .navbar-nav .nav-link.show,
 .bg-navbar-theme .navbar-nav .nav-link.active {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-toggler {
   color: #ffffff;
@@ -1288,10 +1288,10 @@ li.ui-timepicker-selected,
   color: #ffffff;
 }
 .bg-navbar-theme .navbar-text a {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme .navbar-text a:hover, .bg-navbar-theme .navbar-text a:focus {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-navbar-theme hr {
   border-color: rgba(203, 203, 226, 0.06);
@@ -1446,19 +1446,19 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
   color: #ffffff;
 }
 .bg-footer-theme .footer-link:hover, .bg-footer-theme .footer-link:focus {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-footer-theme .footer-link.disabled {
   color: #70708f !important;
 }
 .bg-footer-theme .footer-text {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-footer-theme .show > .footer-link,
 .bg-footer-theme .active > .footer-link,
 .bg-footer-theme .footer-link.show,
 .bg-footer-theme .footer-link.active {
-  color: #cbcbe2;
+  color: #ffffff;
 }
 .bg-footer-theme hr {
   border-color: rgba(203, 203, 226, 0.06);
