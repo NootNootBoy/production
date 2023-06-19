@@ -68,18 +68,20 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube"></i>
-                <div data-i18n="Projets">Projets</div>
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Procédures">Procédures</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Créer un projet">Créer un projet</div>
+                    <a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
+                        class="menu-link">
+                        <div data-i18n="Créer un contrat">Créer un contrat</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Listes des projets">Liste des projets</div>
+                    <a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=d93202f9-49a1-409c-88e3-bab13765c88b&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
+                        class="menu-link">
+                        <div data-i18n="Créer un cahier des charge">Créer un cahier des charges</div>
                     </a>
                 </li>
             </ul>
@@ -101,6 +103,24 @@
                 <li class="menu-item">
                     <a href="/php/dashboard.php" class="menu-link">
                         <div data-i18n="Ajout d'un client">Mes tâches</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cube"></i>
+                <div data-i18n="Projets">Projets</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="/php/dashboard.php" class="menu-link">
+                        <div data-i18n="Créer un projet">Créer un projet</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/php/dashboard.php" class="menu-link">
+                        <div data-i18n="Listes des projets">Liste des projets</div>
                     </a>
                 </li>
             </ul>
