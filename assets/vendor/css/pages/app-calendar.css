@@ -117,14 +117,14 @@
 }
 
 .dark-style .app-calendar-wrapper .app-calendar-sidebar {
-  background-color: #2b2c40;
+  background-color: #222222;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.075);
 }
 .dark-style .app-calendar-wrapper .app-calendar-sidebar .flatpickr-calendar {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .app-calendar-wrapper .app-calendar-sidebar .flatpickr-calendar .flatpickr-days {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .app-calendar-wrapper .event-sidebar .select2-results .select2-results__option.select2-results__option--highlighted {
   background-color: rgba(255, 255, 255, 0.8) !important;

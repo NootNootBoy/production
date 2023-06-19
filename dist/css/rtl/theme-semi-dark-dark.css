@@ -1233,7 +1233,7 @@ li.ui-timepicker-selected,
 }
 
 .bg-navbar-theme {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-navbar-theme .navbar-brand,
@@ -1251,7 +1251,7 @@ li.ui-timepicker-selected,
 }
 .bg-navbar-theme .search-input-wrapper .search-input,
 .bg-navbar-theme .search-input-wrapper .search-toggler {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-navbar-theme .navbar-nav > .nav-link,

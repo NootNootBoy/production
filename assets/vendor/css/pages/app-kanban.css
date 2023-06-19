@@ -140,14 +140,14 @@
 }
 
 .dark-style .app-kanban .kanban-board .kanban-item {
-  background-color: #2b2c40;
+  background-color: #222222;
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
 }
 .dark-style .app-kanban .kanban-update-item-sidebar .select2-results .select2-results__option.select2-results__option--highlighted {
   background-color: rgba(255, 255, 255, 0.8) !important;
 }
 .dark-style .kanban-item.gu-mirror {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 
 [dir=rtl] .app-kanban .kanban-board,

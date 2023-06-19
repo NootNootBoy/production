@@ -460,7 +460,7 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
 }
 .dark-style .daterangepicker select.monthselect option, .dark-style .daterangepicker select.yearselect option {
   color: #a3a4cc;
-  background: #2b2c40;
+  background: #222222;
 }
 .dark-style .daterangepicker select.monthselect option:disabled, .dark-style .daterangepicker select.yearselect option:disabled {
   color: #ffb108;

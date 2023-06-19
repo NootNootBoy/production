@@ -244,13 +244,13 @@
 }
 
 .dark-style .shepherd-element {
-  background: #2b2c40;
+  background: #222222;
 }
 .dark-style .shepherd-element .shepherd-text {
   color: #fff;
 }
 .dark-style .shepherd-element .shepherd-arrow:before {
-  background: #2b2c40;
+  background: #222222;
   border-color: rgba(43, 44, 64, 0.06);
 }
 

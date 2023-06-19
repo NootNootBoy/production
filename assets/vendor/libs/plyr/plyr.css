@@ -1161,7 +1161,7 @@ a.plyr__control::after, a.plyr__control::before {
 }
 .dark-style .plyr--audio .plyr__controls {
   color: #a3a4cc;
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .plyr--full-ui.plyr--audio input[type=range]::-webkit-slider-runnable-track {
   background-color: rgba(255, 255, 255, 0.8);

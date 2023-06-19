@@ -252,7 +252,7 @@
 
 .dark-style .app-chat .app-chat-contacts,
 .dark-style .app-chat .app-chat-sidebar-left {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .app-chat .app-chat-contacts .chat-actions .chat-search-input,
 .dark-style .app-chat .app-chat-sidebar-left .chat-actions .chat-search-input {
@@ -270,20 +270,20 @@
 }
 .dark-style .app-chat .app-chat-contacts .sidebar-body .chat-contact-list li.active .avatar,
 .dark-style .app-chat .app-chat-sidebar-left .sidebar-body .chat-contact-list li.active .avatar {
-  border-color: #2b2c40;
+  border-color: #222222;
 }
 .dark-style .app-chat .app-chat-history {
   background-color: #232333;
 }
 .dark-style .app-chat .app-chat-history .chat-history-wrapper .chat-history-header {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .app-chat .app-chat-history .chat-history-footer {
-  background-color: #2b2c40;
+  background-color: #222222;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 .dark-style .app-chat .app-chat-history .chat-history-body .chat-history .chat-message .chat-message-text {
-  background-color: #2b2c40;
+  background-color: #222222;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 .dark-style .app-chat .app-chat-history .chat-history-body .chat-history .chat-message.chat-message-right {
@@ -293,7 +293,7 @@
   color: #fff;
 }
 .dark-style .app-chat .app-chat-sidebar-right {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 
 [dir=rtl] .app-chat .app-chat-sidebar-left,

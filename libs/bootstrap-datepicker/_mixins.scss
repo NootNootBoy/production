@@ -45,7 +45,7 @@
 
 @mixin bs-datepicker-dark-theme($background, $color: null) {
   $color: if($color, $color, color-contrast($background));
-  $range-bg: rgba-to-hex(rgba($background, 0.16), #2b2c40);
+  $range-bg: rgba-to-hex(rgba($background, 0.16), #222222);
   $range-color: color-contrast($range-bg);
 
   .datepicker {

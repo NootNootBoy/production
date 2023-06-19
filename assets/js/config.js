@@ -36,7 +36,7 @@ let config = {
     dark: '#181c211a'
   },
   colors_dark: {
-    cardColor: '#2b2c40',
+    cardColor: '#222222',
     bodyBg: '#232333',
     bodyColor: '#a3a4cc',
     headingColor: '#cbcbe2',

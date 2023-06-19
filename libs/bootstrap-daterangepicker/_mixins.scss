@@ -51,7 +51,7 @@
 @mixin bs-daterangepicker-dark-theme($background, $color: null) {
   $color: if($color, $color, color-contrast($background));
 
-  $highlighted-bg: rgba-to-hex(rgba($background, 0.16), #2b2c40);
+  $highlighted-bg: rgba-to-hex(rgba($background, 0.16), #222222);
 
   .daterangepicker table thead {
     th,

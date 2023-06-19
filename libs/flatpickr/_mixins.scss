@@ -59,7 +59,7 @@
 
 @mixin flatpickr-dark-theme($background, $color: null) {
   $color: if($color, $color, color-contrast($background));
-  $in-range-bg: rgba-to-hex(rgba($background, 0.16), #2b2c40);
+  $in-range-bg: rgba-to-hex(rgba($background, 0.16), #222222);
 
   .flatpickr-calendar .numInputWrapper span {
     &.arrowUp:after {

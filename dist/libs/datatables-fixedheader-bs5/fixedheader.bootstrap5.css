@@ -37,7 +37,7 @@ table.dataTable.fixedHeader-locked {
 }
 .dark-style .dt-fixedheader.fixedHeader-floating.table.dataTable thead > tr > th,
 .dark-style .dt-fixedheader.fixedHeader-locked.table.dataTable thead > tr > th {
-  background-color: #2b2c40;
+  background-color: #222222;
   border-bottom-width: 1px;
   border-color: #232333;
 }

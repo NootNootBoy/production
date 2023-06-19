@@ -131,11 +131,11 @@
 }
 
 body {
-  background: #2b2c40;
+  background: #222222;
 }
 
 .bg-body {
-  background: #2b2c40 !important;
+  background: #222222 !important;
 }
 
 .text-primary {
@@ -1233,7 +1233,7 @@ li.ui-timepicker-selected,
 }
 
 .bg-navbar-theme {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-navbar-theme .navbar-brand,
@@ -1251,7 +1251,7 @@ li.ui-timepicker-selected,
 }
 .bg-navbar-theme .search-input-wrapper .search-input,
 .bg-navbar-theme .search-input-wrapper .search-toggler {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-navbar-theme .navbar-nav > .nav-link,
@@ -1315,12 +1315,12 @@ li.ui-timepicker-selected,
   -webkit-backdrop-filter: saturate(200%) blur(10px);
           backdrop-filter: saturate(200%) blur(10px);
   background: linear-gradient(180deg, rgba(43, 44, 64, 0.7) 44%, rgba(43, 44, 64, 0.43) 73%, rgba(43, 44, 64, 0));
-  -webkit-mask: linear-gradient(#2b2c40, #2b2c40 18%, transparent 100%);
-  mask: linear-gradient(#2b2c40, #2b2c40 18%, transparent 100%);
+  -webkit-mask: linear-gradient(#222222, #222222 18%, transparent 100%);
+  mask: linear-gradient(#222222, #222222 18%, transparent 100%);
 }
 
 .bg-menu-theme {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-menu-theme .menu-link,
@@ -1350,13 +1350,13 @@ li.ui-timepicker-selected,
   color: #cbcbe2;
 }
 .bg-menu-theme .menu-item.active > .menu-link:not(.menu-toggle) {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .bg-menu-theme.menu-horizontal .menu-sub > .menu-item.active > .menu-link:not(.menu-toggle) {
   background-color: #2a2b3e;
 }
 .bg-menu-theme.menu-horizontal .menu-inner .menu-item:not(.menu-item-closing) > .menu-sub, .bg-menu-theme.menu-horizontal .menu-inner .menu-item.open > .menu-toggle {
-  background: #2b2c40;
+  background: #222222;
 }
 .bg-menu-theme .menu-inner > .menu-item.menu-item-closing .menu-item.open .menu-sub,
 .bg-menu-theme .menu-inner > .menu-item.menu-item-closing .menu-item.open .menu-toggle {
@@ -1364,7 +1364,7 @@ li.ui-timepicker-selected,
   color: #a3a4cc;
 }
 .bg-menu-theme .menu-inner-shadow {
-  background: linear-gradient(#2b2c40 41%, rgba(43, 44, 64, 0.11) 95%, rgba(43, 44, 64, 0));
+  background: linear-gradient(#222222 41%, rgba(43, 44, 64, 0.11) 95%, rgba(43, 44, 64, 0));
 }
 .bg-menu-theme .menu-text {
   color: #cbcbe2;
@@ -1384,14 +1384,14 @@ li.ui-timepicker-selected,
   background-color: #8586a9;
 }
 .bg-menu-theme .menu-inner > .menu-item.open .menu-item.open > .menu-toggle::before {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .bg-menu-theme .menu-inner > .menu-item.open .menu-item.active > .menu-link::before {
   background-color: #cbcbe2;
 }
 .bg-menu-theme .menu-inner > .menu-item.open .menu-item.open > .menu-toggle::before,
 .bg-menu-theme .menu-inner > .menu-item.open .menu-item.active > .menu-link::before {
-  box-shadow: 0 0 0 2px #2b2c40;
+  box-shadow: 0 0 0 2px #222222;
 }
 .bg-menu-theme .ps__thumb-y,
 .bg-menu-theme .ps__rail-y.ps--clicking > .ps__thumb-y {
@@ -1400,7 +1400,7 @@ li.ui-timepicker-selected,
 
 @media (max-width: 1199.98px) {
   .app-brand .layout-menu-toggle {
-    border: 7px solid #2b2c40 !important;
+    border: 7px solid #222222 !important;
   }
 }
 .layout-menu {
@@ -1449,7 +1449,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 
 .app-brand .layout-menu-toggle {
   background-color: #ff810a;
-  border: 7px solid #2b2c40;
+  border: 7px solid #222222;
 }
 @media (min-width: 1200px) {
   .app-brand .layout-menu-toggle::before {
@@ -1477,7 +1477,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 }
 
 .bg-footer-theme {
-  background-color: #2b2c40 !important;
+  background-color: #222222 !important;
   color: #a3a4cc;
 }
 .bg-footer-theme .footer-link {
@@ -1534,7 +1534,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 
 html:not([dir=rtl]) .nav-align-top .nav-tabs .nav-item:not(:first-child) .nav-link,
 html:not([dir=rtl]) .nav-align-bottom .nav-tabs .nav-item:not(:first-child) .nav-link {
-  border-left-color: #2b2c40;
+  border-left-color: #222222;
 }
 [dir=rtl] .nav-align-top .nav-tabs .nav-item:not(:first-child) .nav-link,
 [dir=rtl] .nav-align-bottom .nav-tabs .nav-item:not(:first-child) .nav-link {
@@ -1542,11 +1542,11 @@ html:not([dir=rtl]) .nav-align-bottom .nav-tabs .nav-item:not(:first-child) .nav
 }
 
 .nav-align-top .nav-tabs .nav-item .nav-link.active, .nav-align-top .nav-tabs .nav-item .nav-link:active {
-  border-bottom-color: #2b2c40;
+  border-bottom-color: #222222;
 }
 
 .nav-align-bottom .nav-tabs .nav-item .nav-link.active, .nav-align-bottom .nav-tabs .nav-item .nav-link:active {
-  border-top-color: #2b2c40;
+  border-top-color: #222222;
 }
 .nav-align-bottom .nav-tabs .nav-item .nav-link.active:hover, .nav-align-bottom .nav-tabs .nav-item .nav-link.active:focus, .nav-align-bottom .nav-tabs .nav-item .nav-link:active:hover, .nav-align-bottom .nav-tabs .nav-item .nav-link:active:focus {
   border-bottom-color: #444564 !important;
@@ -1561,14 +1561,14 @@ html:not([dir=rtl]) .nav-align-bottom .nav-tabs .nav-item:not(:first-child) .nav
 }
 
 .nav-align-left .nav-tabs .nav-item .nav-link.active, .nav-align-left .nav-tabs .nav-item .nav-link:active {
-  border-right-color: #2b2c40;
+  border-right-color: #222222;
 }
 .nav-align-left .nav-tabs .nav-item .nav-link.active:hover, .nav-align-left .nav-tabs .nav-item .nav-link.active:focus, .nav-align-left .nav-tabs .nav-item .nav-link:active:hover, .nav-align-left .nav-tabs .nav-item .nav-link:active:focus {
   border-bottom-color: #444564;
 }
 
 .nav-align-right .nav-tabs .nav-item .nav-link.active, .nav-align-right .nav-tabs .nav-item .nav-link:active {
-  border-left-color: #2b2c40;
+  border-left-color: #222222;
 }
 
 .kanban-item {

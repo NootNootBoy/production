@@ -256,7 +256,7 @@
 }
 
 .dark-style .app-email .app-email-sidebar {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .app-email .app-email-sidebar ul li:not(.active) a {
   color: #a3a4cc;
@@ -291,7 +291,7 @@
   border: 1px solid rgba(68, 69, 100, 0.6);
 }
 .dark-style .app-email .app-email-view .app-email-view-header {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 
 [dir=rtl] .app-email .app-emails-list .emails-list-header .dropdown-menu-end {

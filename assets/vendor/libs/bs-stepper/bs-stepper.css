@@ -370,7 +370,7 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
 }
 
 .dark-style .bs-stepper {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .bs-stepper:not(.wizard-modern) {
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
@@ -385,7 +385,7 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
   color: #a3a4cc;
 }
 .dark-style .bs-stepper .bs-stepper-header .line:before {
-  background-color: #2b2c40;
+  background-color: #222222;
 }
 .dark-style .bs-stepper .bs-stepper-header .step:not(.active) .bs-stepper-circle {
   background-color: rgba(124, 125, 182, 0.16);
@@ -414,7 +414,7 @@ html:not([dir=rtl]).light-style .bs-stepper.vertical .bs-stepper-header {
   background-color: transparent;
 }
 .dark-style .bs-stepper.wizard-modern .bs-stepper-content {
-  background-color: #2b2c40;
+  background-color: #222222;
   box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.16);
 }
 .dark-style .bs-stepper.wizard-icons .bs-stepper-header .bs-stepper-icon i {
