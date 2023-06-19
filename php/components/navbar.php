@@ -7,6 +7,15 @@
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                <!-- Search -->
+                <div class="navbar-nav align-items-center">
+                    <div class="nav-item navbar-search-wrapper mb-0">
+                        <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+                            <span class="d-none d-md-inline-block text-muted">Intranet Mindset</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- /Search -->
 
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                     <!-- Language -->
