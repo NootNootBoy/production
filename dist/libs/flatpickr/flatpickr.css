@@ -776,7 +776,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
   color: #ffffff;
 }
 .dark-style .flatpickr-day.nextMonthDay, .dark-style .flatpickr-day.prevMonthDay, .dark-style .flatpickr-day.flatpickr-disabled {
-  color: #7c7db6;
+  color: #cf8946;
 }
 .dark-style .flatpickr-day.nextMonthDay.today, .dark-style .flatpickr-day.prevMonthDay.today, .dark-style .flatpickr-day.flatpickr-disabled.today {
   border: 0;

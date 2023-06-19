@@ -656,7 +656,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   background: #333333;
 }
 .dark-style .noUi-connect {
-  background: #7c7db6;
+  background: #cf8946;
 }
 .dark-style .noUi-handle {
   background: #333333;
@@ -682,7 +682,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   background-color: rgba(255, 255, 255, 0.8);
 }
 .dark-style .noUi-connect {
-  background: #7c7db6 !important;
+  background: #cf8946 !important;
 }
 .dark-style .noUi-secondary .noUi-connect {
   background: #8592a3 !important;

@@ -466,7 +466,7 @@ html:not([dir=rtl]) .daterangepicker .drp-calendar.right {
   color: #ffb108;
 }
 .dark-style .daterangepicker .calendar-time select.disabled {
-  color: #7c7db6;
+  color: #cf8946;
 }
 @media (min-width: 768px) {
   .dark-style .daterangepicker {

@@ -725,7 +725,7 @@
   border-color: #333333;
 }
 .dark-style .tagify__input::before {
-  color: #7c7db6 !important;
+  color: #cf8946 !important;
 }
 .dark-style .tagify[readonly]:not(.tagify--mix) .tagify__tag > div::before {
   background: linear-gradient(45deg, #333333 25%, transparent 25%, transparent 50%, #333333 50%, #333333 75%, transparent 75%, transparent) 0/5px 5px;
