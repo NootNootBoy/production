@@ -88,24 +88,6 @@
         <!-- Séparateur -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-task"></i>
-                <div data-i18n="Mes missions">Mes missions</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Listes de mes projets">Consulter mes projets</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Ajout d'un client">Mes tâches</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube"></i>
                 <div data-i18n="Projets">Projets</div>
             </a>
@@ -118,6 +100,24 @@
                 <li class="menu-item">
                     <a href="/php/dashboard.php" class="menu-link">
                         <div data-i18n="Listes des projets">Liste des projets</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-task"></i>
+                <div data-i18n="Mes missions">Mes missions</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="/php/dashboard.php" class="menu-link">
+                        <div data-i18n="Listes de mes projets">Consulter mes projets</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/php/dashboard.php" class="menu-link">
+                        <div data-i18n="Ajout d'un client">Mes tâches</div>
                     </a>
                 </li>
             </ul>
