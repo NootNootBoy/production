@@ -1,3 +1,23 @@
+<?php 
+session_start();
+include 'db_connection.php';
+
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Préparer la requête SQL pour récupérer tous les clients
+    $stmt = $pdo->prepare("SELECT * FROM clients");
+    $stmt->execute();
+
+    // Récupérer toutes les lignes
+    $clients = $stmt->fetchAll();
+} catch(PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+?>
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -43,7 +63,9 @@
         <div>
             <label for="id_client">Client:</label>
             <select id="id_client" name="id_client">
-                <!-- Les options seront générées dynamiquement par PHP -->
+                <?php foreach ($clients as $client): ?>
+                <option value="<?= $client['id'] ?>"><?= $client['nom'] ?> - <?= $client['societe'] ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div>
