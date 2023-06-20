@@ -17,6 +17,17 @@ try {
     // Préparer la requête SQL pour récupérer tous les clients
     $stmt = $pdo->prepare("SELECT * FROM clients");
     $stmt->execute();
+    $clients = $stmt->fetchAll();
+
+    // Préparer la requête SQL pour récupérer tous les développeurs
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'developpeur'");
+    $stmt->execute();
+    $developpeurs = $stmt->fetchAll();
+
+    // Préparer la requête SQL pour récupérer tous les assistants
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'assistant'");
+    $stmt->execute();
+    $assistants = $stmt->fetchAll();
 
     // Récupérer toutes les lignes
     $clients = $stmt->fetchAll();
@@ -75,12 +86,20 @@ try {
             </select>
         </div>
         <div>
-            <label for="id_user_developpeur">ID du développeur:</label>
-            <input type="text" id="id_user_developpeur" name="id_user_developpeur">
+            <label for="id_user_developpeur">Développeur:</label>
+            <select id="id_user_developpeur" name="id_user_developpeur">
+                <?php foreach ($developpeurs as $developpeur): ?>
+                <option value="<?= $developpeur['id'] ?>"><?= $developpeur['username'] ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div>
-            <label for="id_user_assistant">ID de l'assistant:</label>
-            <input type="text" id="id_user_assistant" name="id_user_assistant">
+            <label for="id_user_assistant">Assistant:</label>
+            <select id="id_user_assistant" name="id_user_assistant">
+                <?php foreach ($assistants as $assistant): ?>
+                <option value="<?= $assistant['id'] ?>"><?= $assistant['username'] ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div>
             <label for="nom_domaine">Nom de domaine:</label>
