@@ -29,8 +29,6 @@ try {
     $stmt->execute();
     $assistants = $stmt->fetchAll();
 
-    // Récupérer toutes les lignes
-    $clients = $stmt->fetchAll();
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
