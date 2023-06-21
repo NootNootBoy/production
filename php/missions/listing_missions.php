@@ -49,13 +49,25 @@ try {
         echo "<input type='submit' name='action' value='Accepter'>";
         echo "<input type='submit' name='action' value='Refuser'>";
         echo "</form>";
+    
+        // Récupérer toutes les tâches de la mission
+        $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
+        $stmt->bindParam(':id_mission', $mission['id_mission']);
+        $stmt->execute();
+        $taches = $stmt->fetchAll();
+    
+        // Afficher les tâches pour la mission
+        echo "<form action='update_taches.php' method='post'>";
+        echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+        foreach ($taches as $tache) {
+            echo "<div>";
+            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == 'complétée' ? 'checked' : '') . ">";
+            echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
+            echo "</div>";
+        }
+        echo "<input type='submit' value='Mettre à jour les tâches'>";
+        echo "</form>";
     }
-
-     // Récupérer toutes les tâches de la mission
-     $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
-     $stmt->bindParam(':id_mission', $mission['id_mission']);
-     $stmt->execute();
-     $taches = $stmt->fetchAll();
 
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
@@ -74,18 +86,7 @@ $pdo = null;
 </head>
 
 <body>
-    <?php 
-      echo "<form action='update_taches.php' method='post'>";
-      echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-      foreach ($taches as $tache) {
-          echo "<div>";
-          echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == 'complétée' ? 'checked' : '') . ">";
-          echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
-          echo "</div>";
-      }
-      echo "<input type='submit' value='Mettre à jour les tâches'>";
-      echo "</form>";
-    ?>
+
 </body>
 
 </html>
