@@ -59,7 +59,7 @@ try {
         echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
         foreach ($taches as $tache) {
             echo "<div>";
-            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == '1' ? 'checked' : '') . ">";
+            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
             echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
             echo "</div>";
         }
