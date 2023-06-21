@@ -74,9 +74,14 @@ try {
             echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
             echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
             echo "</div>";
+            
+            echo "<div style='width: 100%; background-color: #ddd;'>";
+            echo "<div style='width: " . $pourcentage_taches_completees . "%; background-color: #4CAF50; height: 30px;'></div>";
+            echo "</div>";
         }
         echo "<input type='submit' value='Mettre à jour les tâches'>";
         echo "</form>";
+
     }
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
