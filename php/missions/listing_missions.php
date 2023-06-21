@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
@@ -14,7 +13,6 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
-
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -30,7 +28,7 @@ $id_user = $_SESSION['user_id'];
 
 try {
     // Préparer la requête SQL pour récupérer les missions en attente
-    $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_user = :id_user AND etat = 'en attente'");
+    $stmt = $pdo->prepare("SELECT * FROM Missions WHERE id_user = :id_user AND etat = 'en attente'");
 
     // Lier les paramètres
     $stmt->bindParam(':id_user', $id_user);
@@ -49,44 +47,10 @@ try {
         echo "<input type='submit' name='action' value='Accepter'>";
         echo "<input type='submit' name='action' value='Refuser'>";
         echo "</form>";
-    
-        // Récupérer toutes les tâches de la mission
-        $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
-        $stmt->bindParam(':id_mission', $mission['id_mission']);
-        $stmt->execute();
-        $taches = $stmt->fetchAll();
-    
-        // Afficher les tâches pour la mission
-        echo "<form action='update_taches.php' method='post'>";
-        echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-        foreach ($taches as $tache) {
-            echo "<div>";
-            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == 'complétée' ? 'checked' : '') . ">";
-            echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
-            echo "</div>";
-        }
-        echo "<input type='submit' value='Mettre à jour les tâches'>";
-        echo "</form>";
     }
-
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
 
 $pdo = null;
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
