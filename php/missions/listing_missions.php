@@ -62,22 +62,21 @@ try {
         $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
         
         // Afficher les tâches pour la mission
-        // echo "<form action='update_taches.php' method='post'>";
-        // echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-        // foreach ($taches as $tache) {
-        //     echo "<div>";
-        //     echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '0') . ">";
-        //     echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
-        //     echo "</div>";
-        // }
-        // echo "<div style='width: 100%; background-color: #ddd;'>";
+        echo "<form action='update_taches.php' method='post'>";
+        echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+        foreach ($taches as $tache) {
+            echo "<div>";
+            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '0') . ">";
+            echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
+            echo "</div>";
+        }
+        echo "<div style='width: 100%; background-color: #ddd;'>";
         
         echo "<div style='width: " . $pourcentage_taches_completees . "%; background-color: #4CAF50; height: 30px;'></div>";
-        // Calculer le temps restant
         echo "Temps restant: " . $temps_restant . " jours<br>";
-        // echo "</div>";
-        // echo "<input type='submit' value='Mettre à jour les tâches'>";
-        // echo "</form>";
+        echo "</div>";
+        echo "<input type='submit' value='Mettre à jour les tâches'>";
+        echo "</form>";
 
     }
 } catch(PDOException $e) {
