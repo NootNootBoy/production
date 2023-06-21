@@ -77,12 +77,12 @@ try {
         echo "</div>";
         echo "<input type='submit' value='Mettre à jour les tâches'>";
         echo "</form>";
-        // foreach ($missions as $mission) {
-        //     // ...
-        //     if ($mission['verify_done']) {
-        //         echo "<button>Marquer comme terminée</button>";
-        //     }
-        // }
+        if ($mission['verify_done']) {
+            echo "<form action='mission_completed.php' method='post'>";
+            echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+            echo "<input type='submit' value='Marquer comme terminée'>";
+            echo "</form>";
+        }
     }
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
