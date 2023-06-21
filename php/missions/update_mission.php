@@ -23,7 +23,7 @@ try {
         // Si l'utilisateur a accepté la mission, mettre à jour l'état de la mission et créer les tâches
     
         // Mettre à jour l'état de la mission
-        $stmt = $pdo->prepare("UPDATE Missions SET etat = 'acceptée' WHERE id_mission = :id_mission");
+        $stmt = $pdo->prepare("UPDATE missions SET etat = 'acceptée' WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $id_mission);
         $stmt->execute();
     
