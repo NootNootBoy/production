@@ -28,7 +28,7 @@ $id_user = $_SESSION['user_id'];
 
 try {
     // Préparer la requête SQL pour récupérer les missions en attente
-    $stmt = $pdo->prepare("SELECT *, DATEDIFF(CURDATE(), date_acceptation) AS jours_passes FROM missions WHERE id_user = :id_user AND etat = 'Acceptee'");
+    $stmt = $pdo->prepare("SELECT *, DATEDIFF(CURDATE(), date_acceptation) AS jours_passes FROM missions WHERE id_user = :id_user AND etat = 'en cours'");
 
     // Lier les paramètres
     $stmt->bindParam(':id_user', $id_user);

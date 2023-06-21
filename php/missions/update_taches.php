@@ -56,9 +56,10 @@ try {
     $stmt->bindParam(':id_mission', $id_mission, PDO::PARAM_INT);
     $stmt->execute();
 
-    if($progression === 100){
-        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminé' WHERE id_mission = :id_mission");
-        $stmt->bindParam(':id_mission', $id_mission, PDO::PARAM_INT);
+    // Lorsque toutes les tâches sont complétées
+    if ($progression == 100) {
+        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminee' WHERE id_mission = :id_mission");
+        $stmt->bindParam(':id_mission', $id_mission);
         $stmt->execute();
     }
 
