@@ -58,7 +58,7 @@ try {
 
     // Lorsque toutes les tâches sont complétées
     if ($progression == 100) {
-        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminee' WHERE id_mission = :id_mission");
+        $stmt = $pdo->prepare("UPDATE missions SET verify_done = TRUE WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $id_mission);
         $stmt->execute();
     }
