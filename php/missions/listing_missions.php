@@ -47,13 +47,25 @@ try {
         echo "<input type='submit' name='action' value='Accepter'>";
         echo "<input type='submit' name='action' value='Refuser'>";
         echo "</form>";
-    
+            
         // Récupérer toutes les tâches de la mission
-        $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
+        $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $mission['id_mission']);
         $stmt->execute();
         $taches = $stmt->fetchAll();
     
+        // Compter le nombre total de tâches et le nombre de tâches complétées
+        $nombre_total_taches = count($taches);
+        $nombre_taches_completees = 0;
+        foreach ($taches as $tache) {
+            if ($tache['est_complete'] == 1) {
+                $nombre_taches_completees++;
+            }
+        }
+
+        // Calculer le pourcentage de tâches complétées
+        $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
+        
         // Afficher les tâches pour la mission
         echo "<form action='update_taches.php' method='post'>";
         echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
