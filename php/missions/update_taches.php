@@ -27,10 +27,12 @@ try {
     // Pour chaque tâche, mettre à jour son état en fonction de si sa case a été cochée ou non
     $stmt = $pdo->prepare("UPDATE taches SET est_complete = :est_complete WHERE id_tache = :id_tache");
     foreach ($taches as $tache) {
-        $est_complete = isset($_POST['tache' . $tache['id_tache']]) ? 1 : 0;
-        $stmt->bindParam(':est_complete', $est_complete, PDO::PARAM_INT);
-        $stmt->bindParam(':id_tache', $tache['id_tache'], PDO::PARAM_INT);
-        $stmt->execute();
+        if (isset($_POST['tache' . $tache['id_tache']])) {
+            $est_complete = 1;
+            $stmt->bindParam(':est_complete', $est_complete, PDO::PARAM_INT);
+            $stmt->bindParam(':id_tache', $tache['id_tache'], PDO::PARAM_INT);
+            $stmt->execute();
+        }
     }
 
     // Compter le nombre total de tâches et le nombre de tâches complétées
