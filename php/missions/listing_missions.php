@@ -48,7 +48,7 @@ try {
         echo "<input type='submit' name='action' value='Refuser'>";
         echo "</form>";
             
-        // Récupérer toutes les tâches de la mission
+            // Récupérer toutes les tâches de la mission
         $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $mission['id_mission']);
         $stmt->execute();
@@ -71,7 +71,7 @@ try {
         echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
         foreach ($taches as $tache) {
             echo "<div>";
-            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
+            echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '0') . ">";
             echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
             echo "</div>";
         }
