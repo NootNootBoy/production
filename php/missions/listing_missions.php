@@ -50,6 +50,13 @@ try {
         echo "<input type='submit' name='action' value='Refuser'>";
         echo "</form>";
     }
+
+     // Récupérer toutes les tâches de la mission
+     $stmt = $pdo->prepare("SELECT * FROM Taches WHERE id_mission = :id_mission");
+     $stmt->bindParam(':id_mission', $id_mission);
+     $stmt->execute();
+     $taches = $stmt->fetchAll();
+
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
