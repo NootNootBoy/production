@@ -56,6 +56,12 @@ try {
     $stmt->bindParam(':id_mission', $id_mission, PDO::PARAM_INT);
     $stmt->execute();
 
+    if($progression === 100){
+        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminé' WHERE id_mission = :id_mission");
+        $stmt->bindParam(':id_mission', $id_mission, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     echo "Tâches mises à jour avec succès";
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
