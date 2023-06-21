@@ -41,13 +41,6 @@ try {
 
     // Afficher les missions
     foreach ($missions as $mission) {
-        echo "<h2>" . $mission['nom_mission'] . "</h2>";
-        echo "<form action='update_mission.php' method='post'>";
-        echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-        echo "<input type='submit' name='action' value='Accepter'>";
-        echo "<input type='submit' name='action' value='Refuser'>";
-        echo "</form>";
-            
             // Récupérer toutes les tâches de la mission
         $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $mission['id_mission']);
