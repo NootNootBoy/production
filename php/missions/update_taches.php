@@ -37,20 +37,22 @@ try {
     $nombre_total_taches = count($taches);
     $nombre_taches_completees = 0;
     foreach ($taches as $tache) {
-        if ($tache['est_complete'] == 1) {
+        $est_complete = isset($_POST['tache' . $tache['id_tache']]) ? 1 : 0;
+        $stmt->bindParam(':est_complete', $est_complete, PDO::PARAM_INT);
+        $stmt->bindParam(':id_tache', $tache['id_tache'], PDO::PARAM_INT);
+        $stmt->execute();
+        if ($est_complete == 1) {
             $nombre_taches_completees++;
         }
     }
 
     // Calculer le pourcentage de tâches complétées
-    $pourcentage_taches_completees = 0;
-    if ($nombre_total_taches > 0) {
-        $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
-    }
+    $progression = ($nombre_taches_completees / $nombre_total_taches) * 100;
+
 
     // Mettre à jour la progression dans la base de données
     $stmt = $pdo->prepare("UPDATE missions SET progression = :progression WHERE id_mission = :id_mission");
-    $stmt->bindParam(':progression', $pourcentage_taches_completees, PDO::PARAM_INT);
+    $stmt->bindParam(':progression', $progression, PDO::PARAM_INT);
     $stmt->bindParam(':id_mission', $id_mission, PDO::PARAM_INT);
     $stmt->execute();
 

@@ -41,6 +41,8 @@ try {
 
     // Afficher les missions
     foreach ($missions as $mission) {
+        echo "<h2>" . $mission['nom_mission'] . "</h2>";
+            
             // Récupérer toutes les tâches de la mission
         $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $mission['id_mission']);
