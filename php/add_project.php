@@ -15,7 +15,7 @@ $opt = [
 $pdo = new PDO($dsn, $user, $pass, $opt);
 try {
    
-    // Préparer la requête SQL
+    // Préparer la requête SQL pour créer un nouveau projet
     $stmt = $pdo->prepare("INSERT INTO Projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine)
     VALUES (:nom_projet, :id_client, :id_user_developpeur, :id_user_assistant, :nom_domaine)");
 
@@ -26,27 +26,27 @@ try {
     $stmt->bindParam(':id_user_assistant', $_POST['id_user_assistant']);
     $stmt->bindParam(':nom_domaine', $_POST['nom_domaine']);
 
- // Exécuter la requête
- $stmt->execute();
+    // Exécuter la requête
+    $stmt->execute();
 
- // Récupérer l'ID du projet qui vient d'être créé
- $id_projet = $pdo->lastInsertId();
+    // Récupérer l'ID du projet qui vient d'être créé
+    $id_projet = $pdo->lastInsertId();
 
- // Préparer la requête SQL pour créer une nouvelle mission
- $stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_projet, etat)
- VALUES (:id_projet, :id_user, :nom_projet, 'en attente')");
+    // Préparer la requête SQL pour créer une nouvelle mission
+    $stmt = $pdo->prepare("INSERT INTO Missions (id_projet, id_user, nom_mission, etat)
+    VALUES (:id_projet, :id_user, :nom_mission, 'en attente')");
 
- // Lier les paramètres
- $stmt->bindParam(':id_projet', $id_projet);
- $stmt->bindParam(':id_user', $_POST['id_user_developpeur']);
- $stmt->bindParam(':nom_projet', $_POST['nom_projet']);
+    // Lier les paramètres
+    $stmt->bindParam(':id_projet', $id_projet);
+    $stmt->bindParam(':id_user', $_POST['id_user_developpeur']);
+    $stmt->bindParam(':nom_mission', $_POST['nom_projet']);
 
- // Exécuter la requête
- $stmt->execute();
+    // Exécuter la requête
+    $stmt->execute();
 
- echo "Nouveau projet et nouvelle mission créés avec succès";
+    echo "Nouveau projet et nouvelle mission créés avec succès";
 } catch(PDOException $e) {
- echo "Erreur : " . $e->getMessage();
+    echo "Erreur : " . $e->getMessage();
 }
 
 $pdo = null;
