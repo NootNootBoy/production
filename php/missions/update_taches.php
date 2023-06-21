@@ -43,7 +43,10 @@ try {
     }
 
     // Calculer le pourcentage de tâches complétées
-    $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
+    $pourcentage_taches_completees = 0;
+    if ($nombre_total_taches > 0) {
+        $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
+    }
 
     // Mettre à jour la progression dans la base de données
     $stmt = $pdo->prepare("UPDATE missions SET progression = :progression WHERE id_mission = :id_mission");
