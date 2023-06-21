@@ -16,7 +16,6 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
 
 try {
     // Récupérer l'ID de la mission à partir du formulaire
-    // Récupérer l'ID de la mission à partir du formulaire
     $id_mission = $_POST['id_mission'];
 
     // Récupérer toutes les tâches de la mission
