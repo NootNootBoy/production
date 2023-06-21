@@ -16,7 +16,7 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
 try {
    
     // Préparer la requête SQL
-    $stmt = $pdo->prepare("INSERT INTO projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine)
+    $stmt = $pdo->prepare("INSERT INTO Projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine)
     VALUES (:nom_projet, :id_client, :id_user_developpeur, :id_user_assistant, :nom_domaine)");
 
     // Lier les paramètres
