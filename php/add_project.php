@@ -33,7 +33,7 @@ try {
  $id_projet = $pdo->lastInsertId();
 
  // Préparer la requête SQL pour créer une nouvelle mission
- $stmt = $pdo->prepare("INSERT INTO Missions (id_projet, id_user, nom_projet, etat)
+ $stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_projet, etat)
  VALUES (:id_projet, :id_user, :nom_projet, 'en attente')");
 
  // Lier les paramètres
