@@ -59,29 +59,3 @@ try {
 
 $pdo = null;
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php 
-      echo "<form action='update_taches.php' method='post'>";
-      echo "<input type='hidden' name='id_mission' value='" . $id_mission . "'>";
-      foreach ($taches as $tache) {
-          echo "<div>";
-          echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == 'complétée' ? 'checked' : '') . ">";
-          echo "<label for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
-          echo "</div>";
-      }
-      echo "<input type='submit' value='Mettre à jour les tâches'>";
-      echo "</form>";
-    ?>
-</body>
-
-</html>
