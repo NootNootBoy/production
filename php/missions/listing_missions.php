@@ -52,7 +52,7 @@ try {
     }
 
      // Récupérer toutes les tâches de la mission
-     $stmt = $pdo->prepare("SELECT * FROM Taches WHERE id_mission = :id_mission");
+     $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
      $stmt->bindParam(':id_mission', $id_mission);
      $stmt->execute();
      $taches = $stmt->fetchAll();
