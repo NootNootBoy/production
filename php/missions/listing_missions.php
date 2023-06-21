@@ -1,14 +1,6 @@
 <?php
 session_start();
 
-$stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-$stmt->execute(['id' => $_SESSION['user_id']]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!isset($_SESSION['user_id'])) {
-    die('User ID not set in session');
-}
-
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
@@ -22,6 +14,16 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+$stmt->execute(['id' => $_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!isset($_SESSION['user_id'])) {
+    die('User ID not set in session');
+}
+
+
 
 // Récupérer l'ID de l'utilisateur actuellement connecté
 $id_user = $_SESSION['user_id'];
