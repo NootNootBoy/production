@@ -53,7 +53,7 @@ try {
 
      // Récupérer toutes les tâches de la mission
      $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
-     $stmt->bindParam(':id_mission', $id_mission);
+     $stmt->bindParam(':id_mission', $mission['id_mission']);
      $stmt->execute();
      $taches = $stmt->fetchAll();
 
@@ -76,7 +76,7 @@ $pdo = null;
 <body>
     <?php 
       echo "<form action='update_taches.php' method='post'>";
-      echo "<input type='hidden' name='id_mission' value='" . $id_mission . "'>";
+      echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
       foreach ($taches as $tache) {
           echo "<div>";
           echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['etat'] == 'complétée' ? 'checked' : '') . ">";
