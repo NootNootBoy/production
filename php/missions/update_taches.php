@@ -18,16 +18,14 @@ try {
     // Récupérer l'ID de la mission à partir du formulaire
     $id_mission = $_POST['id_mission'];
 
-    // Pour chaque tâche, mettre à jour son état en fonction de si sa case a été cochée ou non
-    $stmt = $pdo->prepare("UPDATE taches SET est_complete = :est_complete WHERE id_tache = :id_tache");
-    foreach ($taches as $tache) {
-        if (isset($_POST['tache' . $tache['id_tache']])) {
-            $est_complete = 1;
-            $stmt->bindParam(':est_complete', $est_complete, PDO::PARAM_INT);
-            $stmt->bindParam(':id_tache', $tache['id_tache'], PDO::PARAM_INT);
-            $stmt->execute();
-        }
-    }
+// Pour chaque tâche, mettre à jour son état en fonction de si sa case a été cochée ou non
+$stmt = $pdo->prepare("UPDATE taches SET est_complete = :est_complete WHERE id_tache = :id_tache");
+foreach ($taches as $tache) {
+    $est_complete = isset($_POST['tache' . $tache['id_tache']]) ? 1 : 0;
+    $stmt->bindParam(':est_complete', $est_complete, PDO::PARAM_INT);
+    $stmt->bindParam(':id_tache', $tache['id_tache'], PDO::PARAM_INT);
+    $stmt->execute();
+}
 
     // Récupérer à nouveau toutes les tâches de la mission
     $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
