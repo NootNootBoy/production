@@ -28,7 +28,7 @@ try {
         $stmt->execute();
     
         // Récupérer toutes les tâches prédéfinies
-        $stmt = $pdo->prepare("SELECT * FROM tachesPredefinies");
+        $stmt = $pdo->prepare("SELECT * FROM taches_predefinies");
         $stmt->execute();
         $taches_predefinies = $stmt->fetchAll();
     
