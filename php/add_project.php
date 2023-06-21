@@ -26,12 +26,27 @@ try {
     $stmt->bindParam(':id_user_assistant', $_POST['id_user_assistant']);
     $stmt->bindParam(':nom_domaine', $_POST['nom_domaine']);
 
-    // Exécuter la requête
-    $stmt->execute();
+ // Exécuter la requête
+ $stmt->execute();
 
-    echo "Nouveau projet créé avec succès";
+ // Récupérer l'ID du projet qui vient d'être créé
+ $id_projet = $pdo->lastInsertId();
+
+ // Préparer la requête SQL pour créer une nouvelle mission
+ $stmt = $pdo->prepare("INSERT INTO Missions (id_projet, id_user, nom_projet, etat)
+ VALUES (:id_projet, :id_user, :nom_projet, 'en attente')");
+
+ // Lier les paramètres
+ $stmt->bindParam(':id_projet', $id_projet);
+ $stmt->bindParam(':id_user', $_POST['id_user_developpeur']);
+ $stmt->bindParam(':nom_projet', $_POST['nom_projet']);
+
+ // Exécuter la requête
+ $stmt->execute();
+
+ echo "Nouveau projet et nouvelle mission créés avec succès";
 } catch(PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
+ echo "Erreur : " . $e->getMessage();
 }
 
 $pdo = null;
