@@ -169,7 +169,7 @@ try {
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
-                                            <h3>Ajouter un client</h3>
+                                            <h3>Ajouter un Projet</h3>
                                             <p>Toutes les informations sont obligatoires</p>
                                         </div>
                                         <form action="add_project.php" method="post" class="card-body">
@@ -221,10 +221,10 @@ try {
                                             <hr class="my-4 mx-n4" />
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
-                                                    Client</button>
+                                                    projet</button>
                                                 <button type="reset" class="btn btn-label-secondary"
                                                     data-bs-dismiss="modal" aria-label="Close">
-                                                    Cancel
+                                                    Annuler
                                                 </button>
                                             </div>
                                         </form>
