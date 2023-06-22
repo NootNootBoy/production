@@ -125,7 +125,15 @@ try {
                                 </button>
                             </div>
                         </div>
+                        <div class="row g-4">
+                            <?php
+                                        $stmt = $pdo->query('SELECT * FROM Projets');
 
+                                        while ($projet = $stmt->fetch()) {
+                                            include 'project_card.php.php';
+                                        }
+                                        ?>
+                        </div>
                         <!--/ DataTable with Buttons -->
                         <hr class="my-5" />
                         <!-- / Content -->
