@@ -218,6 +218,15 @@ try {
                                                     </select>
                                                 </div>
                                             </div>
+                                            <hr class="my-4 mx-n4" />
+                                            <div class="pt-4">
+                                                <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
+                                                    Client</button>
+                                                <button type="reset" class="btn btn-label-secondary"
+                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    Cancel
+                                                </button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
