@@ -7,7 +7,7 @@
                         <img src="../../assets/img/icons/brands/social-label.png" alt="Avatar" class="rounded-circle" />
                     </div>
                     <div class="me-2">
-                        <h5 class="mb-1"><a href="javascript:;" class="h5 stretched-link">Projet numéro :
+                        <h5 class="mb-1"><a>Projet numéro :
                                 <?php echo htmlspecialchars($projet['id_projet']) ?></a></h5>
                         <div class="client-info d-flex align-items-center">
                             <h6 class="mb-0 me-1">Client:</h6>
