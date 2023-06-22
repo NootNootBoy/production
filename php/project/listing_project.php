@@ -31,6 +31,7 @@ try {
 
     // Préparer la requête SQL pour récupérer tous les projets
     $stmt = $pdo->prepare("SELECT * FROM Projets");
+    $stmt->execute();
     $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
     while ($client = $stmt->fetch()) {
         $clientCount++; // Incrémente la variable $clientCount pour chaque client
