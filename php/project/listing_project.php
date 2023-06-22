@@ -31,9 +31,9 @@ try {
 
     // Préparer la requête SQL pour récupérer tous les projets
     $stmt = $pdo->prepare("SELECT * FROM Projets");
-    $projetCount = 0;
-    while ($projet = $stmt->fetch()) {
-        $projetCount++;
+    $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
+    while ($client = $stmt->fetch()) {
+        $clientCount++; // Incrémente la variable $clientCount pour chaque client
     }
 
 
@@ -121,7 +121,7 @@ try {
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Projets</h4>
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="card-header">Listes des projets (<span
-                                    class="fw-bold text-primary"><?php echo $projetCount; ?></span>) :</h5>
+                                    class="fw-bold text-primary"><?php echo $clientCount; ?></span>) :</h5>
                             <div style="max-width: 190px;" class="me-3">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#editUser">
