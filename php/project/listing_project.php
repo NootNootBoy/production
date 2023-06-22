@@ -114,42 +114,7 @@ try {
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des projets (<span
-                                        class="fw-bold text-primary"><?php echo $projetCount; ?></span>) :</h5>
-                                <div style="max-width: 190px;" class="me-3">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#editUser">
-                                        Ajouter un projet
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="table-responsive text-nowrap">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nom</th>
-                                            <th>Client</th>
-                                            <th>Developpeur</th>
-                                            <th>Assistant</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-border-bottom-0">
-                                        <?php
-                                        $stmt = $pdo->query('SELECT * FROM Projets');
-
-                                        while ($projet = $stmt->fetch()) {
-                                            include 'projet_row.php';
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Projets</h4>
 
 
                         <!--/ DataTable with Buttons -->
@@ -166,111 +131,51 @@ try {
                                             <h3>Ajouter un client</h3>
                                             <p>Toutes les informations sont obligatoires</p>
                                         </div>
-                                        <form action="add_client.php" method="post" class="card-body">
+                                        <form action="add_project.php" method="post" class="card-body">
                                             <h6>1. Informations Générales</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="nom">Nom</label>
-                                                    <input type="text" id="nom" name="nom" class="form-control"
-                                                        placeholder="Dupont" required>
+                                                    <label class="form-label" for="nom_projet">Nom du projet</label>
+                                                    <input type="text" id="nom_projet" name="nom_projet"
+                                                        class="form-control" placeholder="Nom du projet" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="prenom">Prénom</label>
-                                                    <input type="text" id="prenom" name="prenom" class="form-control"
-                                                        placeholder="Jean" required>
+                                                    <label class="form-label" for="nom_domaine">Nom de domaine</label>
+                                                    <input type="text" id="nom_domaine" name="nom_domaine"
+                                                        class="form-control" placeholder="Nom de domaine principale"
+                                                        required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="societe">Société</label>
-                                                    <input type="text" id="societe" name="societe" class="form-control"
-                                                        placeholder="Dupont SA" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="siret">SIRET</label>
-                                                    <input type="text" id="siret" name="siret" class="form-control"
-                                                        placeholder="123 456 789 00012" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="email">Email</label>
-                                                    <input type="email" id="email" name="email" class="form-control"
-                                                        placeholder="jean.dupont@example.com" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="phone_number">Numéro de tel</label>
-                                                    <input type="tel" id="phone_number" name="phone_number"
-                                                        class="form-control" placeholder="065120...." required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="temps_engagement">Temps d'engagement
-                                                        (mois)</label>
-                                                    <input type="number" id="temps_engagement" name="temps_engagement"
-                                                        class="form-control" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="date_signature">Date de
-                                                        signature</label>
-                                                    <input type="date" id="date_signature" name="date_signature"
-                                                        class="form-control" required>
-                                                </div>
-                                            </div>
-
-                                            <hr class="my-4 mx-n4" />
-                                            <h6>2. Adresse</h6>
-                                            <div class="row g-3">
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="adresse">Adresse</label>
-                                                    <input type="text" id="adresse" name="adresse" class="form-control"
-                                                        placeholder="123 rue du Pont" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="ville">Ville</label>
-                                                    <input type="text" id="ville" name="ville" class="form-control"
-                                                        placeholder="Paris" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="code_postal">Code Postal</label>
-                                                    <input type="text" id="code_postal" name="code_postal"
-                                                        class="form-control" placeholder="75001" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="pays">Pays</label>
-                                                    <input type="text" id="pays" name="pays" class="form-control"
-                                                        placeholder="France" required>
-                                                </div>
-                                            </div>
-
-                                            <hr class="my-4 mx-n4" />
-                                            <h6>3. Options et Commercial</h6>
-                                            <div class="row g-3">
-                                                <?php foreach ($options as $option): ?>
-                                                <div class="col-md-4">
-                                                    <input type="checkbox" id="option<?php echo $option['id']; ?>"
-                                                        name="options[]" class="form-check-input"
-                                                        value="<?php echo $option['id']; ?>">
-                                                    <label class="form-check-label"
-                                                        for="option<?php echo $option['id']; ?>"><?php echo $option['nom']; ?></label>
-                                                </div>
-                                                <?php endforeach; ?>
-
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="commercial_id">Commercial</label>
-                                                    <select id="commercial_id" name="commercial_id"
-                                                        class="select2 form-select">
-                                                        <?php foreach ($commerciaux as $commercial): ?>
-                                                        <option value="<?php echo $commercial['id']; ?>">
-                                                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
-                                                        </option>
+                                                    <label class="form-label" for="id_client">Client :</label>
+                                                    <select id="id_client" name="id_client" class="select2 form-select">
+                                                        <?php foreach ($clients as $client): ?>
+                                                        <option value="<?= $client['id'] ?>"><?= $client['nom'] ?> -
+                                                            <?= $client['societe'] ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                            </div>
-                                            <hr class="my-4 mx-n4" />
-                                            <div class="pt-4">
-                                                <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
-                                                    Client</button>
-                                                <button type="reset" class="btn btn-label-secondary"
-                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                    Cancel
-                                                </button>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="id_user_developpeur">Développeur
+                                                        :</label>
+                                                    <select id="id_user_developpeur" name="id_user_developpeur"
+                                                        class="select2 form-select">
+                                                        <?php foreach ($developpeurs as $developpeur): ?>
+                                                        <option value="<?= $developpeur['id'] ?>">
+                                                            <?= $developpeur['username'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="id_user_assistant">Assistant
+                                                        :</label>
+                                                    <select id="id_user_assistant" name="id_user_assistant"
+                                                        class="select2 form-select">
+                                                        <?php foreach ($assistants as $assistant): ?>
+                                                        <option value="<?= $assistant['id'] ?>">
+                                                            <?= $assistant['username'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
