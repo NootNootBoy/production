@@ -37,7 +37,7 @@
         <div class="d-flex align-items-center flex-wrap">
             <div class="bg-lighter p-2 rounded me-auto mb-3">
                 <span>Forfait :</span>
-                <h6 class="mb-1"><?php     echo $projet['offre_prix']; ?> </h6>
+                <h6 class="mb-1"><?php     echo $projet['offres_prix']; ?> </h6>
             </div>
             <div class="text-end mb-3">
                 <h6 class="mb-1">Date de démarrage: <span class="text-body fw-normal"></span></h6>
