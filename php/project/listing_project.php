@@ -141,7 +141,7 @@ try {
                                         $stmt->execute();
                                         $projets = $stmt->fetchAll();
 
-                                        while ($projets = $stmt->fetch()) {
+                                        foreach ($projets as $projet) {
                                             include 'project_card.php';
                                         }
                                         ?>
