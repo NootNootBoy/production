@@ -62,13 +62,26 @@
                 
                 $interval = $dateActuelle->diff($dateFin);
                 $joursRestants = $interval->format('%a');
+
+                $badgeClass = 'bg-label-success'; // Vert par défaut
+                if ($joursRestants <= 15) {
+                    $badgeClass = 'bg-label-warning'; // Orange si 15 jours ou moins
+                }
+                
+                if ($joursRestants <= 5) {
+                    $badgeClass = 'bg-label-danger'; // Rouge si 5 jours ou moins
+                }
                 
                 ?>
-                <span class="badge bg-label-success ms-auto"><?php if ($joursRestants == 1) {
+                <span class="badge <?php echo $badgeClass; ?> ms-auto">
+                    <?php 
+                if ($joursRestants == 1) {
                     echo $joursRestants . ' jour restant';
                 } else {
                     echo $joursRestants . ' jours restants';
-                }; ?></span>
+                }; 
+                ?>
+                </span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
                 <small>Tâches:
