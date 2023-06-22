@@ -33,6 +33,13 @@ try {
     $stmt = $pdo->prepare("SELECT * FROM Projets");
     $stmt->execute();
     $projets = $stmt->fetchAll();
+
+    $projetCount = 0;
+    while ($projet = $stmt->fetch()) {
+        $projetCount++;
+    }
+
+
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -128,9 +135,16 @@ try {
                         <div class="row g-4">
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <?php
-                                        $stmt = $pdo->query('SELECT * FROM Projets');
+                                        $stmt = $pdo->prepare("
+                                        SELECT Projets.*, clients.*, offre.* 
+                                        FROM Projets 
+                                        INNER JOIN clients ON Projets.id_client = clients.id 
+                                        INNER JOIN offre ON clients.offre_id = offre.id
+                                    ");
+                                        $stmt->execute();
+                                        $projets = $stmt->fetchAll();
 
-                                        while ($projet = $stmt->fetch()) {
+                                        while ($projets = $stmt->fetch()) {
                                             include 'project_card.php';
                                         }
                                         ?>
@@ -262,7 +276,7 @@ try {
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+        <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
         <script src="../../assets/js/extended-ui-sweetalert2.js"></script>
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
         <!-- Flat Picker -->
