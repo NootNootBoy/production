@@ -43,7 +43,7 @@
                 <div class="text-end mb-3">
                     <h6 class="mb-1">Démarrage : <span class="text-body fw-normal"><?php $dateSignature = new DateTime($projet['client_date_signature']);
                         echo $dateSignature->format('d F Y'); ?> </span></h6>
-                    <h6 class="mb-1">Fin : <span class="text-body fw-normal"><?php $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
+                    <h6 class="mb-1">Deadline : <span class="text-body fw-normal"><?php $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
                         echo $dateAcceptation->format('d F Y'); ?></span></h6>
                 </div>
             </div>
