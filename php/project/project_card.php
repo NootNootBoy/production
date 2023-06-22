@@ -52,7 +52,17 @@
         <div class="card-body border-top">
             <div class="d-flex align-items-center mb-3">
                 <h6 class="mb-1">Temps restant :</h6>
-                <span class="badge bg-label-success ms-auto">28 Days left</span>
+                <?php 
+                
+                $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
+                $dateDuJour = new DateTime();
+
+                $interval = $dateDuJour->diff($dateAcceptation);
+
+                $joursRestants = $interval->format('%a'); // %a donne le nombre total de jours
+
+                ?>
+                <span class="badge bg-label-success ms-auto"><?php echo $joursRestants; ?>Jours Restants</span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
                 <small>Task: <?php echo $projet['taches_completees']; ?>/<?php echo $projet['total_taches']; ?></small>
