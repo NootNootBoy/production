@@ -41,10 +41,10 @@
                     <h6 class="mb-1"><?php echo $projet['offre_prix_mensuel']; ?> </h6>
                 </div>
                 <div class="text-end mb-3">
-                    <h6 class="mb-1">Date de démarrage: <span
-                            class="text-body fw-normal"><?php echo $projet['client_date_signature']; ?> </span></h6>
-                    <h6 class="mb-1">Date de fin maximale: <span
-                            class="text-body fw-normal"><?php echo $projet['mission_date_acceptation']; ?></span></h6>
+                    <h6 class="mb-1">Date de démarrage: <span class="text-body fw-normal"><?php $dateSignature = new DateTime($projet['client_date_signature']);
+                        echo $dateSignature->format('d F Y'); ?> </span></h6>
+                    <h6 class="mb-1">Date de fin maximale: <span class="text-body fw-normal"><?php $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
+                        echo $dateAcceptation->format('d F Y'); ?></span></h6>
                 </div>
             </div>
             <p class="mb-0"><?php echo htmlspecialchars($projet['desc_projet']) ?></p>
@@ -55,14 +55,20 @@
                 <?php 
                 
                 $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
-                $dateDuJour = new DateTime();
-
-                $interval = $dateDuJour->diff($dateAcceptation);
-
-                $joursRestants = $interval->format('%a'); // %a donne le nombre total de jours
-
+                $dateFin = clone $dateAcceptation;
+                $dateFin->add(new DateInterval('P45D')); // Ajoute 45 jours à la date d'acceptation
+                
+                $dateActuelle = new DateTime();
+                
+                $interval = $dateActuelle->diff($dateFin);
+                $joursRestants = $interval->format('%a');
+                
                 ?>
-                <span class="badge bg-label-success ms-auto"><?php echo $joursRestants; ?>Jours Restants</span>
+                <span class="badge bg-label-success ms-auto"><?php if ($joursRestants == 1) {
+                    echo $joursRestants . ' jour restant';
+                } else {
+                    echo $joursRestants . ' jours restants';
+                }; ?></span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
                 <small>Task: <?php echo $projet['taches_completees']; ?>/<?php echo $projet['total_taches']; ?></small>
