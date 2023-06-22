@@ -94,24 +94,47 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
-                    <?php
+                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                        <?php
                     $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
                     $stmt2->execute([$projet['client_commercial_id']]);
                     $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
+                    
+                    $stmt2->execute([$projet['id_user_developpeur']]);
+                    $idDevAvatar = $stmt2->fetch(PDO::FETCH_ASSOC);
+                    
                     if ($commercial && isset($commercial['avatar'])) {
                     ?>
-                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                             class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
                             <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar"
                                 class="rounded-circle" />
                         </li>
-                    </ul>
-                    <?php
+
+                        <?php
                     } else {
                         echo $commercial['nom'];
                     }
                     ?>
+                        <?php 
+
+                    if ($idDevAvatar && isset($idDevAvatar['avatar'])) {
+                        ?>
+
+                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                            class="avatar avatar-xs pull-up"
+                            title="<?php echo htmlspecialchars($idDevAvatar['nom']) ?>">
+                            <img src="<?php echo htmlspecialchars($idDevAvatar['avatar']) ?>" alt="Avatar"
+                                class="rounded-circle" />
+                        </li>
+
+                        <?php
+                        } else {
+                            echo $idDevAvatar['nom'];
+                        }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>
