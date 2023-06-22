@@ -7,17 +7,7 @@
         $stmt2->execute([$projet['id_client']]);
         $cliennt = $stmt2->fetch(PDO::FETCH_ASSOC);
         if ($cliennt && isset($cliennt['avatar'])) {
-        ?>
-        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($cliennt['nom']) ?>">
-                <img src="<?php echo htmlspecialchars($cliennt['avatar']) ?>" alt="Avatar" class="rounded-circle" />
-            </li>
-        </ul>
-        <?php
-        } else {
-            echo $cliennt['nom'];
-        }
+            echo $cliennt['nom'];}
         ?>
     </td>
     <td>
