@@ -96,21 +96,21 @@
                 <div class="d-flex align-items-center">
                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <?php
-                        function fetchUser($pdo, $userId) {
-                            $stmt = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
-                            $stmt->execute([$userId]);
-                            return $stmt->fetch(PDO::FETCH_ASSOC);
-                        }
+                            function fetchUser($pdo, $userId) {
+                                $stmt = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
+                                $stmt->execute([$userId]);
+                                return $stmt->fetch(PDO::FETCH_ASSOC);
+                            }
 
-                        $commercial = fetchUser($pdo, $projet['client_commercial_id']);
-                        $developpeur = fetchUser($pdo, $projet['id_user_developpeur']);
-                        $assistant = fetchUser($pdo, $projet['id_user_assistant']);
+                            $commercial = fetchUser($pdo, $projet['client_commercial_id']);
+                            $developpeur = fetchUser($pdo, $projet['id_user_developpeur']);
+                            $assistant = fetchUser($pdo, $projet['id_user_assistant']);
 
-                        $members = ['commercial' => $commercial, 'developpeur' => $developpeur, 'assistant' => $assistant];
+                            $members = ['commercial' => $commercial, 'developpeur' => $developpeur, 'assistant' => $assistant];
 
-                        foreach ($members as $role => $member) {
-                            if ($member && isset($member['avatar'])) {
-                    ?>
+                            foreach ($members as $role => $member) {
+                                if ($member && isset($member['avatar'])) {
+                        ?>
 
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                             class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($member['nom']) ?>">
@@ -119,11 +119,11 @@
                         </li>
 
                         <?php
-                            } else {
-                                echo $member['nom'];
+                                } else {
+                                    echo $member['nom'];
+                                }
                             }
-                        }
-                    ?>
+                        ?>
 
                         <li><small class="text-muted">3 membres</small></li>
                     </ul>
