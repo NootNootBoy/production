@@ -38,12 +38,12 @@
             <div class="d-flex align-items-center flex-wrap">
                 <div class="bg-lighter p-2 rounded me-auto mb-3">
                     <span>Forfait :</span>
-                    <h6 class="mb-1"><?php echo $projet['offre_prix_mensuel']; ?> </h6>
+                    <h6 class="mb-1"><?php echo $projet['offre_prix_mensuel']; ?> €</h6>
                 </div>
                 <div class="text-end mb-3">
-                    <h6 class="mb-1">Date de démarrage: <span class="text-body fw-normal"><?php $dateSignature = new DateTime($projet['client_date_signature']);
+                    <h6 class="mb-1">Démarrage : <span class="text-body fw-normal"><?php $dateSignature = new DateTime($projet['client_date_signature']);
                         echo $dateSignature->format('d F Y'); ?> </span></h6>
-                    <h6 class="mb-1">Date de fin maximale: <span class="text-body fw-normal"><?php $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
+                    <h6 class="mb-1">Deadline : <span class="text-body fw-normal"><?php $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
                         echo $dateAcceptation->format('d F Y'); ?></span></h6>
                 </div>
             </div>
@@ -106,11 +106,8 @@
                             title="Julee Rossignol" class="avatar avatar-sm pull-up me-2">
                             <img class="rounded-circle" src="../../assets/img/avatars/6.png" alt="Avatar" />
                         </li>
-                        <li><small class="text-muted">280 Members</small></li>
+                        <li><small class="text-muted">3 Members</small></li>
                     </ul>
-                </div>
-                <div class="ms-auto">
-                    <a href="javascript:void(0);" class="text-body"><i class="bx bx-chat"></i> 15</a>
                 </div>
             </div>
         </div>

@@ -135,7 +135,7 @@ try {
                                         $stmt = $pdo->prepare("
                                         SELECT 
                                             Projets.*, 
-                                            clients.id AS client_id, clients.nom AS client_nom, clients.prenom AS client_prenom, clients.offre_id AS client_offre_id, clients.date_signature AS client_date_signature, clients.email AS client_email,
+                                            clients.id AS client_id, clients.nom AS client_nom, clients.prenom AS client_prenom, clients.offre_id AS client_offre_id, clients.date_signature AS client_date_signature, clients.email AS client_email, clients.commercial_id AS client_commercial_id,
                                             offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.nombre_longues_traines AS offre_nombre_longues_traines, offres.nombre_villes AS offre_nombre_villes,
                                             missions.id_mission AS mission_id, missions.progression AS mission_progression, missions.date_acceptation AS mission_date_acceptation,
                                             COUNT(taches.id_tache) AS total_taches, SUM(taches.est_complete) AS taches_completees
