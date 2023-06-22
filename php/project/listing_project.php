@@ -29,6 +29,10 @@ try {
     $stmt->execute();
     $assistants = $stmt->fetchAll();
 
+    // Préparer la requête SQL pour récupérer tous les projets
+    $stmt = $pdo->prepare("SELECT * FROM projets");
+    $stmt->execute();
+    $projets = $stmt->fetchAll();
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -98,12 +102,12 @@ try {
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include 'components/menu.php'; ?>
+            <?php include '/php/components/menu.php'; ?>
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <?php include 'components/navbar.php'; ?>
+                <?php include '/php/components/navbar.php'; ?>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -135,13 +139,18 @@ try {
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php
-                                           $stmt = $pdo->query('SELECT * FROM Projets');
-                                           
-                                           while ($client = $stmt->fetch()) {
-                                               include 'projet_row.php';
-                                               
-                                           }
-                                            ?>
+                                        $stmt = $pdo->query('SELECT * FROM Projets');
+
+                                        while ($projet = $stmt->fetch()) {
+                                            echo 'ID du projet : ' . $projet['id_projet'] . '<br>';
+                                            echo 'Nom du projet : ' . $projet['nom_projet'] . '<br>';
+                                            echo 'ID du client : ' . $projet['id_client'] . '<br>';
+                                            echo 'ID du développeur : ' . $projet['id_user_developpeur'] . '<br>';
+                                            echo 'ID de l\'assistant : ' . $projet['id_user_assistant'] . '<br>';
+                                            echo 'Nom du domaine : ' . $projet['nom_domaine'] . '<br>';
+                                            echo '-----------------------<br>';
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
