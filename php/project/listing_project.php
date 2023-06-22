@@ -130,15 +130,17 @@ try {
                             </div>
                         </div>
                         <div class="row g-4">
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <?php
+
+                            <?php
                                         $stmt = $pdo->prepare("
                                         SELECT Projets.*, 
                                             clients.id AS client_id, clients.nom AS client_nom, clients.prenom AS client_prenom, clients.offre_id AS client_offre_id, clients.date_signature AS client_date_signature, clients.email AS client_email,
-                                            offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.nombre_longues_traines AS offre_nombre_longues_traines, offres.nombre_villes AS offre_nombre_villes
+                                            offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.nombre_longues_traines AS offre_nombre_longues_traines, offres.nombre_villes AS offre_nombre_villes,
+                                            missions.progression AS mission_progression, missions.date_acceptation AS mission_date_acceptation
                                         FROM Projets 
                                         INNER JOIN clients ON Projets.id_client = clients.id 
                                         INNER JOIN offres ON clients.offre_id = offres.id
+                                        INNER JOIN missions ON Projets.id_projet = missions.id_projet
                                     ");
                                     $stmt->execute();
                                     $projets = $stmt->fetchAll();
@@ -149,7 +151,7 @@ try {
                                             include 'project_card.php';
                                         }
                                         ?>
-                            </div>
+
                         </div>
                         <!--/ DataTable with Buttons -->
                         <hr class="my-5" />
