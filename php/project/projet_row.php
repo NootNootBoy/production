@@ -21,7 +21,25 @@
         }
         ?>
     </td>
-    <td><?php echo htmlspecialchars($projet['id_user_assistant']) ?></td>
+    <td>
+        <?php
+        $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
+        $stmt2->execute([$projet['id_user_assistant']]);
+        $assistant = $stmt2->fetch(PDO::FETCH_ASSOC);
+        if ($assistant && isset($assistant['avatar'])) {
+        ?>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($assistant['nom']) ?>">
+                <img src="<?php echo htmlspecialchars($assistant['avatar']) ?>" alt="Avatar" class="rounded-circle" />
+            </li>
+        </ul>
+        <?php
+        } else {
+            echo $assistant['nom'];
+        }
+        ?>
+    </td>
     <td>
         <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
