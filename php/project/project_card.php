@@ -154,6 +154,7 @@
                                 echo $idAssistant['nom'];
                             }
                             ?>
+                        <small>3 membres</small>
                     </ul>
                 </div>
             </div>
