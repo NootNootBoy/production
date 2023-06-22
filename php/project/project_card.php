@@ -47,11 +47,11 @@
                             class="text-body fw-normal"><?php echo $projet['mission_date_acceptation']; ?></span></h6>
                 </div>
             </div>
-            <p class="mb-0">We are Consulting, Software Development and Web Development Services.</p>
+            <p class="mb-0"><?php echo htmlspecialchars($projet['desc_projet']) ?></p>
         </div>
         <div class="card-body border-top">
             <div class="d-flex align-items-center mb-3">
-                <h6 class="mb-1">All Hours: <span class="text-body fw-normal">380/244</span></h6>
+                <h6 class="mb-1">Temps restant :</h6>
                 <span class="badge bg-label-success ms-auto">28 Days left</span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
