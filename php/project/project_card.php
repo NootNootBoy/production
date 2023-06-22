@@ -71,7 +71,8 @@
                 }; ?></span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
-                <small>Task: <?php echo $projet['taches_completees']; ?>/<?php echo $projet['total_taches']; ?></small>
+                <small>Tâches:
+                    <?php echo $projet['taches_completees']; ?>/<?php echo $projet['total_taches']; ?></small>
                 <small><?php echo $projet['mission_progression']; ?>% terminé</small>
             </div>
             <?php 
@@ -93,21 +94,24 @@
             </div>
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
-                    <ul class="list-unstyled d-flex align-items-center avatar-group mb-0 zindex-2">
+                    <?php
+                    $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
+                    $stmt2->execute([$projet['client_commercial_id']]);
+                    $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
+                    if ($commercial && isset($commercial['avatar'])) {
+                    ?>
+                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            title="Vinnie Mostowy" class="avatar avatar-sm pull-up">
-                            <img class="rounded-circle" src="../../assets/img/avatars/5.png" alt="Avatar" />
+                            class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
+                            <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar"
+                                class="rounded-circle" />
                         </li>
-                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            title="Allen Rieske" class="avatar avatar-sm pull-up">
-                            <img class="rounded-circle" src="../../assets/img/avatars/12.png" alt="Avatar" />
-                        </li>
-                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            title="Julee Rossignol" class="avatar avatar-sm pull-up me-2">
-                            <img class="rounded-circle" src="../../assets/img/avatars/6.png" alt="Avatar" />
-                        </li>
-                        <li><small class="text-muted">3 Members</small></li>
                     </ul>
+                    <?php
+                    } else {
+                        echo $commercial['nom'];
+                    }
+                    ?>
                 </div>
             </div>
         </div>
