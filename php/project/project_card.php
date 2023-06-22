@@ -37,11 +37,12 @@
         <div class="d-flex align-items-center flex-wrap">
             <div class="bg-lighter p-2 rounded me-auto mb-3">
                 <span>Forfait :</span>
-                <h6 class="mb-1"><?php     echo $projet['offre_prix_mensuel']; ?> </h6>
+                <h6 class="mb-1"><?php echo $projet['offre_prix_mensuel']; ?> </h6>
             </div>
             <div class="text-end mb-3">
-                <h6 class="mb-1">Date de démarrage: <span class="text-body fw-normal"></span></h6>
-                <h6 class="mb-1">Deadline: <span class="text-body fw-normal">28/2/22</span></h6>
+                <h6 class="mb-1">Date de démarrage: <span
+                        class="text-body fw-normal"><?php echo $projet['client_date_signature']; ?> </span></h6>
+                <h6 class="mb-1">Deadline: <span class="text-body fw-normal"></span></h6>
             </div>
         </div>
         <p class="mb-0">We are Consulting, Software Development and Web Development Services.</p>
