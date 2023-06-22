@@ -126,13 +126,15 @@ try {
                             </div>
                         </div>
                         <div class="row g-4">
-                            <?php
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <?php
                                         $stmt = $pdo->query('SELECT * FROM Projets');
 
                                         while ($projet = $stmt->fetch()) {
                                             include 'project_card.php';
                                         }
                                         ?>
+                            </div>
                         </div>
                         <!--/ DataTable with Buttons -->
                         <hr class="my-5" />
