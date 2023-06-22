@@ -102,6 +102,9 @@
                     
                     $stmt2->execute([$projet['id_user_developpeur']]);
                     $idDevAvatar = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+                    $stmt2->execute([$projet['id_user_assistant']]);
+                    $idAssistant = $stmt2->fetch(PDO::FETCH_ASSOC);
                     
                     if ($commercial && isset($commercial['avatar'])) {
                     ?>
@@ -134,6 +137,23 @@
                             echo $idDevAvatar['nom'];
                         }
                         ?>
+                        <?php 
+
+                        if ($idAssistant && isset($idAssistant['avatar'])) {
+                            ?>
+
+                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                            class="avatar avatar-xs pull-up"
+                            title="<?php echo htmlspecialchars($idAssistant['nom']) ?>">
+                            <img src="<?php echo htmlspecialchars($idAssistant['avatar']) ?>" alt="Avatar"
+                                class="rounded-circle" />
+                        </li>
+
+                        <?php
+                            } else {
+                                echo $idAssistant['nom'];
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
