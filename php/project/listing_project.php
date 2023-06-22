@@ -31,9 +31,6 @@ try {
 
     // Préparer la requête SQL pour récupérer tous les projets
     $stmt = $pdo->prepare("SELECT * FROM Projets");
-    $stmt->execute();
-    $projets = $stmt->fetchAll();
-
     $projetCount = 0;
     while ($projet = $stmt->fetch()) {
         $projetCount++;
