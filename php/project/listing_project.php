@@ -136,7 +136,7 @@ try {
                                         SELECT Projets.*, clients.*, offres.* 
                                         FROM Projets 
                                         INNER JOIN clients ON Projets.id_client = clients.id 
-                                        INNER JOIN offres ON clients.offres_id = offres.id
+                                        INNER JOIN offres ON clients.offre_id = offres.id
                                     ");
                                         $stmt->execute();
                                         $projets = $stmt->fetchAll();
