@@ -130,7 +130,7 @@ try {
                                         $stmt = $pdo->query('SELECT * FROM Projets');
 
                                         while ($projet = $stmt->fetch()) {
-                                            include 'project_card.php.php';
+                                            include 'project_card.php';
                                         }
                                         ?>
                         </div>
