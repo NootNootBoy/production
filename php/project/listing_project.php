@@ -30,7 +30,7 @@ try {
     $assistants = $stmt->fetchAll();
 
     // Préparer la requête SQL pour récupérer tous les projets
-    $stmt = $pdo->prepare("SELECT * FROM projets");
+    $stmt = $pdo->prepare("SELECT * FROM Projets");
     $stmt->execute();
     $projets = $stmt->fetchAll();
 } catch(PDOException $e) {
@@ -142,13 +142,7 @@ try {
                                         $stmt = $pdo->query('SELECT * FROM Projets');
 
                                         while ($projet = $stmt->fetch()) {
-                                            echo 'ID du projet : ' . $projet['id_projet'] . '<br>';
-                                            echo 'Nom du projet : ' . $projet['nom_projet'] . '<br>';
-                                            echo 'ID du client : ' . $projet['id_client'] . '<br>';
-                                            echo 'ID du développeur : ' . $projet['id_user_developpeur'] . '<br>';
-                                            echo 'ID de l\'assistant : ' . $projet['id_user_assistant'] . '<br>';
-                                            echo 'Nom du domaine : ' . $projet['nom_domaine'] . '<br>';
-                                            echo '-----------------------<br>';
+                                            include 'projet_row.php';
                                         }
                                         ?>
                                     </tbody>
