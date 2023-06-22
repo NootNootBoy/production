@@ -63,7 +63,7 @@
   border: 1px solid transparent;
   padding: 0.3125rem 0;
   z-index: 1091;
-  background: #323249;
+  background: #111111;
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
   border-radius: 0.375rem;
 }
@@ -82,5 +82,5 @@
 .dark-style .ui-timepicker-list li.ui-timepicker-disabled,
 .dark-style .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
   color: #ff810a !important;
-  background: #323249 !important;
+  background: #111111 !important;
 }

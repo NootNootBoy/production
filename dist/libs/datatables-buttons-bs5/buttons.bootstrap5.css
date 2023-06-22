@@ -526,7 +526,7 @@ div.dt-button-collection .dt-button:not(.dt-btn-split-drop) {
 }
 
 .dark-style div.dataTables_wrapper .dt-button-collection {
-  background-color: #323249;
+  background-color: #111111;
 }
 .dark-style div.dataTables_wrapper .dt-button-collection > div[role=menu] {
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);

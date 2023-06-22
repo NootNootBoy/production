@@ -698,7 +698,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
 
 .dark-style .flatpickr-calendar,
 .dark-style .flatpickr-days {
-  background: #323249;
+  background: #111111;
   width: calc(16.075rem + 2px) !important;
 }
 .dark-style .flatpickr-prev-month,
@@ -801,7 +801,7 @@ html:not([dir=rtl]) .flatpickr-weekwrapper .flatpickr-weeks .flatpickr-weeks {
 }
 .dark-style .flatpickr-time {
   border: 1px solid rgba(0, 0, 0, 0.05);
-  background: #323249;
+  background: #111111;
   border-radius: 0.375rem;
 }
 .dark-style .flatpickr-time input {

@@ -654,7 +654,7 @@ html:not([dir=rtl]) .select2-container--default .select2-selection--multiple .se
 }
 .dark-style .select2-dropdown {
   z-index: 1000;
-  background: #323249;
+  background: #111111;
   border-color: transparent;
   background-clip: padding-box;
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
