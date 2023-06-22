@@ -43,7 +43,7 @@
                 <div class="text-end mb-3">
                     <h6 class="mb-1">Date de démarrage: <span
                             class="text-body fw-normal"><?php echo $projet['client_date_signature']; ?> </span></h6>
-                    <h6 class="mb-1">Deadline: <span
+                    <h6 class="mb-1">Date de fin maximale: <span
                             class="text-body fw-normal"><?php echo $projet['mission_date_acceptation']; ?></span></h6>
                 </div>
             </div>
@@ -55,12 +55,25 @@
                 <span class="badge bg-label-success ms-auto">28 Days left</span>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-1">
-                <small>Task: 290/344</small>
-                <small>95% Completed</small>
+                <small>Task: <?php echo $projet['taches_completees']; ?>/<?php echo $projet['total_taches']; ?></small>
+                <small><?php echo $projet['mission_progression']; ?>% terminé</small>
             </div>
+            <?php 
+                $progression = $projet['mission_progression']; // Assurez-vous de remplacer ceci par la variable appropriée
+
+                $couleur = 'darkred';
+                if ($progression >= 85) {
+                    $couleur = 'green';
+                } elseif ($progression >= 60) {
+                    $couleur = 'palegreen';
+                } elseif ($progression >= 20) {
+                    $couleur = 'orange';
+                }
+            ?>
             <div class="progress mb-3" style="height: 8px">
-                <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0"
-                    aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                    style="width: <?php echo $progression; ?>%; background-color: <?php echo $couleur; ?>"
+                    aria-valuenow="<?php echo $progression; ?>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">

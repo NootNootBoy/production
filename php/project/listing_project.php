@@ -133,14 +133,18 @@ try {
 
                             <?php
                                         $stmt = $pdo->prepare("
-                                        SELECT Projets.*, 
+                                        SELECT 
+                                            Projets.*, 
                                             clients.id AS client_id, clients.nom AS client_nom, clients.prenom AS client_prenom, clients.offre_id AS client_offre_id, clients.date_signature AS client_date_signature, clients.email AS client_email,
-                                            offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.nombre_longues_traines AS offre_nombre_longues_traines, offres.nombre_villes AS offre_nombre_villes,
-                                            missions.progression AS mission_progression, missions.date_acceptation AS mission_date_acceptation
+                                            offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.longues_traines AS offre_longues_traines, offres.nombre_villes AS offre_nombre_villes,
+                                            missions.id_mission AS mission_id, missions.progression AS mission_progression, missions.date_acceptation AS mission_date_acceptation,
+                                            COUNT(taches.id_tache) AS total_taches, SUM(taches.est_complete) AS taches_completees
                                         FROM Projets 
                                         INNER JOIN clients ON Projets.id_client = clients.id 
                                         INNER JOIN offres ON clients.offre_id = offres.id
                                         INNER JOIN missions ON Projets.id_projet = missions.id_projet
+                                        LEFT JOIN taches ON missions.id_mission = taches.id_mission
+                                        GROUP BY Projets.id_projet
                                     ");
                                     $stmt->execute();
                                     $projets = $stmt->fetchAll();
