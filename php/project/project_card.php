@@ -96,65 +96,36 @@
                 <div class="d-flex align-items-center">
                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <?php
-                    $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
-                    $stmt2->execute([$projet['client_commercial_id']]);
-                    $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
-                    
-                    $stmt2->execute([$projet['id_user_developpeur']]);
-                    $idDevAvatar = $stmt2->fetch(PDO::FETCH_ASSOC);
-
-                    $stmt2->execute([$projet['id_user_assistant']]);
-                    $idAssistant = $stmt2->fetch(PDO::FETCH_ASSOC);
-                    
-                    if ($commercial && isset($commercial['avatar'])) {
-                    ?>
-
-                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
-                            <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar"
-                                class="rounded-circle" />
-                        </li>
-
-                        <?php
-                    } else {
-                        echo $commercial['nom'];
-                    }
-                    ?>
-                        <?php 
-
-                    if ($idDevAvatar && isset($idDevAvatar['avatar'])) {
-                        ?>
-
-                        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            class="avatar avatar-xs pull-up"
-                            title="<?php echo htmlspecialchars($idDevAvatar['nom']) ?>">
-                            <img src="<?php echo htmlspecialchars($idDevAvatar['avatar']) ?>" alt="Avatar"
-                                class="rounded-circle" />
-                        </li>
-
-                        <?php
-                        } else {
-                            echo $idDevAvatar['nom'];
+                        function fetchUser($pdo, $userId) {
+                            $stmt = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
+                            $stmt->execute([$userId]);
+                            return $stmt->fetch(PDO::FETCH_ASSOC);
                         }
-                        ?>
-                        <?php 
 
-                        if ($idAssistant && isset($idAssistant['avatar'])) {
-                            ?>
+                        $commercial = fetchUser($pdo, $projet['client_commercial_id']);
+                        $developpeur = fetchUser($pdo, $projet['id_user_developpeur']);
+                        $assistant = fetchUser($pdo, $projet['id_user_assistant']);
+
+                        $members = ['commercial' => $commercial, 'developpeur' => $developpeur, 'assistant' => $assistant];
+
+                        foreach ($members as $role => $member) {
+                            if ($member && isset($member['avatar'])) {
+                    ?>
 
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            class="avatar avatar-xs pull-up"
-                            title="<?php echo htmlspecialchars($idAssistant['nom']) ?>">
-                            <img src="<?php echo htmlspecialchars($idAssistant['avatar']) ?>" alt="Avatar"
+                            class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($member['nom']) ?>">
+                            <img src="<?php echo htmlspecialchars($member['avatar']) ?>" alt="Avatar"
                                 class="rounded-circle" />
                         </li>
 
                         <?php
                             } else {
-                                echo $idAssistant['nom'];
+                                echo $member['nom'];
                             }
-                            ?>
-                        <small>3 membres</small>
+                        }
+                    ?>
+
+                        <li><small class="text-muted">3 membres</small></li>
                     </ul>
                 </div>
             </div>
