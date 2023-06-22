@@ -43,10 +43,11 @@ try {
 
     // Exécuter la requête
     $stmt->execute();
-
-    echo "Nouveau projet et nouvelle mission créés avec succès";
+    $_SESSION['success_message'] = 'Le client a été ajouté avec succès.';
+    header('Location: listing_project.php?userAdded=true');
 } catch(PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
+    $error_message = "L'insertion a échoué.";
+    header('Location: listing_project.php?error=true&errorMessage=' . urlencode($error_message));
 }
 
 $pdo = null;
