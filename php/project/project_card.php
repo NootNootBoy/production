@@ -109,7 +109,7 @@
                 <div class="d-flex align-items-center">
                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                         <?php
-                    $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
+                    $stmt2 = $pdo->prepare("SELECT avatar, nom, prenom FROM users WHERE id = ?");
                     $stmt2->execute([$projet['client_commercial_id']]);
                     $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
                     
@@ -123,14 +123,15 @@
                     ?>
 
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
+                            class="avatar avatar-xs pull-up"
+                            title="<?php echo htmlspecialchars($commercial['prenom']) ?>">
                             <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar"
                                 class="rounded-circle" />
                         </li>
 
                         <?php
                     } else {
-                        echo $commercial['nom'];
+                        echo $commercial['prenom'];
                     }
                     ?>
                         <?php 
@@ -140,14 +141,14 @@
 
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                             class="avatar avatar-xs pull-up"
-                            title="<?php echo htmlspecialchars($idDevAvatar['nom']) ?>">
+                            title="<?php echo htmlspecialchars($idDevAvatar['prenom']) ?>">
                             <img src="<?php echo htmlspecialchars($idDevAvatar['avatar']) ?>" alt="Avatar"
                                 class="rounded-circle" />
                         </li>
 
                         <?php
                         } else {
-                            echo $idDevAvatar['nom'];
+                            echo $idDevAvatar['prenom'];
                         }
                         ?>
                         <?php 
@@ -157,14 +158,14 @@
 
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                             class="avatar avatar-xs pull-up"
-                            title="<?php echo htmlspecialchars($idAssistant['nom']) ?>">
+                            title="<?php echo htmlspecialchars($idAssistant['prenom']) ?>">
                             <img src="<?php echo htmlspecialchars($idAssistant['avatar']) ?>" alt="Avatar"
                                 class="rounded-circle" />
                         </li>
 
                         <?php
                             } else {
-                                echo $idAssistant['nom'];
+                                echo $idAssistant['prenom'];
                             }
                             ?>
                         <li><small class="text-muted">3 membres</small></li>
