@@ -44,7 +44,7 @@ try {
 
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+<html lang="fr" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
     data-assets-path="../../assets/" data-template="vertical-menu-template-free">
 
 <head>
