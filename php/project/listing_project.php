@@ -133,7 +133,9 @@ try {
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <?php
                                         $stmt = $pdo->prepare("
-                                        SELECT Projets.nom_projet, clients.nom AS client_nom, offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel
+                                        SELECT Projets.*, 
+                                            clients.id AS client_id, clients.nom AS client_nom, clients.prenom AS client_prenom, clients.offre_id AS client_offre_id, clients.date_signature AS client_date_signature, clients.email AS client_email,
+                                            offres.nom AS offre_nom, offres.prix_mensuel AS offre_prix_mensuel, offres.longues_traines AS offre_longues_traines, offres.nombre_villes AS offre_nombre_villes
                                         FROM Projets 
                                         INNER JOIN clients ON Projets.id_client = clients.id 
                                         INNER JOIN offres ON clients.offre_id = offres.id
