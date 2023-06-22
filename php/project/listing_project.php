@@ -133,10 +133,10 @@ try {
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <?php
                                         $stmt = $pdo->prepare("
-                                        SELECT Projets.*, clients.*, offre.* 
+                                        SELECT Projets.*, clients.*, offres.* 
                                         FROM Projets 
                                         INNER JOIN clients ON Projets.id_client = clients.id 
-                                        INNER JOIN offres ON clients.offre_id = offre.id
+                                        INNER JOIN offres ON clients.offres_id = offres.id
                                     ");
                                         $stmt->execute();
                                         $projets = $stmt->fetchAll();
