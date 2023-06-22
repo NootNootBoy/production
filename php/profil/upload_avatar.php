@@ -11,7 +11,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $username = $user['username'];
 
-$target_dir = "uploads/";
+$target_dir = "../../assets/img/avatars/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 if (!file_exists($target_dir)) {
