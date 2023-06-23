@@ -12,8 +12,8 @@
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item"
-                    href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
-                        class="bx bx-edit-alt me-1"></i> Voir la fiche</a>
+                    href="/php/components/details_projet.php?id=<?php echo $mission['id_mission']; ?>"><i
+                        class="bx bx-edit-alt me-1"></i> Voir les tâches</a>
                 <a class="dropdown-item"
                     href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
                         class="bx bx-trash me-1"></i> Archiver</a>
