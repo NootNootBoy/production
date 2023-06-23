@@ -1,6 +1,11 @@
 <?php
 
 session_start();
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $userId = $_SESSION['id'];
+    
+}
 
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
