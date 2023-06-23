@@ -24,7 +24,7 @@ $opt = [
 ?>
 
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
     data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
@@ -52,8 +52,8 @@ $opt = [
     <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core-dark.css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default-dark.css" />
     <link rel="stylesheet" href="../../assets/css/demo.css" />
 
     <!-- Vendors CSS -->
