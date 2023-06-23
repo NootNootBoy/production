@@ -10,6 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
+    $userRang = $_SESSION['rang'];
 }
 
 $host = '176.31.132.185';
@@ -101,7 +102,7 @@ $opt = [
             <ul class="menu-sub">
                 <li class="menu-item">
                     <?php 
-                if ($_SESSION['rang'] === 'administrateur') {
+                if ($userRang === 'administrateur') {
                     echo '<a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
                     class="menu-link" target="_blank">
                     <div data-i18n="Créer un contrat">Créer un contrat</div>

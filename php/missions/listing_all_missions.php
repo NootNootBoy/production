@@ -15,6 +15,7 @@ if ($_SESSION['rang'] !== 'developpeur' && $_SESSION['rang'] !== 'commercial') {
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
+    
 }
 
 $host = '176.31.132.185';
