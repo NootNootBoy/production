@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+$user_id = $_SESSION['user_id']; // Récupérez l'ID de l'utilisateur connecté
+
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
@@ -133,7 +137,8 @@ try {
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php   
-                                        $stmt = $pdo->query('SELECT * FROM missions');
+                                        $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
+                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
 
                                         while ($mission = $stmt->fetch()) {
                                             include 'mission_row.php';
