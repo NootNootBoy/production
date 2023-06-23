@@ -93,12 +93,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
+                    <a href="/php/project/listing_project.php" class="menu-link">
                         <div data-i18n="Créer un projet">Créer un projet</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
+                    <a href="/php/project/listing_project.php" class="menu-link">
                         <div data-i18n="Listes des projets">Liste des projets</div>
                     </a>
                 </li>
