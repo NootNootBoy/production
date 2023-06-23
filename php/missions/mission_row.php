@@ -18,14 +18,13 @@
                     href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
                         class="bx bx-trash me-1"></i> Archiver</a>
                 <?php 
-                if($mision['verify_done'] == '1'){
+                if($mision['verify_done']){
                     echo "<form action='mission_completed.php' method='post'>";
                     echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-                    echo "<a href='javascript:;' onclick='document.getElementById('form1').submit();'><%=n%></a>
-                    <input type='hidden' name='mess' value=<%=n%>/>";
-                    echo "</form>;";
+                    echo "<input type='submit' value='Marquer comme terminée'>";
+                    echo "</form>";
                 }?>
-            </div>é
+            </div>
         </div>
     </td>
 </tr>
