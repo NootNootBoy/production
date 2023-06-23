@@ -56,7 +56,7 @@
                 
                 $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
                 $dateFin = clone $dateAcceptation;
-                $dateFin->add(new DateInterval('P45D')); // Ajoute 45 jours à la date d'acceptation
+                $dateFin->add(new DateInterval('P7D')); // Ajoute 45 jours à la date d'acceptation
                 
                 $dateActuelle = new DateTime();
                 
