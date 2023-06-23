@@ -3,7 +3,7 @@
     <td><?php echo htmlspecialchars($mission['nom_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
     <td><?php echo htmlspecialchars($mission['etat']) ?></td>
-    <td><?php $dateAcceptation = new DateTime($mision['date_acceptation']); echo $dateAcceptation->format('d F Y'); ?>
+    <td><?php $dateAcceptation = new DateTime($mission['date_acceptation']); echo $dateAcceptation->format('d F Y'); ?>
     </td>
     <td>
         <div class="dropdown">
