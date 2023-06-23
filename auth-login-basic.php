@@ -78,7 +78,7 @@ if (isset($_SESSION['error_message'])) {
                             <a href="index.html" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
                                     <div class="d-flex align-items-center justify-content-center"
-                                        style="width: 80px; height: 80px;">
+                                        style="width: 200px; height: 200px;">
 
                                         <img src="assets/img/favicon/Logo-long-blanc.png" class="img-thumbnail"
                                             alt="...">
