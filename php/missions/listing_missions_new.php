@@ -137,15 +137,29 @@ try {
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nom</th>
+                                            <th>Nom de la mission</th>
+                                            <th>Nom du client</th>
                                             <th>Etat</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php   
-                                        $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
-                                        $stmt->execute(['etat' => 'en attente', ':user_id' => $user_id]);
+                                        $stmt = $pdo->prepare('
+                                        SELECT 
+                                            missions.*, 
+                                            projets.id_projet, 
+                                            clients.nom 
+                                        FROM 
+                                            missions 
+                                        INNER JOIN 
+                                            projets ON missions.id_projet = projets.id_projet 
+                                        INNER JOIN 
+                                            clients ON projets.id_client = clients.id 
+                                        WHERE 
+                                            missions.etat = :etat AND missions.id_user = :user_id
+                                    ');
+                                    $stmt->execute(['etat' => 'en cours', ':user_id' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
                                             include 'missionwait_row.php';
