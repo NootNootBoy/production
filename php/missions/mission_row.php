@@ -2,7 +2,19 @@
     <td><?php echo htmlspecialchars($mission['id_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['nom_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
-    <td><?php echo htmlspecialchars($mission['etat']) ?></td>
+    <td>
+        <?php 
+        if ($missionWait['etat'] === 'en cours') {
+            echo "<span class='text-warning'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } elseif ($missionWait['etat'] === 'en attente') {
+            echo "<span class='text-danger'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } elseif ($missionWait['etat'] === 'terminée') {
+            echo "<span class='text-success'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } else {
+            echo htmlspecialchars($missionWait['etat']);
+        }
+        ?>
+    </td>
     <td><?php $dateAcceptation = new DateTime($mission['date_acceptation']); echo $dateAcceptation->format('d F Y'); ?>
     </td>
     <td>
