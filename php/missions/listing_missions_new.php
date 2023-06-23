@@ -144,8 +144,8 @@ try {
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php   
-                                        $stmt = $pdo->prepare("SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id");
-                                        $stmt->execute(['etat' => 'en attente', 'id_user' => $user_id]);
+                                        $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
+                                        $stmt->execute(['etat' => 'en attente', ':user_id' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
                                             include 'missionwait_row.php';
@@ -157,7 +157,7 @@ try {
                         </div>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des missions (<span
+                                <h5 class="card-header">Listes des missions en cours(<span
                                         class="fw-bold text-primary"><?php echo $MissionsCount; ?></span>) :</h5>
                             </div>
                             <div class="table-responsive text-nowrap">
@@ -175,7 +175,7 @@ try {
                                     <tbody class="table-border-bottom-0">
                                         <?php   
                                         $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
-                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
+                                        $stmt->execute(['etat' => 'en cours', ':user_id' => $user_id]);                                        
                                     
                                         while ($mission = $stmt->fetch()) {
                                             include 'mission_row.php';
