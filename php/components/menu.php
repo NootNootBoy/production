@@ -95,7 +95,7 @@ $opt = [
             </ul>
         </li>
         <?php 
-                if ($userRang === 'commercial' && $userRang === 'administrateur') {
+                if ($userRang === 'commercial' || $userRang === 'administrateur') {
                 
                 ?>
         <li class="menu-item">
