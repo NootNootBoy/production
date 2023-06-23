@@ -70,10 +70,15 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
-                        class="menu-link" target="_blank">
-                        <div data-i18n="Créer un contrat">Créer un contrat</div>
-                    </a>
+                    <?php 
+                if ($_SESSION['rang'] === 'administrateur') {
+                    echo '<a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
+                    class="menu-link" target="_blank">
+                    <div data-i18n="Créer un contrat">Créer un contrat</div>
+                    </a>';
+                    }
+                ?>
+
                 </li>
                 <li class="menu-item">
                     <a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=d93202f9-49a1-409c-88e3-bab13765c88b&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
