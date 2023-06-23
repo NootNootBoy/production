@@ -22,7 +22,6 @@ $opt = [
     $pdo = new PDO($dsn, $user, $pass, $opt);
 
     // Préparer la requête SQL pour récupérer tous les projets
-    $user_id = $_SESSION['user_id']; // Récupérez l'ID de l'utilisateur connecté
 
     $stmt = $pdo->prepare("SELECT * FROM Projets");
     $stmt->execute();
@@ -144,7 +143,7 @@ try {
                                     <tbody class="table-border-bottom-0">
                                         <?php   
                                         $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
-                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
+                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $userId]);
 
                                         while ($mission = $stmt->fetch()) {
                                             include 'mission_row.php';
