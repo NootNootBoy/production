@@ -12,7 +12,7 @@
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item"
-                    href="/php/components/details_projet.php?id=<?php echo $mission['id_mission']; ?>"><i
+                    href="/php/missions/task_for_project.php?id=<?php echo $mission['id_mission']; ?>"><i
                         class="bx bx-edit-alt me-1"></i> Voir les tâches</a>
                 <a class="dropdown-item"
                     href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
