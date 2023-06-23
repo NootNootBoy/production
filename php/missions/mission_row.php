@@ -4,14 +4,14 @@
     <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
     <td>
         <?php 
-        if ($missionWait['etat'] === 'en cours') {
-            echo "<span class='text-warning'>" . htmlspecialchars($missionWait['etat']) . "</span>";
-        } elseif ($missionWait['etat'] === 'en attente') {
-            echo "<span class='text-danger'>" . htmlspecialchars($missionWait['etat']) . "</span>";
-        } elseif ($missionWait['etat'] === 'terminée') {
-            echo "<span class='text-success'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        if ($mission['etat'] === 'en cours') {
+            echo "<span class='text-warning'>" . htmlspecialchars($mission['etat']) . "</span>";
+        } elseif ($mission['etat'] === 'en attente') {
+            echo "<span class='text-danger'>" . htmlspecialchars($mission['etat']) . "</span>";
+        } elseif ($mission['etat'] === 'terminée') {
+            echo "<span class='text-success'>" . htmlspecialchars($mission['etat']) . "</span>";
         } else {
-            echo htmlspecialchars($missionWait['etat']);
+            echo htmlspecialchars($mission['etat']);
         }
         ?>
     </td>
