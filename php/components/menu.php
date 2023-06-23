@@ -94,6 +94,10 @@ $opt = [
                 </li>
             </ul>
         </li>
+        <?php 
+                if ($userRang === 'commercial' && $userRang === 'administrateur') {
+                
+                ?>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
@@ -101,14 +105,10 @@ $opt = [
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <?php 
-                if ($userRang === 'administrateur') {
-                    echo '<a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
-                    class="menu-link" target="_blank">
-                    <div data-i18n="Créer un contrat">Créer un contrat</div>
-                    </a>';
-                    }
-                ?>
+                    <a href="https://eu.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=23214814-103b-4e73-9bbc-15dc83eae9dd&env=eu&acct=3f64faea-cf86-421a-a7ac-31321fb1ba95&v=2"
+                        class="menu-link" target="_blank">
+                        <div data-i18n="Créer un contrat">Créer un contrat</div>
+                    </a>
 
                 </li>
                 <li class="menu-item">
@@ -119,6 +119,9 @@ $opt = [
                 </li>
             </ul>
         </li>
+        <?php
+        }
+        ?>
         <!-- Séparateur -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Developpement</span></li>
         <!-- Séparateur -->
