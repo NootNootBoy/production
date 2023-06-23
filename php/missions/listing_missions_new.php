@@ -145,7 +145,7 @@ try {
                                     <tbody class="table-border-bottom-0">
                                         <?php   
                                         $stmt = $pdo->prepare("SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id");
-                                        $stmt->execute(['etat' => 'en cours', 'id_user' => $user_id]);
+                                        $stmt->execute(['etat' => 'en attente', 'id_user' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
                                             include 'missionwait_row.php';
