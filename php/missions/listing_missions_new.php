@@ -155,6 +155,7 @@ try {
                                 </table>
                             </div>
                         </div>
+                        <hr class="my-5" />
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Listes des missions en cours(<span
