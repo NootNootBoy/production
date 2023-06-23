@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-$user_id = $_SESSION['user_id']; // Récupérez l'ID de l'utilisateur connecté
 
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
@@ -18,6 +17,8 @@ $opt = [
     $pdo = new PDO($dsn, $user, $pass, $opt);
 
     // Préparer la requête SQL pour récupérer tous les projets
+    $user_id = $_SESSION['user_id']; // Récupérez l'ID de l'utilisateur connecté
+
     $stmt = $pdo->prepare("SELECT * FROM Projets");
     $stmt->execute();
     $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
@@ -213,7 +214,7 @@ try {
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+        <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
         <script src="../../assets/js/extended-ui-sweetalert2.js"></script>
         <script src="../../assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
         <!-- Flat Picker -->
