@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
+
+?>
+
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="/php/dashboard.php" class="app-brand-link">
