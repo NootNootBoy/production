@@ -96,9 +96,9 @@ if (isset($_SESSION['error_message'])) {
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-                                    <a href="auth-forgot-password-basic.html">
-                                        <small>Forgot Password?</small>
+                                    <label class="form-label" for="password">Mot de passe</label>
+                                    <a href="./php/auth-forgot-password-basic.php">
+                                        <small>Mot de passe oublié ?</small>
                                     </a>
                                 </div>
                                 <div class="input-group input-group-merge">
