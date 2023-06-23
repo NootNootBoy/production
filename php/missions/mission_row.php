@@ -19,7 +19,8 @@
                         class="bx bx-trash me-1"></i> Archiver</a>
                 <?php 
                 if($mission['verify_done']){
-                    echo "<a class='dropdown-item' href='mission_completed.php?id_mission=" . $mission['id_mission'] . "'>Marquer comme terminée</a>";
+                    echo "<a class='dropdown-item success' href='mission_completed.php?id_mission=" . $mission['id_mission'] . "'><i
+                    class='bx bx-check-square me-1'></i>Marquer comme terminée</a>";
                 }?>
             </div>
         </div>
