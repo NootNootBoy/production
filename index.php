@@ -103,7 +103,7 @@ if (isset($_SESSION['error_message'])) {
                         <form id="formAuthentication" class="mb-3" action="./php/login.php" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email ou nom d'utilisateur</label>
-                                <input type="text" class="form-control" id="email" name="email-username"
+                                <input type="text" class="form-control" id="email" name="username"
                                     placeholder="Email ou nom d'utilisateur" autofocus />
                             </div>
                             <div class="mb-3 form-password-toggle">

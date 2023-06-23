@@ -17,7 +17,7 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-$username = $_POST['email-username'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
 $stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
