@@ -21,11 +21,11 @@ $opt = [
 
     // Préparer la requête SQL pour récupérer tous les projets
 
-    $stmt = $pdo->prepare("SELECT * FROM Projets");
-    $stmt->execute();
-    $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
-    while ($client = $stmt->fetch()) {
-        $clientCount++; // Incrémente la variable $clientCount pour chaque client
+    $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
+    $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
+    $MissionsCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
+    while ($missioncount = $stmt->fetch()) {
+        $MissionsCount++; // Incrémente la variable $clientCount pour chaque client
     }
 
 try {
@@ -124,7 +124,7 @@ try {
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Listes des missions (<span
-                                        class="fw-bold text-primary"><?php echo $clientCount; ?></span>) :</h5>
+                                        class="fw-bold text-primary"><?php echo $MissionsCount; ?></span>) :</h5>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped" style="min-height:200px;">
