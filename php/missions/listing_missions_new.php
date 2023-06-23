@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    $userId = $_SESSION['id'];
+    $user_id = $_SESSION['id'];
     
 }
 
@@ -143,7 +143,7 @@ try {
                                     <tbody class="table-border-bottom-0">
                                         <?php   
                                         $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
-                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $userId]);
+                                        $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
 
                                         while ($mission = $stmt->fetch()) {
                                             include 'mission_row.php';
