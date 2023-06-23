@@ -148,12 +148,12 @@ try {
                                         $stmt = $pdo->prepare('
                                         SELECT 
                                             missions.*, 
-                                            projets.id_projet, 
+                                            Projets.id_projet, 
                                             clients.nom 
                                         FROM 
                                             missions 
                                         INNER JOIN 
-                                            projets ON missions.id_projet = projets.id_projet 
+                                            Projets ON missions.id_projet = projets.id_projet 
                                         INNER JOIN 
                                             clients ON projets.id_client = clients.id 
                                         WHERE 
