@@ -2,8 +2,9 @@
     <td><?php echo htmlspecialchars($mission['id_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['nom_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
-    <td><?php echo htmlspecialchars($mission['etat']) ?>%</td>
-    <td><?php echo htmlspecialchars($mission['date_acceptation']) ?>%</td>
+    <td><?php echo htmlspecialchars($mission['etat']) ?></td>
+    <td><?php $dateAcceptation = new DateTime($mision['date_acceptation']); echo $dateAcceptation->format('d F Y'); ?>
+    </td>
     <td>
         <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
