@@ -153,7 +153,7 @@ try {
                                         FROM 
                                             missions 
                                         INNER JOIN 
-                                            Projets ON missions.id_projet = projets.id_projet 
+                                            Projets ON missions.id_projet = Projets.id_projet 
                                         INNER JOIN 
                                             clients ON projets.id_client = clients.id 
                                         WHERE 
