@@ -63,7 +63,8 @@ try {
         $stmt->execute();
     }
 
-    echo "Tâches mises à jour avec succès";
+    $_SESSION['success_message'] = 'Les tâches ont été mises à jour avec succès.';
+    header('Location: listing_missions.php?userAdded=true');
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
