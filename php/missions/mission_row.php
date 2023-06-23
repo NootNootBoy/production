@@ -1,7 +1,19 @@
 <tr>
     <td><?php echo htmlspecialchars($mission['id_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['nom_mission']) ?></td>
-    <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
+    <td>
+        <?php 
+            if ($mission['progression'] <= 20) {
+                echo "<span class='text-danger'>" . htmlspecialchars($mission['progression']) . "%</span>";
+            } elseif ($mission['progression'] <= 60) {
+                echo "<span class='text-warning'>" . htmlspecialchars($mission['progression']) . "%</span>";
+            } elseif ($mission['progression'] > 60) {
+                echo "<span class='text-success'>" . htmlspecialchars($mission['progression']) . "%</span>";
+            } else {
+                echo htmlspecialchars($mission['progression']) . "%";
+            }
+        ?>
+    </td>
     <td>
         <?php 
         if ($mission['etat'] === 'en cours') {
