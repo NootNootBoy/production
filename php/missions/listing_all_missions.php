@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 if ($_SESSION['rang'] !== 'developpeur' || 'commercial') {
     // L'utilisateur n'est pas un administrateur. Redirigez-le vers une page d'erreur.
-    header('Location: access_denied.html');
+    header('Location: /php/access_denied.html');
     exit;
 }
 
