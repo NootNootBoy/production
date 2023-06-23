@@ -144,11 +144,11 @@ try {
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php   
-                                        $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_user = :id_user AND etat = 'en attente'");
+                                        $stmt = $pdo->prepare("SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id'");
                                         $stmt->execute(['etat' => 'en cours', 'id_user' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
-                                            include 'missionWait_row.php';
+                                            include 'missionwait_row.php';
                                         }
                                         ?>
                                     </tbody>
