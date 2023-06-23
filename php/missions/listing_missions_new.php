@@ -159,7 +159,7 @@ try {
                                         WHERE 
                                             missions.etat = :etat AND missions.id_user = :user_id
                                     ');
-                                    $stmt->execute(['etat' => 'en cours', ':user_id' => $user_id]);
+                                    $stmt->execute(['etat' => 'en attente', ':user_id' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
                                             include 'missionwait_row.php';
