@@ -140,6 +140,13 @@ $agences = explode("','", $matches[1]);
                                     </div> -->
                                     <div class="card-body">
                                         <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                            <?php 
+                                                if (isset($user['avatar'])) {
+                                                    echo $user['avatar'];
+                                                } else {
+                                                    echo "La clé 'avatar' n'existe pas dans le tableau \$user";
+                                                }
+                                            ?>
                                             <img src="<?php echo $user['avatar']; ?>" alt="user-avatar"
                                                 class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
                                             <div class="button-wrapper">
