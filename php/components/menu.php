@@ -111,13 +111,13 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Listes de mes projets">Consulter mes projets</div>
+                    <a href="/php/missions/listing_missions.php" class="menu-link">
+                        <div data-i18n="Consulter mes missions">Consulter mes missions</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/php/dashboard.php" class="menu-link">
-                        <div data-i18n="Ajout d'un client">Mes tâches</div>
+                    <a href="/php/missions/listing_missions.php" class="menu-link">
+                        <div data-i18n="Consulter toutes les missions">Consulter toutes les missions</div>
                     </a>
                 </li>
             </ul>
