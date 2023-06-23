@@ -91,7 +91,7 @@ if (isset($_SESSION['error_message'])) {
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email ou nom d'utilisateur</label>
                                 <input type="text" class="form-control" id="email" name="email-username"
-                                    placeholder="Enter your email or username" autofocus />
+                                    placeholder="Email ou nom d'utilisateur" autofocus />
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
