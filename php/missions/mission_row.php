@@ -19,10 +19,7 @@
                         class="bx bx-trash me-1"></i> Archiver</a>
                 <?php 
                 if($mission['verify_done']){
-                    echo "<form action='mission_completed.php' method='post'>";
-                    echo "<input class='dropdown-item' type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-                    echo "<input type='submit' value='Marquer comme terminée'>";
-                    echo "</form>";
+                    echo "<a class='dropdown-item' href='mission_completed.php?id_mission=" . $mission['id_mission'] . "'>Marquer comme terminée</a>";
                 }?>
             </div>
         </div>
