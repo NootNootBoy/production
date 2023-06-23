@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['user_id'];
     
 }
 
