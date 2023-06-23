@@ -155,7 +155,7 @@ try {
                                         INNER JOIN 
                                             Projets ON missions.id_projet = Projets.id_projet 
                                         INNER JOIN 
-                                            clients ON projets.id_client = clients.id 
+                                            clients ON Projets.id_client = clients.id 
                                         WHERE 
                                             missions.etat = :etat AND missions.id_user = :user_id
                                     ');
