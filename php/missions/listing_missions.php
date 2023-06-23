@@ -80,7 +80,7 @@ try {
         if ($mission['verify_done']) {
             echo "<form action='mission_completed.php' method='post'>";
             echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-            echo "<input type='submit' value='Marquer comme terminée'>";
+            echo "<button type='submit' class='dropdown-item'><i class='bx bx-check me-1'></i>Marquer comme terminée</button>";
             echo "</form>";
         }
     }

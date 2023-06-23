@@ -121,7 +121,7 @@ try {
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Mes missions
                         </h4>
-                        <div class="card">
+                        <div class="card" style="min-height:500px;">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Listes des missions (<span
                                         class="fw-bold text-primary"><?php echo $clientCount; ?></span>) :</h5>
