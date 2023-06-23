@@ -17,7 +17,15 @@
                 <a class="dropdown-item"
                     href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
                         class="bx bx-trash me-1"></i> Archiver</a>
-            </div>
+                <?php 
+                if($mision['verify_done'] == '1'){
+                    echo "<form action='mission_completed.php' method='post'>";
+                    echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+                    echo "<a href='javascript:;' onclick='document.getElementById('form1').submit();'><%=n%></a>
+                    <input type='hidden' name='mess' value=<%=n%>/>";
+                    echo "</form>;";
+                }?>
+            </div>é
         </div>
     </td>
 </tr>
