@@ -386,8 +386,7 @@ $opt = [
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block"><?php echo htmlspecialchars($usernamee)?></span>
-                                    <small class="text-muted"><?php echo htmlspecialchars($userRang)?></small>
+
                                 </div>
                             </div>
                         </a>
