@@ -116,7 +116,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/php/missions/listing_missions.php" class="menu-link">
+                    <a href="/php/missions/listing_all_missions.php" class="menu-link">
                         <div data-i18n="Consulter toutes les missions">Consulter toutes les missions</div>
                     </a>
                 </li>
