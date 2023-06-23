@@ -172,11 +172,16 @@ $opt = [
                 <?php
                 }
                 ?>
+                <?php 
+                if ($userRang === 'assistant' || $userRang === 'administrateur') {
+                ?>
                 <li class="menu-item">
                     <a href="/php/missions/listing_all_missions.php" class="menu-link">
                         <div data-i18n="Consulter toutes les missions">Consulter toutes les missions</div>
                     </a>
                 </li>
+                <?php
+                } ?>
             </ul>
         </li>
         <!-- Séparateur -->
