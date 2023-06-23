@@ -1,5 +1,5 @@
 <tr>
-    <td><?php echo htmlspecialchars($mission['id_mission ']) ?></td>
+    <td><?php echo htmlspecialchars($mission['id_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['nom_mission']) ?></td>
     <td><?php echo htmlspecialchars($mission['progression']) ?>%</td>
     <td><?php echo htmlspecialchars($mission['etat']) ?>%</td>
