@@ -18,11 +18,10 @@
                     href="/php/components/details_projet.php?id=<?php echo $projet['id_projet']; ?>"><i
                         class="bx bx-trash me-1"></i> Archiver</a>
                 <?php 
-                if($mision['verify_done']){
-                    echo "<form action='mission_completed.php' method='post'>";
-                    echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
-                    echo "<input type='submit' value='Marquer comme terminée'>";
-                    echo "</form>";
+                if($mission['verify_done']){
+                    ?>
+                <a class="dropdown-item" href="/php/components/details_projet.php?id="><i class="bx bx-trash me-1"></i>
+                    test</a><?php
                 }?>
             </div>
         </div>
