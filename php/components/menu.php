@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $userRang = $_SESSION['rang'];
+    $userAvatar = $_SESSION['avatar'];
 }
 
 $host = '176.31.132.185';
