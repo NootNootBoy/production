@@ -56,7 +56,7 @@
                 
                 $dateAcceptation = new DateTime($projet['mission_date_acceptation']);
                 $dateFin = clone $dateAcceptation;
-                $dateFin->add(new DateInterval('P7D')); // Ajoute 45 jours à la date d'acceptation
+                $dateFin->add(new DateInterval('P8D')); // Ajoute 45 jours à la date d'acceptation
                 
                 $dateActuelle = new DateTime();
                 
@@ -64,11 +64,11 @@
                 $joursRestants = $interval->format('%a');
 
                 $badgeClass = 'bg-label-success'; // Vert par défaut
-                if ($joursRestants <= 15) {
+                if ($joursRestants <= 4) {
                     $badgeClass = 'bg-label-warning'; // Orange si 15 jours ou moins
                 }
                 
-                if ($joursRestants <= 5) {
+                if ($joursRestants <= 2) {
                     $badgeClass = 'bg-label-danger'; // Rouge si 5 jours ou moins
                 }
                 
