@@ -4,7 +4,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
     // L'utilisateur n'est pas connecté. Redirigez-le vers la page de connexion.
-    header('Location: ../../index.php');
+    header('Location: index.php');
     exit;
 }
 if ($_SESSION['rang'] !== 'developpeur' || 'commercial') {
