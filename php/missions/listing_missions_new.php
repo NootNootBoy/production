@@ -1,10 +1,8 @@
 <?php
 
 session_start();
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    
 }
 
 $host = '176.31.132.185';
@@ -55,7 +53,7 @@ try {
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Clients List</title>
+    <title>Mes missions</title>
 
     <meta name="description" content="" />
 
@@ -144,7 +142,7 @@ try {
                                         <?php   
                                         $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
                                         $stmt->execute(['etat' => 'en cours', 'user_id' => $user_id]);
-
+                                    
                                         while ($mission = $stmt->fetch()) {
                                             include 'mission_row.php';
                                         }
