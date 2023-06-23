@@ -27,6 +27,12 @@ $opt = [
     while ($missioncount = $stmt->fetch()) {
         $MissionsCount++; // Incrémente la variable $clientCount pour chaque client
     }
+    $stmt = $pdo->prepare('SELECT * FROM missions WHERE etat = :etat AND id_user = :user_id');
+    $stmt->execute(['etat' => 'en attente', 'user_id' => $user_id]);
+    $MissionsCountWait = 0; // Initialise la variable $clientCount à 0 avant la boucle
+    while ($missioncountW = $stmt->fetch()) {
+        $MissionsCountWait++; // Incrémente la variable $clientCount pour chaque client
+    }
 
 try {
     // Préparer la requête SQL pour récupérer tous les clients
@@ -121,6 +127,34 @@ try {
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Mes missions
                         </h4>
+                        <div class="card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-header">Listes des missions en attentes (<span
+                                        class="fw-bold text-primary"><?php echo $MissionsCountWait; ?></span>) :</h5>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-striped" style="min-height:200px;">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nom</th>
+                                            <th>Etat</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                        <?php   
+                                        $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_user = :id_user AND etat = 'en attente'");
+                                        $stmt->execute(['etat' => 'en cours', 'id_user' => $user_id]);
+                                    
+                                        while ($missionWait = $stmt->fetch()) {
+                                            include 'missionWait_row.php';
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Listes des missions (<span
