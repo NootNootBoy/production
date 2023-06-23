@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    // L'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
+    header('Location: ./php/dashboard.php');
+    exit;
+}
+if (isset($_SESSION['error_message'])) {
+    echo "<p>" . $_SESSION['error_message'] . "</p>";
+    unset($_SESSION['error_message']);
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
