@@ -1,7 +1,7 @@
 <tr>
     <td><?php echo htmlspecialchars($missionWait['id_mission']) ?></td>
     <td><?php echo htmlspecialchars($missionWait['nom_mission']) ?></td>
-    <td><?php echo htmlspecialchars($missionWait['clients.id']) ?></td>
+    <td><?php echo htmlspecialchars($missionWait['nom']); ?></td>
     <td><?php echo htmlspecialchars($missionWait['etat']) ?></td>
     <td>
         <form action='update_mission.php' method='post'>
