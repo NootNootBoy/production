@@ -129,8 +129,8 @@ try {
                         </h4>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des missions en attentes (<span
-                                        class="fw-bold text-primary"><?php echo $MissionsCountWait; ?></span>) :</h5>
+                                <h5 class="card-header">Listes des missions en attente(s) ( <span
+                                        class="fw-bold text-primary"><?php echo $MissionsCountWait; ?></span> ) :</h5>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped" style="min-height:200px;">
@@ -159,7 +159,7 @@ try {
                                         WHERE 
                                             missions.etat = :etat AND missions.id_user = :user_id
                                     ');
-                                    $stmt->execute(['etat' => 'en attente', ':user_id' => $user_id]);
+                                    $stmt->execute(['etat' => 'en attente ', ':user_id' => $user_id]);
                                     
                                         while ($missionWait = $stmt->fetch()) {
                                             include 'missionwait_row.php';
@@ -172,8 +172,8 @@ try {
                         <hr class="my-5" />
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des missions en cours(<span
-                                        class="fw-bold text-primary"><?php echo $MissionsCount; ?></span>) :</h5>
+                                <h5 class="card-header">Listes des missions en cours ( <span
+                                        class="fw-bold text-primary"><?php echo $MissionsCount; ?></span> ) :</h5>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped" style="min-height:200px;">
