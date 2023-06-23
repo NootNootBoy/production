@@ -3,9 +3,17 @@
     <td><?php echo htmlspecialchars($missionWait['nom_mission']) ?></td>
     <td><?php echo htmlspecialchars($missionWait['nom']); ?></td>
     <td>
-        <div class="alert alert-warning" role="alert">
-            <?php echo htmlspecialchars($missionWait['etat']) ?>
-        </div>
+        <?php 
+        if ($missionWait['etat'] === 'en cours') {
+            echo "<span class='text-warning'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } elseif ($missionWait['etat'] === 'en attente') {
+            echo "<span class='text-danger'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } elseif ($missionWait['etat'] === 'terminée') {
+            echo "<span class='text-success'>" . htmlspecialchars($missionWait['etat']) . "</span>";
+        } else {
+            echo htmlspecialchars($missionWait['etat']);
+        }
+        ?>
     </td>
 
     <td>
