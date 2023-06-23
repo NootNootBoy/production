@@ -20,7 +20,7 @@
                 <?php 
                 if($mission['verify_done']){
                     echo "<form action='mission_completed.php' method='post'>";
-                    echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+                    echo "<input class='dropdown-item' type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
                     echo "<input type='submit' value='Marquer comme terminée'>";
                     echo "</form>";
                 }?>
