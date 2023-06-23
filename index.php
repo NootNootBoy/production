@@ -11,10 +11,23 @@ if (isset($_SESSION['error_message'])) {
 }
 
 ?>
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    // L'utilisateur est déjà connecté, redirigez-le vers le tableau de bord
+    header('Location: ./php/dashboard.php');
+    exit;
+}
+if (isset($_SESSION['error_message'])) {
+    echo "<p>" . $_SESSION['error_message'] . "</p>";
+    unset($_SESSION['error_message']);
+}
+?>
+
 <!DOCTYPE html>
 
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default-dark"
-    data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
+    data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
     <meta charset="utf-8" />
@@ -41,8 +54,8 @@ if (isset($_SESSION['error_message'])) {
     <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core-dark.css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default-dark.css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../assets/css/demo.css" />
 
     <!-- Vendors CSS -->
@@ -58,6 +71,8 @@ if (isset($_SESSION['error_message'])) {
     <script src="../../assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
 </head>
@@ -75,24 +90,21 @@ if (isset($_SESSION['error_message'])) {
                         <div class="app-brand justify-content-center">
                             <a href="index.html" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
-                                    <div class="d-flex align-items-center justify-content-center"
-                                        style="width: 80px; height: 80px;">
-
-                                        <img src="assets/img/favicon/logo--mindset_black.png" class="img-thumbnail"
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 200px;">
+                                        <img src="assets/img/favicon/Logo-long-blanc.png" class="img-thumbnail"
                                             alt="...">
                                     </div>
                                 </span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Service interne de Mindset</h4>
-                        <p class="mb-4">cette espace n'est pas réserver aux clients MINDSET</p>
+                        <h4 class="mb-2">Espace de connexion</h4>
 
                         <form id="formAuthentication" class="mb-3" action="./php/login.php" method="POST">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Nom d'utilisateur</label>
-                                <input type="text" class="form-control" id="email" name="username"
-                                    placeholder="Entrer votre nom d'utilisateur" autofocus />
+                                <label for="email" class="form-label">Email ou nom d'utilisateur</label>
+                                <input type="text" class="form-control" id="email" name="email-username"
+                                    placeholder="Email ou nom d'utilisateur" autofocus />
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
@@ -115,11 +127,11 @@ if (isset($_SESSION['error_message'])) {
                                 </div>
                             </div>
                             <?php 
-                  if (isset($_SESSION['success_message'])) {
-                    echo "<p class='text-success'>" . $_SESSION['success_message'] . "</p>";
-                    unset($_SESSION['success_message']);
-                  }
-                ?>
+                if (isset($_SESSION['success_message'])) {
+                  echo "<p class='text-success'>" . $_SESSION['success_message'] . "</p>";
+                  unset($_SESSION['success_message']);
+                }
+              ?>
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>
                             </div>
@@ -132,13 +144,16 @@ if (isset($_SESSION['error_message'])) {
               ?>
                     </div>
                 </div>
-                <!-- /Register -->
             </div>
+            <!-- /Register -->
         </div>
     </div>
+    </div>
 
+    <!-- / Content -->
 
     <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
