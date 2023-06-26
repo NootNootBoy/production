@@ -1,18 +1,6 @@
 <?php
 session_start();
-$host = '176.31.132.185';
-$db   = 'vesqbc_producti_db';
-$user = 'vesqbc_producti_db';
-$pass = '7f-yp!QZWOg6_%49';
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$opt = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-$pdo = new PDO($dsn, $user, $pass, $opt);
+include 'db_connection.php';
 
 echo "<script>console.log('ID de session: " . $_SESSION['user_id'] . "');</script>";
 
@@ -100,13 +88,9 @@ $agences = explode("','", $matches[1]);
         <div class="layout-container">
             <!-- Menu -->
             <?php 
-            if (isset($_SESSION['user_id'])) {
-                $user_id = $_SESSION['user_id'];
-                $userRang = $_SESSION['rang'];
-                $userAvatar = $_SESSION['avatar'];
-
-                include '../../php/components/menu.php';
-            }
+           
+                include '../../php/components/menu.php';    
+            
              ?>
             <!-- / Menu -->
 
@@ -218,7 +202,7 @@ $agences = explode("','", $matches[1]);
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="email" class="form-control" id="email" name="email"
                                                     placeholder="Entrer votre email"
-                                                    value="<?php echo $users['email']; ?>" />
+                                                    value="<?php echo $user['email']; ?>" />
                                             </div>
                                             <?php if ($_SESSION['rang'] == 'administrateur'): ?>
                                             <div class="form-group">
