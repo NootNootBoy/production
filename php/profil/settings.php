@@ -15,7 +15,7 @@ $opt = [
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
 if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['id'];
     $userRang = $_SESSION['rang'];
     $userAvatar = $_SESSION['avatar'];
 }
