@@ -22,20 +22,25 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $userRang = $_SESSION['rang'];
+    $userAvatar = $_SESSION['avatar'];
+}
 
-// // Récupération des rangs
-// $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
-// $result = $stmt->fetch(PDO::FETCH_ASSOC);
-// $matches = array();
-// preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-// $rangs = explode("','", $matches[1]);
+// Récupération des rangs
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$rangs = explode("','", $matches[1]);
 
-// // Récupération des agences
-// $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
-// $result = $stmt->fetch(PDO::FETCH_ASSOC);
-// $matches = array();
-// preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-// $agences = explode("','", $matches[1]);
+// Récupération des agences
+$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$matches = array();
+preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+$agences = explode("','", $matches[1]);
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +103,7 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-
+            <?php include '../../php/components/menu.php'; ?>
             <!-- / Menu -->
 
             <!-- Layout container -->
@@ -191,19 +196,19 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
                                                 ?>
                                                 <input type="text" class="form-control" id="username" name="username"
                                                     placeholder="Entrer votre nom d'utilisateur"
-                                                    value="<?php echo $users['username']; ?>" autofocus />
+                                                    value="<?php echo $user['username']; ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nom" class="form-label">Nom</label>
                                                 <input type="text" class="form-control" id="nom" name="nom"
                                                     placeholder="Entrer votre nom "
-                                                    value="<?php echo htmlspecialchars($users['nom']); ?>" autofocus />
+                                                    value="<?php echo htmlspecialchars($user['nom']); ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="prenom" class="form-label">Prenom</label>
                                                 <input type="text" class="form-control" id="prenom" name="prenom"
                                                     placeholder="Entrer votre prenom"
-                                                    value="<?php echo $users['prenom']; ?>" autofocus />
+                                                    value="<?php echo $user['prenom']; ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
@@ -217,7 +222,7 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
                                                 <select name="rang" id="rang" class="form-control" required>
                                                     <?php foreach ($rangs as $rang): ?>
                                                     <option value="<?php echo $rang; ?>"
-                                                        <?php echo $users['rang'] == $rang ? 'selected' : ''; ?>>
+                                                        <?php echo $user['rang'] == $rang ? 'selected' : ''; ?>>
                                                         <?php echo ucfirst($rang); ?>
                                                     </option>
                                                     <?php endforeach; ?>
@@ -227,7 +232,7 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
                                             <div class="form-group">
                                                 <label for="rang">Rang:</label>
                                                 <input type="text" id="rang" name="rang" class="form-control"
-                                                    value="<?php echo ucfirst($users['rang']); ?>" readonly>
+                                                    value="<?php echo ucfirst($user['rang']); ?>" readonly>
                                             </div>
                                             <?php endif; ?>
 
@@ -236,7 +241,7 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
                                                 <select name="agence" id="agence" class="form-control" required>
                                                     <?php foreach ($agences as $agence): ?>
                                                     <option value="<?php echo $agence; ?>"
-                                                        <?php echo $users['agence'] == $agence ? 'selected' : ''; ?>>
+                                                        <?php echo $user['agence'] == $agence ? 'selected' : ''; ?>>
                                                         <?php echo ucfirst($agence); ?>
                                                     </option>
                                                     <?php endforeach; ?>
