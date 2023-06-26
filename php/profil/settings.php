@@ -10,10 +10,6 @@ if (!isset($_SESSION['user_id'])) {
     die('User ID not set in session');
 }
 
-if ($_SESSION['user_id']){
-    echo $_SESSION['user_id'];
-}
-
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -145,7 +141,7 @@ $agences = explode("','", $matches[1]);
                                     <div class="card-body">
                                         <div class="d-flex align-items-start align-items-sm-center gap-4">
 
-                                            <img src="<?php echo isset($user['avatar']) ? $user['avatar'] : '/assets/img/avatars/feron.jpg'; ?>"
+                                            <img src="<?php echo isset($user['avatar']) ? $user['avatar'] : '../../assets/img/avatars/feron.jpg'; ?>"
                                                 alt="user-avatar" class="d-block rounded" height="100" width="100"
                                                 id="uploadedAvatar" />
                                             <div class="button-wrapper">
