@@ -10,13 +10,6 @@ if (!isset($_SESSION['user_id'])) {
     die('User ID not set in session');
 }
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $usernamee = $_SESSION['username'];
-    $userRang = $_SESSION['rang'];
-    $userAvatar = $_SESSION['avatar'];
-}
-
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -181,7 +174,7 @@ $agences = explode("','", $matches[1]);
                                                 <label for="username" class="form-label">Utilisateur</label>
                                                 <input type="text" class="form-control" id="username" name="username"
                                                     placeholder="Entrer votre nom d'utilisateur"
-                                                    value="<?php echo $usernamee ?>" autofocus />
+                                                    value="<?php echo $user['username']; ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nom" class="form-label">Nom</label>
