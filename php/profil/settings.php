@@ -23,19 +23,19 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
 
-// Récupération des rangs
-$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-$matches = array();
-preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-$rangs = explode("','", $matches[1]);
+// // Récupération des rangs
+// $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
+// $result = $stmt->fetch(PDO::FETCH_ASSOC);
+// $matches = array();
+// preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+// $rangs = explode("','", $matches[1]);
 
-// Récupération des agences
-$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-$matches = array();
-preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-$agences = explode("','", $matches[1]);
+// // Récupération des agences
+// $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
+// $result = $stmt->fetch(PDO::FETCH_ASSOC);
+// $matches = array();
+// preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+// $agences = explode("','", $matches[1]);
 ?>
 
 <!DOCTYPE html>
