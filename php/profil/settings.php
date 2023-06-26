@@ -14,10 +14,13 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+echo "<script>console.log('ID de session: " . $_SESSION['user_id'] . "');</script>";
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
 if (!isset($_SESSION['user_id'])) {
     die('User ID not set in session');
