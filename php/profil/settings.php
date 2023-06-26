@@ -175,13 +175,14 @@ $agences = explode("','", $matches[1]);
                                                 <label for="username" class="form-label">Utilisateur</label>
                                                 <input type="text" class="form-control" id="username" name="username"
                                                     placeholder="Entrer votre nom d'utilisateur"
-                                                    value="<?php echo $user['username']; ?>" autofocus />
+                                                    value="<?php echo htmlspecialchars($user['username']); ?>"
+                                                    autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nom" class="form-label">Nom</label>
                                                 <input type="text" class="form-control" id="nom" name="nom"
-                                                    placeholder="Entrer votre nom " value="<?php echo $user['nom']; ?>"
-                                                    autofocus />
+                                                    placeholder="Entrer votre nom "
+                                                    value="<?php echo htmlspecialchars($user['nom'];) ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="prenom" class="form-label">Prenom</label>
