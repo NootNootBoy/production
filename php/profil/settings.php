@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
+    $usernamee = $_SESSION['username'];
     $userRang = $_SESSION['rang'];
     $userAvatar = $_SESSION['avatar'];
 }
@@ -180,7 +181,7 @@ $agences = explode("','", $matches[1]);
                                                 <label for="username" class="form-label">Utilisateur</label>
                                                 <input type="text" class="form-control" id="username" name="username"
                                                     placeholder="Entrer votre nom d'utilisateur"
-                                                    value="<?php echo $user['username']; ?>" autofocus />
+                                                    value="<?php echo $usernamee ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nom" class="form-label">Nom</label>
