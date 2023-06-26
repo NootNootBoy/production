@@ -16,7 +16,7 @@ $pdo = new PDO($dsn, $user, $pass, $opt);
 
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-$stmt->execute(['id' => $user['id']]);
+$stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!isset($_SESSION['user_id'])) {
