@@ -14,6 +14,12 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $userRang = $_SESSION['rang'];
+    $userAvatar = $_SESSION['avatar'];
+}
+
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $user_id]);
