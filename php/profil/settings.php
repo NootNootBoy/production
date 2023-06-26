@@ -22,9 +22,6 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
-if (!isset($_SESSION['user_id'])) {
-    die('User ID not set in session');
-}
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
@@ -189,6 +186,9 @@ $agences = explode("','", $matches[1]);
                                         <form class="mb-3" action="modify_profile.php" method="POST">
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Utilisateur</label>
+                                                <?php 
+                                                echo "<script>console.log('Username: " . $user['username'] . "');</script>";
+                                                ?>
                                                 <input type="text" class="form-control" id="username" name="username"
                                                     placeholder="Entrer votre nom d'utilisateur"
                                                     value="<?php echo $users['username']; ?>" autofocus />
