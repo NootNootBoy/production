@@ -14,32 +14,32 @@ document.addEventListener('DOMContentLoaded', function (e) {
           username: {
             validators: {
               notEmpty: {
-                message: 'Please enter username'
+                message: 'Entrer votre pseudonyme'
               },
               stringLength: {
                 min: 6,
-                message: 'Username must be more than 6 characters'
+                message: 'Pseudonyme doit faire plus de 6 caractères'
               }
             }
           },
           email: {
             validators: {
               notEmpty: {
-                message: 'Please enter your email'
+                message: 'Entrer votre adresse mail'
               },
               emailAddress: {
-                message: 'Please enter valid email address'
+                message: 'Entrer une adresse mail valide'
               }
             }
           },
           'email-username': {
             validators: {
               notEmpty: {
-                message: 'Please enter email / username'
+                message: 'Entrer votre email / pseudonyme'
               },
               stringLength: {
                 min: 6,
-                message: 'Username must be more than 6 characters'
+                message: 'Le pseudonyme doit comporter plus de 6 caractères'
               }
             }
           },
@@ -50,31 +50,31 @@ document.addEventListener('DOMContentLoaded', function (e) {
               },
               stringLength: {
                 min: 6,
-                message: 'Password must be more than 6 characters'
+                message: 'Le mot de passe doit comporter plus de 6 caractères'
               }
             }
           },
           'confirm-password': {
             validators: {
               notEmpty: {
-                message: 'Please confirm password'
+                message: 'Confirmer votre mot de passe'
               },
               identical: {
                 compare: function () {
                   return formAuthentication.querySelector('[name="password"]').value;
                 },
-                message: 'The password and its confirm are not the same'
+                message: 'Le mot de passe et sa confirmation ne sont pas les mêmes'
               },
               stringLength: {
                 min: 6,
-                message: 'Password must be more than 6 characters'
+                message: 'Le mot de passe doit comporter plus de 6 caractères'
               }
             }
           },
           terms: {
             validators: {
               notEmpty: {
-                message: 'Please agree terms & conditions'
+                message: 'Veuillez accepter les termes et conditions'
               }
             }
           }
