@@ -10,6 +10,10 @@ if (!isset($_SESSION['user_id'])) {
     die('User ID not set in session');
 }
 
+if ($_SESSION['user_id']){
+    echo $_SESSION['user_id'];
+}
+
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
