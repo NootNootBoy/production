@@ -224,7 +224,6 @@ $agences = explode("','", $matches[1]);
                                             <div class="form-group">
                                                 <label for="rang">Rang:</label>
                                                 <input type="text" id="rang" name="rang" class="form-control"
-                                                    value="<?php echo ucfirst($user['rang']); ?>" readonly>
                                                     value="<?php echo ucfirst($users['rang']); ?>" readonly>
                                             </div>
                                             <?php endif; ?>
