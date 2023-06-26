@@ -103,7 +103,9 @@ $agences = explode("','", $matches[1]);
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include '../../php/components/menu.php'; ?>
+            <?php 
+            $userRang;
+            include '../../php/components/menu.php'; ?>
             <!-- / Menu -->
 
             <!-- Layout container -->
