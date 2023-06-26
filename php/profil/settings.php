@@ -98,7 +98,7 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include '../../php/components/menu.php'; ?>
+
             <!-- / Menu -->
 
             <!-- Layout container -->
