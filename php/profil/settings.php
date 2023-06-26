@@ -14,12 +14,6 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $userRang = $_SESSION['rang'];
-    $userAvatar = $_SESSION['avatar'];
-}
-
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $user_id]);
@@ -206,13 +200,13 @@ $agences = explode("','", $matches[1]);
                                                 <label for="prenom" class="form-label">Prenom</label>
                                                 <input type="text" class="form-control" id="prenom" name="prenom"
                                                     placeholder="Entrer votre prenom"
-                                                    value="<?php echo $user['prenom']; ?>" autofocus />
+                                                    value="<?php echo $users['prenom']; ?>" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="email" class="form-control" id="email" name="email"
                                                     placeholder="Entrer votre email"
-                                                    value="<?php echo $user['email']; ?>" />
+                                                    value="<?php echo $users['email']; ?>" />
                                             </div>
                                             <?php if ($_SESSION['rang'] == 'administrateur'): ?>
                                             <div class="form-group">
@@ -220,7 +214,7 @@ $agences = explode("','", $matches[1]);
                                                 <select name="rang" id="rang" class="form-control" required>
                                                     <?php foreach ($rangs as $rang): ?>
                                                     <option value="<?php echo $rang; ?>"
-                                                        <?php echo $user['rang'] == $rang ? 'selected' : ''; ?>>
+                                                        <?php echo $users['rang'] == $rang ? 'selected' : ''; ?>>
                                                         <?php echo ucfirst($rang); ?>
                                                     </option>
                                                     <?php endforeach; ?>
@@ -231,6 +225,7 @@ $agences = explode("','", $matches[1]);
                                                 <label for="rang">Rang:</label>
                                                 <input type="text" id="rang" name="rang" class="form-control"
                                                     value="<?php echo ucfirst($user['rang']); ?>" readonly>
+                                                    value="<?php echo ucfirst($users['rang']); ?>" readonly>
                                             </div>
                                             <?php endif; ?>
 
@@ -239,7 +234,7 @@ $agences = explode("','", $matches[1]);
                                                 <select name="agence" id="agence" class="form-control" required>
                                                     <?php foreach ($agences as $agence): ?>
                                                     <option value="<?php echo $agence; ?>"
-                                                        <?php echo $user['agence'] == $agence ? 'selected' : ''; ?>>
+                                                        <?php echo $users['agence'] == $agence ? 'selected' : ''; ?>>
                                                         <?php echo ucfirst($agence); ?>
                                                     </option>
                                                     <?php endforeach; ?>
