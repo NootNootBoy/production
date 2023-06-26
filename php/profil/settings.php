@@ -141,8 +141,9 @@ $agences = explode("','", $matches[1]);
                                     <div class="card-body">
                                         <div class="d-flex align-items-start align-items-sm-center gap-4">
 
-                                            <img src="<?php echo $user['avatar']; ?>" alt="user-avatar"
-                                                class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+                                            <img src="<?php echo isset($user['avatar']) ? $user['avatar'] : '/assets/img/avatars/feron.jpg'; ?>"
+                                                alt="user-avatar" class="d-block rounded" height="100" width="100"
+                                                id="uploadedAvatar" />
                                             <div class="button-wrapper">
                                                 <form action="upload_avatar.php" method="post"
                                                     enctype="multipart/form-data">
