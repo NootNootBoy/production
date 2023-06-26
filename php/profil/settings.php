@@ -22,11 +22,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $userRang = $_SESSION['rang'];
-    $userAvatar = $_SESSION['avatar'];
-}
+
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
@@ -104,8 +100,14 @@ $agences = explode("','", $matches[1]);
         <div class="layout-container">
             <!-- Menu -->
             <?php 
-            $userRang;
-            include '../../php/components/menu.php'; ?>
+            if (isset($_SESSION['user_id'])) {
+                $user_id = $_SESSION['user_id'];
+                $userRang = $_SESSION['rang'];
+                $userAvatar = $_SESSION['avatar'];
+
+                include '../../php/components/menu.php';
+            }
+             ?>
             <!-- / Menu -->
 
             <!-- Layout container -->
