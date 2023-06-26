@@ -43,9 +43,6 @@
             </ul>
         </li> -->
         <!-- Séparateur -->
-        <?php 
-                if ($userRang === 'commercial' || $userRang === 'administrateur') {
-                ?>
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Vendeur</span></li>
         <!-- Séparateur -->
         <li class="menu-item">
@@ -66,12 +63,6 @@
                 </li>
             </ul>
         </li>
-        <?php
-                }
-        ?>
-        <?php 
-                if ($userRang === 'commercial' || $userRang === 'administrateur') {
-                ?>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
@@ -93,9 +84,6 @@
                 </li>
             </ul>
         </li>
-        <?php
-        }
-        ?>
         <!-- Séparateur -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Developpement</span></li>
         <!-- Séparateur -->
@@ -106,17 +94,13 @@
             </a>
 
             <ul class="menu-sub">
-                <?php 
-                if ($userRang === 'commercial' || $userRang === 'administrateur') {
-                ?>
+
                 <li class="menu-item">
                     <a href="/php/project/listing_project.php" class="menu-link">
                         <div data-i18n="Créer un projet">Créer un projet</div>
                     </a>
                 </li>
-                <?php
-                }
-                ?>
+
                 <li class="menu-item">
                     <a href="/php/project/listing_project.php" class="menu-link">
                         <div data-i18n="Listes des projets">Liste des projets</div>
@@ -124,9 +108,7 @@
                 </li>
             </ul>
         </li>
-        <?php 
-                if ($userRang === 'developpeur' || $userRang === 'administrateur') {
-                ?>
+
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-task"></i>
@@ -138,25 +120,17 @@
                         <div data-i18n="Consulter mes missions">Consulter mes missions</div>
                     </a>
                 </li>
-                <?php
-                }
-                ?>
-                <?php 
-                if ($userRang === 'assistant' || $userRang === 'administrateur') {
-                ?>
+
                 <li class="menu-item">
                     <a href="/php/missions/listing_all_missions.php" class="menu-link">
                         <div data-i18n="Consulter toutes les missions">Consulter toutes les missions</div>
                     </a>
                 </li>
-                <?php
-                } ?>
+
             </ul>
         </li>
         <!-- Séparateur -->
-        <?php 
-                if ($userRang === 'developpeur' || $userRang === 'administrateur') {
-                ?>
+
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Outils</span></li>
         <!-- Séparateur -->
         <li class="menu-item">
@@ -172,12 +146,7 @@
                 </li>
             </ul>
         </li>
-        <?php
-                }
-        ?>
-        <?php 
-                if ($userRang === 'assistant' || $userRang === 'administrateur') {
-                ?>
+
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
@@ -201,8 +170,5 @@
                 </li>
             </ul>
         </li>
-        <?php
-                }
-                ?>
     </ul>
 </aside>
