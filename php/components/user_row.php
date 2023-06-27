@@ -4,6 +4,7 @@
     <td><?php echo htmlspecialchars($user['prenom']) ?></td>
     <td><?php echo htmlspecialchars($user['email']) ?></td>
     <td><?php echo htmlspecialchars($user['rang']) ?></td>
+    <td><?php echo htmlspecialchars($user['phone_number']) ?></td>
     <td><?php echo htmlspecialchars($user['agence']) ?></td>
     <td><span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($user['statut']) ?></span></td>
     <td>

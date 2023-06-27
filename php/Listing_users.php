@@ -126,6 +126,7 @@ $agences = explode("','", $matches[1]);
                                             <th>Prenom</th>
                                             <th>Email</th>
                                             <th>Rôle</th>
+                                            <th>Tél</th>
                                             <th>Agence</th>
                                             <th>Statut</th>
                                             <th>Actions</th>
@@ -174,6 +175,11 @@ $agences = explode("','", $matches[1]);
                                                 <label for="prenom" class="form-label">Prenom</label>
                                                 <input type="text" class="form-control" id="prenom" name="prenom"
                                                     placeholder="Entrer votre prenom" autofocus />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="phone_number" class="form-label">Numéro de téléphone</label>
+                                                <input type="tel" class="form-control" id="phone_number" name="phone_number"
+                                                    placeholder="Entrer le numéro de téléphone" autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
