@@ -275,6 +275,22 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
+                                            <div class="col-md-6">
+                                                <label class="form-label" for="offre_id">Offre</label>
+                                                <select id="offre_id" name="offre_id" class="form-control" required>
+                                                    <?php
+                                                    // Récupérer toutes les offres
+                                                    $stmt = $pdo->prepare('SELECT * FROM offres');
+                                                    $stmt->execute();
+                                                    $offres = $stmt->fetchAll();
+
+                                                    // Afficher chaque offre comme une option
+                                                    foreach ($offres as $offre) {
+                                                        echo "<option value=\"{$offre['id']}\">{$offre['nom']}</option>";
+                                                    }
+                                                    ?>
+                                            </select>
+                                            </div>
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
                                                     Client</button>
