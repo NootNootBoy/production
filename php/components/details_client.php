@@ -514,7 +514,7 @@
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
                                             <h3>Changer d'offre</h3>
-                                            <p>pour votre client : <strong>?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></strong></p>
+                                            <p>pour votre client : <strong><?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></strong></p>
                                         </div>
                                         <form action="update_offer.php" method="post" class="row g-3">
                                             <input type="hidden" name="client_id" value="<?php echo $client['id']; ?>">
