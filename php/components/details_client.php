@@ -192,45 +192,46 @@
                                                     <span class="fw-bold me-2">Adresse postal:</span>
                                                     <?php echo $client['adresse'] . ' '. $client['ville'] . ' ' .  $client['code_postal']?>
                                                 </li>
-                                                <?php
-                                                // Récupérer l'associé du client actuel
-                                                $stmt = $pdo->prepare('SELECT * FROM associes WHERE client_id = ?');
-                                                $stmt->execute([$client['id']]);
-                                                $associe = $stmt->fetch();
-
-                                                // Vérifier si un associé existe
-                                                if ($associe) {
-                                            ?>
-                                                <h5 class="pb-2 border-bottom mb-4">Détails de l'associé</h5>
-                                                <div class="info-container">
-                                                    <ul class="list-unstyled">
-                                                        <li class="mb-3">
-                                                            <span class="fw-bold me-2">Nom:</span>
-                                                            <span><?php echo $associe['nom']?></span>
-                                                        </li>
-                                                        <li class="mb-3">
-                                                            <span class="fw-bold me-2">Prenom:</span>
-                                                            <span><?php echo $associe['prenom']?></span>
-                                                        </li>
-                                                        <li class="mb-3">
-                                                            <span class="fw-bold me-2">Email:</span>
-                                                            <?php echo $associe['email']?>
-                                                        </li>
-                                                        <li class="mb-3">
-                                                            <span class="fw-bold me-2">Numero de téléphone:</span>
-                                                            <?php echo $associe['phone_number']?>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            <?php
-                                                }
-                                            ?>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Statut:</span>
                                                     <span class="badge bg-label-success">
                                                         <?php echo $client['statut']?></span>
                                                 </li>
+                                                <?php
+                                            // Récupérer l'associé du client actuel
+                                            $stmt = $pdo->prepare('SELECT * FROM associes WHERE client_id = ?');
+                                            $stmt->execute([$client['id']]);
+                                            $associe = $stmt->fetch();
+
+                                            // Vérifier si un associé existe
+                                            if ($associe) {
+                                        ?>
+                                            <h5 class="pb-2 border-bottom mb-4">Détails de l'associé</h5>
+                                            <div class="info-container">
+                                                <ul class="list-unstyled">
+                                                    <li class="mb-3">
+                                                        <span class="fw-bold me-2">Nom:</span>
+                                                        <span><?php echo $associe['nom']?></span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="fw-bold me-2">Prenom:</span>
+                                                        <span><?php echo $associe['prenom']?></span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="fw-bold me-2">Email:</span>
+                                                        <?php echo $associe['email']?>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="fw-bold me-2">Numero de téléphone:</span>
+                                                        <?php echo $associe['phone_number']?>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        <?php
+                                            }
+                                        ?>
                                             </ul>
+                                            
                                             <div class="d-flex justify-content-center pt-3">
                                                 <a href="javascript:;" class="btn btn-primary me-3"
                                                     data-bs-target="#editUser" data-bs-toggle="modal">Modifier</a>
