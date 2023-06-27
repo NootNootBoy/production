@@ -25,7 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare('UPDATE clients SET offre_id = ? WHERE id = ?');
     $stmt->execute([$offer_id, $client_id]);
 
-    // Rediriger l'utilisateur vers la page des détails du client
-    header('Location: details_client.php?id=' . $client_id);
+
+    if ($stmt->rowCount() > 0) {
+        $_SESSION['success_message'] = 'L"offre du client a été modifiée avec succès.';
+        header('Location: /php/components/details_client.php?id=' . $client_id . '&offerUpdate=true');
+    } else {
+        // La mise à jour a échoué
+        $error_message = "La mise à jour a échoué.";
+        header('Location: /php/components/details_client.php?id=' . $client_id . '&error2=true&errorMessage=' . urlencode($error_message));
+    }
+    // // Rediriger l'utilisateur vers la page des détails du client
+    // header('Location: details_client.php?id=' . $client_id);
 }
 ?>

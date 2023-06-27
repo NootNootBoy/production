@@ -613,6 +613,43 @@
         }
     });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Vérifie les paramètres dans l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var offerUpdate = urlParams.get('offerUpdate');
+        var error2 = urlParams.get('error2');
+        var errorMessage = urlParams.get('errorMessage');
+
+        // Si 'userAdded' est vrai, affiche l'alerte de succès
+        console.log("offerUpdate:", offerUpdate);
+        console.log("error:", error2);
+        console.log("errorMessage:", errorMessage);
+        if (offerUpdate === 'true') {
+            Swal.fire({
+                title: 'Bien joué!',
+                text: "L'offre a été modifiée avec succès!",
+                icon: 'success',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+        // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
+        else if (error2 === 'true') {
+            Swal.fire({
+                title: 'Erreur!',
+                text: errorMessage,
+                icon: 'error',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+    });
+    </script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
