@@ -128,7 +128,6 @@ $agences = explode("','", $matches[1]);
                                             <th>Rôle</th>
                                             <th>Tél</th>
                                             <th>Agence</th>
-                                            <th>Statut</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
