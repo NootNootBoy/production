@@ -43,8 +43,21 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
+
 $stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
 $stmt->execute([$nom, $prenom, $societe, $siret, $email, $phone_number, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id]);
+
+$associe_nom = $_POST['associe_nom'];
+$associe_prenom = $_POST['associe_prenom'];
+$associe_email = $_POST['associe_email'];
+$associe_telephone = $_POST['associe_telephone'];
+
+// Vérifiez si les champs de l'associé sont remplis
+if (!empty($associe_nom) && !empty($associe_prenom) && !empty($associe_email) && !empty($associe_telephone)) {
+    // Insérez les informations de l'associé dans la table 'associes'
+    $stmt = $pdo->prepare('INSERT INTO associes (nom, prenom, email, telephone, client_id) VALUES (?, ?, ?, ?, ?)');
+    $stmt->execute([$associe_nom, $associe_prenom, $associe_email, $associe_telephone, $client_id]);
+}
 
 $client_id = $pdo->lastInsertId();
 
