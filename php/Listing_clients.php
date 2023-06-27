@@ -124,7 +124,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                             <th>Societé</th>
                                             <th>Gerant</th>
                                             <th>Telephone</th>
-                                            <th>Vendeur</th>
+                                            <th>Vendeur(s)</th>
                                             <th>Fin du contrat</th>
                                             <th>Actions</th>
                                         </tr>

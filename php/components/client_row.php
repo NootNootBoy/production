@@ -5,20 +5,22 @@
     <td><?php echo htmlspecialchars($client['phone_number']) ?></td>
     <td>
         <?php
-        $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ?");
-        $stmt2->execute([$client['commercial_id']]);
-        $commercial = $stmt2->fetch(PDO::FETCH_ASSOC);
-        if ($commercial && isset($commercial['avatar'])) {
+        $stmt2 = $pdo->prepare("SELECT avatar, nom FROM users WHERE id = ? OR id = ?");
+        $stmt2->execute([$client['commercial_id'], $client['second_commercial_id']]);
+        $commerciaux = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+        if ($commerciaux) {
         ?>
         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+            <?php foreach ($commerciaux as $commercial): ?>
             <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                 class="avatar avatar-xs pull-up" title="<?php echo htmlspecialchars($commercial['nom']) ?>">
                 <img src="<?php echo htmlspecialchars($commercial['avatar']) ?>" alt="Avatar" class="rounded-circle" />
             </li>
+            <?php endforeach; ?>
         </ul>
         <?php
         } else {
-            echo $commercial['nom'];
+            echo "Pas de commercial assigné";
         }
         ?>
     </td>
