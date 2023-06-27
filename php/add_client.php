@@ -45,7 +45,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 
 $stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phone_number, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id]);
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id]);
 
 $client_id = $pdo->lastInsertId();
 
