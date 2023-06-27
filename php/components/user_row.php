@@ -9,7 +9,7 @@
             if ($user['rang'] == 'developpeur') {
                 echo 'bg-label-primary';
             } elseif ($user['rang'] == 'commercial') {
-                echo 'bg-label-warning';
+                echo 'bg-label-info';
             } elseif ($user['rang'] == 'administrateur') {
                 echo 'bg-label-danger';
             } elseif ($user['rang'] == 'assistant') {
