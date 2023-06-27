@@ -223,13 +223,13 @@
                                                     </li>
                                                     <li class="mb-3">
                                                         <span class="fw-bold me-2">Numero de téléphone:</span>
-                                                        <?php echo $associe['phone_number']?>
+                                                        <?php echo $associe['telephone']?>
                                                     </li>
                                                 </ul>
                                             </div>
                                         <?php
                                             }
-                                        ?>
+                                        ?>  
                                             </ul>
                                             
                                             <div class="d-flex justify-content-center pt-3">
