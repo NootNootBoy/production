@@ -56,11 +56,6 @@
                         <div data-i18n="Listes clients">Liste des clients</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="/php/clients.php" class="menu-link">
-                        <div data-i18n="Ajout d'un client">Ajout d'un client</div>
-                    </a>
-                </li>
             </ul>
         </li>
         <li class="menu-item">
