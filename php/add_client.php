@@ -28,6 +28,7 @@ $ville = $_POST['ville'];
 $code_postal = $_POST['code_postal'];
 $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
+$second_commercial_id = $_POST['second_commercial_id'];
 $offre_id = $_POST['offre_id'];
 
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
@@ -45,8 +46,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 
-$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, offre_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $offre_id]);
+$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id]);
 
 $client_id = $pdo->lastInsertId();
 
