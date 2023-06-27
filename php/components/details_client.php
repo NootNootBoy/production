@@ -513,37 +513,37 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
-                                            <h3>Upgrade Plan</h3>
-                                            <p>Choose the best plan for user.</p>
+                                            <h3>Changer d'offre</h3>
+                                            <p>pour votre client <?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></p>
                                         </div>
                                         <form id="upgradePlanForm" class="row g-3" onsubmit="return false">
                                             <div class="col-sm-9">
                                                 <label class="form-label" for="choosePlan">Choose Plan</label>
                                                 <select id="choosePlan" name="choosePlan" class="form-select"
                                                     aria-label="Choose Plan">
-                                                    <option selected>Choose Plan</option>
-                                                    <option value="standard">Standard - $99/month</option>
-                                                    <option value="exclusive">Exclusive - $249/month</option>
-                                                    <option value="Enterprise">Enterprise - $499/month</option>
+                                                    <option selected>Choisir l'offre :</option>
+                                                    <option value="standard">Ambition - 290€/mois</option>
+                                                    <option value="exclusive">Performance - 390€/mois</option>
+                                                    <option value="Enterprise">Excellence - 575€/mois</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-3 d-flex align-items-end">
-                                                <button type="submit" class="btn btn-primary">Upgrade</button>
+                                                <button type="submit" class="btn btn-primary">Changer</button>
                                             </div>
-                                        </form>
+                                        </form>s
                                     </div>
                                     <hr class="mx-md-n5 mx-n3" />
                                     <div class="modal-body">
-                                        <h6 class="mb-0">User current plan is standard plan</h6>
+                                        <h6 class="mb-0">Offre actuelle du client : <?php echo $client['offre_nom']?></h6>
                                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                                             <div class="d-flex justify-content-center me-2 mt-3">
                                                 <sup
-                                                    class="h5 pricing-currency pt-1 mt-3 mb-0 me-1 text-primary">$</sup>
-                                                <h1 class="display-3 mb-0 text-primary">99</h1>
-                                                <sub class="h5 pricing-duration mt-auto mb-2">/month</sub>
+                                                    class="h5 pricing-currency pt-1 mt-3 mb-0 me-1 text-primary">€</sup>
+                                                <h1 class="display-3 mb-0 text-primary"><?php echo $client['prix_mensuel']?></h1>
+                                                <sub class="h5 pricing-duration mt-auto mb-2">/mois</sub>
                                             </div>
-                                            <button class="btn btn-label-danger cancel-subscription mt-3">Cancel
-                                                Subscription</button>
+                                            <button class="btn btn-label-danger cancel-subscription mt-3">Annuler
+                                                l'abonnement</button>
                                         </div>
                                     </div>
                                 </div>
