@@ -47,6 +47,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
 $stmt->execute([$nom, $prenom, $societe, $siret, $email, $phone_number, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id]);
 
+$client_id = $pdo->lastInsertId();
+
+$options = $_POST['options'];
+foreach ($options as $option_id) {
+  $stmt = $pdo->prepare('INSERT INTO client_options (client_id, option_id) VALUES (?, ?)');
+  $stmt->execute([$client_id, $option_id]);
+}
+
 $associe_nom = $_POST['associe_nom'];
 $associe_prenom = $_POST['associe_prenom'];
 $associe_email = $_POST['associe_email'];
@@ -57,14 +65,6 @@ if (!empty($associe_nom) && !empty($associe_prenom) && !empty($associe_email) &&
     // Insérez les informations de l'associé dans la table 'associes'
     $stmt = $pdo->prepare('INSERT INTO associes (nom, prenom, email, telephone, client_id) VALUES (?, ?, ?, ?, ?)');
     $stmt->execute([$associe_nom, $associe_prenom, $associe_email, $associe_telephone, $client_id]);
-}
-
-$client_id = $pdo->lastInsertId();
-
-$options = $_POST['options'];
-foreach ($options as $option_id) {
-  $stmt = $pdo->prepare('INSERT INTO client_options (client_id, option_id) VALUES (?, ?)');
-  $stmt->execute([$client_id, $option_id]);
 }
 
 if ($stmt->rowCount() > 0) {

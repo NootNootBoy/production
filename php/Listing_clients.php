@@ -230,28 +230,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
-                                            <h6>3. Associé (optionnel)</h6>
-                                            <div class="row g-3">
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="associe_nom">Nom de l'associé</label>
-                                                    <input type="text" id="associe_nom" name="associe_nom" class="form-control" placeholder="Dupont">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="associe_prenom">Prénom de l'associé</label>
-                                                    <input type="text" id="associe_prenom" name="associe_prenom" class="form-control" placeholder="Jean">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="associe_email">Email de l'associé</label>
-                                                    <input type="email" id="associe_email" name="associe_email" class="form-control" placeholder="jean.dupont@example.com">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label" for="associe_telephone">Numéro de téléphone de l'associé</label>
-                                                    <input type="tel" id="associe_telephone" name="associe_telephone" class="form-control" placeholder="065120....">
-                                                </div>
-                                            </div>
-
-                                            <hr class="my-4 mx-n4" />
-                                            <h6>4. Options et Commercial</h6>
+                                            <h6>3. Options et Commercial</h6>
                                             <div class="row g-3">
                                                 <?php foreach ($options as $option): ?>
                                                 <div class="col-md-4">
@@ -273,6 +252,26 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                         </option>
                                                         <?php endforeach; ?>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <hr class="my-4 mx-n4" />
+                                            <h6>4. Associé (optionnel)</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="associe_nom">Nom de l'associé</label>
+                                                    <input type="text" id="associe_nom" name="associe_nom" class="form-control" placeholder="Dupont">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="associe_prenom">Prénom de l'associé</label>
+                                                    <input type="text" id="associe_prenom" name="associe_prenom" class="form-control" placeholder="Jean">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="associe_email">Email de l'associé</label>
+                                                    <input type="email" id="associe_email" name="associe_email" class="form-control" placeholder="jean.dupont@example.com">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="associe_telephone">Numéro de téléphone de l'associé</label>
+                                                    <input type="tel" id="associe_telephone" name="associe_telephone" class="form-control" placeholder="065120....">
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
