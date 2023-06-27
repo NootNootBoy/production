@@ -514,23 +514,31 @@
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
                                             <h3>Changer d'offre</h3>
-                                            <p>pour votre client <?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></p>
+                                            <p>pour votre client : <strong>?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></strong></p>
                                         </div>
-                                        <form id="upgradePlanForm" class="row g-3" onsubmit="return false">
+                                        <form action="update_offer.php" method="post" class="row g-3">
+                                            <input type="hidden" name="client_id" value="<?php echo $client['id']; ?>">
                                             <div class="col-sm-9">
-                                                <label class="form-label" for="choosePlan">Choose Plan</label>
-                                                <select id="choosePlan" name="choosePlan" class="form-select"
-                                                    aria-label="Choose Plan">
-                                                    <option selected>Choisir l'offre :</option>
-                                                    <option value="standard">Ambition - 290€/mois</option>
-                                                    <option value="exclusive">Performance - 390€/mois</option>
-                                                    <option value="Enterprise">Excellence - 575€/mois</option>
-                                                </select>
+                                                <label class="form-label" for="offer_id">Offre :</label>
+                                                <select id="offer_id" name="offer_id" class="form-select">
+                                                <?php
+                                                // Récupérer toutes les offres
+                                                $stmt = $pdo->prepare('SELECT * FROM offres');
+                                                $stmt->execute();
+                                                $offres = $stmt->fetchAll();
+
+                                                // Afficher chaque offre comme une option
+                                                foreach ($offres as $offre) {
+                                                    $selected = $offre['id'] == $client['offre_id'] ? 'selected' : '';
+                                                    echo "<option value=\"{$offre['id']}\" {$selected}>{$offre['nom']}</option>";
+                                                }
+                                                ?>
+                                            </select>
                                             </div>
                                             <div class="col-sm-3 d-flex align-items-end">
                                                 <button type="submit" class="btn btn-primary">Changer</button>
                                             </div>
-                                        </form>s
+                                        </form>
                                     </div>
                                     <hr class="mx-md-n5 mx-n3" />
                                     <div class="modal-body">
@@ -542,8 +550,7 @@
                                                 <h1 class="display-3 mb-0 text-primary"><?php echo $client['prix_mensuel']?></h1>
                                                 <sub class="h5 pricing-duration mt-auto mb-2">/mois</sub>
                                             </div>
-                                            <button class="btn btn-label-danger cancel-subscription mt-3">Annuler
-                                                l'abonnement</button>
+                                            <button class="btn btn-label-danger cancel-subscription mt-3">Annuler l'abonnement</button>
                                         </div>
                                     </div>
                                 </div>
