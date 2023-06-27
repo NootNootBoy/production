@@ -3,8 +3,22 @@
     <td><?php echo htmlspecialchars($user['nom']) ?></td>
     <td><?php echo htmlspecialchars($user['prenom']) ?></td>
     <td><?php echo htmlspecialchars($user['email']) ?></td>
-    <td><span class="badge bg-label-primary me-1"><?php echo htmlspecialchars($user['rang']) ?></span></td>
-    <td><?php echo htmlspecialchars($user['phone_number']) ?></td>
+    <td>
+    <span class="badge 
+        <?php 
+            if ($user['rang'] == 'developpeur') {
+                echo 'bg-label-primary';
+            } elseif ($user['rang'] == 'commercial') {
+                echo 'bg-label-orange';
+            } elseif ($user['rang'] == 'administrateur') {
+                echo 'bg-label-danger';
+            } elseif ($user['rang'] == 'assistant') {
+                echo 'bg-label-success';
+            }
+        ?> me-1">
+        <?php echo htmlspecialchars($user['rang']) ?>
+    </span>
+</td>    <td><?php echo htmlspecialchars($user['phone_number']) ?></td>
     <td><?php echo htmlspecialchars($user['agence']) ?></td>
     <td>
         <div class="dropdown">
