@@ -110,6 +110,7 @@ $opt = [
                                     // Afficher les tâches pour la mission
                                     echo "<form action='update_taches.php' method='post'>";
                                     echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
+                                    echo "<input type='hidden' name='id_user' value='" . $mission['id_user'] . "'>";
                                     foreach ($taches as $tache) {
                                         echo "<div>";
                                         echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '0') . ">";

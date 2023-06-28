@@ -14,9 +14,13 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+require_once '../../php/notifications/notifications.php';
+
+
 try {
     // Récupérer l'ID de la mission à partir du formulaire
     $id_mission = $_POST['id_mission'];
+    $id_user = $_POST['id_user'];
 
     // Récupérer toutes les tâches de la mission
     $stmt = $pdo->prepare("SELECT * FROM taches WHERE id_mission = :id_mission");
@@ -61,6 +65,15 @@ try {
         $stmt = $pdo->prepare("UPDATE missions SET verify_done = TRUE WHERE id_mission = :id_mission");
         $stmt->bindParam(':id_mission', $id_mission);
         $stmt->execute();
+
+            // Envoyer une notification
+        $title = "Mission complétée";
+        $description = "La mission avec l'ID " . $id_mission . " a été complétée.";
+        $icon = "bx-square"; // Remplacez par l'URL de votre icône
+        $user_id = $id_user; // Remplacez par l'ID de l'utilisateur actuellement connecté
+        $rang = null; // Pas de rang spécifique pour cette notification
+
+        send_notification($pdo, $title, $description, $icon, $user_id, $rang);
     }
 
     $_SESSION['success_message'] = 'Les tâches ont été mises à jour avec succès.';
