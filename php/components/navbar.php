@@ -114,60 +114,7 @@
                     </li>
                     <!-- Quick links -->
 
-                    <!-- Notification -->
-                    <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <i class="bx bx-bell bx-sm"></i>
-                            <span class="badge bg-danger rounded-pill badge-notifications">5</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end py-0">
-                            <li class="dropdown-menu-header border-bottom">
-                                <div class="dropdown-header d-flex align-items-center py-3">
-                                    <h5 class="text-body mb-0 me-auto">Notification</h5>
-                                    <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
-                                            class="bx fs-4 bx-envelope-open"></i></a>
-                                </div>
-                            </li>
-                            <li class="dropdown-notifications-list scrollable-container">
-                                    <ul class="list-group list-group-flush">
-                                        <?php
-                                        $userId = $_SESSION['user_id']; // Remplacez par l'ID de l'utilisateur actuellement connecté
-                                        $notifications = getNotificationsForUser($userId);
-                                        foreach ($notifications as $notification) {
-                                        ?>
-                                        <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar">
-                                                        <span class="avatar-initial rounded-circle bg-label-success"><i class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i></span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mb-1"><?php echo htmlspecialchars($notification['title']); ?></h6>
-                                                    <p class="mb-0"><?php echo htmlspecialchars($notification['description']); ?></p>
-                                                    <small class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?> ago</small>
-                                                </div>
-                                                <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                    <a href="mark_as_read.php?notification_id=<?php echo $notification['id']; ?>" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    <a href="delete_notification.php?notification_id=<?php echo $notification['id']; ?>" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <?php
-                                        }
-                                        ?>
-                                    </ul>
-                                </li>
-                            <li class="dropdown-menu-footer border-top">
-                                <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center p-3">
-                                    Voir les notfications
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--/ Notification -->
+
                     <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
