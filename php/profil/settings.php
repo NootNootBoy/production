@@ -264,8 +264,7 @@ $agences = explode("','", $matches[1]);
                             <li class="dropdown-notifications-list scrollable-container">
                                     <ul class="list-group list-group-flush">
                                         <?php
-                                        $userId = $_SESSION['user_id']; // Remplacez par l'ID de l'utilisateur actuellement connecté
-                                        $notifications = getNotificationsForUser($userId);
+                                        $notifications = getNotificationsForUser($user['id']);
                                         foreach ($notifications as $notification) {
                                         ?>
                                         <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
