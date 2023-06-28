@@ -30,7 +30,7 @@ $agences = explode("','", $matches[1]);
 
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
