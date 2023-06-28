@@ -14,7 +14,7 @@
 
     function markNotificationAsRead($notificationId, $userId) {
         global $pdo;
-        $stmt = $pdo->prepare('UPDATE notification_user SET read = TRUE WHERE notification_id = ? AND user_id = ?');
+        $stmt = $pdo->prepare('UPDATE notification_user SET `read` = TRUE WHERE notification_id = ? AND user_id = ?');
         $stmt->execute([$notificationId, $userId]);
     }
 
