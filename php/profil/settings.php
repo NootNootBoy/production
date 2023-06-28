@@ -282,7 +282,7 @@ $agences = explode("','", $matches[1]);
                                                 </div>
                                                 <div class="flex-shrink-0 dropdown-notifications-actions">
                                                     <a href="#" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    <a href="#" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>                                                </div>
+                                                    <a href="#" id="markAsRead-<?php echo $notification['id']; ?>" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>
                                             </div>
                                         </li>
                                         <?php
@@ -385,6 +385,25 @@ $agences = explode("','", $matches[1]);
         <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $("[id^='markAsRead-']").click(function(e){
+        e.preventDefault();
+        var notificationId = $(this).attr('id').split('-')[1];
+        $.ajax({
+        url: 'mark_as_read.php',
+        type: 'post',
+        data: {notification_id: notificationId},
+        success: function(response){
+            // Supprimez la notification de la liste ou mettez-la à jour en fonction de la réponse
+        }
+        });
+    });
+    });
+    </script>
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
