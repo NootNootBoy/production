@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'db_connection.php';
+require_once '../../php/notifications/notifications.php';
 
 echo "<script>console.log('ID de session: " . $_SESSION['user_id'] . "');</script>";
 
