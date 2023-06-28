@@ -393,7 +393,7 @@ $agences = explode("','", $matches[1]);
         e.preventDefault();
         var notificationId = $(this).attr('id').split('-')[1];
         $.ajax({
-        url: 'mark_as_read.php',
+        url: '../../php/notifications/mark_as_read.php',
         type: 'post',
         data: {notification_id: notificationId},
         success: function(response){
