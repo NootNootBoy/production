@@ -30,7 +30,7 @@ $agences = explode("','", $matches[1]);
 
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default    "
     data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
@@ -38,7 +38,7 @@ $agences = explode("','", $matches[1]);
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Account settings - Account | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>paramètres</title>
 
     <meta name="description" content="" />
 
@@ -281,9 +281,8 @@ $agences = explode("','", $matches[1]);
                                                     <small class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?> ago</small>
                                                 </div>
                                                 <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                    <a href="mark_as_read.php?notification_id=<?php echo $notification['id']; ?>" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    <a href="delete_notification.php?notification_id=<?php echo $notification['id']; ?>" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>
-                                                </div>
+                                                    <a href="#" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
+                                                    <a href="#" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>                                                </div>
                                             </div>
                                         </li>
                                         <?php

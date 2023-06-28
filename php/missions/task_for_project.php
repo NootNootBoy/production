@@ -24,7 +24,7 @@ $opt = [
 ?>
 
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
@@ -106,7 +106,7 @@ $opt = [
 
                                     // Calculer le pourcentage de tâches complétées
                                     $pourcentage_taches_completees = ($nombre_taches_completees / $nombre_total_taches) * 100;
-                                            
+
                                     // Afficher les tâches pour la mission
                                     echo "<form action='update_taches.php' method='post'>";
                                     echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";

@@ -69,7 +69,7 @@ try {
             // Envoyer une notification
         $title = "Mission complétée";
         $description = "La mission avec l'ID " . $id_mission . " a été complétée.";
-        $icon = "bx-square"; // Remplacez par l'URL de votre icône
+        $icon = "bx-task"; // Remplacez par l'URL de votre icône
         $user_id = $id_user; // Remplacez par l'ID de l'utilisateur actuellement connecté
         $rang = null; // Pas de rang spécifique pour cette notification
 
