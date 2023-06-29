@@ -59,7 +59,7 @@
                             <i class="bx bx-bell bx-sm"></i>
                             <span class="badge bg-danger rounded-pill badge-notifications"><?php 
                             $unreadNotificationCount = getUnreadNotificationCount($user['user_id']);
-                            echo '$unreadNotificationCount';
+                            echo $unreadNotificationCount;
                             ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end py-0">
