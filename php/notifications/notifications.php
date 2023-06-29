@@ -23,7 +23,16 @@
         $stmt = $pdo->prepare('SELECT n.id, n.icon, n.title, n.description, n.timestamp, nu.read FROM notifications n JOIN notification_user nu ON n.id = nu.notification_id WHERE nu.user_id = ? AND nu.read = FALSE ORDER BY n.timestamp DESC');
         $stmt->execute([$userId]);
         return $stmt->fetchAll();
-    }    
+    }
+    
+    function getUnreadNotificationCount($userId) {
+        global $pdo;
+    
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id = ? AND read = 0");
+        $stmt->execute([$userId]);
+    
+        return $stmt->fetchColumn();
+    }
 
     function send_notification($pdo, $title, $description, $icon, $user_id, $rang) {
         // Créer une nouvelle notification

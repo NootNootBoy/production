@@ -57,7 +57,10 @@
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <i class="bx bx-bell bx-sm"></i>
-                            <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+                            <span class="badge bg-danger rounded-pill badge-notifications"><?php 
+                            $unreadNotificationCount = getUnreadNotificationCount($user['user_id']);
+                            echo '$unreadNotificationCount';
+                            ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end py-0">
                             <li class="dropdown-menu-header border-bottom">
