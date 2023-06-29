@@ -135,13 +135,24 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php
-                                           $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+                                        //    $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                            
-                                           while ($client = $stmt->fetch()) {
-                                               include 'components/client_row.php';
+                                        //    while ($client = $stmt->fetch()) {
+                                        //        include 'components/client_row.php';
                                                
-                                           }
+                                        //    }
+                                        $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+                                        while ($client = $stmt->fetch()) {
+                                            // Ajoutez ces lignes pour déboguer
+                                            if (!isset($client['id']) || !isset($client['prenom'])) {
+                                                var_dump($client);
+                                                die();
+                                            }
+                                            include 'components/client_row.php';
+                                        }
                                             ?>
+
+                                            
                                     </tbody>
                                 </table>
                             </div>
