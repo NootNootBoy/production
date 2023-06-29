@@ -8,7 +8,7 @@
             if (isset($_SESSION['user_id'])) {
                 // Récupérez les informations de l'utilisateur à partir de la base de données
                 $user_id = $_SESSION['user_id'];
-                $stmt = $pdo->prepare("SELECT * FROM Users WHERE id = ?");
+                $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
                 $stmt->execute([$user_id]);
                 $user = $stmt->fetch();
 
