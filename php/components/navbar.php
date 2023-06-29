@@ -58,7 +58,7 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <i class="bx bx-bell bx-sm"></i>
                             <span class="badge bg-danger rounded-pill badge-notifications"><?php 
-                            $unreadNotificationCount = getUnreadNotificationCount($user['user_id']);
+                            $unreadNotificationCount = getUnreadNotificationCount($user_id);
                             echo $unreadNotificationCount;
                             ?></span>
                         </a>
@@ -74,7 +74,7 @@
                             <li class="dropdown-notifications-list scrollable-container">
                                     <ul class="list-group list-group-flush">
                                         <?php
-                                        $notifications = getNotificationsForUser($user['user_id']);
+                                        $notifications = getNotificationsForUser($user_id);
                                         foreach ($notifications as $notification) {
                                         ?>
                                         <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
