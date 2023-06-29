@@ -96,14 +96,14 @@ if (isset($_SESSION['error_message'])) {
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include 'components/menu.php'; ?>
+            <?php include './components/menu.php'; ?>
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
 
-                <?php include 'components/navbar.php'; ?>
+                <?php include './components/navbar.php'; ?>
 
                 <!-- / Navbar -->
 

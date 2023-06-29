@@ -1,5 +1,5 @@
         <?php
-            include __DIR__ . '/db_connection.php';
+        include '../notifications/notifications.php';
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -21,8 +21,6 @@
             } else {
                 echo "Vous n'êtes pas connecté";
             }
-
-            require_once __DIR__ . '/notifications/notifications.php';
 
         ?>
         <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
