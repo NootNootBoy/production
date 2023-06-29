@@ -13,7 +13,7 @@
                 $user = $stmt->fetch();
 
                 if ($user) {
-                    echo "Bonjour, " . $user['username'];
+                    //
                 } else {
                     echo "Utilisateur non trouvé";
                 }
