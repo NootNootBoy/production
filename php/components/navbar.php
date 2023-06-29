@@ -1,5 +1,5 @@
         <?php
-        include '../../php/db_connection.php';
+        include '../db_connection.php';
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -22,7 +22,7 @@
                 echo "Vous n'êtes pas connecté";
             }
 
-            require_once '../../php/notifications/notifications.php';
+            require_once '../notifications/notifications.php';
 
         ?>
         <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
