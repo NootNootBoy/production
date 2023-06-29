@@ -8,7 +8,7 @@
             if (isset($_SESSION['user_id'])) {
                 // Récupérez les informations de l'utilisateur à partir de la base de données
                 $user_id = $_SESSION['user_id'];
-                $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+                $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?"); 
                 $stmt->execute([$user_id]);
                 $user = $stmt->fetch();
 
@@ -152,13 +152,13 @@
                                     <div class="d-flex">
                                         <div class="flex-shrink-0 me-3">
                                             <div class="avatar avatar-online">
-                                                <img src="../../assets/img/avatars/1.png" alt
+                                                <img src="<?php echo $user['avatar']?>" alt
                                                     class="w-px-40 h-auto rounded-circle" />
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <span class="fw-semibold d-block">Username</span>
-                                            <small class="text-muted">Admin</small>
+                                            <span class="fw-semibold d-block"><?php echo htmlspecialchars($user['prenom'])?></span>
+                                            <small class="text-muted"><?php echo htmlspecialchars($user['rang'])?></small>
                                         </div>
                                     </div>
                                 </a>
