@@ -229,7 +229,7 @@ try {
             if (userAdded === 'true') {
                 Swal.fire({
                     title: 'Bien joué!',
-                    text: "Le client a été ajouté avec succès!",
+                    text: "Les taches sont mises à jour avec succès !",
                     icon: 'success',
                     customClass: {
                         confirmButton: 'btn btn-primary'
