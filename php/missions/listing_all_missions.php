@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include '../notifications/notifications.php';
 
 if (!isset($_SESSION['user_id'])) {
     // L'utilisateur n'est pas connecté. Redirigez-le vers la page de connexion.
