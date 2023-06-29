@@ -1,14 +1,24 @@
         <?php
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-        
-        // Vérifiez si l'utilisateur est connecté
-        if (isset($_SESSION['user_id'])) {
-            echo "Bonjour, " . $_SESSION['user_id']['username'];
-        } else {
-            echo "Vous n'êtes pas connecté";
-        }
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            // Vérifiez si l'utilisateur est connecté
+            if (isset($_SESSION['user_id'])) {
+                // Récupérez les informations de l'utilisateur à partir de la base de données
+                $user_id = $_SESSION['user_id'];
+                $stmt = $pdo->prepare("SELECT * FROM Users WHERE id = ?");
+                $stmt->execute([$user_id]);
+                $user = $stmt->fetch();
+
+                if ($user) {
+                    echo "Bonjour, " . $user['username'];
+                } else {
+                    echo "Utilisateur non trouvé";
+                }
+            } else {
+                echo "Vous n'êtes pas connecté";
+            }
         ?>
         <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar" style="background: #222!important;">
