@@ -72,7 +72,7 @@
                             <li class="dropdown-notifications-list scrollable-container">
                                     <ul class="list-group list-group-flush">
                                         <?php
-                                        $notifications = getNotificationsForUser($user['id']);
+                                        $notifications = getNotificationsForUser($user['user_id']);
                                         foreach ($notifications as $notification) {
                                         ?>
                                         <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
