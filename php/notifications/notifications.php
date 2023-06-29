@@ -28,7 +28,7 @@
     function getUnreadNotificationCount($userId) {
         global $pdo;
     
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE user_id = ? AND `read` = 0");
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE userId = ? AND `read` = 0");
         $stmt->execute([$userId]);
     
         return $stmt->fetchColumn();
