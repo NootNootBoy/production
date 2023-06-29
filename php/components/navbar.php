@@ -4,8 +4,8 @@
         }
         
         // Vérifiez si l'utilisateur est connecté
-        if (isset($_SESSION['user'])) {
-            echo "Bonjour, " . $_SESSION['user']['username'];
+        if (isset($_SESSION['user_id'])) {
+            echo "Bonjour, " . $_SESSION['user_id']['username'];
         } else {
             echo "Vous n'êtes pas connecté";
         }
