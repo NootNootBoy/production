@@ -1,5 +1,7 @@
         <?php
         include '../../php/db_connection.php';
+        require_once '../../php/notifications/notifications.php';
+
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -51,7 +53,58 @@
                         </a>
                     </li>
                     <!--/ Style Switcher -->
-
+ <!-- Notification -->
+ <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <i class="bx bx-bell bx-sm"></i>
+                            <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end py-0">
+                            <li class="dropdown-menu-header border-bottom">
+                                <div class="dropdown-header d-flex align-items-center py-3">
+                                    <h5 class="text-body mb-0 me-auto">Notification</h5>
+                                    <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
+                                            class="bx fs-4 bx-envelope-open"></i></a>
+                                </div>
+                            </li>
+                            <li class="dropdown-notifications-list scrollable-container">
+                                    <ul class="list-group list-group-flush">
+                                        <?php
+                                        $notifications = getNotificationsForUser($user['id']);
+                                        foreach ($notifications as $notification) {
+                                        ?>
+                                        <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <div class="avatar">
+                                                        <span class="avatar-initial rounded-circle bg-label-success"><i class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1"><?php echo htmlspecialchars($notification['title']); ?></h6>
+                                                    <p class="mb-0"><?php echo htmlspecialchars($notification['description']); ?></p>
+                                                    <small class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?> ago</small>
+                                                </div>
+                                                <div class="flex-shrink-0 dropdown-notifications-actions">
+                                                    <a href="#" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
+                                                    <a href="#" id="markAsRead-<?php echo $notification['id']; ?>" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>
+                                            </div>
+                                        </li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                            <li class="dropdown-menu-footer border-top">
+                                <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center p-3">
+                                    Voir les notfications
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--/ Notification -->
                     <!-- Quick links  -->
                     <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
@@ -215,3 +268,21 @@
                 <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
             </div>
         </nav>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+            $(document).ready(function(){
+            $("[id^='markAsRead-']").click(function(e){
+            e.preventDefault();
+            var notificationId = $(this).attr('id').split('-')[1];
+            $.ajax({
+            url: '../../php/notifications/mark_as_read.php',
+            type: 'post',
+            data: {notification_id: notificationId},
+            success: function(response){
+            // Supprimez la notification de la liste ou mettez-la à jour en fonction de la réponse
+            }
+            });
+            });
+            });
+        </script>
