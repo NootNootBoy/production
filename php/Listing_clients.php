@@ -22,7 +22,7 @@ $stmt->execute();
 $options = $stmt->fetchAll();
 
 try {
-    $stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial" OR rang = "administrateur"');
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'commercial' OR rang = 'administrateur'");
     $stmt->execute();
     $commerciaux = $stmt->fetchAll();
 } catch (PDOException $e) {
