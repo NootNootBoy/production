@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+require_once '../notifications/notifications.php';
+
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
@@ -46,6 +49,17 @@ try {
 
     $stmt = $pdo->prepare('INSERT INTO cahier_des_charges (projet_id, nom_projet, nom_domaine) VALUES (:projet_id, :nom_projet, :nom_domaine)');
     $stmt->execute(['projet_id' => $projet_id, 'nom_projet' => $nom_projet, 'nom_domaine' => $nom_domaine]);    
+
+
+    // Envoyer une notification
+    $title = "Projet ajouté";
+    $description = "Un projet a été ajouté.";
+    $icon = "bx-project"; // Remplacez par l'URL de votre icône
+    $user_id = $id_user; // Remplacez par l'ID de l'utilisateur actuellement connecté
+    $rang = "administrateur"; // Pas de rang spécifique pour cette notification
+
+    send_notification($pdo, $title, $description, $icon, $user_id, $rang);
+
 
     $_SESSION['success_message'] = 'Le client a été ajouté avec succès.';
     header('Location: listing_project.php?userAdded=true');
