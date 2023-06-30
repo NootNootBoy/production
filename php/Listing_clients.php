@@ -21,14 +21,6 @@ $stmt = $pdo->prepare('SELECT * FROM options');
 $stmt->execute();
 $options = $stmt->fetchAll();
 
-try {
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'commercial' OR rang = 'administrateur'");
-    $stmt->execute();
-    $commerciaux = $stmt->fetchAll();
-} catch (PDOException $e) {
-    echo 'Erreur : ' . $e->getMessage();
-}
-
 $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
     $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
     while ($client = $stmt->fetch()) {
@@ -264,7 +256,11 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                     <label class="form-label" for="commercial_id">Commercial</label>
                                                     <select id="commercial_id" name="commercial_id"
                                                         class="select2 form-select">
-                                                        <?php foreach ($commerciaux as $commercial): ?>
+                                                        <?php 
+                                                            $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'commercial' OR rang = 'administrateur'");
+                                                            $stmt->execute();
+                                                            $commerciaux = $stmt->fetchAll();
+                                                        foreach ($commerciaux as $commercial): ?>
                                                         <option value="<?php echo $commercial['id']; ?>">
                                                             <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
                                                         </option>
