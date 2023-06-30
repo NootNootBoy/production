@@ -266,9 +266,9 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                     <select id="commercial_id" name="commercial_id"
                                                         class="select2 form-select">
                                                         <?php foreach ($commerciaux as $commercial): ?>
-                                                        <option value="<?php echo $commercial['id']; ?>">
-                                                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
-                                                        </option>
+                                                            <option value="<?php echo isset($commercial['id']) ? $commercial['id'] : ''; ?>">
+    <?php echo isset($commercial['prenom']) ? $commercial['prenom'] . ' ' . $commercial['nom'] : ''; ?>
+</option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
