@@ -1,7 +1,7 @@
 <?php 
 
-session_start();
-include './notifications/notifications.php';
+// session_start();
+// include './notifications/notifications.php';
 
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
@@ -102,6 +102,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
+                <?php include 'components/navbar.php'; ?>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
