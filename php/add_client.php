@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../../php/notifications/notifications.php';
 
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
@@ -70,6 +71,15 @@ if (!empty($associe_nom) && !empty($associe_prenom) && !empty($associe_email) &&
 }
 
 if ($stmt->rowCount() > 0) {
+
+    // Envoyer une notification
+    $title = "Mission complétée";
+    $description = "La mission avec l'ID " . $id_mission . " a été complétée.";
+    $icon = "bx-task"; // Remplacez par l'URL de votre icône
+    $user_id = $id_user; // Remplacez par l'ID de l'utilisateur actuellement connecté
+    $rang = null; // Pas de rang spécifique pour cette notification
+
+    send_notification($pdo, $title, $description, $icon, $user_id, $rang);
     $_SESSION['success_message'] = 'Le client a été ajouté avec succès.';
     header('Location: Listing_clients.php?userAdded=true');
 } else {
