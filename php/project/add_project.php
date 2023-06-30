@@ -48,7 +48,7 @@ try {
     $stmt->execute();
 
     $stmt = $pdo->prepare('INSERT INTO cahier_des_charges (projet_id, nom_projet, nom_domaine) VALUES (:projet_id, :nom_projet, :nom_domaine)');
-    $stmt->execute(['projet_id' => $projet_id, 'nom_projet' => $nom_projet, 'nom_domaine' => $nom_domaine]);    
+    $stmt->execute(['projet_id' => $id_projet, 'nom_projet' => $_POST['nom_projet'], 'nom_domaine' => $_POST['nom_domaine']]);    
 
 
     // Envoyer une notification
