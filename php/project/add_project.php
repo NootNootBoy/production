@@ -43,6 +43,10 @@ try {
 
     // Exécuter la requête
     $stmt->execute();
+
+    $stmt = $pdo->prepare('INSERT INTO cahier_des_charges (projet_id, nom_projet, nom_domaine) VALUES (:projet_id, :nom_projet, :nom_domaine)');
+    $stmt->execute(['projet_id' => $projet_id, 'nom_projet' => $nom_projet, 'nom_domaine' => $nom_domaine]);    
+
     $_SESSION['success_message'] = 'Le client a été ajouté avec succès.';
     header('Location: listing_project.php?userAdded=true');
 } catch(PDOException $e) {
