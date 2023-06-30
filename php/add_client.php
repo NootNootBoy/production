@@ -73,9 +73,9 @@ if (!empty($associe_nom) && !empty($associe_prenom) && !empty($associe_email) &&
 if ($stmt->rowCount() > 0) {
 
     // Envoyer une notification
-    $title = "Mission complétée";
-    $description = "La mission avec l'ID " . $id_mission . " a été complétée.";
-    $icon = "bx-task"; // Remplacez par l'URL de votre icône
+    $title = "Client ajouté";
+    $description = "Le client " . $nom . " a été ajouté.";
+    $icon = "bx-user"; // Remplacez par l'URL de votre icône
     $user_id = $id_user; // Remplacez par l'ID de l'utilisateur actuellement connecté
     $rang = "administrateur"; // Pas de rang spécifique pour cette notification
 
