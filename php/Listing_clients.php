@@ -1,6 +1,6 @@
 <?php 
 
-// session_start();
+session_start();
 // include './notifications/notifications.php';
 
 $host = '176.31.132.185';
