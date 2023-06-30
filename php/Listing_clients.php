@@ -21,9 +21,13 @@ $stmt = $pdo->prepare('SELECT * FROM options');
 $stmt->execute();
 $options = $stmt->fetchAll();
 
-$stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial" OR rang = "administrateur"');
-$stmt->execute();
-$commerciaux = $stmt->fetchAll();
+try {
+    $stmt = $pdo->prepare('SELECT * FROM users WHERE rang = "commercial" OR rang = "administrateur"');
+    $stmt->execute();
+    $commerciaux = $stmt->fetchAll();
+} catch (PDOException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
 
 $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
     $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
