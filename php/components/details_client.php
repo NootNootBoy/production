@@ -209,37 +209,37 @@ include '../notifications/notifications.php';
                                             // Vérifier si un associé existe
                                             if ($associe) {
                                         ?>
-                                            <h5 class="pb-2 border-bottom mb-4">Détails de l'associé</h5>
-                                            <div class="info-container">
-                                                <ul class="list-unstyled">
-                                                    <li class="mb-3">
-                                                        <span class="fw-bold me-2">Nom:</span>
-                                                        <span><?php echo $associe['nom']?></span>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <span class="fw-bold me-2">Prenom:</span>
-                                                        <span><?php echo $associe['prenom']?></span>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <span class="fw-bold me-2">Email:</span>
-                                                        <?php echo $associe['email']?>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <span class="fw-bold me-2">Numero de téléphone:</span>
-                                                        <?php echo $associe['telephone']?>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        <?php
+                                                <h5 class="pb-2 border-bottom mb-4">Détails de l'associé</h5>
+                                                <div class="info-container">
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-3">
+                                                            <span class="fw-bold me-2">Nom:</span>
+                                                            <span><?php echo $associe['nom']?></span>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <span class="fw-bold me-2">Prenom:</span>
+                                                            <span><?php echo $associe['prenom']?></span>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <span class="fw-bold me-2">Email:</span>
+                                                            <?php echo $associe['email']?>
+                                                        </li>
+                                                        <li class="mb-3">
+                                                            <span class="fw-bold me-2">Numero de téléphone:</span>
+                                                            <?php echo $associe['telephone']?>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <?php
                                             }
-                                        ?>  
+                                        ?>
                                             </ul>
-                                            
+
                                             <div class="d-flex justify-content-center pt-3">
                                                 <a href="javascript:;" class="btn btn-primary me-3"
                                                     data-bs-target="#editUser" data-bs-toggle="modal">Modifier</a>
-                                                <a href="javascript:;"
-                                                    class="btn btn-label-danger suspend-user">Archiver</a>
+                                                <<a href="javascript:;" class="btn btn-label-danger suspend-user"
+                                                    data-id="<?php echo $client['id']; ?>">Archiver</a>
                                             </div>
                                         </div>
                                     </div>
@@ -517,14 +517,17 @@ include '../notifications/notifications.php';
                                             aria-label="Close"></button>
                                         <div class="text-center mb-4">
                                             <h3>Changer d'offre</h3>
-                                            <p>pour votre client : <strong><?php echo htmlspecialchars($client['nom']); ?> <?php echo htmlspecialchars($client['prenom']); ?></strong></p>
+                                            <p>pour votre client :
+                                                <strong><?php echo htmlspecialchars($client['nom']); ?>
+                                                    <?php echo htmlspecialchars($client['prenom']); ?></strong>
+                                            </p>
                                         </div>
                                         <form action="update_offer.php" method="post" class="row g-3">
                                             <input type="hidden" name="client_id" value="<?php echo $client['id']; ?>">
                                             <div class="col-sm-9">
                                                 <label class="form-label" for="offer_id">Offre :</label>
                                                 <select id="offer_id" name="offer_id" class="form-select">
-                                                <?php
+                                                    <?php
                                                 // Récupérer toutes les offres
                                                 $stmt = $pdo->prepare('SELECT * FROM offres');
                                                 $stmt->execute();
@@ -536,7 +539,7 @@ include '../notifications/notifications.php';
                                                     echo "<option value=\"{$offre['id']}\" {$selected}>{$offre['nom']}</option>";
                                                 }
                                                 ?>
-                                            </select>
+                                                </select>
                                             </div>
                                             <div class="col-sm-3 d-flex align-items-end">
                                                 <button type="submit" class="btn btn-primary">Changer</button>
@@ -545,15 +548,18 @@ include '../notifications/notifications.php';
                                     </div>
                                     <hr class="mx-md-n5 mx-n3" />
                                     <div class="modal-body">
-                                        <h6 class="mb-0">Offre actuelle du client : <?php echo $client['offre_nom']?></h6>
+                                        <h6 class="mb-0">Offre actuelle du client : <?php echo $client['offre_nom']?>
+                                        </h6>
                                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                                             <div class="d-flex justify-content-center me-2 mt-3">
                                                 <sup
                                                     class="h5 pricing-currency pt-1 mt-3 mb-0 me-1 text-primary">€</sup>
-                                                <h1 class="display-3 mb-0 text-primary"><?php echo $client['prix_mensuel']?></h1>
+                                                <h1 class="display-3 mb-0 text-primary">
+                                                    <?php echo $client['prix_mensuel']?></h1>
                                                 <sub class="h5 pricing-duration mt-auto mb-2">/mois</sub>
                                             </div>
-                                            <button class="btn btn-label-danger cancel-subscription mt-3">Annuler l'abonnement</button>
+                                            <button class="btn btn-label-danger cancel-subscription mt-3">Annuler
+                                                l'abonnement</button>
                                         </div>
                                     </div>
                                 </div>
@@ -651,6 +657,18 @@ include '../notifications/notifications.php';
                 buttonsStyling: false
             });
         }
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('.suspend-user').click(function() {
+            var clientId = $(this).data('id');
+            $.get('archive_client.php', {
+                id: clientId
+            }, function(data) {
+                alert(data);
+            });
+        });
     });
     </script>
     <!-- Core JS -->
