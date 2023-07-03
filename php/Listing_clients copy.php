@@ -35,7 +35,7 @@ $offre1Count = $result['count']; // Nombre de clients qui ont l'offre 1
 $stmt = $pdo->prepare('SELECT AVG(temps_engagement) as average FROM clients');
 $stmt->execute();
 $result = $stmt->fetch();
-$averageEngagement = $result['average']; // Temps d'engagement moyen
+$averageEngagement = round($result['average']); // Temps d'engagement moyen arrondi à l'entier le plus proche
 
 
 ?>
@@ -140,12 +140,12 @@ $averageEngagement = $result['average']; // Temps d'engagement moyen
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Offre 1</span>
+                                                <span>Offre Ambition</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $offre1Count; ?></h4>
-                                                    <small class="text-success">(+18%)</small>
+                                                    <small class="text-success">(+XX%)</small>
                                                 </div>
-                                                <small>Last week analytics </small>
+                                                <small>nombres d'offres Ambition actives</small>
                                             </div>
                                             <span class="badge bg-label-danger rounded p-2">
                                                 <i class="bx bx-user-plus bx-sm"></i>
@@ -159,12 +159,12 @@ $averageEngagement = $result['average']; // Temps d'engagement moyen
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Active Users</span>
+                                                <span>Temps d'engagement</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $averageEngagement; ?></h4>
-                                                    <small class="text-danger">(-14%)</small>
+                                                    <small class="text-danger">(-XX%)</small>
                                                 </div>
-                                                <small>Last week analytics</small>
+                                                <small>mois d'engagement</small>
                                             </div>
                                             <span class="badge bg-label-success rounded p-2">
                                                 <i class="bx bx-group bx-sm"></i>
