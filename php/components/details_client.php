@@ -238,7 +238,7 @@ include '../notifications/notifications.php';
                                             <div class="d-flex justify-content-center pt-3">
                                                 <a href="javascript:;" class="btn btn-primary me-3"
                                                     data-bs-target="#editUser" data-bs-toggle="modal">Modifier</a>
-                                                <<a href="javascript:;" class="btn btn-label-danger suspend-user"
+                                                <a href="javascript:;" class="btn btn-label-danger suspend-user"
                                                     data-id="<?php echo $client['id']; ?>">Archiver</a>
                                             </div>
                                         </div>

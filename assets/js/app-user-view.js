@@ -10,11 +10,11 @@
   if (suspendUser) {
     suspendUser.onclick = function () {
       Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert user!",
+        title: 'Êtes-vous sur ?',
+        text: "Le statut du client sera archivé",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, Suspend user!',
+        confirmButtonText: 'Oui, confirmer !',
         customClass: {
           confirmButton: 'btn btn-primary me-2',
           cancelButton: 'btn btn-label-secondary'
@@ -24,16 +24,16 @@
         if (result.value) {
           Swal.fire({
             icon: 'success',
-            title: 'Suspended!',
-            text: 'User has been suspended.',
+            title: 'Archivé!',
+            text: 'le client vient d\'être archivé.',
             customClass: {
               confirmButton: 'btn btn-success'
             }
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
-            title: 'Cancelled',
-            text: 'Cancelled Suspension :)',
+            title: 'Annulé',
+            text: 'Archivage annulé :)',
             icon: 'error',
             customClass: {
               confirmButton: 'btn btn-success'
