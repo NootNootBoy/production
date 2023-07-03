@@ -23,7 +23,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="javascript:void(0);">Renommer le projet</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">Voir en détail</a></li>
+                            <li><a class="dropdown-item" href="cahier_des_charges_detail.php?projet_id=<?php echo $projet['id_projet']; ?>">Voir le cahier des charges</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
