@@ -27,6 +27,17 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
         $clientCount++; // Incrémente la variable $clientCount pour chaque client
     }
 
+$stmt = $pdo->prepare('SELECT COUNT(*) as count FROM clients WHERE offre_id = 1');
+$stmt->execute();
+$result = $stmt->fetch();
+$offre1Count = $result['count']; // Nombre de clients qui ont l'offre 1
+
+$stmt = $pdo->prepare('SELECT AVG(temps_engagement) as average FROM clients');
+$stmt->execute();
+$result = $stmt->fetch();
+$averageEngagement = $result['average']; // Temps d'engagement moyen
+
+
 ?>
 
 <!DOCTYPE html>
@@ -110,12 +121,12 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Session</span>
+                                                <span>Clients</span>
                                                 <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">21,459</h4>
-                                                    <small class="text-success">(+29%)</small>
+                                                    <h4 class="mb-0 me-2"><?php echo $clientCount; ?></h4>
+                                                    <small class="text-success">(+XX%)</small>
                                                 </div>
-                                                <small>Total Users</small>
+                                                <small>au total</small>
                                             </div>
                                             <span class="badge bg-label-primary rounded p-2">
                                                 <i class="bx bx-user bx-sm"></i>
@@ -129,9 +140,9 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Paid Users</span>
+                                                <span>Offre 1</span>
                                                 <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">4,567</h4>
+                                                    <h4 class="mb-0 me-2"><?php echo $offre1Count; ?></h4>
                                                     <small class="text-success">(+18%)</small>
                                                 </div>
                                                 <small>Last week analytics </small>
@@ -150,7 +161,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                             <div class="content-left">
                                                 <span>Active Users</span>
                                                 <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">19,860</h4>
+                                                    <h4 class="mb-0 me-2"><?php echo $averageEngagement; ?></h4>
                                                     <small class="text-danger">(-14%)</small>
                                                 </div>
                                                 <small>Last week analytics</small>
