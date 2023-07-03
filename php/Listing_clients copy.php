@@ -188,7 +188,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <small>le dernier mois</small>
                                             </div>
                                             <span class="badge bg-label-warning rounded p-2">
-                                                <i class="bx bx-user-voice bx-sm"></i>
+                                                <i class="bx bx-user-x bx-sm"></i>
                                             </span>
                                         </div>
                                     </div>
