@@ -166,7 +166,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                     <h4 class="mb-0 me-2"><?php echo $averageEngagement; ?></h4>
                                                     <small class="text-danger">(-XX%)</small>
                                                 </div>
-                                                <small>mois d'engagement</small>
+                                                <small>en moyenne (en mois)</small>
                                             </div>
                                             <span class="badge bg-label-success rounded p-2">
                                                 <i class="bx bx-time bx-sm"></i>
