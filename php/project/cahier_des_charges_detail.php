@@ -12,5 +12,4 @@ $cahier_des_charges = $stmt->fetch(PDO::FETCH_ASSOC);
 
 echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_charges['nom_projet']) . "</h1>";
 
-
 ?>
