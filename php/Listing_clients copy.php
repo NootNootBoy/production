@@ -148,7 +148,7 @@ $averageEngagement = round($result['average']); // Temps d'engagement moyen arro
                                                 <small>nombres d'offres Ambition actives</small>
                                             </div>
                                             <span class="badge bg-label-danger rounded p-2">
-                                                <i class="bx bx-user-plus bx-sm"></i>
+                                                <i class="bx bx-offer bx-sm"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@ $averageEngagement = round($result['average']); // Temps d'engagement moyen arro
                                                 <small>mois d'engagement</small>
                                             </div>
                                             <span class="badge bg-label-success rounded p-2">
-                                                <i class="bx bx-group bx-sm"></i>
+                                                <i class="bx bx-time bx-sm"></i>
                                             </span>
                                         </div>
                                     </div>
