@@ -27,6 +27,19 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
         $clientCount++; // Incrémente la variable $clientCount pour chaque client
     }
 
+$stmt = $pdo->prepare('SELECT COUNT(*) as count FROM clients WHERE offre_id = 1');
+$stmt->execute();
+$result = $stmt->fetch();
+$offre1Count = $result['count']; // Nombre de clients qui ont l'offre 1
+
+$stmt = $pdo->prepare('SELECT AVG(temps_engagement) as average FROM clients');
+$stmt->execute();
+$result = $stmt->fetch();
+$averageEngagement = round($result['average']); // Temps d'engagement moyen arrondi à l'entier le plus proche
+
+$stmt = $pdo->prepare('SELECT COUNT(*) as pending FROM clients WHERE statut = :status');
+$stmt->execute(['status' => 'inactif']); // Remplacez 'inactif' par le statut approprié pour les clients en attente
+$pendingClients = $stmt->fetch()['pending'];
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +117,84 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start justify-content-between">
+                                            <div class="content-left">
+                                                <span>Clients</span>
+                                                <div class="d-flex align-items-end mt-2">
+                                                    <h4 class="mb-0 me-2"><?php echo $clientCount; ?></h4>
+                                                    <small class="text-success">(+XX%)</small>
+                                                </div>
+                                                <small>au total</small>
+                                            </div>
+                                            <span class="badge bg-label-primary rounded p-2">
+                                                <i class="bx bx-user bx-sm"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start justify-content-between">
+                                            <div class="content-left">
+                                                <span>Offre Ambition</span>
+                                                <div class="d-flex align-items-end mt-2">
+                                                    <h4 class="mb-0 me-2"><?php echo $offre1Count; ?></h4>
+                                                    <small class="text-success">(+XX%)</small>
+                                                </div>
+                                                <small>nombres d'offres actives</small>
+                                            </div>
+                                            <span class="badge bg-label-success rounded p-2">
+                                                <i class="bx bx-purchase-tag-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start justify-content-between">
+                                            <div class="content-left">
+                                                <span>Temps d'engagement</span>
+                                                <div class="d-flex align-items-end mt-2">
+                                                    <h4 class="mb-0 me-2"><?php echo $averageEngagement; ?></h4>
+                                                    <small class="text-danger">(-XX%)</small>
+                                                </div>
+                                                <small>en moyenne (en mois)</small>
+                                            </div>
+                                            <span class="badge bg-label-success rounded p-2">
+                                                <i class="bx bx-time bx-sm"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start justify-content-between">
+                                            <div class="content-left">
+                                                <span>Client annulé</span>
+                                                <div class="d-flex align-items-end mt-2">
+                                                    <h4 class="mb-0 me-2"><?php echo $pendingClients; ?></h4>
+                                                    <small class="text-warning">(--%)</small>
+                                                </div>
+                                                <small>le dernier mois</small>
+                                            </div>
+                                            <span class="badge bg-label-warning rounded p-2">
+                                                <i class="bx bx-user-x bx-sm"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Clients</h4>
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
@@ -148,7 +239,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                         }
                                             ?>
 
-                                            
+
                                     </tbody>
                                 </table>
                             </div>
@@ -269,34 +360,43 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                <label class="form-label" for="second_commercial_id">Second Commercial</label>
-                                                <select id="second_commercial_id" name="second_commercial_id" class="select2 form-select">
-                                                    <?php foreach ($commerciaux as $commercial): ?>
-                                                    <option value="<?php echo $commercial['id']; ?>">
-                                                        <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
-                                                    </option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+                                                    <label class="form-label" for="second_commercial_id">Second
+                                                        Commercial</label>
+                                                    <select id="second_commercial_id" name="second_commercial_id"
+                                                        class="select2 form-select">
+                                                        <?php foreach ($commerciaux as $commercial): ?>
+                                                        <option value="<?php echo $commercial['id']; ?>">
+                                                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
+                                                        </option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
                                             <h6>4. Associé (optionnel)</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="associe_nom">Nom de l'associé</label>
-                                                    <input type="text" id="associe_nom" name="associe_nom" class="form-control" placeholder="Dupont">
+                                                    <input type="text" id="associe_nom" name="associe_nom"
+                                                        class="form-control" placeholder="Dupont">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="associe_prenom">Prénom de l'associé</label>
-                                                    <input type="text" id="associe_prenom" name="associe_prenom" class="form-control" placeholder="Jean">
+                                                    <label class="form-label" for="associe_prenom">Prénom de
+                                                        l'associé</label>
+                                                    <input type="text" id="associe_prenom" name="associe_prenom"
+                                                        class="form-control" placeholder="Jean">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="associe_email">Email de l'associé</label>
-                                                    <input type="email" id="associe_email" name="associe_email" class="form-control" placeholder="jean.dupont@example.com">
+                                                    <label class="form-label" for="associe_email">Email de
+                                                        l'associé</label>
+                                                    <input type="email" id="associe_email" name="associe_email"
+                                                        class="form-control" placeholder="jean.dupont@example.com">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="associe_telephone">Numéro de téléphone de l'associé</label>
-                                                    <input type="tel" id="associe_telephone" name="associe_telephone" class="form-control" placeholder="065120....">
+                                                    <label class="form-label" for="associe_telephone">Numéro de
+                                                        téléphone de l'associé</label>
+                                                    <input type="tel" id="associe_telephone" name="associe_telephone"
+                                                        class="form-control" placeholder="065120....">
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
@@ -314,7 +414,7 @@ $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
                                                         echo "<option value=\"{$offre['id']}\">{$offre['nom']}</option>";
                                                     }
                                                     ?>
-                                            </select>
+                                                </select>
                                             </div>
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
