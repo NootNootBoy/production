@@ -149,7 +149,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 </div>
                                                 <small>nombres d'offres actives</small>
                                             </div>
-                                            <span class="badge bg-label-primary rounded p-2">
+                                            <span class="badge bg-label-success rounded p-2">
                                                 <i class="bx bx-purchase-tag-alt"></i>
                                             </span>
                                         </div>
