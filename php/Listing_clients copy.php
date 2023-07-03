@@ -37,7 +37,9 @@ $stmt->execute();
 $result = $stmt->fetch();
 $averageEngagement = round($result['average']); // Temps d'engagement moyen arrondi à l'entier le plus proche
 
-
+$stmt = $pdo->prepare('SELECT COUNT(*) as pending FROM clients WHERE statut = :status');
+$stmt->execute(['status' => 'inactif']); // Remplacez 'inactif' par le statut approprié pour les clients en attente
+$pendingClients = $stmt->fetch()['pending'];
 ?>
 
 <!DOCTYPE html>
@@ -145,10 +147,10 @@ $averageEngagement = round($result['average']); // Temps d'engagement moyen arro
                                                     <h4 class="mb-0 me-2"><?php echo $offre1Count; ?></h4>
                                                     <small class="text-success">(+XX%)</small>
                                                 </div>
-                                                <small>nombres d'offres Ambition actives</small>
+                                                <small>nombres d'offres actives</small>
                                             </div>
                                             <span class="badge bg-label-danger rounded p-2">
-                                                <i class="bx bx-offer bx-sm"></i>
+                                                <i class="bx bx-purchase-tag-alt"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -178,12 +180,12 @@ $averageEngagement = round($result['average']); // Temps d'engagement moyen arro
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Pending Users</span>
+                                                <span>Client annulé</span>
                                                 <div class="d-flex align-items-end mt-2">
-                                                    <h4 class="mb-0 me-2">237</h4>
-                                                    <small class="text-success">(+42%)</small>
+                                                    <h4 class="mb-0 me-2"><?php echo $pendingClients; ?></h4>
+                                                    <small class="text-warning">(--%)</small>
                                                 </div>
-                                                <small>Last week analytics</small>
+                                                <small>le dernier mois</small>
                                             </div>
                                             <span class="badge bg-label-warning rounded p-2">
                                                 <i class="bx bx-user-voice bx-sm"></i>
