@@ -21,7 +21,7 @@ if ($client_id) {
   // Mise à jour du statut du client dans la base de données.
   $stmt = $pdo->prepare("UPDATE clients SET statut = 'archived' WHERE id = ?");
   $stmt->execute([$client_id]);
-  echo "Le client a été archivé.";
+  
 } else {
   echo "ID de client invalide.";
 }
