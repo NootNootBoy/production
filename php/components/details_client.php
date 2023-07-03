@@ -659,18 +659,6 @@ include '../notifications/notifications.php';
         }
     });
     </script>
-    <script>
-    $(document).ready(function() {
-        $('.suspend-user').click(function() {
-            var clientId = $(this).data('id');
-            $.get('archive_client.php', {
-                id: clientId
-            }, function(data) {
-                alert(data);
-            });
-        });
-    });
-    </script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>

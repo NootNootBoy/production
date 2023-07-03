@@ -9,6 +9,7 @@
   // Suspend User javascript
   if (suspendUser) {
     suspendUser.onclick = function () {
+      var clientId = $(this).data('id'); // Ajoutez cette ligne
       Swal.fire({
         title: 'Êtes-vous sur ?',
         text: "Le statut du client sera archivé",
@@ -22,13 +23,16 @@
         buttonsStyling: false
       }).then(function (result) {
         if (result.value) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Archivé!',
-            text: 'le client vient d\'être archivé.',
-            customClass: {
-              confirmButton: 'btn btn-success'
-            }
+          // Déplacez l'appel AJAX ici
+          $.get('archive_client.php', { id: clientId }, function(data) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Archivé!',
+              text: 'le client vient d\'être archivé.',
+              customClass: {
+                confirmButton: 'btn btn-success'
+              }
+            });
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
