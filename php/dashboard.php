@@ -225,8 +225,105 @@ if (!isset($_SESSION['username'])) {
         <script src="../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script var months=<?php echo $months_json; ?>; src="../assets/js/dashboards.js"></script>
-
+        <script>
+        // Performance - Radar Chart
+        // --------------------------------------------------------------------
+        const performanceChartEl = document.querySelector('#performanceChart'),
+            performanceChartConfig = {
+                series: [{
+                        name: 'C.A prévision',
+                        data: [26, 29, 31, 40, 29, 24]
+                    },
+                    {
+                        name: 'C.A réalisé',
+                        data: [30, 26, 24, 26, 24, 40]
+                    }
+                ],
+                chart: {
+                    height: 270,
+                    type: 'radar',
+                    toolbar: {
+                        show: false
+                    },
+                    dropShadow: {
+                        enabled: true,
+                        enabledOnSeries: undefined,
+                        top: 6,
+                        left: 0,
+                        blur: 6,
+                        color: '#000',
+                        opacity: 0.14
+                    }
+                },
+                plotOptions: {
+                    radar: {
+                        polygons: {
+                            strokeColors: borderColor,
+                            connectorColors: borderColor
+                        }
+                    }
+                },
+                stroke: {
+                    show: false,
+                    width: 0
+                },
+                legend: {
+                    show: true,
+                    fontSize: '13px',
+                    position: 'bottom',
+                    labels: {
+                        colors: '#aab3bf',
+                        useSeriesColors: false
+                    },
+                    markers: {
+                        height: 10,
+                        width: 10,
+                        offsetX: -3
+                    },
+                    itemMargin: {
+                        horizontal: 10
+                    },
+                    onItemHover: {
+                        highlightDataSeries: false
+                    }
+                },
+                colors: [config.colors.primary, config.colors.info],
+                fill: {
+                    opacity: [1, 0.85]
+                },
+                markers: {
+                    size: 0
+                },
+                grid: {
+                    show: false,
+                    padding: {
+                        top: -8,
+                        bottom: -5
+                    }
+                },
+                xaxis: {
+                    categories: <?php echo $months_json; ?>,
+                    labels: {
+                        show: true,
+                        style: {
+                            colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
+                            fontSize: '13px',
+                            fontFamily: 'Public Sans'
+                        }
+                    }
+                },
+                yaxis: {
+                    show: false,
+                    min: 0,
+                    max: 1000000,
+                    tickAmount: 4
+                }
+            };
+        if (typeof performanceChartEl !== undefined && performanceChartEl !== null) {
+            const performanceChart = new ApexCharts(performanceChartEl, performanceChartConfig);
+            performanceChart.render();
+        }
+        </script>
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
