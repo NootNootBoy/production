@@ -137,10 +137,10 @@ $agences = explode("','", $matches[1]);
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <?php
-                                           $stmt = $pdo->query('SELECT * FROM users');
+                                           $stmt = $pdo->query('SELECT users.*, agences.nom AS agence_nom FROM users INNER JOIN agences ON users.agence_id = agences.id');
                                            while ($user = $stmt->fetch()) {
                                                include 'components/user_row.php';
-                                           }
+                                           }                                           
                                             ?>
                                     </tbody>
                                 </table>
@@ -181,8 +181,9 @@ $agences = explode("','", $matches[1]);
                                             </div>
                                             <div class="mb-3">
                                                 <label for="phone_number" class="form-label">Numéro de téléphone</label>
-                                                <input type="tel" class="form-control" id="phone_number" name="phone_number"
-                                                    placeholder="Entrer le numéro de téléphone" autofocus />
+                                                <input type="tel" class="form-control" id="phone_number"
+                                                    name="phone_number" placeholder="Entrer le numéro de téléphone"
+                                                    autofocus />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>

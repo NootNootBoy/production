@@ -20,7 +20,7 @@
         </span>
     </td>
     <td><?php echo htmlspecialchars($user['phone_number']) ?></td>
-    <td><?php echo htmlspecialchars($user['agence_id']) ?></td>
+    <td><?php echo htmlspecialchars($user['agence_nom']) ?></td>
     <td>
         <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
