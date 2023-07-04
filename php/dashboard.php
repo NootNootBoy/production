@@ -42,6 +42,12 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
+    $months = [];
+    for ($i = 5; $i >= 0; $i--) {
+        $months[] = strftime('%b', strtotime("-$i month"));
+    }
+    $months_json = json_encode($months);
+
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +157,7 @@ if (!isset($_SESSION['username'])) {
                             <div class="col-md-6 col-lg-4 mb-4">
                                 <div class="card h-100">
                                     <div class="card-header d-flex align-items-center justify-content-between">
-                                        <h5 class="card-title m-0 me-2">Performance</h5>
+                                        <h5 class="card-title m-0 me-2">Votre chiffre d'affaire</h5>
                                         <div class="dropdown">
                                             <button class="btn p-0" type="button" id="performanceId"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -159,9 +165,10 @@ if (!isset($_SESSION['username'])) {
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-end"
                                                 aria-labelledby="performanceId">
-                                                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                                                <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                                                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                                                <a class="dropdown-item" href="javascript:void(0);">28 derniers
+                                                    jours</a>
+                                                <a class="dropdown-item" href="javascript:void(0);">Dernier mois</a>
+                                                <a class="dropdown-item" href="javascript:void(0);">Derniere année</a>
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +226,7 @@ if (!isset($_SESSION['username'])) {
 
         <!-- Page JS -->
         <script src="../assets/js/dashboards-analytics.js"></script>
-        <script src="../assets/js/dashboards-ecommerce.js"></script>
+        <script var months=<?php echo $months_json; ?>; src="../assets/js/dashboards.js"></script>
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>

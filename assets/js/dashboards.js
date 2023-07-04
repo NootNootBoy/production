@@ -469,7 +469,6 @@
     totalIncome.render();
   }
 
-
   // Performance - Radar Chart
   // --------------------------------------------------------------------
   const performanceChartEl = document.querySelector('#performanceChart'),
@@ -547,20 +546,20 @@
         }
       },
       xaxis: {
-        categories: months,
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         labels: {
-            show: true,
-            style: {
-                colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
-                fontSize: '13px',
-                fontFamily: 'Public Sans'
-            }
+          show: true,
+          style: {
+            colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
+            fontSize: '13px',
+            fontFamily: 'Public Sans'
+          }
         }
-    },
+      },
       yaxis: {
         show: false,
         min: 0,
-        max: 1000000,
+        max: 40,
         tickAmount: 4
       }
     };
