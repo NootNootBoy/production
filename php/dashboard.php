@@ -225,7 +225,6 @@ if (!isset($_SESSION['username'])) {
         <script src="../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script src="../assets/js/dashboards-analytics.js"></script>
         <script var months=<?php echo $months_json; ?>; src="../assets/js/dashboards.js"></script>
 
         <!-- Place this tag in your head or just before your close body tag. -->
