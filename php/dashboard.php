@@ -225,7 +225,7 @@ if (!isset($_SESSION['username'])) {
         <script src="../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script var months=<?php echo $months_json; ?>; src="../assets/js/dashboards.js"></script>
+        <script var months=<?php echo $months_json; ?>; src="dashboards.js"></script>
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
