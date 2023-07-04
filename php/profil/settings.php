@@ -6,7 +6,7 @@ include '../notifications/notifications.php';
 
 echo "<script>console.log('ID de session: " . $_SESSION['user_id'] . "');</script>";
 
-$stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+$stmt = $pdo->prepare("SELECT users.*, agences.nom AS agence_nom FROM users LEFT JOIN agences ON users.agence_id = agences.id WHERE users.id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -238,6 +238,7 @@ $agences = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
+
 
 
 
