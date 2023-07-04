@@ -10,6 +10,9 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// Maintenant, vous pouvez stocker la valeur de "overall" dans la session
+$_SESSION['Overall'] = $result['overall'];
+
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
 
@@ -22,11 +25,9 @@ preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
 $rangs = explode("','", $matches[1]);
 
 // Récupération des agences
-$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-$matches = array();
-preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-$agences = explode("','", $matches[1]);
+$stmt = $pdo->query("SELECT * FROM agences");
+$agences = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -206,7 +207,7 @@ $agences = explode("','", $matches[1]);
                                                     placeholder="Entrer votre email"
                                                     value="<?php echo $user['email']; ?>" />
                                             </div>
-                                            <?php if ($_SESSION['rang'] == 'administrateur'): ?>
+                                            <?php if ($_SESSION['overall'] == true): ?>
                                             <div class="form-group">
                                                 <label for="rang">Rang:</label>
                                                 <select name="rang" id="rang" class="form-control" required>
@@ -218,7 +219,7 @@ $agences = explode("','", $matches[1]);
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
-                                            <?php elseif ($_SESSION['rang'] !== 'administrateur'): ?>
+                                            <?php elseif ($_SESSION['overall'] !== true): ?>
                                             <div class="form-group">
                                                 <label for="rang">Rang:</label>
                                                 <input type="text" id="rang" name="rang" class="form-control"
@@ -228,15 +229,16 @@ $agences = explode("','", $matches[1]);
 
                                             <div class="form-group">
                                                 <label for="agence">Agence:</label>
-                                                <select name="agence" id="agence" class="form-control" required>
+                                                <select name="agence_id" id="agence" class="form-control" required>
                                                     <?php foreach ($agences as $agence): ?>
-                                                    <option value="<?php echo $agence; ?>"
-                                                        <?php echo $user['agence'] == $agence ? 'selected' : ''; ?>>
-                                                        <?php echo ucfirst($agence); ?>
+                                                    <option value="<?php echo $agence['id']; ?>"
+                                                        <?php echo $user['agence_id'] == $agence['id'] ? 'selected' : ''; ?>>
+                                                        <?php echo ucfirst($agence['nom']); ?>
                                                     </option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
+
 
 
                                             <div class="mb-3">
@@ -247,58 +249,74 @@ $agences = explode("','", $matches[1]);
                                     </div>
                                     <!-- /Account -->
                                 </div>
-                                                    <!-- Notification -->
-                    <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <i class="bx bx-bell bx-sm"></i>
-                            <span class="badge bg-danger rounded-pill badge-notifications">5</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end py-0">
-                            <li class="dropdown-menu-header border-bottom">
-                                <div class="dropdown-header d-flex align-items-center py-3">
-                                    <h5 class="text-body mb-0 me-auto">Notification</h5>
-                                    <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
-                                            class="bx fs-4 bx-envelope-open"></i></a>
-                                </div>
-                            </li>
-                            <li class="dropdown-notifications-list scrollable-container">
-                                    <ul class="list-group list-group-flush">
-                                        <?php
+                                <!-- Notification -->
+                                <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                        <i class="bx bx-bell bx-sm"></i>
+                                        <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end py-0">
+                                        <li class="dropdown-menu-header border-bottom">
+                                            <div class="dropdown-header d-flex align-items-center py-3">
+                                                <h5 class="text-body mb-0 me-auto">Notification</h5>
+                                                <a href="javascript:void(0)"
+                                                    class="dropdown-notifications-all text-body"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Mark all as read"><i
+                                                        class="bx fs-4 bx-envelope-open"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-notifications-list scrollable-container">
+                                            <ul class="list-group list-group-flush">
+                                                <?php
                                         $notifications = getNotificationsForUser($user['id']);
                                         foreach ($notifications as $notification) {
                                         ?>
-                                        <li class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar">
-                                                        <span class="avatar-initial rounded-circle bg-label-success"><i class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i></span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mb-1"><?php echo htmlspecialchars($notification['title']); ?></h6>
-                                                    <p class="mb-0"><?php echo htmlspecialchars($notification['description']); ?></p>
-                                                    <small class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?> ago</small>
-                                                </div>
-                                                <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                    <a href="#" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    <a href="#" id="markAsRead-<?php echo $notification['id']; ?>" class="dropdown-notifications-archive"><span class="bx bx-x"></span></a>
-                                            </div>
-                                        </li>
-                                        <?php
+                                                <li
+                                                    class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
+                                                    <div class="d-flex">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar">
+                                                                <span
+                                                                    class="avatar-initial rounded-circle bg-label-success"><i
+                                                                        class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <h6 class="mb-1">
+                                                                <?php echo htmlspecialchars($notification['title']); ?>
+                                                            </h6>
+                                                            <p class="mb-0">
+                                                                <?php echo htmlspecialchars($notification['description']); ?>
+                                                            </p>
+                                                            <small
+                                                                class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?>
+                                                                ago</small>
+                                                        </div>
+                                                        <div class="flex-shrink-0 dropdown-notifications-actions">
+                                                            <a href="#" class="dropdown-notifications-read"><span
+                                                                    class="badge badge-dot"></span></a>
+                                                            <a href="#"
+                                                                id="markAsRead-<?php echo $notification['id']; ?>"
+                                                                class="dropdown-notifications-archive"><span
+                                                                    class="bx bx-x"></span></a>
+                                                        </div>
+                                                </li>
+                                                <?php
                                         }
                                         ?>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-menu-footer border-top">
+                                            <a href="javascript:void(0);"
+                                                class="dropdown-item d-flex justify-content-center p-3">
+                                                Voir les notfications
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
-                            <li class="dropdown-menu-footer border-top">
-                                <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center p-3">
-                                    Voir les notfications
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--/ Notification -->
+                                <!--/ Notification -->
                                 <div class="card">
                                     <?php if ($_SESSION['rang'] == 'administrateur'): ?>
                                     <h5 class="card-header">Supprimer votre compte</h5>
@@ -389,19 +407,21 @@ $agences = explode("','", $matches[1]);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-    $("[id^='markAsRead-']").click(function(e){
-        e.preventDefault();
-        var notificationId = $(this).attr('id').split('-')[1];
-        $.ajax({
-        url: '../../php/notifications/mark_as_read.php',
-        type: 'post',
-        data: {notification_id: notificationId},
-        success: function(response){
-            // Supprimez la notification de la liste ou mettez-la à jour en fonction de la réponse
-        }
+    $(document).ready(function() {
+        $("[id^='markAsRead-']").click(function(e) {
+            e.preventDefault();
+            var notificationId = $(this).attr('id').split('-')[1];
+            $.ajax({
+                url: '../../php/notifications/mark_as_read.php',
+                type: 'post',
+                data: {
+                    notification_id: notificationId
+                },
+                success: function(response) {
+                    // Supprimez la notification de la liste ou mettez-la à jour en fonction de la réponse
+                }
+            });
         });
-    });
     });
     </script>
 
