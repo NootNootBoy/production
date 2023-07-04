@@ -476,11 +476,11 @@
     performanceChartConfig = {
       series: [
         {
-          name: 'Income',
+          name: 'C.A prévision',
           data: [26, 29, 31, 40, 29, 24]
         },
         {
-          name: 'Earning',
+          name: 'C.A réalisé',
           data: [30, 26, 24, 26, 24, 40]
         }
       ],
