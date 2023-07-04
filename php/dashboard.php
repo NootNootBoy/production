@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
         JOIN clients ON users.id = clients.commercial_id
         JOIN offres ON clients.offre_id = offres.id
         WHERE clients.code_assurance IS NULL AND users.id = :userId
-            AND clients.date_creation >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
+            AND clients.created_at >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
         JOIN clients ON users.id = clients.commercial_id
         JOIN offres ON clients.offre_id = offres.id
         WHERE clients.code_assurance IS NULL AND users.id = :userId
-            AND clients.date_creation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+            AND clients.created_at >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
