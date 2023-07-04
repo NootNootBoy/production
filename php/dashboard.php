@@ -276,7 +276,11 @@ $months_json = json_encode($months);
                     },
                     {
                         name: 'C.A réalisé',
-                        data: [26, 29, 31, 30, 30, 30] // Remplacez les valeurs statiques par les données réelles
+                        data: [
+                            <?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?>,
+                            <?php echo number_format($CA_prevision_3_months, 2, '.', ''); ?>,
+                            <?php echo number_format($CA_prevision_total, 2, '.', ''); ?>
+                        ]
                     }
                 ],
                 chart: {
