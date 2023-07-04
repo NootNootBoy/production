@@ -151,6 +151,8 @@ if (!isset($_SESSION['username'])) {
                                     </div>
                                 </div>
                             </div>
+                            <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
+
                             <div class="col-md-6 col-lg-4 mb-4">
                                 <div class="card h-100">
                                     <div class="card-header d-flex align-items-center justify-content-between">
@@ -184,7 +186,8 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                             </div>
                             <!--/ Performance -->
-
+                            <?php
+                        }?>
                             <div class="row">
 
                             </div>
