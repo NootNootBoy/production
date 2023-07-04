@@ -469,17 +469,17 @@
     totalIncome.render();
   }
 
-  // Performance - Radar Chart
+    // Performance - Radar Chart
   // --------------------------------------------------------------------
   const performanceChartEl = document.querySelector('#performanceChart'),
     performanceChartConfig = {
       series: [
         {
-          name: 'Income',
+          name: 'C.A prévision',
           data: [26, 29, 31, 40, 29, 24]
         },
         {
-          name: 'Earning',
+          name: 'C.A réalisé',
           data: [30, 26, 24, 26, 24, 40]
         }
       ],
@@ -546,20 +546,20 @@
         }
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        categories: months,
         labels: {
-          show: true,
-          style: {
-            colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
-            fontSize: '13px',
-            fontFamily: 'Public Sans'
-          }
+            show: true,
+            style: {
+                colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
+                fontSize: '13px',
+                fontFamily: 'Public Sans'
+            }
         }
-      },
+    },
       yaxis: {
         show: false,
         min: 0,
-        max: 40,
+        max: 1000000,
         tickAmount: 4
       }
     };
