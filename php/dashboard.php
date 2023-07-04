@@ -55,6 +55,17 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
 
+        // Préparation et exécution de la requête pour le CA réalisé
+        $stmt = $pdo->prepare('
+        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_realise
+        FROM users
+        JOIN clients ON users.id = clients.commercial_id
+        JOIN offres ON clients.offre_id = offres.id
+        WHERE clients.code_assurance IS NOT NULL AND users.id = :userId
+    ');
+    $stmt->execute(['userId' => $userId]);
+    $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
+
 ?>
 
 <!DOCTYPE html>
