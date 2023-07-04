@@ -353,7 +353,7 @@ $months_json = json_encode($months);
                 yaxis: {
                     show: false,
                     min: 0,
-                    max: 120000,
+                    max: 12000,
                     tickAmount: 4
                 }
             };
