@@ -226,6 +226,18 @@ if (!isset($_SESSION['username'])) {
 
         <!-- Page JS -->
         <script>
+        let cardColor, headingColor, labelColor, shadeColor, borderColor, heatMap1, heatMap2, heatMap3, heatMap4;
+
+
+        cardColor = config.colors_dark.cardColor;
+        headingColor = config.colors_dark.headingColor;
+        labelColor = config.colors_dark.textMuted;
+        borderColor = config.colors_dark.borderColor;
+        shadeColor = 'dark';
+        heatMap1 = '#4f51c0';
+        heatMap2 = '#595cd9';
+        heatMap3 = '#8789ff';
+        heatMap4 = '#c3c4ff';
         // Performance - Radar Chart
         // --------------------------------------------------------------------
         const performanceChartEl = document.querySelector('#performanceChart'),
