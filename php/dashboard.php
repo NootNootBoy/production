@@ -9,7 +9,7 @@ include './notifications/notifications.php';
 $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
 $stmt->execute([$username]); // Remplacez $username par la valeur appropriée
 $user = $stmt->fetch();
-$user_id = $user['id'];
+$userId = $user['id']; // Changez $user_id en $userId
 
 if (!isset($_SESSION['username'])) {
     // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
