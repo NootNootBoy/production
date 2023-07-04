@@ -20,33 +20,40 @@ if (!isset($_SESSION['username'])) {
     echo "<script>console.log('Connecté en tant que : " . $_SESSION['username'] . "');</script>";
 }
 
-    // Préparation et exécution de la requête pour le CA en prévision
+    // Préparation et exécution de la requête pour le CA en prévision des 28 derniers jours
     $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_28_days
+        FROM users
+        JOIN clients ON users.id = clients.commercial_id
+        JOIN offres ON clients.offre_id = offres.id
+        WHERE clients.code_assurance IS NULL AND users.id = :userId
+            AND clients.date_creation >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
+    ');
+    $stmt->execute(['userId' => $userId]);
+    $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
+
+    // Préparation et exécution de la requête pour le CA en prévision des 3 derniers mois
+    $stmt = $pdo->prepare('
+        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_3_months
+        FROM users
+        JOIN clients ON users.id = clients.commercial_id
+        JOIN offres ON clients.offre_id = offres.id
+        WHERE clients.code_assurance IS NULL AND users.id = :userId
+            AND clients.date_creation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+    ');
+    $stmt->execute(['userId' => $userId]);
+    $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
+
+    // Préparation et exécution de la requête pour le CA en prévision depuis le début
+    $stmt = $pdo->prepare('
+        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_total
         FROM users
         JOIN clients ON users.id = clients.commercial_id
         JOIN offres ON clients.offre_id = offres.id
         WHERE clients.code_assurance IS NULL AND users.id = :userId
     ');
     $stmt->execute(['userId' => $userId]);
-    $CA_prevision = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision'];
-
-    // Préparation et exécution de la requête pour le CA réalisé
-    $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_realise
-        FROM users
-        JOIN clients ON users.id = clients.commercial_id
-        JOIN offres ON clients.offre_id = offres.id
-        WHERE clients.code_assurance IS NOT NULL AND users.id = :userId
-    ');
-    $stmt->execute(['userId' => $userId]);
-    $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
-
-    $months = [];
-    for ($i = 5; $i >= 0; $i--) {
-        $months[] = strftime('%b', strtotime("-$i month"));
-    }
-    $months_json = json_encode($months);
+    $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
 
 ?>
 
@@ -176,7 +183,7 @@ if (!isset($_SESSION['username'])) {
                                         <div class="row">
                                             <div class="col-6">
                                                 <small>CA en prévision: <span
-                                                        class="fw-semibold"><?php echo $CA_prevision; ?></span></small>
+                                                        class="fw-semibold"><?php echo $CA_prevision_28_days; ?></span></small>
                                             </div>
                                             <div class="col-6">
                                                 <small>CA réalisé: <span
@@ -244,11 +251,11 @@ if (!isset($_SESSION['username'])) {
             performanceChartConfig = {
                 series: [{
                         name: 'C.A prévision',
-                        data: [26, 29, 31, 40, 29, 24]
+                        data: [26, 29, 31]
                     },
                     {
                         name: 'C.A réalisé',
-                        data: [30, 26, 24, 26, 24, 40]
+                        data: [30, 26, 24]
                     }
                 ],
                 chart: {
