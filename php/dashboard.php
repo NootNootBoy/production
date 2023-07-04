@@ -268,11 +268,11 @@ $months_json = json_encode($months);
             performanceChartConfig = {
                 series: [{
                         name: 'C.A prévision',
-                        data: [26, 29, 31]
+                        data: [26, 29, 31, 30, 30, 30]
                     },
                     {
                         name: 'C.A réalisé',
-                        data: [30, 26, 24]
+                        data: [26, 29, 31, 30, 30, 30]
                     }
                 ],
                 chart: {
