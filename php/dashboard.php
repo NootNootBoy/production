@@ -268,13 +268,15 @@ $months_json = json_encode($months);
             performanceChartConfig = {
                 series: [{
                         name: 'C.A prévision',
-                        data: [<?php echo $CA_prevision_28_days; ?>, <?php echo $CA_prevision_3_months; ?>,
-                            <?php echo $CA_prevision_total; ?>
+                        data: [
+                            <?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?>,
+                            <?php echo number_format($CA_prevision_3_months, 2, '.', ''); ?>,
+                            <?php echo number_format($CA_prevision_total, 2, '.', ''); ?>
                         ]
                     },
                     {
                         name: 'C.A réalisé',
-                        data: [26, 29, 31, 30, 30, 30]
+                        data: [26, 29, 31, 30, 30, 30] // Remplacez les valeurs statiques par les données réelles
                     }
                 ],
                 chart: {
