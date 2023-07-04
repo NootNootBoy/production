@@ -17,12 +17,13 @@ session_start();
         // Si l'utilisateur a fourni un nouveau mot de passe, mettez-le à jour. Sinon, laissez le mot de passe inchangé.
         if (!empty($_POST['password'])) {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare('UPDATE users SET username = ?, email = ?, password = ?, rang = ?, agence = ?, nom = ?, prenom = ? WHERE id = ?');
+            $stmt = $pdo->prepare('UPDATE users SET username = ?, email = ?, password = ?, rang = ?, agence_id = ?, nom = ?, prenom = ? WHERE id = ?');
             $stmt->execute([$username, $email, $password, $rang, $agence, $nom, $prenom, $_SESSION['user_id']]);
         } else {
-            $stmt = $pdo->prepare('UPDATE users SET username = ?, email = ?, rang = ?, agence = ?, nom = ?, prenom = ? WHERE id = ?');
+            $stmt = $pdo->prepare('UPDATE users SET username = ?, email = ?, rang = ?, agence_id = ?, nom = ?, prenom = ? WHERE id = ?');
             $stmt->execute([$username, $email, $rang, $agence, $nom, $prenom, $_SESSION['user_id']]);
         }
+
     
         // Les informations de l'utilisateur ont été mises à jour avec succès
         $_SESSION['success_message'] = 'Les informations de votre profil ont été mises à jour avec succès.';

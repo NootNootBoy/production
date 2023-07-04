@@ -1,35 +1,24 @@
-<tr>
-    <td><?php echo htmlspecialchars($user['id']) ?></td>
-    <td><?php echo htmlspecialchars($user['nom']) ?></td>
-    <td><?php echo htmlspecialchars($user['prenom']) ?></td>
-    <td><?php echo htmlspecialchars($user['email']) ?></td>
-    <td>
+<td><?php echo isset($user['id']) ? htmlspecialchars($user['id']) : '' ?></td>
+<td><?php echo isset($user['nom']) ? htmlspecialchars($user['nom']) : '' ?></td>
+<td><?php echo isset($user['prenom']) ? htmlspecialchars($user['prenom']) : '' ?></td>
+<td><?php echo isset($user['email']) ? htmlspecialchars($user['email']) : '' ?></td>
+<td>
     <span class="badge 
         <?php 
-            if ($user['rang'] == 'developpeur') {
+            if (isset($user['rang']) && $user['rang'] == 'developpeur') {
                 echo 'bg-label-primary';
-            } elseif ($user['rang'] == 'commercial') {
+            } elseif (isset($user['rang']) && $user['rang'] == 'commercial') {
                 echo 'bg-label-info';
-            } elseif ($user['rang'] == 'administrateur') {
+            } elseif (isset($user['rang']) && $user['rang'] == 'administrateur') {
                 echo 'bg-label-danger';
-            } elseif ($user['rang'] == 'assistant') {
+            } elseif (isset($user['rang']) && $user['rang'] == 'assistant') {
                 echo 'bg-label-success';
             }
         ?> me-1">
-        <?php echo htmlspecialchars($user['rang']) ?>
+        <?php echo isset($user['rang']) ? htmlspecialchars($user['rang']) : '' ?>
     </span>
-</td>    <td><?php echo htmlspecialchars($user['phone_number']) ?></td>
-    <td><?php echo htmlspecialchars($user['agence']) ?></td>
-    <td>
-        <div class="dropdown">
-            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                <i class="bx bx-dots-vertical-rounded"></i>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-            </div>
-        </div>
-    </td>
-    </td>
+</td>
+<td><?php echo isset($user['phone_number']) ? htmlspecialchars($user['phone_number']) : '' ?></td>
+<td><?php echo isset($user['agence']) ? htmlspecialchars($user['agence']) : '' ?></td>
+</td>
 </tr>
