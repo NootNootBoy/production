@@ -66,6 +66,12 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
+    $months = [];
+for ($i = 5; $i >= 0; $i--) {
+    $months[] = strftime('%b', strtotime("-$i month"));
+}
+$months_json = json_encode($months);
+
 ?>
 
 <!DOCTYPE html>
