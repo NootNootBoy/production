@@ -327,7 +327,7 @@ if (!isset($_SESSION['username'])) {
                 yaxis: {
                     show: false,
                     min: 0,
-                    max: 1000000,
+                    max: 100,
                     tickAmount: 4
                 }
             };
