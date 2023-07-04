@@ -268,7 +268,9 @@ $months_json = json_encode($months);
             performanceChartConfig = {
                 series: [{
                         name: 'C.A prévision',
-                        data: [26, 29, 31, 30, 30, 30]
+                        data: [<?php echo $CA_prevision_28_days; ?>, <?php echo $CA_prevision_3_months; ?>,
+                            <?php echo $CA_prevision_total; ?>
+                        ]
                     },
                     {
                         name: 'C.A réalisé',
@@ -351,7 +353,7 @@ $months_json = json_encode($months);
                 yaxis: {
                     show: false,
                     min: 0,
-                    max: 100,
+                    max: 120000,
                     tickAmount: 4
                 }
             };
