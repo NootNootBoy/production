@@ -288,7 +288,7 @@ if (!isset($_SESSION['username'])) {
                                 <th>No</th>
                                 <th>Consultant</th>
                                 <th>C.A</th>
-                                <th class="w-50">Objectif de vente</th>
+                                <th class="w-50">Objectif de vente (135.000€)</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -338,13 +338,13 @@ if (!isset($_SESSION['username'])) {
                                                 <span><?php echo $username; ?></span>
                                             </div>
                                         </td>
-                                        <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?>€</td>
+                                        <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center gap-3">
                                                 <div class="progress w-100" style="height: 10px">
                                                     <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                <small class="fw-semibold"><?php echo number_format($progress, 2, '.', ' '); ?>%</small>
+                                                <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
                                             </div>
                                         </td>
                                     </tr>
