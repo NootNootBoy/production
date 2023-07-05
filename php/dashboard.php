@@ -134,7 +134,7 @@ if (!isset($_SESSION['username'])) {
                 <!-- Navbar -->
                 <?php include './components/navbar.php'; ?>
                 <!-- / Navbar -->
-            </div>
+            
                 <!-- / Layout page -->
                 <div class="content-wrapper">
                 <div class="container-xxl flex-grow-1 container-p-y">
@@ -238,6 +238,7 @@ if (!isset($_SESSION['username'])) {
                   </div>
                 </div>
                 </div>
+            </div>
             </div>
             </div>
         </div>
