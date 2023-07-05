@@ -228,7 +228,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                         //        include 'components/client_row.php';
                                                
                                         //    }
-                                        $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+                                        $stmt = $pdo->query('SELECT * FROM clients WHERE statut = "actif" ORDER BY created_at DESC');
                                         while ($client = $stmt->fetch()) {
                                             // Ajoutez ces lignes pour déboguer
                                             if (!isset($client['id']) || !isset($client['prenom'])) {
