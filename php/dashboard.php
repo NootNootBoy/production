@@ -152,7 +152,7 @@ if (!isset($_SESSION['username'])) {
                             aujourd'hui ?
                           </p>
 
-                          <a href="javascript:;" class="btn btn-sm btn-label-primary">View Badges</a>
+                          <a href="https://intranet-mindset.com/php/Listing_clients.php" class="btn btn-sm btn-label-primary">Voir les clients</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
