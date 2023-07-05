@@ -213,27 +213,6 @@ $months_json = json_encode($months);
                                     </div>
                                     <div class="col-lg-6 col-md-3 col-6 mb-4">
                                         <div class="card">
-                                            <div class="card-body pb-2">
-                                                <span class="d-block fw-semibold">Profit</span>
-                                                <h3 class="card-title mb-0">624k</h3>
-                                                <div id="profitChart"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
-                                        <div class="card">
-                                            <div class="card-body pb-0">
-                                                <span class="d-block fw-semibold">Expenses</span>
-                                            </div>
-                                            <div id="expensesChart" class="mb-2"></div>
-                                            <div class="p-3 pt-2">
-                                                <small class="text-muted d-block text-center">$21k Expenses more than
-                                                    last month</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
-                                        <div class="card">
                                             <div class="card-body">
                                                 <div
                                                     class="card-title d-flex align-items-start justify-content-between">
