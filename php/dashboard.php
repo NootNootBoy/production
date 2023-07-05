@@ -313,11 +313,11 @@ if (!isset($_SESSION['username'])) {
                                     $username = $row['username'];
                                     $avatar = $row['avatar'];
                                     $CA_prevision = $row['CA_prevision'];
-                                    $progress = ($CA_prevision / 150000) * 100;
+                                    $progress = ($CA_prevision / 135000) * 100;
                                     $progressColor = '';
 
                                     // Déterminer la couleur de la barre de progression en fonction des seuils
-                                    if ($CA_prevision < 50000) {
+                                    if ($CA_prevision < 30000) {
                                         $progressColor = 'bg-danger';
                                     } elseif ($CA_prevision < 75000) {
                                         $progressColor = 'bg-warning';
@@ -331,14 +331,14 @@ if (!isset($_SESSION['username'])) {
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <?php if (!empty($avatar)) { ?>
-                                                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="20px" class="rounded-circle m-2" />
+                                                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
                                                 <?php } else { ?>
-                                                    <img src="/assets/img/avatars/1.png" alt="Avatar" width="20px" class="rounded-circle m-2" />
+                                                    <img src="/assets/img/avatars/1.png" alt="Avatar" width="30px" class="rounded-circle m-2" />
                                                 <?php } ?>
                                                 <span><?php echo $username; ?></span>
                                             </div>
                                         </td>
-                                        <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?></td>
+                                        <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?>€</td>
                                         <td>
                                             <div class="d-flex justify-content-between align-items-center gap-3">
                                                 <div class="progress w-100" style="height: 10px">
