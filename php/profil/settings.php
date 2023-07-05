@@ -10,12 +10,7 @@ $stmt = $pdo->prepare("SELECT users.*, agences.nom AS agence_nom FROM users LEFT
 $stmt->execute(['id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Maintenant, vous pouvez stocker la valeur de "overall" dans la session
-$_SESSION['Overall'] = $result['overall'];
-
 echo "<script>console.log('Username: " . $user['username'] . "');</script>";
-
-
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
@@ -27,6 +22,10 @@ $rangs = explode("','", $matches[1]);
 // Récupération des agences
 $stmt = $pdo->query("SELECT * FROM agences");
 $agences = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+// Maintenant, vous pouvez stocker la valeur de "overall" dans la session
+$_SESSION['Overall'] = $result['overall'];
 
 ?>
 
