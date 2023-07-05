@@ -66,11 +66,9 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
-    // Calcul du pourcentage de variation par rapport aux 3 derniers mois
-    $variation_3_months = ($CA_realise - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+    // Calcul du pourcentage de variation entre les 28 derniers jours et les 3 derniers mois
+    $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
 
-    // Calcul du pourcentage de variation depuis le début
-    $variation_total = ($CA_realise - $CA_prevision_total) / $CA_prevision_total * 100;
 
 
 ?>
@@ -201,9 +199,9 @@ if (!isset($_SESSION['username'])) {
                           </div>
                           <span>C.A prevision</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_3_months, 2); ?>%
+                          <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
                         </small>
                         </div>
                       </div>
@@ -235,9 +233,9 @@ if (!isset($_SESSION['username'])) {
                           </div>
                           <span>C.A réalisé</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_3_months, 2); ?>%
+                          <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
                         </small>
                         </div>
                       </div>
