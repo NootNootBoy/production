@@ -293,62 +293,66 @@ if (!isset($_SESSION['username'])) {
                             </thead>
                             <tbody>
                             <?php
-                            // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
-                            // et les trier par ordre croissant
-                            $stmt = $pdo->prepare('
-                                SELECT users.username, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
-                                FROM users
-                                JOIN clients ON users.id = clients.commercial_id
-                                JOIN offres ON clients.offre_id = offres.id
-                                WHERE clients.code_assurance IS NULL
-                                GROUP BY users.username
-                                ORDER BY CA_prevision ASC
-                            ');
-                            $stmt->execute();
-                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
+                                // et les trier par ordre croissant
+                                $stmt = $pdo->prepare('
+                                    SELECT users.username, users.avatar, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+                                    FROM users
+                                    JOIN clients ON users.id = clients.commercial_id
+                                    JOIN offres ON clients.offre_id = offres.id
+                                    WHERE clients.code_assurance IS NULL
+                                    GROUP BY users.username
+                                    ORDER BY CA_prevision ASC
+                                ');
+                                $stmt->execute();
+                                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                            // Boucle pour afficher les données de chaque commercial
-                            $position = 1;
-                            foreach ($result as $row) {
-                                $username = $row['username'];
-                                $avatar = $row['avatar'];
-                                $CA_prevision = $row['CA_prevision'];
-                                $progress = ($CA_prevision / 150000) * 100;
-                                $progressColor = '';
-                                
-                                // Déterminer la couleur de la barre de progression en fonction des seuils
-                                if ($CA_prevision < 50000) {
-                                $progressColor = 'bg-danger';
-                                } elseif ($CA_prevision < 75000) {
-                                $progressColor = 'bg-warning';
-                                } else {
-                                $progressColor = 'bg-success';
+                                // Boucle pour afficher les données de chaque commercial
+                                $position = 1;
+                                foreach ($result as $row) {
+                                    $username = $row['username'];
+                                    $avatar = $row['avatar'];
+                                    $CA_prevision = $row['CA_prevision'];
+                                    $progress = ($CA_prevision / 150000) * 100;
+                                    $progressColor = '';
+
+                                    // Déterminer la couleur de la barre de progression en fonction des seuils
+                                    if ($CA_prevision < 50000) {
+                                        $progressColor = 'bg-danger';
+                                    } elseif ($CA_prevision < 75000) {
+                                        $progressColor = 'bg-warning';
+                                    } else {
+                                        $progressColor = 'bg-success';
+                                    }
+                                    ?>
+
+                                    <tr>
+                                        <td><?php echo $position; ?></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <?php if (!empty($avatar)) { ?>
+                                                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" height="24" class="me-2" />
+                                                <?php } else { ?>
+                                                    <img src="/assets/img/avatars/1.png" alt="Avatar par défaut" height="24" class="me-2" />
+                                                <?php } ?>
+                                                <span><?php echo $username; ?></span>
+                                            </div>
+                                        </td>
+                                        <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?></td>
+                                        <td>
+                                            <div class="d-flex justify-content-between align-items-center gap-3">
+                                                <div class="progress w-100" style="height: 10px">
+                                                    <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <small class="fw-semibold"><?php echo number_format($progress, 2, '.', ' '); ?>%</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <?php
+                                    $position++;
                                 }
                                 ?>
-
-                                <tr>
-                                <td><?php echo $position; ?></td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                    <img src="<?php echo isset($avatar)?>" alt="Avatar" height="24" class="me-2" />
-                                    <span><?php echo $username; ?></span>
-                                    </div>
-                                </td>
-                                <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?></td>
-                                <td>
-                                    <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                        <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold"><?php echo number_format($progress, 2, '.', ' '); ?>%</small>
-                                    </div>
-                                </td>
-                                </tr>
-
-                                <?php
-                                $position++;
-                            }
-                            ?>
                             </tbody>
                           </table>
                         </div>
