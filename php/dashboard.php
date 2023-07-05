@@ -178,37 +178,91 @@ $months_json = json_encode($months);
                             </div>
                             <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
 
-                            <div class="col-md-6 col-lg-4 mb-4">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex align-items-center justify-content-between">
-                                        <h5 class="card-title m-0 me-2">Votre chiffre d'affaire</h5>
-                                        <div class="dropdown">
-                                            <button class="btn p-0" type="button" id="performanceId"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-end"
-                                                aria-labelledby="performanceId">
-                                                <a class="dropdown-item" href="javascript:void(0);">28 derniers
-                                                    jours</a>
-                                                <a class="dropdown-item" href="javascript:void(0);">Dernier mois</a>
-                                                <a class="dropdown-item" href="javascript:void(0);">Derniere année</a>
+
+                            <div class="col-md-12 col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div class="avatar flex-shrink-0">
+                                                        <img src="../../assets/img/icons/unicons/wallet-info.png"
+                                                            alt="Credit Card" class="rounded" />
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="cardOpt6"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="cardOpt6">
+                                                            <a class="dropdown-item" href="javascript:void(0);">View
+                                                                More</a>
+                                                            <a class="dropdown-item"
+                                                                href="javascript:void(0);">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="d-block">Sales</span>
+                                                <h4 class="card-title mb-1">$4,679</h4>
+                                                <small class="text-success fw-semibold"><i
+                                                        class="bx bx-up-arrow-alt"></i> +28.42%</small>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <small>CA en prévision: <span
-                                                        class="fw-semibold"><?php echo $CA_prevision_28_days; ?></span></small>
-                                            </div>
-                                            <div class="col-6">
-                                                <small>CA réalisé: <span
-                                                        class="fw-semibold"><?php echo $CA_realise; ?></span></small>
+                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body pb-2">
+                                                <span class="d-block fw-semibold">Profit</span>
+                                                <h3 class="card-title mb-0">624k</h3>
+                                                <div id="profitChart"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="performanceChart"></div>
+                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body pb-0">
+                                                <span class="d-block fw-semibold">Expenses</span>
+                                            </div>
+                                            <div id="expensesChart" class="mb-2"></div>
+                                            <div class="p-3 pt-2">
+                                                <small class="text-muted d-block text-center">$21k Expenses more than
+                                                    last month</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div class="avatar flex-shrink-0">
+                                                        <img src="../../assets/img/icons/unicons/briefcase.png"
+                                                            alt="Credit Card" class="rounded" />
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="cardOpt1"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end"
+                                                            aria-labelledby="cardOpt1">
+                                                            <a class="dropdown-item" href="javascript:void(0);">View
+                                                                More</a>
+                                                            <a class="dropdown-item"
+                                                                href="javascript:void(0);">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="d-block">Transactions</span>
+                                                <h4 class="card-title mb-1">$14,857</h4>
+                                                <small class="text-success fw-semibold"><i
+                                                        class="bx bx-up-arrow-alt"></i> +28.14%</small>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!--/ Performance -->
