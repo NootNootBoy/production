@@ -175,7 +175,7 @@ if (!isset($_SESSION['username'])) {
 
                             <div class="col-md-12 col-lg-4">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div
@@ -205,7 +205,7 @@ if (!isset($_SESSION['username'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-3 col-6 mb-4">
+                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div
@@ -232,7 +232,7 @@ if (!isset($_SESSION['username'])) {
                                                 <span class="d-block">C.A réalisé</span>
                                                 <h4 class="card-title mb-1"> <?php echo number_format($CA_realise, 2, '.', ''); ?>, €</h4>
                                                 <small class="text-success fw-semibold"><i
-                                                        class="bx bx-up-arrow-alt"></i> +28.14%</small>
+                                                        class="bx bx-up-arrow-alt"></i> +XX%</small>
                                             </div>
                                         </div>
                                     </div>
