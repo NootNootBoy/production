@@ -14,9 +14,9 @@ echo "<script>console.log('Username: " . $user['username'] . "');</script>";
 
 // Récupération des rangs
 $stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'rang'");
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
+$result2 = $stmt->fetch(PDO::FETCH_ASSOC);
 $matches = array();
-preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
+preg_match("/^enum\(\'(.*)\'\)$/", $result2["Type"], $matches);
 $rangs = explode("','", $matches[1]);
 
 // Récupération des agences
@@ -24,8 +24,13 @@ $stmt = $pdo->query("SELECT * FROM agences");
 $agences = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+$stmt = $pdo->prepare("SELECT overall FROM users WHERE id = :id");
+$stmt->execute(['id' => $_SESSION['user_id']]);
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
 // Maintenant, vous pouvez stocker la valeur de "overall" dans la session
-$_SESSION['overall'] = $result['overall'];
+$_SESSION['Overall'] = $result['overall'];
+
 
 ?>
 
