@@ -251,7 +251,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                   <div class="card text-center">
                     <div class="card-header py-3">
-                    <h5 class="card-title text-primary">Classement</h5>
+                    <h5 class="card-title text-primary  text-left">Classement</h5>
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                           <button
