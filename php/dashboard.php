@@ -251,6 +251,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                   <div class="card text-center">
                     <div class="card-header py-3">
+                    <h5 class="card-title text-primary">Classement</h5>
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                           <button
@@ -261,7 +262,7 @@ if (!isset($_SESSION['username'])) {
                             data-bs-target="#navs-pills-browser"
                             aria-controls="navs-pills-browser"
                             aria-selected="true">
-                            Browser
+                            Commercial
                           </button>
                         </li>
                         <li class="nav-item">
@@ -273,19 +274,7 @@ if (!isset($_SESSION['username'])) {
                             data-bs-target="#navs-pills-os"
                             aria-controls="navs-pills-os"
                             aria-selected="false">
-                            Operating System
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button
-                            type="button"
-                            class="nav-link"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-country"
-                            aria-controls="navs-pills-country"
-                            aria-selected="false">
-                            Country
+                            Agence
                           </button>
                         </li>
                       </ul>
