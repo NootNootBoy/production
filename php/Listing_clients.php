@@ -21,7 +21,7 @@ $stmt = $pdo->prepare('SELECT * FROM options');
 $stmt->execute();
 $options = $stmt->fetchAll();
 
-$stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+$stmt = $pdo->query('SELECT * FROM clients WHERE statut = "actif" ORDER BY created_at DESC');
     $clientCount = 0; // Initialise la variable $clientCount à 0 avant la boucle
     while ($client = $stmt->fetch()) {
         $clientCount++; // Incrémente la variable $clientCount pour chaque client
