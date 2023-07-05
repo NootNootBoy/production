@@ -199,7 +199,7 @@ if (!isset($_SESSION['username'])) {
                                                     </div>
                                                 </div>
                                                 <span class="d-block">C.A prévision</span>
-                                                <h4 class="card-title mb-1"><?php $CA_prevision_28_days ?>€</h4>
+                                                <h4 class="card-title mb-1"><?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?>,€</h4>
                                                 <small class="text-success fw-semibold"><i
                                                         class="bx bx-up-arrow-alt"></i> +XX%</small>
                                             </div>
@@ -230,7 +230,7 @@ if (!isset($_SESSION['username'])) {
                                                     </div>
                                                 </div>
                                                 <span class="d-block">C.A réalisé</span>
-                                                <h4 class="card-title mb-1"> <?php $CA_realise?></h4>
+                                                <h4 class="card-title mb-1"> <?php echo number_format($CA_realise, 2, '.', ''); ?>, €</h4>
                                                 <small class="text-success fw-semibold"><i
                                                         class="bx bx-up-arrow-alt"></i> +28.14%</small>
                                             </div>
@@ -276,125 +276,7 @@ if (!isset($_SESSION['username'])) {
         <script src="../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script>
-        let cardColor, headingColor, labelColor, shadeColor, borderColor, heatMap1, heatMap2, heatMap3, heatMap4;
 
-
-        cardColor = config.colors_dark.cardColor;
-        headingColor = config.colors_dark.headingColor;
-        labelColor = config.colors_dark.textMuted;
-        borderColor = config.colors_dark.borderColor;
-        shadeColor = 'dark';
-        heatMap1 = '#4f51c0';
-        heatMap2 = '#595cd9';
-        heatMap3 = '#8789ff';
-        heatMap4 = '#c3c4ff';
-        // Performance - Radar Chart
-        // --------------------------------------------------------------------
-        const performanceChartEl = document.querySelector('#performanceChart'),
-            performanceChartConfig = {
-                series: [{
-                        name: 'C.A prévision',
-                        data: [
-                            <?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?>,
-                            <?php echo number_format($CA_prevision_3_months, 2, '.', ''); ?>,
-                            <?php echo number_format($CA_prevision_total, 2, '.', ''); ?>
-                        ]
-                    },
-                    {
-                        name: 'C.A réalisé',
-                        data: [
-                            <?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?>,
-                            <?php echo number_format($CA_prevision_3_months, 2, '.', ''); ?>,
-                            <?php echo number_format($CA_prevision_total, 2, '.', ''); ?>
-                        ]
-                    }
-                ],
-                chart: {
-                    height: 270,
-                    type: 'radar',
-                    toolbar: {
-                        show: false
-                    },
-                    dropShadow: {
-                        enabled: true,
-                        enabledOnSeries: undefined,
-                        top: 6,
-                        left: 0,
-                        blur: 6,
-                        color: '#000',
-                        opacity: 0.14
-                    }
-                },
-                plotOptions: {
-                    radar: {
-                        polygons: {
-                            strokeColors: borderColor,
-                            connectorColors: borderColor
-                        }
-                    }
-                },
-                stroke: {
-                    show: false,
-                    width: 0
-                },
-                legend: {
-                    show: true,
-                    fontSize: '13px',
-                    position: 'bottom',
-                    labels: {
-                        colors: '#aab3bf',
-                        useSeriesColors: false
-                    },
-                    markers: {
-                        height: 10,
-                        width: 10,
-                        offsetX: -3
-                    },
-                    itemMargin: {
-                        horizontal: 10
-                    },
-                    onItemHover: {
-                        highlightDataSeries: false
-                    }
-                },
-                colors: [config.colors.primary, config.colors.info],
-                fill: {
-                    opacity: [1, 0.85]
-                },
-                markers: {
-                    size: 0
-                },
-                grid: {
-                    show: false,
-                    padding: {
-                        top: -8,
-                        bottom: -5
-                    }
-                },
-                xaxis: {
-                    categories: <?php echo $months_json; ?>,
-                    labels: {
-                        show: true,
-                        style: {
-                            colors: [labelColor, labelColor, labelColor, labelColor, labelColor, labelColor],
-                            fontSize: '13px',
-                            fontFamily: 'Public Sans'
-                        }
-                    }
-                },
-                yaxis: {
-                    show: false,
-                    min: 0,
-                    max: 120000,
-                    tickAmount: 4
-                }
-            };
-        if (typeof performanceChartEl !== undefined && performanceChartEl !== null) {
-            const performanceChart = new ApexCharts(performanceChartEl, performanceChartConfig);
-            performanceChart.render();
-        }
-        </script>
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
