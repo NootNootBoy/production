@@ -196,7 +196,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                           </div>
                           <span>C.A prevision</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?></h3>
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 2, '.', ''); ?> €</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +XX%</small>
                         </div>
                       </div>
@@ -227,7 +227,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                           </div>
                           <span>C.A réalisé</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise, 2, '.', ''); ?></h3>
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise, 2, '.', ''); ?> €</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +XX%</small>
                         </div>
                       </div>
