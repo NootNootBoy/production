@@ -313,13 +313,23 @@ if (!isset($_SESSION['username'])) {
                                 $username = $row['username'];
                                 $CA_prevision = $row['CA_prevision'];
                                 $progress = ($CA_prevision / 200000) * 100;
+                                $progressColor = '';
+                                
+                                // Déterminer la couleur de la barre de progression en fonction des seuils
+                                if ($CA_prevision < 50000) {
+                                $progressColor = 'bg-danger';
+                                } elseif ($CA_prevision < 75000) {
+                                $progressColor = 'bg-warning';
+                                } else {
+                                $progressColor = 'bg-success';
+                                }
                                 ?>
 
                                 <tr>
                                 <td><?php echo $position; ?></td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                    <img src="../../assets/img/icons/brands/chrome.png" alt="Avatar" height="24" class="me-2" />
+                                    <img src="../path/to/avatar/<?php echo $username; ?>.png" alt="Avatar" height="24" class="me-2" />
                                     <span><?php echo $username; ?></span>
                                     </div>
                                 </td>
@@ -327,7 +337,7 @@ if (!isset($_SESSION['username'])) {
                                 <td>
                                     <div class="d-flex justify-content-between align-items-center gap-3">
                                     <div class="progress w-100" style="height: 10px">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <small class="fw-semibold"><?php echo number_format($progress, 2, '.', ' '); ?>%</small>
                                     </div>
