@@ -293,66 +293,66 @@ if (!isset($_SESSION['username'])) {
                             </thead>
                             <tbody>
                             <?php
-// Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
-// et les trier par ordre décroissant
-$stmt = $pdo->prepare('
-    SELECT users.username, users.avatar, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
-    FROM users
-    JOIN clients ON users.id = clients.commercial_id
-    JOIN offres ON clients.offre_id = offres.id
-    WHERE clients.code_assurance IS NULL
-    GROUP BY users.username
-    ORDER BY CA_prevision DESC
-');
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
+                        // et les trier par ordre décroissant
+                        $stmt = $pdo->prepare('
+                            SELECT users.username, users.avatar, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+                            FROM users
+                            JOIN clients ON users.id = clients.commercial_id
+                            JOIN offres ON clients.offre_id = offres.id
+                            WHERE clients.code_assurance IS NULL
+                            GROUP BY users.username
+                            ORDER BY CA_prevision DESC
+                        ');
+                        $stmt->execute();
+                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Boucle pour afficher les données de chaque commercial
-$position = 1;
-foreach ($result as $row) {
-    $username = $row['username'];
-    $avatar = $row['avatar'];
-    $CA_prevision = $row['CA_prevision'];
-    $progress = ($CA_prevision / 135000) * 100;
-    $progressColor = '';
+                        // Boucle pour afficher les données de chaque commercial
+                        $position = 1;
+                        foreach ($result as $row) {
+                            $username = $row['username'];
+                            $avatar = $row['avatar'];
+                            $CA_prevision = $row['CA_prevision'];
+                            $progress = ($CA_prevision / 135000) * 100;
+                            $progressColor = '';
 
-    // Déterminer la couleur de la barre de progression en fonction des seuils
-    if ($CA_prevision < 30000) {
-        $progressColor = 'bg-danger';
-    } elseif ($CA_prevision < 75000) {
-        $progressColor = 'bg-warning';
-    } else {
-        $progressColor = 'bg-success';
-    }
-    ?>
+                            // Déterminer la couleur de la barre de progression en fonction des seuils
+                            if ($CA_prevision < 30000) {
+                                $progressColor = 'bg-danger';
+                            } elseif ($CA_prevision < 75000) {
+                                $progressColor = 'bg-warning';
+                            } else {
+                                $progressColor = 'bg-success';
+                            }
+                            ?>
 
-    <tr>
-        <td><?php echo $position; ?></td>
-        <td>
-            <div class="d-flex align-items-center">
-                <?php if (!empty($avatar)) { ?>
-                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
-                <?php } else { ?>
-                    <img src="/assets/img/avatars/1.png" alt="Avatar" width="30px" class="rounded-circle m-2" />
-                <?php } ?>
-                <span><?php echo $username; ?></span>
-            </div>
-        </td>
-        <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
-        <td>
-            <div class="d-flex justify-content-between align-items-center gap-3">
-                <div class="progress w-100" style="height: 10px">
-                    <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
-            </div>
-        </td>
-    </tr>
+                            <tr>
+                                <td><?php echo $position; ?></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <?php if (!empty($avatar)) { ?>
+                                            <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
+                                        <?php } else { ?>
+                                            <img src="/assets/img/avatars/1.png" alt="Avatar" width="30px" class="rounded-circle m-2" />
+                                        <?php } ?>
+                                        <span><?php echo $username; ?></span>
+                                    </div>
+                                </td>
+                                <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
+                                <td>
+                                    <div class="d-flex justify-content-between align-items-center gap-3">
+                                        <div class="progress w-100" style="height: 10px">
+                                            <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
+                                    </div>
+                                </td>
+                            </tr>
 
-    <?php
-    $position++;
-}
-?>
+                            <?php
+                            $position++;
+                        }
+                        ?>
                             </tbody>
                           </table>
                         </div>
@@ -363,444 +363,64 @@ foreach ($result as $row) {
                             <thead>
                               <tr>
                                 <th>No</th>
-                                <th>System</th>
-                                <th>Visits</th>
-                                <th class="w-50">Data In Percentage</th>
+                                <th>Agence</th>
+                                <th>C.A</th>
+                                <th class="w-50">Objectif de vente (135.000€)</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/windows.png"
-                                      alt="Windows"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Windows</span>
-                                  </div>
-                                </td>
-                                <td>875.24k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-success"
-                                        role="progressbar"
-                                        style="width: 71.5%"
-                                        aria-valuenow="71.50"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">71.50%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/mac.png"
-                                      alt="Mac"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Mac</span>
-                                  </div>
-                                </td>
-                                <td>89.68k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-primary"
-                                        role="progressbar"
-                                        style="width: 66.67%"
-                                        aria-valuenow="66.67"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">66.67%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/ubuntu.png"
-                                      alt="Ubuntu"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Ubuntu</span>
-                                  </div>
-                                </td>
-                                <td>37.68k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-info"
-                                        role="progressbar"
-                                        style="width: 62.82%"
-                                        aria-valuenow="62.82"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">62.82%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/chrome.png"
-                                      alt="Chrome"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Chrome</span>
-                                  </div>
-                                </td>
-                                <td>35.34k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-info"
-                                        role="progressbar"
-                                        style="width: 56.25%"
-                                        aria-valuenow="56.25"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">56.25%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/cent.png"
-                                      alt="Cent"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Cent</span>
-                                  </div>
-                                </td>
-                                <td>32.25k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-info"
-                                        role="progressbar"
-                                        style="width: 42.76%"
-                                        aria-valuenow="42.76"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">42.76%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/linux.png"
-                                      alt="Linux"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Linux</span>
-                                  </div>
-                                </td>
-                                <td>22.15k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-warning"
-                                        role="progressbar"
-                                        style="width: 37.77%"
-                                        aria-valuenow="37.77"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">37.77%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>7</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/fedora.png"
-                                      alt="Fedora"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Fedora</span>
-                                  </div>
-                                </td>
-                                <td>1.13k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-danger"
-                                        role="progressbar"
-                                        style="width: 29.16%"
-                                        aria-valuenow="29.16"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">29.16%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>8</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/vivaldi-os.png"
-                                      alt="Vivaldi"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Vivaldi</span>
-                                  </div>
-                                </td>
-                                <td>1.09k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-danger"
-                                        role="progressbar"
-                                        style="width: 26.26%"
-                                        aria-valuenow="26.26"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">26.26%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-country" role="tabpanel">
-                        <div class="table-responsive text-start">
-                          <table class="table table-borderless">
-                            <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Country</th>
-                                <th>Visits</th>
-                                <th class="w-50">Data In Percentage</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/us.svg" alt="USA" height="24" class="me-2" />
-                                    <span>USA</span>
-                                  </div>
-                                </td>
-                                <td>87.24k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-success"
-                                        role="progressbar"
-                                        style="width: 89.12%"
-                                        aria-valuenow="89.12"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">89.12%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/br.svg" alt="Brazil" height="24" class="me-2" />
-                                    <span>Brazil</span>
-                                  </div>
-                                </td>
-                                <td>62.68k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-primary"
-                                        role="progressbar"
-                                        style="width: 78.23%"
-                                        aria-valuenow="78.23"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">78.23%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/in.svg" alt="India" height="24" class="me-2" />
-                                    <span>India</span>
-                                  </div>
-                                </td>
-                                <td>52.58k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-info"
-                                        role="progressbar"
-                                        style="width: 69.82%"
-                                        aria-valuenow="69.82"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">69.82%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/au.svg" alt="Australia" height="24" class="me-2" />
-                                    <span>Australia</span>
-                                  </div>
-                                </td>
-                                <td>44.13k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-warning"
-                                        role="progressbar"
-                                        style="width: 59.9%"
-                                        aria-valuenow="59.90"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">59.90%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/de.svg" alt="Germany" height="24" class="me-2" />
-                                    <span>Germany</span>
-                                  </div>
-                                </td>
-                                <td>32.21k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-warning"
-                                        role="progressbar"
-                                        style="width: 57.11%"
-                                        aria-valuenow="57.11"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">57.11%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/fr.svg" alt="France" height="24" class="me-2" />
-                                    <span>France</span>
-                                  </div>
-                                </td>
-                                <td>37.87k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-warning"
-                                        role="progressbar"
-                                        style="width: 41.23%"
-                                        aria-valuenow="41.23"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">41.23%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>7</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/pt.svg" alt="Portugal" height="24" class="me-2" />
-                                    <span>Portugal</span>
-                                  </div>
-                                </td>
-                                <td>20.29k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-danger"
-                                        role="progressbar"
-                                        style="width: 37.11%"
-                                        aria-valuenow="37.11"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">37.11%</small>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>8</td>
-                                <td>
-                                  <div class="d-flex align-items-center">
-                                    <img src="../../assets/svg/flags/cn.svg" alt="China" height="24" class="me-2" />
-                                    <span>China</span>
-                                  </div>
-                                </td>
-                                <td>12.21k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-danger"
-                                        role="progressbar"
-                                        style="width: 17.61%"
-                                        aria-valuenow="17.61"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                    </div>
-                                    <small class="fw-semibold">17.61%</small>
-                                  </div>
-                                </td>
-                              </tr>
+                            <?php
+                            // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des agences
+                            // et les trier par ordre décroissant
+                            $stmt = $pdo->prepare('
+                                SELECT agences.nom AS agence_nom, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+                                FROM users
+                                JOIN clients ON users.id = clients.commercial_id
+                                JOIN offres ON clients.offre_id = offres.id
+                                JOIN agences ON users.agence_id = agences.id
+                                WHERE clients.code_assurance IS NULL
+                                GROUP BY agences.nom
+                                ORDER BY CA_prevision DESC
+                            ');
+                            $stmt->execute();
+                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                            // Boucle pour afficher les données de chaque agence
+                            $position = 1;
+                            foreach ($result as $row) {
+                                $agence_nom = $row['agence_nom'];
+                                $CA_prevision = $row['CA_prevision'];
+                                $progress = ($CA_prevision / 135000) * 100;
+                                $progressColor = '';
+
+                                // Déterminer la couleur de la barre de progression en fonction des seuils
+                                if ($CA_prevision < 30000) {
+                                    $progressColor = 'bg-danger';
+                                } elseif ($CA_prevision < 75000) {
+                                    $progressColor = 'bg-warning';
+                                } else {
+                                    $progressColor = 'bg-success';
+                                }
+                                ?>
+
+                                <tr>
+                                    <td><?php echo $position; ?></td>
+                                    <td><?php echo $agence_nom; ?></td>
+                                    <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
+                                    <td>
+                                        <div class="d-flex justify-content-between align-items-center gap-3">
+                                            <div class="progress w-100" style="height: 10px">
+                                                <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <?php
+                                $position++;
+                            }
+                            ?>
                             </tbody>
                           </table>
                         </div>
