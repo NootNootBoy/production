@@ -25,7 +25,7 @@ $agences = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 // Maintenant, vous pouvez stocker la valeur de "overall" dans la session
-$_SESSION['Overall'] = $result['overall'];
+$_SESSION['overall'] = $result['overall'];
 
 ?>
 
