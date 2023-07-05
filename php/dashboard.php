@@ -176,7 +176,7 @@ if (!isset($_SESSION['username'])) {
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
                               <img
-                                src="../../assets/img/icons/unicons/wallet-info.png"
+                                src="../assets/img/icons/unicons/cc-warning.png"
                                 alt="Credit Card"
                                 class="rounded" />
                             </div>
@@ -207,7 +207,7 @@ if (!isset($_SESSION['username'])) {
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
                               <img
-                                src="../../assets/img/icons/unicons/wallet-info.png"
+                                src="../assets/img/icons/unicons/cc-success.png"
                                 alt="Credit Card"
                                 class="rounded" />
                             </div>
