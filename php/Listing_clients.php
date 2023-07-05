@@ -248,6 +248,55 @@ $pendingClients = $stmt->fetch()['pending'];
 
                         <!--/ DataTable with Buttons -->
                         <hr class="my-5" />
+
+                        <div class="card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-header">Listes des clients (<span
+                                        class="fw-bold text-primary"><?php echo $clientCount; ?></span>) :</h5>
+                                <div style="max-width: 190px;" class="me-3">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editUser">
+                                        Ajouter un client
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Societé</th>
+                                            <th>Gerant</th>
+                                            <th>Telephone</th>
+                                            <th>Vendeur(s)</th>
+                                            <th>Fin du contrat</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                        <?php
+                                        //    $stmt = $pdo->query('SELECT * FROM clients ORDER BY created_at DESC');
+                                           
+                                        //    while ($client = $stmt->fetch()) {
+                                        //        include 'components/client_row.php';
+                                               
+                                        //    }
+                                        $stmt = $pdo->query('SELECT * FROM clients WHERE statut = "archived" ORDER BY created_at DESC');
+                                        while ($client = $stmt->fetch()) {
+                                            // Ajoutez ces lignes pour déboguer
+                                            if (!isset($client['id']) || !isset($client['prenom'])) {
+                                                var_dump($client);
+                                                die();
+                                            }
+                                            include 'components/client_row.php';
+                                        }
+                                            ?>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <!-- / Content -->
                         <!-- Edit User Modal -->
                         <div class="modal fade" id="editUser" tabindex="-1" aria-hidden="true">
