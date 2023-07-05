@@ -66,12 +66,6 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
-    $months = [];
-for ($i = 5; $i >= 0; $i--) {
-    $months[] = strftime('%b', strtotime("-$i month"));
-}
-$months_json = json_encode($months);
-
 ?>
 
 <!DOCTYPE html>
@@ -204,10 +198,10 @@ $months_json = json_encode($months);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span class="d-block">Sales</span>
-                                                <h4 class="card-title mb-1">$4,679</h4>
+                                                <span class="d-block">C.A prévision</span>
+                                                <h4 class="card-title mb-1"><?php $CA_prevision_28_days ?>€</h4>
                                                 <small class="text-success fw-semibold"><i
-                                                        class="bx bx-up-arrow-alt"></i> +28.42%</small>
+                                                        class="bx bx-up-arrow-alt"></i> +XX%</small>
                                             </div>
                                         </div>
                                     </div>
@@ -235,8 +229,8 @@ $months_json = json_encode($months);
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span class="d-block">Transactions</span>
-                                                <h4 class="card-title mb-1">$14,857</h4>
+                                                <span class="d-block">C.A réalisé</span>
+                                                <h4 class="card-title mb-1"> <?php $CA_realise?></h4>
                                                 <small class="text-success fw-semibold"><i
                                                         class="bx bx-up-arrow-alt"></i> +28.14%</small>
                                             </div>
