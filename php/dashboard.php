@@ -148,7 +148,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="card-body">
                           <h5 class="card-title text-primary">Tableau de bord🎉</h5>
                           <p class="mb-4">
-                            Bonjour <span class="fw-bold"><?php $_SESSION['username']?></span> ! Êtes-vous prêt à faire grimper votre chiffre 
+                            Bonjour <span class="fw-bold"><?php $_SESSION['username']?></span> ! Êtes-vous prêt à faire grimper votre chiffre d'affaire
                             aujourd'hui ?
                           </p>
 
