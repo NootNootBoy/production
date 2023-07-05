@@ -66,15 +66,19 @@ if (!isset($_SESSION['username'])) {
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
+    // Calcul du pourcentage de variation par rapport aux 3 derniers mois
+    $variation_3_months = ($CA_realise - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+
+    // Calcul du pourcentage de variation depuis le début
+    $variation_total = ($CA_realise - $CA_prevision_total) / $CA_prevision_total * 100;
+
+
 ?>
 
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
+<html lang="fr" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="../assets/">
-
-<html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default-dark"
-    data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
     <meta charset="utf-8" />
@@ -197,7 +201,10 @@ if (!isset($_SESSION['username'])) {
                           </div>
                           <span>C.A prevision</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 0, ',', ' '); ?> €</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +XX%</small>
+                          <small class="text-<?php echo ($variation_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_3_months, 2); ?>%
+                        </small>
                         </div>
                       </div>
                     </div>
@@ -228,7 +235,10 @@ if (!isset($_SESSION['username'])) {
                           </div>
                           <span>C.A réalisé</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise, 0, ',', ' '); ?> €</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +XX%</small>
+                          <small class="text-<?php echo ($variation_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_3_months, 2); ?>%
+                        </small>
                         </div>
                       </div>
                     </div>
