@@ -187,7 +187,7 @@ $months_json = json_encode($months);
                                                 <div
                                                     class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../../assets/img/icons/unicons/wallet-info.png"
+                                                        <img src="../assets/img/icons/unicons/wallet-info.png"
                                                             alt="Credit Card" class="rounded" />
                                                     </div>
                                                     <div class="dropdown">
@@ -238,7 +238,7 @@ $months_json = json_encode($months);
                                                 <div
                                                     class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <img src="../../assets/img/icons/unicons/briefcase.png"
+                                                        <img src="../assets/img/icons/unicons/briefcase.png"
                                                             alt="Credit Card" class="rounded" />
                                                     </div>
                                                     <div class="dropdown">
