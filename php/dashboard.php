@@ -311,8 +311,9 @@ if (!isset($_SESSION['username'])) {
                             $position = 1;
                             foreach ($result as $row) {
                                 $username = $row['username'];
+                                $avatar = $row['avatar'];
                                 $CA_prevision = $row['CA_prevision'];
-                                $progress = ($CA_prevision / 200000) * 100;
+                                $progress = ($CA_prevision / 150000) * 100;
                                 $progressColor = '';
                                 
                                 // Déterminer la couleur de la barre de progression en fonction des seuils
@@ -329,7 +330,7 @@ if (!isset($_SESSION['username'])) {
                                 <td><?php echo $position; ?></td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                    <img src="../path/to/avatar/<?php echo $username; ?>.png" alt="Avatar" height="24" class="me-2" />
+                                    <img src="<?php echo isset($avatar)?>" alt="Avatar" height="24" class="me-2" />
                                     <span><?php echo $username; ?></span>
                                     </div>
                                 </td>
