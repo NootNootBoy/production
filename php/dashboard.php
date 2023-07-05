@@ -331,9 +331,9 @@ if (!isset($_SESSION['username'])) {
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <?php if (!empty($avatar)) { ?>
-                                                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="20px" class="rounded-circle m-3" />
+                                                    <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="20px" class="rounded-circle m-2" />
                                                 <?php } else { ?>
-                                                    <img src="/assets/img/avatars/1.png" alt="Avatar" width="20px" class="rounded-circle m-3" />
+                                                    <img src="/assets/img/avatars/1.png" alt="Avatar" width="20px" class="rounded-circle m-2" />
                                                 <?php } ?>
                                                 <span><?php echo $username; ?></span>
                                             </div>
