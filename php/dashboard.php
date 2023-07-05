@@ -286,40 +286,58 @@ if (!isset($_SESSION['username'])) {
                             <thead>
                               <tr>
                                 <th>No</th>
-                                <th>Browser</th>
-                                <th>Visits</th>
-                                <th class="w-50">Data In Percentage</th>
+                                <th>Consultant</th>
+                                <th>C.A</th>
+                                <th class="w-50">Objectif de vente</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
+                            <?php
+                            // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
+                            // et les trier par ordre croissant
+                            $stmt = $pdo->prepare('
+                                SELECT users.username, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+                                FROM users
+                                JOIN clients ON users.id = clients.commercial_id
+                                JOIN offres ON clients.offre_id = offres.id
+                                WHERE clients.code_assurance IS NULL
+                                GROUP BY users.username
+                                ORDER BY CA_prevision ASC
+                            ');
+                            $stmt->execute();
+                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                            // Boucle pour afficher les données de chaque commercial
+                            $position = 1;
+                            foreach ($result as $row) {
+                                $username = $row['username'];
+                                $CA_prevision = $row['CA_prevision'];
+                                $progress = ($CA_prevision / 200000) * 100;
+                                ?>
+
+                                <tr>
+                                <td><?php echo $position; ?></td>
                                 <td>
-                                  <div class="d-flex align-items-center">
-                                    <img
-                                      src="../../assets/img/icons/brands/chrome.png"
-                                      alt="Chrome"
-                                      height="24"
-                                      class="me-2" />
-                                    <span>Chrome</span>
-                                  </div>
-                                </td>
-                                <td>8.92k</td>
-                                <td>
-                                  <div class="d-flex justify-content-between align-items-center gap-3">
-                                    <div class="progress w-100" style="height: 10px">
-                                      <div
-                                        class="progress-bar bg-success"
-                                        role="progressbar"
-                                        style="width: 84.75%"
-                                        aria-valuenow="84.75"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../assets/img/icons/brands/chrome.png" alt="Avatar" height="24" class="me-2" />
+                                    <span><?php echo $username; ?></span>
                                     </div>
-                                    <small class="fw-semibold">84.75%</small>
-                                  </div>
                                 </td>
-                              </tr>
+                                <td><?php echo number_format($CA_prevision, 2, '.', ' '); ?></td>
+                                <td>
+                                    <div class="d-flex justify-content-between align-items-center gap-3">
+                                    <div class="progress w-100" style="height: 10px">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small class="fw-semibold"><?php echo number_format($progress, 2, '.', ' '); ?>%</small>
+                                    </div>
+                                </td>
+                                </tr>
+
+                                <?php
+                                $position++;
+                            }
+                            ?>
                               <tr>
                                 <td>2</td>
                                 <td>
