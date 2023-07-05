@@ -38,7 +38,7 @@ $result = $stmt->fetch();
 $averageEngagement = round($result['average']); // Temps d'engagement moyen arrondi à l'entier le plus proche
 
 $stmt = $pdo->prepare('SELECT COUNT(*) as pending FROM clients WHERE statut = :status');
-$stmt->execute(['status' => 'inactif']); // Remplacez 'inactif' par le statut approprié pour les clients en attente
+$stmt->execute(['status' => 'archived']); // Remplacez 'inactif' par le statut approprié pour les clients en attente
 $pendingClients = $stmt->fetch()['pending'];
 ?>
 
