@@ -912,8 +912,8 @@
         height: 340,
         type: 'radialBar'
       },
-      series: [BestOfferPourcentage],
-      labels: ['BestOfferName'],
+      series: [BestOffer],
+      labels: ['Formule Ambition Vendue'],
       plotOptions: {
         radialBar: {
           startAngle: 0,

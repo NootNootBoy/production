@@ -71,7 +71,7 @@ if ($CA_prevision_3_months != 0) {
 }
 
 
-/////////////////////////////////////    VARIATION DU C.A    //////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 
 // Préparation et exécution de la requête pour le CA réalisé du mois dernier
 $stmt = $pdo->prepare('
@@ -103,36 +103,21 @@ if ($CA_realise_last_month != 0) {
     }
 }
 
-//////////////////////////////////// CALCUL MEILLEURE OFFRE ///////////////////////////////////////
-
 // Préparation et exécution de la requête pour compter le nombre total de clients
 $stmt = $pdo->prepare('SELECT COUNT(*) AS total_clients FROM clients');
 $stmt->execute();
 $total_clients = $stmt->fetch(PDO::FETCH_ASSOC)['total_clients'];
 
-// Préparation et exécution de la requête pour obtenir toutes les offres
-$stmt = $pdo->prepare('SELECT id, nom FROM offres');
+// Préparation et exécution de la requête pour compter le nombre de clients avec offres_id 1
+$stmt = $pdo->prepare('SELECT COUNT(*) AS clients_with_offer_1 FROM clients WHERE offre_id = 1');
 $stmt->execute();
-$offres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$clients_with_offer_1 = $stmt->fetch(PDO::FETCH_ASSOC)['clients_with_offer_1'];
 
-$best_offer = null;
-$best_offer_percentage = 0;
+// Calcul du pourcentage
+$percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
-foreach ($offres as $offre) {
-    // Préparation et exécution de la requête pour compter le nombre de clients pour cette offre
-    $stmt = $pdo->prepare('SELECT COUNT(*) AS clients_with_offer FROM clients WHERE offre_id = ?');
-    $stmt->execute([$offre['id']]);
-    $clients_with_offer = $stmt->fetch(PDO::FETCH_ASSOC)['clients_with_offer'];
 
-    // Calcul du pourcentage
-    $percentageOffer = ($clients_with_offer / $total_clients) * 100;
 
-    // Vérification si cette offre est la meilleure
-    if ($percentage > $best_offer_percentage) {
-        $best_offer = $offre;
-        $best_offer_percentage = $percentageOffer;
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -448,11 +433,9 @@ foreach ($offres as $offre) {
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script>
-        let BestOfferPourcentage = <?php echo $percentageOffer; ?>;
-        let BestOfferName= "<?php echo htmlspecialchars($best_offer['nom']); ?>";
+        let BestOffer= <?php echo $percentageOffer; ?>;
         </script>
         <script src="/assets/js/dashboards-crm.js"></script>
-
 
 </body>
 
