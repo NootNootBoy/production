@@ -352,7 +352,7 @@ if ($CA_realise_last_month != 0) {
                 </div>
                 <!--/ pill table -->
                 <!-- Sales Stats -->
-                <div class="col-md-6 col-lg-8 mb-4">
+                <div class="col-md-6 col-lg-6 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between mb-30">
                       <h5 class="card-title m-0 me-2">Sales Stats</h5>
