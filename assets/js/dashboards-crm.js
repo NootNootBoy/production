@@ -912,8 +912,8 @@
         height: 340,
         type: 'radialBar'
       },
-      series: [75],
-      labels: ['Sales'],
+      series: [CA_prevision],
+      labels: ['C.A Prévision'],
       plotOptions: {
         radialBar: {
           startAngle: 0,

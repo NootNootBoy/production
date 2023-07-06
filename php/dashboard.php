@@ -409,7 +409,13 @@ if ($CA_realise_last_month != 0) {
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+        <script src="../assets/vendor/libs/apex-charts/apexcharts.js">
+
+        var CA_prevision = <?php echo $CA_prevision_this_month; ?>;
+        var CA_realise = <?php echo $CA_realise_this_month; ?>;
+
+
+        </script>
 
         <!-- Main JS -->
         <script src="../assets/js/main.js"></script>
@@ -418,7 +424,7 @@ if ($CA_realise_last_month != 0) {
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script src="../assets/js/dashboards-crm.js"></script>
+        <script src="/assets/js/dashboards-crm.js"></script>
 
 </body>
 
