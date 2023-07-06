@@ -913,7 +913,7 @@
         type: 'radialBar'
       },
       series: [BestOffer],
-      labels: ['Formule Ambition Vendue'],
+      labels: ['du marché'],
       plotOptions: {
         radialBar: {
           startAngle: 0,
