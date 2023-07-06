@@ -954,7 +954,7 @@
       },
       fill: {
         type: 'solid',
-        colors: config.colors.success
+        colors: config.colors.primary
       },
       stroke: {
         lineCap: 'round'
