@@ -912,8 +912,8 @@
         height: 340,
         type: 'radialBar'
       },
-      series: [BestOffer],
-      labels: ['Offre le plus vendue'],
+      series: [BestOfferPourcentage],
+      labels: ['BestOfferName'],
       plotOptions: {
         radialBar: {
           startAngle: 0,
