@@ -1,7 +1,7 @@
 <?php
 session_start();
-include './php/db_connection.php';
-include './notifications/notifications.php';
+include '../db_connection.php';
+include '../notifications/notifications.php';
 
 // Récupérer tous les clients
 $stmt = $pdo->query('SELECT * FROM clients');
