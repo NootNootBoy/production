@@ -61,7 +61,11 @@ $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
 // Calcul du pourcentage de variation entre le mois dernier et les 3 derniers mois
-$variation_this_month_vs_3_months = ($CA_prevision_this_month - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+if ($CA_prevision_3_months != 0) {
+    $variation_this_month_vs_3_months = ($CA_prevision_this_month - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+} else {
+    $variation_this_month_vs_3_months = 0; // or whatever value makes sense when there is no previous month data
+}
 
 ////////////////////////////////////////////////////////////////////
 
@@ -85,12 +89,12 @@ $stmt = $pdo->prepare('
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise_this_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_this_month'];
 
-// Calcul de la variation en pourcentage entre le mois dernier et le mois actuel
-if ($CA_realise_last_month == 0) {
-    $variation_realise_last_vs_this_month = 100;
-} else {
+if ($CA_realise_last_month != 0) {
     $variation_realise_last_vs_this_month = ($CA_realise_this_month - $CA_realise_last_month) / $CA_realise_last_month * 100;
+} else {
+    $variation_realise_last_vs_this_month = 0; // or whatever value makes sense when there is no last month data
 }
+
 
 ?>
 
