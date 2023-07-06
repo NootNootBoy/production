@@ -289,7 +289,7 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                                         FROM users
                                         LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
                                         JOIN clients ON CA.client_id = clients.id
-                                        WHERE CA.CA_realise IS NULL AND users.rang = "commercial" AND clients.status = "actif"
+                                        WHERE CA.CA_realise IS NULL AND users.rang = "commercial" AND clients.statut = "actif"
                                         GROUP BY users.username
                                         ORDER BY CA_prevision DESC
                                     ');
@@ -367,7 +367,7 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                             LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
                             JOIN agences ON users.agence_id = agences.id
                             JOIN clients ON CA.client_id = clients.id
-                            WHERE CA.CA_realise IS NULL AND clients.status = "actif"
+                            WHERE CA.CA_realise IS NULL AND clients.statut = "actif"
                             GROUP BY agences.nom
                             ORDER BY CA_prevision DESC
                         ');
