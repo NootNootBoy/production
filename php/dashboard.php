@@ -351,6 +351,42 @@ if ($CA_realise_last_month != 0) {
                   </div>
                 </div>
                 <!--/ pill table -->
+                                <!-- Sales Stats -->
+                                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <div class="card-header d-flex align-items-center justify-content-between mb-30">
+                      <h5 class="card-title m-0 me-2">Sales Stats</h5>
+                      <div class="dropdown">
+                        <button
+                          class="btn p-0"
+                          type="button"
+                          id="salesStatsID"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false">
+                          <i class="bx bx-dots-vertical-rounded"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesStatsID">
+                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="salesStats"></div>
+                    <div class="card-body">
+                      <div class="d-flex justify-content-around">
+                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                          <span class="badge badge-dot bg-success me-2"></span> Conversion Ratio
+                        </div>
+                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                          <span class="badge badge-dot bg-label-secondary me-2"></span> Total requirements
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Sales Stats -->
                 </div>
             </div>
             </div>
