@@ -22,12 +22,13 @@ if (!isset($_SESSION['username'])) {
 
     // Préparation et exécution de la requête pour le CA en prévision des 28 derniers jours
     $stmt = $pdo->prepare('
-        SELECT SUM(CA_prevision) AS CA_prevision_28_days
-        FROM CA
-        WHERE commercial_id = :userId AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
-    ');
-    $stmt->execute(['userId' => $userId]);
-    $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
+    SELECT SUM(CA.CA_prevision) AS CA_prevision_28_days
+    FROM users
+    LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
+    WHERE CA.CA_realise IS NULL AND users.id = :userId
+');
+$stmt->execute(['userId' => $userId]);
+$CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
 
     // Préparation et exécution de la requête pour le CA en prévision des 3 derniers mois
     $stmt = $pdo->prepare('
