@@ -126,7 +126,6 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <span>Clients</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $clientCount; ?></h4>
-                                                    <small class="text-success">(+XX%)</small>
                                                 </div>
                                                 <small>au total</small>
                                             </div>
@@ -145,7 +144,6 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <span>Offre Ambition</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $offre1Count; ?></h4>
-                                                    <small class="text-success">(+XX%)</small>
                                                 </div>
                                                 <small>nombres d'offres actives</small>
                                             </div>
@@ -164,7 +162,6 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <span>Temps d'engagement</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $averageEngagement; ?></h4>
-                                                    <small class="text-danger">(-XX%)</small>
                                                 </div>
                                                 <small>en moyenne (en mois)</small>
                                             </div>
@@ -183,7 +180,6 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <span>Client annulé</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $pendingClients; ?></h4>
-                                                    <small class="text-warning">(--%)</small>
                                                 </div>
                                                 <small>le dernier mois</small>
                                             </div>
