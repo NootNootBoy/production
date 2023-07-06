@@ -360,19 +360,18 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                             <?php
                             // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des agences
                             // et les trier par ordre décroissant
-                            $stmt = $pdo->prepare('
-                                SELECT agences.nom AS agence_nom, SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision
+                                $stmt = $pdo->prepare('
+                                SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision
                                 FROM users
-                                JOIN clients ON users.id = clients.commercial_id
-                                JOIN offres ON clients.offre_id = offres.id
+                                LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
                                 JOIN agences ON users.agence_id = agences.id
-                                WHERE clients.code_assurance IS NULL
+                                WHERE CA.CA_realise IS NULL
                                 GROUP BY agences.nom
                                 ORDER BY CA_prevision DESC
                             ');
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+                    
                             // Boucle pour afficher les données de chaque agence
                             $position = 1;
                             foreach ($result as $row) {
