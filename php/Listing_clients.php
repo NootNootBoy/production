@@ -408,6 +408,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                     <select id="second_commercial_id" name="second_commercial_id"
                                                         class="select2 form-select">
                                                         <?php foreach ($commerciaux as $commercial): ?>
+                                                        <option value="">Aucun</option>
                                                         <option value="<?php echo $commercial['id']; ?>">
                                                             <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
                                                         </option>
