@@ -24,7 +24,8 @@ if (!isset($_SESSION['username'])) {
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_28_days
     FROM CA
-    WHERE (commercial_id = :userId1 OR second_commercial_id = :userId2) AND CA.CA_realise IS NULL
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.CA_realise IS NULL AND clients.status = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
@@ -33,7 +34,8 @@ $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_3_months
     FROM CA
-    WHERE (commercial_id = :userId1 OR second_commercial_id = :userId2) AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH) AND clients.status = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
@@ -42,7 +44,8 @@ $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months']
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_total
     FROM CA
-    WHERE commercial_id = :userId1 OR second_commercial_id = :userId2
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
@@ -51,11 +54,11 @@ $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_realise) AS CA_realise
     FROM CA
-    WHERE commercial_id = :userId1 OR second_commercial_id = :userId2
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
-
 
 // Calcul du pourcentage de variation entre les 28 derniers jours et les 3 derniers mois
 $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
