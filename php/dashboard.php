@@ -22,46 +22,36 @@ if (!isset($_SESSION['username'])) {
 
     // Préparation et exécution de la requête pour le CA en prévision des 28 derniers jours
     $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_28_days
-        FROM users
-        JOIN clients ON users.id = clients.commercial_id
-        JOIN offres ON clients.offre_id = offres.id
-        WHERE clients.code_assurance IS NULL AND users.id = :userId
-            AND clients.created_at >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
+        SELECT SUM(CA_prevision) AS CA_prevision_28_days
+        FROM CA
+        WHERE commercial_id = :userId AND created_at >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
 
     // Préparation et exécution de la requête pour le CA en prévision des 3 derniers mois
     $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_3_months
-        FROM users
-        JOIN clients ON users.id = clients.commercial_id
-        JOIN offres ON clients.offre_id = offres.id
-        WHERE clients.code_assurance IS NULL AND users.id = :userId
-            AND clients.created_at >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+        SELECT SUM(CA_prevision) AS CA_prevision_3_months
+        FROM CA
+        WHERE commercial_id = :userId AND created_at >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
 
     // Préparation et exécution de la requête pour le CA en prévision depuis le début
     $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_prevision_total
-        FROM users
-        JOIN clients ON users.id = clients.commercial_id
-        JOIN offres ON clients.offre_id = offres.id
-        WHERE clients.code_assurance IS NULL AND users.id = :userId
+        SELECT SUM(CA_prevision) AS CA_prevision_total
+        FROM CA
+        WHERE commercial_id = :userId
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
 
-        // Préparation et exécution de la requête pour le CA réalisé
-        $stmt = $pdo->prepare('
-        SELECT SUM(offres.prix_mensuel * clients.temps_engagement) AS CA_realise
-        FROM users
-        JOIN clients ON users.id = clients.commercial_id
-        JOIN offres ON clients.offre_id = offres.id
-        WHERE clients.code_assurance IS NOT NULL AND users.id = :userId
+    // Préparation et exécution de la requête pour le CA réalisé
+    $stmt = $pdo->prepare('
+        SELECT SUM(CA_realise) AS CA_realise
+        FROM CA
+        WHERE commercial_id = :userId
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
