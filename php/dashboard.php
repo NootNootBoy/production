@@ -420,7 +420,13 @@ if ($CA_realise_last_month != 0) {
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script>
         let CA_prevision = <?php echo $CA_prevision_this_month; ?>;
-        let CA_realise = <?php echo $CA_realise_this_month; ?>;
+        let CA_realise = <?php if($CA_realise_this_month != NULL){
+            echo $CA_realise_this_month;
+        }
+        else{
+            $CA_realise_this_month = 0;
+            echo $CA_realise_this_month;
+        } ?>;
         </script>
         <script src="/assets/js/dashboards-crm.js"></script>
 
