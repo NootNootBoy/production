@@ -25,7 +25,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_28_days
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.CA_realise IS NULL AND clients.status = "actif"
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.CA_realise IS NULL AND clients.statut = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
@@ -35,7 +35,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_3_months
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH) AND clients.status = "actif"
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH) AND clients.statut = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
@@ -45,7 +45,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_total
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif"
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.statut = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
@@ -55,7 +55,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_realise) AS CA_realise
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif"
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.statut = "actif"
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
