@@ -251,14 +251,8 @@ $pendingClients = $stmt->fetch()['pending'];
 
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-header">Listes des clients (<span
+                                <h5 class="card-header">Listes des clients archivés (<span
                                         class="fw-bold text-primary"><?php echo $pendingClients; ?></span>) :</h5>
-                                <div style="max-width: 190px;" class="me-3">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#editUser">
-                                        Ajouter un client
-                                    </button>
-                                </div>
                             </div>
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">
@@ -465,6 +459,17 @@ $pendingClients = $stmt->fetch()['pending'];
                                                     ?>
                                                 </select>
                                             </div>
+                                            
+                                            <hr class="my-4 mx-n4" />
+                                            <h6>5. Code assurance (optionnel)</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="code_assurance">Code de validation client</label>
+                                                    <input type="text" id="code_assurance" name="code_assurance"
+                                                        class="form-control" placeholder="DJZ82....">
+                                                </div>
+                                            </div>
+
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
                                                     Client</button>
