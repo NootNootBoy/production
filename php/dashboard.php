@@ -294,7 +294,28 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                 </div>
                 </div>
                 <div class="row">
-                     <!-- pill table -->
+                     
+                <!-- Sales Stats -->
+                <div class="col-md-6 col-lg-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-header d-flex align-items-center justify-content-between mb-30">
+                      <h5 class="card-title m-0 me-2">Meilleure offre vendue sur le marché</h5>
+                    </div>
+                    <div id="salesStats"></div>
+                    <div class="card-body">
+                      <div class="d-flex justify-content-around">
+                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                          <span class="badge badge-dot bg-success me-2"></span> Offre Ambition
+                        </div>
+                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                          <span class="badge badge-dot bg-label-secondary me-2"></span> Autres offres
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Sales Stats -->
+                <!-- pill table -->
                 <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                   <div class="card text-center">
                     <div class="card-header py-3">
@@ -365,26 +386,6 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                   </div>
                 </div>
                 <!--/ pill table -->
-                <!-- Sales Stats -->
-                <div class="col-md-6 col-lg-6 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between mb-30">
-                      <h5 class="card-title m-0 me-2">Meilleure offre vendue sur le marché</h5>
-                    </div>
-                    <div id="salesStats"></div>
-                    <div class="card-body">
-                      <div class="d-flex justify-content-around">
-                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-success me-2"></span> Offre Ambition
-                        </div>
-                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-label-secondary me-2"></span> Autres offres
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--/ Sales Stats -->
                 </div>
             </div>
             </div>
