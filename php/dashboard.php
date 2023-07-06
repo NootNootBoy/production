@@ -70,7 +70,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_realise) AS CA_realise_last_month
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE() - INTERVAL 1 MONTH)
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.statut = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE() - INTERVAL 1 MONTH)
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise_last_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_last_month'];
@@ -80,7 +80,7 @@ $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_realise) AS CA_realise_this_month
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE())
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.statut = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE())
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise_this_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_this_month'];
