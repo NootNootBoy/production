@@ -31,9 +31,10 @@ $ville = $_POST['ville'];
 $code_postal = $_POST['code_postal'];
 $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
+$code_assurance = $_POST['code_assurance'];
 
-$stmt = $pdo->prepare('UPDATE clients SET nom = ?, prenom = ?, societe = ?, siret = ?, email = ?, phone_number = ?, temps_engagement = ?, date_signature = ?, adresse = ?, ville = ?, code_postal = ?, pays = ?, commercial_id = ? WHERE id = ?');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $client_id]);
+$stmt = $pdo->prepare('UPDATE clients SET nom = ?, prenom = ?, societe = ?, siret = ?, email = ?, phone_number = ?, temps_engagement = ?, date_signature = ?, adresse = ?, ville = ?, code_postal = ?, pays = ?, code_assurance = ?, commercial_id = ? WHERE id = ?');
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $code_assurance, $commercial_id, $client_id]);
 
 // Mettre à jour les options ici si nécessaire...
 

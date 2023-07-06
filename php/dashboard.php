@@ -218,7 +218,7 @@ if ($CA_realise_last_month == 0) {
                               </div>
                             </div>
                           </div>
-                          <span>C.A prevision</span>
+                          <span>C.A prevision mensuel</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_this_month, 0, ',', ' '); ?> €</h3>
                           <small class="text-<?php echo ($variation_this_month_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
                             <i class="bx <?php echo ($variation_this_month_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
@@ -252,7 +252,7 @@ if ($CA_realise_last_month == 0) {
                               </div>
                             </div>
                           </div>
-                          <span>C.A réalisé</span>
+                          <span>C.A réalisé mensuel</span>
                           <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise_this_month, 0, ',', ' '); ?> €</h3>
                           <small class="text-<?php echo ($variation_realise_last_vs_this_month >= 0) ? 'success' : 'danger'; ?> fw-semibold">
                             <i class="bx <?php echo ($variation_realise_last_vs_this_month >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>

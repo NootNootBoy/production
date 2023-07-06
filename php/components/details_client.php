@@ -434,7 +434,6 @@ include '../notifications/notifications.php';
                                                         value="<?php echo htmlspecialchars($client['date_signature']); ?>">
                                                 </div>
                                             </div>
-
                                             <hr class="my-4 mx-n4" />
                                             <h6>2. Adresse</h6>
                                             <div class="row g-3">
@@ -492,6 +491,17 @@ include '../notifications/notifications.php';
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
+
+                                            <h6>2. Adresse</h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="code_assurance">Code Assurance</label>
+                                                    <input type="text" id="code_assurance" name="code_assurance" class="form-control"
+                                                        placeholder="code_assurance" required
+                                                        value="<?php echo htmlspecialchars($client['code_assurance']); ?>">
+                                                </div>
+                                            </div>
+                                            
                                             <input type="hidden" name="client_id" value="<?php echo $client_id; ?>">
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Modifier le
