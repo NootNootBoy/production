@@ -492,7 +492,7 @@ include '../notifications/notifications.php';
                                             </div>
                                             <hr class="my-4 mx-n4" />
 
-                                            <h6>2. Adresse</h6>
+                                            <h6>4. Officialisation</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="code_assurance">Code Assurance</label>
