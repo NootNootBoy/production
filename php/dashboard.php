@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
     $stmt = $pdo->prepare('
         SELECT SUM(CA_prevision) AS CA_prevision_28_days
         FROM CA
-        WHERE commercial_id = :userId AND created_at >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
+        WHERE commercial_id = :userId AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 28 DAY)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
@@ -33,7 +33,7 @@ if (!isset($_SESSION['username'])) {
     $stmt = $pdo->prepare('
         SELECT SUM(CA_prevision) AS CA_prevision_3_months
         FROM CA
-        WHERE commercial_id = :userId AND created_at >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+        WHERE commercial_id = :userId AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
     ');
     $stmt->execute(['userId' => $userId]);
     $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
