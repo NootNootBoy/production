@@ -29,7 +29,7 @@ $ville = $_POST['ville'];
 $code_postal = $_POST['code_postal'];
 $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
-$second_commercial_id = $_POST['second_commercial_id'];
+$second_commercial_id = $_POST['second_commercial_id'] != "" ? $_POST['second_commercial_id'] : NULL;
 $offre_id = $_POST['offre_id'];
 $code_assurance = $_POST['code_assurance'];
 
