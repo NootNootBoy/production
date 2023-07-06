@@ -20,15 +20,15 @@ if (!isset($_SESSION['username'])) {
     echo "<script>console.log('Connecté en tant que : " . $_SESSION['username'] . "');</script>";
 }
 
-// Préparation et exécution de la requête pour le CA en prévision des 28 derniers jours
+// Préparation et exécution de la requête pour le CA en prévision du mois en cours
 $stmt = $pdo->prepare('
-    SELECT SUM(CA.CA_prevision) AS CA_prevision_28_days
+    SELECT SUM(CA.CA_prevision) AS CA_prevision_this_month
     FROM CA
     JOIN clients ON CA.client_id = clients.id
-    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.CA_realise IS NULL AND clients.statut = "actif"
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND CA.CA_realise IS NULL AND clients.statut = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE())
 ');
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
-$CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
+$CA_prevision_this_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_this_month'];
 
 // Préparation et exécution de la requête pour le CA en prévision des 3 derniers mois
 $stmt = $pdo->prepare('
@@ -60,8 +60,37 @@ $stmt = $pdo->prepare('
 $stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
 
-// Calcul du pourcentage de variation entre les 28 derniers jours et les 3 derniers mois
-$variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+// Calcul du pourcentage de variation entre le mois dernier et les 3 derniers mois
+$variation_this_month_vs_3_months = ($CA_prevision_this_month - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
+
+////////////////////////////////////////////////////////////////////
+
+// Préparation et exécution de la requête pour le CA réalisé du mois dernier
+$stmt = $pdo->prepare('
+    SELECT SUM(CA.CA_realise) AS CA_realise_last_month
+    FROM CA
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE() - INTERVAL 1 MONTH)
+');
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
+$CA_realise_last_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_last_month'];
+
+// Préparation et exécution de la requête pour le CA réalisé du mois actuel
+$stmt = $pdo->prepare('
+    SELECT SUM(CA.CA_realise) AS CA_realise_this_month
+    FROM CA
+    JOIN clients ON CA.client_id = clients.id
+    WHERE (CA.commercial_id = :userId1 OR CA.second_commercial_id = :userId2) AND clients.status = "actif" AND MONTH(CA.date_realisation) = MONTH(CURDATE())
+');
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
+$CA_realise_this_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_this_month'];
+
+// Calcul de la variation en pourcentage entre le mois dernier et le mois actuel
+if ($CA_realise_last_month == 0) {
+    $variation_realise_last_vs_this_month = 100;
+} else {
+    $variation_realise_last_vs_this_month = ($CA_realise_this_month - $CA_realise_last_month) / $CA_realise_last_month * 100;
+}
 
 ?>
 
@@ -190,10 +219,10 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                             </div>
                           </div>
                           <span>C.A prevision</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_this_month, 0, ',', ' '); ?> €</h3>
+                          <small class="text-<?php echo ($variation_this_month_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_this_month_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_this_month_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_this_month_vs_3_months, 2); ?>%
                         </small>
                         </div>
                       </div>
@@ -224,10 +253,10 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                             </div>
                           </div>
                           <span>C.A réalisé</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise_this_month, 0, ',', ' '); ?> €</h3>
+                          <small class="text-<?php echo ($variation_realise_last_vs_this_month >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                            <i class="bx <?php echo ($variation_realise_last_vs_this_month >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                            <?php echo ($variation_realise_last_vs_this_month >= 0) ? '+' : ''; ?><?php echo number_format($variation_realise_last_vs_this_month, 2); ?>%
                         </small>
                         </div>
                       </div>
