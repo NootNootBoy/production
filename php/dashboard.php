@@ -243,7 +243,7 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                 <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                   <div class="card text-center">
                     <div class="card-header py-3">
-                    <h5 class="card-title text-primary  style='text-align:left;'">Classement depuis le début</h5>
+                    <h5 class="card-title text-primary  style='text-align:left;'">Classement en prévision</h5>
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                           <button
