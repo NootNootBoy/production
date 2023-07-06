@@ -351,8 +351,8 @@ if ($CA_realise_last_month != 0) {
                   </div>
                 </div>
                 <!--/ pill table -->
-                                <!-- Sales Stats -->
-                                <div class="col-md-6 col-lg-4 mb-4">
+                <!-- Sales Stats -->
+                <div class="col-md-6 col-lg-4 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between mb-30">
                       <h5 class="card-title m-0 me-2">Sales Stats</h5>
@@ -418,6 +418,8 @@ if ($CA_realise_last_month != 0) {
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="../assets/js/dashboards-crm.js"></script>
+
 </body>
 
 </html>
