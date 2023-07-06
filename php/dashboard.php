@@ -92,7 +92,11 @@ $CA_realise_this_month = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise_this_month']
 if ($CA_realise_last_month != 0) {
     $variation_realise_last_vs_this_month = ($CA_realise_this_month - $CA_realise_last_month) / $CA_realise_last_month * 100;
 } else {
-    $variation_realise_last_vs_this_month = 0; // or whatever value makes sense when there is no last month data
+    if ($CA_realise_this_month > 0) {
+        $variation_realise_last_vs_this_month = 100;
+    } else {
+        $variation_realise_last_vs_this_month = 0;
+    }
 }
 
 
