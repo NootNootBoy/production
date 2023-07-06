@@ -188,7 +188,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                           </div>
                           <span>C.A prevision</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_total, 0, ',', ' '); ?> €</h3>
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 0, ',', ' '); ?> €</h3>
                           <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
                             <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
                             <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
@@ -289,7 +289,7 @@ $stmt = $pdo->prepare('
     SELECT users.username, users.avatar, SUM(CA.CA_prevision) AS CA_prevision
     FROM users
     LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
-    WHERE CA.CA_realise IS NULL
+    WHERE CA.CA_realise IS NULL AND users.rang = "commercial"
     GROUP BY users.username
     ORDER BY CA_prevision DESC
 ');
