@@ -103,6 +103,18 @@ if ($CA_realise_last_month != 0) {
     }
 }
 
+// Préparation et exécution de la requête pour compter le nombre total de clients
+$stmt = $pdo->prepare('SELECT COUNT(*) AS total_clients FROM clients');
+$stmt->execute();
+$total_clients = $stmt->fetch(PDO::FETCH_ASSOC)['total_clients'];
+
+// Préparation et exécution de la requête pour compter le nombre de clients avec offres_id 1
+$stmt = $pdo->prepare('SELECT COUNT(*) AS clients_with_offer_1 FROM clients WHERE offre_id = 1');
+$stmt->execute();
+$clients_with_offer_1 = $stmt->fetch(PDO::FETCH_ASSOC)['clients_with_offer_1'];
+
+// Calcul du pourcentage
+$percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
 ?>
 
@@ -419,14 +431,7 @@ if ($CA_realise_last_month != 0) {
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script>
-        let CA_prevision = <?php echo $CA_prevision_this_month; ?>;
-        let CA_realise = <?php if($CA_realise_this_month != NULL){
-            echo $CA_realise_this_month;
-        }
-        else{
-            $CA_realise_this_month = 0;
-            echo $CA_realise_this_month;
-        } ?>;
+        let BestOffer= <?php echo $percentageOffer; ?>;
         </script>
         <script src="/assets/js/dashboards-crm.js"></script>
 
