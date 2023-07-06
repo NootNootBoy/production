@@ -912,8 +912,8 @@
         height: 340,
         type: 'radialBar'
       },
-      series: [CA_prevision],
-      labels: ['C.A Prévision'],
+      series: [BestOffer],
+      labels: ['Offre le plus vendue'],
       plotOptions: {
         radialBar: {
           startAngle: 0,
