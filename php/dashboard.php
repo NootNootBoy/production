@@ -318,7 +318,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                 <!-- pill table -->
                 <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                   <div class="card text-center">
-                    <div class="card-header py-3">
+                    <div class="card-header py-3 h-100">
                     <h5 class="card-title text-primary  style='text-align:left;'">Classement en prévision</h5>
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
