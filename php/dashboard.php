@@ -188,7 +188,7 @@ if (!isset($_SESSION['username'])) {
                             </div>
                           </div>
                           <span>C.A prevision</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_28_days, 0, ',', ' '); ?> €</h3>
+                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_total, 0, ',', ' '); ?> €</h3>
                           <small class="text-<?php echo ($variation_28_days_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
                             <i class="bx <?php echo ($variation_28_days_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
                             <?php echo ($variation_28_days_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_28_days_vs_3_months, 2); ?>%
