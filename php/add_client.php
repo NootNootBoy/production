@@ -32,6 +32,7 @@ $commercial_id = $_POST['commercial_id'];
 $second_commercial_id = $_POST['second_commercial_id'];
 $offre_id = $_POST['offre_id'];
 
+
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
 if (!preg_match('/^(\+33|0)[1-9](\d{2}){4}$/', $phoneNumber)) {
     $error_message = "Numéro de téléphone invalide.";
@@ -69,6 +70,28 @@ if (!empty($associe_nom) && !empty($associe_prenom) && !empty($associe_email) &&
     $stmt = $pdo->prepare('INSERT INTO associes (nom, prenom, email, telephone, client_id) VALUES (?, ?, ?, ?, ?)');
     $stmt->execute([$associe_nom, $associe_prenom, $associe_email, $associe_telephone, $client_id]);
 }
+
+//C.A ICI
+
+// Récupérer le prix mensuel de l'offre sélectionnée
+$stmt = $pdo->prepare('SELECT prix_mensuel FROM offres WHERE id = ?');
+$stmt->execute([$offre_id]);
+$offre = $stmt->fetch();
+
+// Calculer le C.A prévu
+$CA_prevision = $offre['prix_mensuel'] * $temps_engagement;
+
+// Si un second commercial est impliqué, diviser le C.A par deux
+if (!empty($second_commercial_id)) {
+    $CA_prevision /= 2;
+}
+
+// Si le code d'assurance est fourni, stocker le C.A comme C.A réalisé
+$CA_realise = !empty($code_assurance) ? $CA_prevision : null;
+
+// Insérer le C.A dans la nouvelle table
+$stmt = $pdo->prepare('INSERT INTO CA (client_id, commercial_id, second_commercial_id, CA_prevision, CA_realise) VALUES (?, ?, ?, ?, ?)');
+$stmt->execute([$client_id, $commercial_id, $second_commercial_id, $CA_prevision, $CA_realise]);
 
 if ($stmt->rowCount() > 0) {
 
