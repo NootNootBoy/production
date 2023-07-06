@@ -449,7 +449,7 @@ foreach ($offres as $offre) {
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script>
         let BestOfferPourcentage = <?php echo $percentageOffer; ?>;
-        let BestOfferName= <?php echo $best_offer['nom']; ?>;
+        let BestOfferName= <?php echo htmlspecialchars($best_offer['nom']); ?>;
         </script>
         <script src="/assets/js/dashboards-crm.js"></script>
 
