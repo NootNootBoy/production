@@ -288,7 +288,8 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                                         SELECT users.username, users.avatar, SUM(CA.CA_prevision) AS CA_prevision
                                         FROM users
                                         LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
-                                        WHERE CA.CA_realise IS NULL AND users.rang = "commercial"
+                                        JOIN clients ON CA.client_id = clients.id
+                                        WHERE CA.CA_realise IS NULL AND users.rang = "commercial" AND clients.status = "actif"
                                         GROUP BY users.username
                                         ORDER BY CA_prevision DESC
                                     ');
@@ -360,15 +361,16 @@ $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months
                             <?php
                             // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des agences
                             // et les trier par ordre décroissant
-                                $stmt = $pdo->prepare('
-                                SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision
-                                FROM users
-                                LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
-                                JOIN agences ON users.agence_id = agences.id
-                                WHERE CA.CA_realise IS NULL
-                                GROUP BY agences.nom
-                                ORDER BY CA_prevision DESC
-                            ');
+                            $stmt = $pdo->prepare('
+                            SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision
+                            FROM users
+                            LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
+                            JOIN agences ON users.agence_id = agences.id
+                            JOIN clients ON CA.client_id = clients.id
+                            WHERE CA.CA_realise IS NULL AND clients.status = "actif"
+                            GROUP BY agences.nom
+                            ORDER BY CA_prevision DESC
+                        ');
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     
