@@ -24,37 +24,38 @@ if (!isset($_SESSION['username'])) {
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_28_days
     FROM CA
-    WHERE (commercial_id = :userId OR second_commercial_id = :userId) AND CA.CA_realise IS NULL
+    WHERE (commercial_id = :userId1 OR second_commercial_id = :userId2) AND CA.CA_realise IS NULL
 ');
-$stmt->execute(['userId' => $userId]);
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_28_days = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_28_days'];
 
 // Préparation et exécution de la requête pour le CA en prévision des 3 derniers mois
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_3_months
     FROM CA
-    WHERE (commercial_id = :userId OR second_commercial_id = :userId) AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
+    WHERE (commercial_id = :userId1 OR second_commercial_id = :userId2) AND date_realisation >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH)
 ');
-$stmt->execute(['userId' => $userId]);
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_3_months = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_3_months'];
 
 // Préparation et exécution de la requête pour le CA en prévision depuis le début
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_prevision) AS CA_prevision_total
     FROM CA
-    WHERE commercial_id = :userId OR second_commercial_id = :userId
+    WHERE commercial_id = :userId1 OR second_commercial_id = :userId2
 ');
-$stmt->execute(['userId' => $userId]);
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_prevision_total = $stmt->fetch(PDO::FETCH_ASSOC)['CA_prevision_total'];
 
 // Préparation et exécution de la requête pour le CA réalisé
 $stmt = $pdo->prepare('
     SELECT SUM(CA.CA_realise) AS CA_realise
     FROM CA
-    WHERE commercial_id = :userId OR second_commercial_id = :userId
+    WHERE commercial_id = :userId1 OR second_commercial_id = :userId2
 ');
-$stmt->execute(['userId' => $userId]);
+$stmt->execute(['userId1' => $userId, 'userId2' => $userId]);
 $CA_realise = $stmt->fetch(PDO::FETCH_ASSOC)['CA_realise'];
+
 
 // Calcul du pourcentage de variation entre les 28 derniers jours et les 3 derniers mois
 $variation_28_days_vs_3_months = ($CA_prevision_28_days - $CA_prevision_3_months) / $CA_prevision_3_months * 100;
