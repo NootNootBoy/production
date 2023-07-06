@@ -31,7 +31,7 @@ $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
 $second_commercial_id = $_POST['second_commercial_id'] != "" ? $_POST['second_commercial_id'] : NULL;
 $offre_id = $_POST['offre_id'];
-$code_assurance = $_POST['code_assurance'];
+$code_assurance = $_POST['code_assurance'] != "" ? $_POST['code_assurance'] : NULL;;
 
 
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
@@ -91,7 +91,7 @@ if (!empty($second_commercial_id)) {
 $CA_realise = !empty($code_assurance) ? $CA_prevision : null;
 
 // Insérer le C.A dans la nouvelle table
-$stmt = $pdo->prepare('INSERT INTO CA (client_id, commercial_id, second_commercial_id, CA_prevision, CA_realise) VALUES (?, ?, ?, ?, ?)');
+$stmt = $pdo->prepare('INSERT INTO CA (client_id, commercial_id, second_commercial_id, CA_prevision, CA_realise, date_realisation) VALUES (?, ?, ?, ?, ?, CURDATE())');
 $stmt->execute([$client_id, $commercial_id, $second_commercial_id, $CA_prevision, $CA_realise]);
 
 if ($stmt->rowCount() > 0) {
