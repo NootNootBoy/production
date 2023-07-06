@@ -369,32 +369,16 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                 <div class="col-md-6 col-lg-6 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between mb-30">
-                      <h5 class="card-title m-0 me-2">Sales Stats</h5>
-                      <div class="dropdown">
-                        <button
-                          class="btn p-0"
-                          type="button"
-                          id="salesStatsID"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesStatsID">
-                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
-                        </div>
-                      </div>
+                      <h5 class="card-title m-0 me-2">Meilleure offre vendue sur le marché</h5>
                     </div>
                     <div id="salesStats"></div>
                     <div class="card-body">
                       <div class="d-flex justify-content-around">
                         <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-success me-2"></span> Conversion Ratio
+                          <span class="badge badge-dot bg-success me-2"></span> Offre Ambition
                         </div>
                         <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-label-secondary me-2"></span> Total requirements
+                          <span class="badge badge-dot bg-label-secondary me-2"></span> Autres offres
                         </div>
                       </div>
                     </div>
