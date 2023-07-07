@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
     // L'utilisateur est connecté, affichez son nom d'utilisateur dans la console du navigateur
     echo "<script>console.log('Connecté en tant que : " . $_SESSION['username'] . "');</script>";
     echo "<script>console.log('Connecté en tant que : " . $userDirecteur . "');</script>";
-    echo "<script>console.log('Connecté en tant que : " . $agenceId . "');</script>";
+    echo "<script>console.log('Mon agence : " . $agenceId . "');</script>";
 }
 
 // Préparation et exécution de la requête pour le CA en prévision du mois en cours
