@@ -366,7 +366,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                 <div class="card text-center">
                                     <div class="card-header py-3 h-100">
                                         <h5 class="card-title text-primary  style='text-align:left;'">Classement en
-                                            prévision</h5>
+                                            prévision du mois</h5>
                                         <ul class="nav nav-pills" role="tablist">
                                             <li class="nav-item">
                                                 <button type="button" class="nav-link active" role="tab"
