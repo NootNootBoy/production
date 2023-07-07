@@ -371,7 +371,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />
-                                            <h6>3. Options et Commercial</h6>
+                                            <h6>3. Options et Consultant(s)</h6>
                                             <div class="row g-3">
                                                 <?php foreach ($options as $option): ?>
                                                 <div class="col-md-4">
@@ -384,7 +384,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <?php endforeach; ?>
 
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="commercial_id">Commercial</label>
+                                                    <label class="form-label" for="commercial_id">Consultant(s)</label>
                                                     <select id="commercial_id" name="commercial_id"
                                                         class="select2 form-select">
                                                         <?php 

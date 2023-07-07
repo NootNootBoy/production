@@ -464,7 +464,7 @@ include '../notifications/notifications.php';
                                             </div>
 
                                             <hr class="my-4 mx-n4" />
-                                            <h6>3. Options et Commercial</h6>
+                                            <h6>3. Options et Consultant(s)</h6>
                                             <div class="row g-3">
                                                 <?php foreach ($options as $option): ?>
                                                 <div class="col-md-4">
@@ -478,7 +478,7 @@ include '../notifications/notifications.php';
                                                 <?php endforeach; ?>
 
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="commercial_id">Commercial</label>
+                                                    <label class="form-label" for="commercial_id">Consultant(s)</label>
                                                     <select id="commercial_id" name="commercial_id"
                                                         class="select2 form-select">
                                                         <?php foreach ($commerciaux as $commercial): ?>
@@ -495,13 +495,14 @@ include '../notifications/notifications.php';
                                             <h6>4. Officialisation</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="code_assurance">Code Assurance</label>
-                                                    <input type="text" id="code_assurance" name="code_assurance" class="form-control"
-                                                        placeholder="code_assurance" required
+                                                    <label class="form-label" for="code_assurance">Code
+                                                        Assurance</label>
+                                                    <input type="text" id="code_assurance" name="code_assurance"
+                                                        class="form-control" placeholder="code_assurance" required
                                                         value="<?php echo htmlspecialchars($client['code_assurance']); ?>">
                                                 </div>
                                             </div>
-                                            
+
                                             <input type="hidden" name="client_id" value="<?php echo $client_id; ?>">
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Modifier le
