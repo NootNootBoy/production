@@ -10,6 +10,7 @@ $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
 $stmt->execute([$username]); // Remplacez $username par la valeur appropriée
 $user = $stmt->fetch();
 $userId = $user['id']; // Changez $user_id en $userId
+$userDirecteur = $user['directeur']; // Changez $user_id en $userId
 
 if (!isset($_SESSION['username'])) {
     // L'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
@@ -202,7 +203,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                 <a href="https://intranet-mindset.com/php/Listing_clients.php"
                                                     class="btn btn-sm btn-label-primary">Voir les clients</a>
                                                 <?php 
-                                                  if ($user['directeur'] == 'OUI') { ?>
+                                                  if ($userDirecteur == '1') { ?>
                                                 <form action="set_objectif.php" method="post">
                                                     <label for="objectif">Objectif mensuel :</label>
                                                     <input type="number" id="objectif" name="objectif" step="0.01"
