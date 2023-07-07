@@ -6,7 +6,7 @@ if (isset($_SESSION['username'])) {
 include 'db_connection.php';
 include './notifications/notifications.php';
 
-$stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
+$stmt = $pdo->prepare("SELECT id, directeur  FROM users WHERE username = ?");
 $stmt->execute([$username]); // Remplacez $username par la valeur appropriée
 $user = $stmt->fetch();
 $userId = $user['id']; // Changez $user_id en $userId
