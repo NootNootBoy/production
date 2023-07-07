@@ -205,8 +205,8 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                     class="btn btn-sm btn-label-primary">Voir les clients</a>
                                                 <?php 
                                                   if ($userDirecteur == '1') { ?>
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#objectifModal">
+                                                <button type="button" class="btn btn-sm btn-label-primary ms-1"
+                                                    data-bs-toggle="modal" data-bs-target="#objectifModal">
                                                     Définir l'objectif mensuel
                                                 </button>
                                                 <div class="modal fade" id="objectifModal" tabindex="-1"
