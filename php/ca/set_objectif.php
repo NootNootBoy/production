@@ -20,9 +20,9 @@ $mois = date("Y-m-01"); // Premier jour du mois actuel
 $stmt = $pdo->prepare('
     INSERT INTO objectifs (agence_id, mois, objectif)
     VALUES (:agenceId, :mois, :objectif)
-    ON DUPLICATE KEY UPDATE objectif = :objectif
+    ON DUPLICATE KEY UPDATE objectif = :objectif2
 ');
-$stmt->execute(['agenceId' => $agenceId, 'mois' => $mois, 'objectif' => $objectif]);
+$stmt->execute(['agenceId' => $agenceId, 'mois' => $mois, 'objectif' => $objectif, 'objectif2' => $objectif]);
 
 header('Location: ../dashboard.php');
 exit;
