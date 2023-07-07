@@ -177,11 +177,11 @@ $pendingClients = $stmt->fetch()['pending'];
                                     <div class="card-body">
                                         <div class="d-flex align-items-start justify-content-between">
                                             <div class="content-left">
-                                                <span>Client annulé</span>
+                                                <span>Client(s) annulé(s)</span>
                                                 <div class="d-flex align-items-end mt-2">
                                                     <h4 class="mb-0 me-2"><?php echo $pendingClients; ?></h4>
                                                 </div>
-                                                <small>le dernier mois</small>
+                                                <small>au total</small>
                                             </div>
                                             <span class="badge bg-label-warning rounded p-2">
                                                 <i class="bx bx-user-x bx-sm"></i>
@@ -456,12 +456,13 @@ $pendingClients = $stmt->fetch()['pending'];
                                                     ?>
                                                 </select>
                                             </div>
-                                            
+
                                             <hr class="my-4 mx-n4" />
                                             <h6>5. Code assurance (optionnel)</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="code_assurance">Code de validation client</label>
+                                                    <label class="form-label" for="code_assurance">Code de validation
+                                                        client</label>
                                                     <input type="text" id="code_assurance" name="code_assurance"
                                                         class="form-control" placeholder="DJZ82....">
                                                 </div>

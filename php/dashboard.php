@@ -122,8 +122,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
 <!DOCTYPE html>
 
-<html lang="fr" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="../assets/">
+<html lang="fr" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/">
 
 <head>
     <meta charset="utf-8" />
@@ -183,244 +182,238 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                 <!-- Navbar -->
                 <?php include './components/navbar.php'; ?>
                 <!-- / Navbar -->
-            
+
                 <!-- / Layout page -->
                 <div class="content-wrapper">
-                <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row">
-                <div class="col-lg-8 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Tableau de bord🎉</h5>
-                          <p class="mb-4">
-                            Bonjour <span class="fw-bold"><?php $_SESSION['username']?></span> ! Êtes-vous prêt à faire grimper votre chiffre d'affaire
-                            aujourd'hui ?
-                          </p>
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+                            <div class="col-lg-8 mb-4 order-0">
+                                <div class="card">
+                                    <div class="d-flex align-items-end row">
+                                        <div class="col-sm-7">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary">Tableau de bord🎉</h5>
+                                                <p class="mb-4">
+                                                    Bonjour <span class="fw-bold"><?php $_SESSION['username']?></span> !
+                                                    Êtes-vous prêt à faire grimper votre chiffre d'affaire
+                                                    aujourd'hui ?
+                                                </p>
 
-                          <a href="https://intranet-mindset.com/php/Listing_clients.php" class="btn btn-sm btn-label-primary">Voir les clients</a>
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 order-1">
-                  <div class="row">
-                  <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
+                                                <a href="https://intranet-mindset.com/php/Listing_clients.php"
+                                                    class="btn btn-sm btn-label-primary">Voir les clients</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 text-center text-sm-left">
+                                            <div class="card-body pb-0 px-0 px-md-4">
+                                                <img src="../../assets/img/illustrations/man-with-laptop-light.png"
+                                                    height="140" alt="View Badge User"
+                                                    data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                                                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 order-1">
+                                <div class="row">
+                                    <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
 
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img
-                                src="../assets/img/icons/unicons/cc-warning.png"
-                                alt="Credit Card"
-                                class="rounded" />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt6"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span>C.A prevision mensuel</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_prevision_this_month, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_this_month_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_this_month_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_this_month_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_this_month_vs_3_months, 2); ?>%
-                        </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img
-                                src="../assets/img/icons/unicons/cc-success.png"
-                                alt="Credit Card"
-                                class="rounded" />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt6"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span>C.A réalisé mensuel</span>
-                          <h3 class="card-title text-nowrap mb-1"><?php echo number_format($CA_realise_this_month, 0, ',', ' '); ?> €</h3>
-                          <small class="text-<?php echo ($variation_realise_last_vs_this_month >= 0) ? 'success' : 'danger'; ?> fw-semibold">
-                            <i class="bx <?php echo ($variation_realise_last_vs_this_month >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
-                            <?php echo ($variation_realise_last_vs_this_month >= 0) ? '+' : ''; ?><?php echo number_format($variation_realise_last_vs_this_month, 2); ?>%
-                        </small>
-                        </div>
-                      </div>
-                    </div>
-                    <?php 
+                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div class="avatar flex-shrink-0">
+                                                        <img src="../assets/img/icons/unicons/cc-warning.png"
+                                                            alt="Credit Card" class="rounded" />
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="cardOpt6"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end"
+                                                            aria-labelledby="cardOpt6">
+                                                            <a class="dropdown-item" href="javascript:void(0);">View
+                                                                More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span>C.A prevision mensuel</span>
+                                                <h3 class="card-title text-nowrap mb-1">
+                                                    <?php echo number_format($CA_prevision_this_month, 0, ',', ' '); ?>
+                                                    €</h3>
+                                                <small
+                                                    class="text-<?php echo ($variation_this_month_vs_3_months >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                                                    <i
+                                                        class="bx <?php echo ($variation_this_month_vs_3_months >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                                                    <?php echo ($variation_this_month_vs_3_months >= 0) ? '+' : ''; ?><?php echo number_format($variation_this_month_vs_3_months, 2); ?>%
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div
+                                                    class="card-title d-flex align-items-start justify-content-between">
+                                                    <div class="avatar flex-shrink-0">
+                                                        <img src="../assets/img/icons/unicons/cc-success.png"
+                                                            alt="Credit Card" class="rounded" />
+                                                    </div>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="cardOpt6"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end"
+                                                            aria-labelledby="cardOpt6">
+                                                            <a class="dropdown-item" href="javascript:void(0);">View
+                                                                More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span>C.A réalisé mensuel</span>
+                                                <h3 class="card-title text-nowrap mb-1">
+                                                    <?php echo number_format($CA_realise_this_month, 0, ',', ' '); ?> €
+                                                </h3>
+                                                <small
+                                                    class="text-<?php echo ($variation_realise_last_vs_this_month >= 0) ? 'success' : 'danger'; ?> fw-semibold">
+                                                    <i
+                                                        class="bx <?php echo ($variation_realise_last_vs_this_month >= 0) ? 'bx-up-arrow-alt' : 'bx-down-arrow-alt'; ?>"></i>
+                                                    <?php echo ($variation_realise_last_vs_this_month >= 0) ? '+' : ''; ?><?php echo number_format($variation_realise_last_vs_this_month, 2); ?>%
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php 
                      }
                      ?>
-                  </div>
-                </div>
-                </div>
-                <div class="row">
-                     
-                <!-- Sales Stats -->
-                <div class="col-md-6 col-lg-6 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between mb-30">
-                      <h5 class="card-title m-0 me-2">Meilleure offre vendue sur le marché</h5>
-                    </div>
-                    <div id="salesStats"></div>
-                    <div class="card-body">
-                      <div class="d-flex justify-content-around">
-                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-success me-2"></span> Offre Ambition
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
-                          <span class="badge badge-dot bg-label-secondary me-2"></span> Autres offres
+                        <div class="row">
+
+                            <!-- Sales Stats -->
+                            <div class="col-md-6 col-lg-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex align-items-center justify-content-between mb-30">
+                                        <h5 class="card-title m-0 me-2">Meilleure offre vendue sur le marché</h5>
+                                    </div>
+                                    <div id="salesStats"></div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-around">
+                                            <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                                                <span class="badge badge-dot bg-success me-2"></span> Offre Ambition
+                                            </div>
+                                            <div class="d-flex align-items-center lh-1 mb-3 mb-sm-0">
+                                                <span class="badge badge-dot bg-label-secondary me-2"></span> Autres
+                                                offres
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Sales Stats -->
+                            <!-- pill table -->
+                            <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
+                                <div class="card text-center">
+                                    <div class="card-header py-3 h-100">
+                                        <h5 class="card-title text-primary  style='text-align:left;'">Classement en
+                                            prévision</h5>
+                                        <ul class="nav nav-pills" role="tablist">
+                                            <li class="nav-item">
+                                                <button type="button" class="nav-link active" role="tab"
+                                                    data-bs-toggle="tab" data-bs-target="#navs-pills-browser"
+                                                    aria-controls="navs-pills-browser" aria-selected="true">
+                                                    Consultants
+                                                </button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#navs-pills-os" aria-controls="navs-pills-os"
+                                                    aria-selected="false">
+                                                    Agences
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content pt-0">
+                                        <div class="tab-pane fade show active" id="navs-pills-browser" role="tabpanel">
+                                            <div class="table-responsive text-start">
+                                                <table class="table table-borderless text-nowrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Consultant</th>
+                                                            <th>C.A</th>
+                                                            <th class="w-50">Objectif de vente (135.000€)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php include 'components/classement_commercial_prevision.php' ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="navs-pills-os" role="tabpanel">
+                                            <div class="table-responsive text-start">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Agence</th>
+                                                            <th>C.A</th>
+                                                            <th class="w-50">Objectif de vente (135.000€)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php include 'components/classement_agences_prevision.php' ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ pill table -->
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-                <!--/ Sales Stats -->
-                <!-- pill table -->
-                <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
-                  <div class="card text-center">
-                    <div class="card-header py-3 h-100">
-                    <h5 class="card-title text-primary  style='text-align:left;'">Classement en prévision</h5>
-                      <ul class="nav nav-pills" role="tablist">
-                        <li class="nav-item">
-                          <button
-                            type="button"
-                            class="nav-link active"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-browser"
-                            aria-controls="navs-pills-browser"
-                            aria-selected="true">
-                            Commercial
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button
-                            type="button"
-                            class="nav-link"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-os"
-                            aria-controls="navs-pills-os"
-                            aria-selected="false">
-                            Agence
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="tab-content pt-0">
-                      <div class="tab-pane fade show active" id="navs-pills-browser" role="tabpanel">
-                        <div class="table-responsive text-start">
-                          <table class="table table-borderless text-nowrap">
-                            <thead>
-                              <tr>  
-                                <th>No</th>
-                                <th>Consultant</th>
-                                <th>C.A</th>
-                                <th class="w-50">Objectif de vente (135.000€)</th>
-                              </tr>
-                            </thead>
-                                <tbody>
-                                 <?php include 'components/classement_commercial_prevision.php' ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-os" role="tabpanel">
-                        <div class="table-responsive text-start">
-                          <table class="table table-borderless">
-                            <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Agence</th>
-                                <th>C.A</th>
-                                <th class="w-50">Objectif de vente (135.000€)</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <?php include 'components/classement_agences_prevision.php' ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--/ pill table -->
-                </div>
-            </div>
-            </div>
             </div>
         </div>
     </div>
-            <!-- Overlay -->
-            <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
 
-        <!-- / Layout wrapper -->
+    <!-- / Layout wrapper -->
 
-        <!-- Core JS -->
-        <!-- build:js assets/vendor/js/core.js -->
-        <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../assets/vendor/libs/popper/popper.js"></script>
-        <script src="../assets/vendor/js/bootstrap.js"></script>
-        <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-        <script src="../assets/vendor/js/menu.js"></script>
-        <!-- endbuild -->
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
 
-        <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-        <!-- Main JS -->
-        <script src="../assets/js/main.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
 
-        <!-- Page JS -->
+    <!-- Page JS -->
 
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script>
-        let BestOffer= <?php echo $percentageOffer; ?>;
-        </script>
-        <script src="/assets/js/dashboards-crm.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+    let BestOffer = <?php echo $percentageOffer; ?>;
+    </script>
+    <script src="/assets/js/dashboards-crm.js"></script>
 
 </body>
 
