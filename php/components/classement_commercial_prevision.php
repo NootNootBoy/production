@@ -19,7 +19,7 @@
                                         $username = $row['username'];
                                         $avatar = $row['avatar'];
                                         $CA_prevision = $row['CA_prevision'];
-                                        $progress = ($CA_prevision / 135000) * 100;
+                                        $progress = ($CA_prevision / 40000) * 100;
                                         $progressColor = '';
 
                                         // Déterminer la couleur de la barre de progression en fonction des seuils
@@ -32,30 +32,32 @@
                                         }
                                         ?>
 
-                                        <tr>
-                                            <td><?php echo $position; ?></td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <?php if (!empty($avatar)) { ?>
-                                                        <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
-                                                    <?php } else { ?>
-                                                        <img src="/assets/img/avatars/1.png" alt="Avatar" width="30px" class="rounded-circle m-2" />
-                                                    <?php } ?>
-                                                    <span><?php echo $username; ?></span>
-                                                </div>
-                                            </td>
-                                            <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
-                                            <td>
-                                                <div class="d-flex justify-content-between align-items-center gap-3">
-                                                    <div class="progress w-100" style="height: 10px">
-                                                        <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar" style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
-                                                </div>
-                                            </td>
-                                        </tr>
+<tr>
+    <td><?php echo $position; ?></td>
+    <td>
+        <div class="d-flex align-items-center">
+            <?php if (!empty($avatar)) { ?>
+            <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
+            <?php } else { ?>
+            <img src="/assets/img/avatars/1.png" alt="Avatar" width="30px" class="rounded-circle m-2" />
+            <?php } ?>
+            <span><?php echo $username; ?></span>
+        </div>
+    </td>
+    <td><?php echo number_format($CA_prevision, 0, '.', ' '); ?>€</td>
+    <td>
+        <div class="d-flex justify-content-between align-items-center gap-3">
+            <div class="progress w-100" style="height: 10px">
+                <div class="progress-bar <?php echo $progressColor; ?>" role="progressbar"
+                    style="width: <?php echo $progress; ?>%" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+            <small class="fw-semibold"><?php echo number_format($progress, 0, '.', ' '); ?>%</small>
+        </div>
+    </td>
+</tr>
 
-                                        <?php
+<?php
                                         $position++;
                                     }
                                     ?>
