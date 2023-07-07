@@ -284,7 +284,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span>C.A prevision mensuel</span>
+                                                <span>C.A réalisé mensuel</span>
                                                 <h3 class="card-title text-nowrap mb-1">
                                                     <?php echo number_format($CA_prevision_this_month, 0, ',', ' '); ?>
                                                     €</h3>
@@ -319,7 +319,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span>C.A réalisé mensuel</span>
+                                                <span>C.A validé mensuel</span>
                                                 <h3 class="card-title text-nowrap mb-1">
                                                     <?php echo number_format($CA_realise_this_month, 0, ',', ' '); ?> €
                                                 </h3>
