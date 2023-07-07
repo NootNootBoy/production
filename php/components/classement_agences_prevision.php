@@ -2,7 +2,7 @@
                             // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des agences
                             // et les trier par ordre décroissant
                             $stmt = $pdo->prepare('
-                            SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision
+                            SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision, objectifs.objectif AS objectif
                             FROM users
                             LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
                             JOIN agences ON users.agence_id = agences.id
@@ -20,7 +20,8 @@
                             foreach ($result as $row) {
                                 $agence_nom = $row['agence_nom'];
                                 $CA_prevision = $row['CA_prevision'];
-                                $progress = ($CA_prevision / 135000) * 100;
+                                $objectif = $row['objectif']; // Ajout de l'objectif
+                                $progress = ($objectif != 0) ? ($CA_prevision / $objectif) * 100 : 0; // Calcul du pourcentage par rapport à l'objectif, vérifiez si l'objectif n'est pas nul
                                 $progressColor = '';
 
                                 // Déterminer la couleur de la barre de progression en fonction des seuils
