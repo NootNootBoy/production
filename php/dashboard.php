@@ -340,6 +340,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
                         <div class="row">
 
                             <!-- Sales Stats -->
@@ -426,6 +427,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                             </div>
                             <!--/ pill table -->
                         </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
