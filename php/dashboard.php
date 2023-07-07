@@ -131,7 +131,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -205,12 +205,40 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                     class="btn btn-sm btn-label-primary">Voir les clients</a>
                                                 <?php 
                                                   if ($userDirecteur == '1') { ?>
-                                                <form action="set_objectif.php" method="post">
-                                                    <label for="objectif">Objectif mensuel :</label>
-                                                    <input type="number" id="objectif" name="objectif" step="0.01"
-                                                        min="0">
-                                                    <input type="submit" value="Envoyer">
-                                                </form>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#objectifModal">
+                                                    Définir l'objectif mensuel
+                                                </button>
+                                                <div class="modal fade" id="objectifModal" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Définir l'objectif mensuel</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="./ca/set_objectif.php" method="post">
+                                                                    <div class="mb-3">
+                                                                        <label for="objectif"
+                                                                            class="form-label">Objectif mensuel
+                                                                            :</label>
+                                                                        <input type="number" id="objectif"
+                                                                            name="objectif" step="0.01" min="0"
+                                                                            class="form-control">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Fermer</button>
+                                                                <input type="submit" value="Envoyer"
+                                                                    class="btn btn-primary">
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php 
                                                   }
                                                 ?>
@@ -419,6 +447,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ui-modals.js"></script>
 
     <!-- Page JS -->
 
