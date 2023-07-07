@@ -74,6 +74,8 @@ if ($CA_prevision_3_months != 0) {
     }
 }
 
+$month = date("f");
+
 
 ////////////////////////////////////////////////////////////////////
 
@@ -365,8 +367,8 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                             <div class="col-md-6 order-3 order-lg-4 mb-4 mb-lg-0">
                                 <div class="card text-center">
                                     <div class="card-header py-3 h-100">
-                                        <h5 class="card-title text-primary  style='text-align:left;'">Classement en
-                                            prévision du mois</h5>
+                                        <h5 class="card-title text-primary  style='text-align:left;'">Classement du C.A
+                                            réalisé du mois de <?php echo "$month"?> </h5>
                                         <ul class="nav nav-pills" role="tablist">
                                             <li class="nav-item">
                                                 <button type="button" class="nav-link active" role="tab"
