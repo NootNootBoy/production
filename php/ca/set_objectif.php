@@ -3,11 +3,13 @@ session_start();
 include '../db_connection.php';
 include '../notifications/notifications.php';
 
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
 $objectif = $_POST['objectif'];
 
 // Récupérer l'ID de l'agence de l'utilisateur
-$stmt = $pdo->prepare('SELECT agence_id FROM users WHERE id = ?');
-$stmt->execute([$_SESSION['userId']]);
+$stmt = $pdo->prepare("SELECT agence_id FROM users WHERE username = ?");
 $user = $stmt->fetch();
 $agenceId = $user['agence_id'];
 
