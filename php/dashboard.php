@@ -201,6 +201,18 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
                                                 <a href="https://intranet-mindset.com/php/Listing_clients.php"
                                                     class="btn btn-sm btn-label-primary">Voir les clients</a>
+                                                <?php 
+                                                  if ($user['directeur'] == 'OUI') { ?>
+                                                <form action="set_objectif.php" method="post">
+                                                    <label for="objectif">Objectif mensuel :</label>
+                                                    <input type="number" id="objectif" name="objectif" step="0.01"
+                                                        min="0">
+                                                    <input type="submit" value="Envoyer">
+                                                </form>
+                                                <?php 
+                                                  }
+                                                ?>
+
                                             </div>
                                         </div>
                                         <div class="col-sm-5 text-center text-sm-left">
