@@ -44,13 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
     $rang = $_POST['rang'];
-    $agence = $_POST['agence'];
+    // $agence = $_POST['agence'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $phone_number = $_POST['phone_number'];
 
-    $stmt = $pdo->prepare('INSERT INTO users (username, email, password, rang, agence, nom, prenom, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute([$username, $email, $password, $rang, $agence, $nom, $prenom, $phone_number]);
+    $stmt = $pdo->prepare('INSERT INTO users (username, email, password, rang, nom, prenom, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$username, $email, $password, $rang, $nom, $prenom, $phone_number]);
 
     // L'inscription a réussi
     $_SESSION['success_message'] = 'Inscription réussie. Vous pouvez maintenant vous connecter.';

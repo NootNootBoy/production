@@ -24,13 +24,6 @@ $matches = array();
 preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
 $rangs = explode("','", $matches[1]);
 
-// Récupération des agences
-$stmt = $pdo->query("SHOW COLUMNS FROM users LIKE 'agence'");
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-$matches = array();
-preg_match("/^enum\(\'(.*)\'\)$/", $result["Type"], $matches);
-$agences = explode("','", $matches[1]);
-
 ?>
 
 <!DOCTYPE html>
@@ -211,14 +204,14 @@ $agences = explode("','", $matches[1]);
                                                 </select>
                                             </div>
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label for="agence">Agence:</label>
                                                 <select name="agence" id="agence" class="form-control" required>
                                                     <option value="Rouen">Rouen</option>
                                                     <option value="Val de Reuil">Val de Reuil</option>
                                                     <option value="Paris">Paris</option>
                                                 </select>
-                                            </div>
+                                            </div> -->
 
 
                                             <div class="mb-3">
