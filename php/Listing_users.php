@@ -214,10 +214,9 @@ $agences = explode("','", $matches[1]);
                                             <div class="form-group">
                                                 <label for="agence">Agence:</label>
                                                 <select name="agence" id="agence" class="form-control" required>
-                                                    <?php foreach ($agences as $agence): ?>
-                                                    <option value="<?php echo $agence; ?>">
-                                                        <?php echo ucfirst($agence); ?></option>
-                                                    <?php endforeach; ?>
+                                                    <option value="Rouen">Rouen</option>
+                                                    <option value="Val de Reuil">Val de Reuil</option>
+                                                    <option value="Paris">Paris</option>
                                                 </select>
                                             </div>
 
