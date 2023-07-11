@@ -37,13 +37,13 @@
                                         $username = $row['username'];
                                         $avatar = $row['avatar'];
                                         $CA_prevision = $row['CA_prevision'];
-                                        $progress = ($CA_prevision / 35000) * 100;
+                                        $progress = ($CA_prevision / 30000) * 100;
                                         $progressColor = '';
 
                                         // Déterminer la couleur de la barre de progression en fonction des seuils
-                                        if ($CA_prevision < 8000) {
+                                        if ($CA_prevision < 6500) {
                                             $progressColor = 'bg-danger';
-                                        } elseif ($CA_prevision < 17500) {
+                                        } elseif ($CA_prevision < 14500) {
                                             $progressColor = 'bg-warning';
                                         } else {
                                             $progressColor = 'bg-success';
