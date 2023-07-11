@@ -396,7 +396,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                             <th>No</th>
                                                             <th>Consultant</th>
                                                             <th>C.A</th>
-                                                            <th class="w-50">Objectif de vente (135.000€)</th>
+                                                            <th class="w-50">Objectif de vente (35.000€)</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

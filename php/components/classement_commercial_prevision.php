@@ -1,3 +1,16 @@
+<style>
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.bronze {
+    color: #cd7f32;
+}
+</style>
 <?php
                                     // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
                                     // et les trier par ordre décroissant
@@ -24,7 +37,7 @@
                                         $username = $row['username'];
                                         $avatar = $row['avatar'];
                                         $CA_prevision = $row['CA_prevision'];
-                                        $progress = ($CA_prevision / 135000) * 100;
+                                        $progress = ($CA_prevision / 35000) * 100;
                                         $progressColor = '';
 
                                         // Déterminer la couleur de la barre de progression en fonction des seuils
@@ -35,11 +48,22 @@
                                         } else {
                                             $progressColor = 'bg-success';
                                         }
+
+                                        $icon = '';
+                                        if ($position == 1) {
+                                            $icon = '<i class="bx bxs-medal bx-tada gold"></i>';
+                                        } elseif ($position == 2) {
+                                            $icon = '<i class="bx bxs-medal bx-tada silver"></i>';
+                                        } elseif ($position == 3) {
+                                            $icon = '<i class="bx bxs-medal bx-tada bronze"></i>';
+                                        }
+
                                         ?>
 
 <tr>
     <td><?php echo $position; ?></td>
     <td>
+        <?php echo $position . ' ' . $icon; ?>
         <div class="d-flex align-items-center">
             <?php if (!empty($avatar)) { ?>
             <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
