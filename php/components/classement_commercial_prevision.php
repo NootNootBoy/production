@@ -61,9 +61,9 @@
                                         ?>
 
 <tr>
-    <td><?php echo $position; ?></td>
+    <td><?php echo $position . ' ' . $icon; ?></td>
     <td>
-        <?php echo $position . ' ' . $icon; ?>
+
         <div class="d-flex align-items-center">
             <?php if (!empty($avatar)) { ?>
             <img src="<?php echo htmlspecialchars($avatar); ?>" alt="Avatar" width="30px" class="rounded-circle m-2" />
