@@ -2,12 +2,12 @@
                                     // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des commerciaux
                                     // et les trier par ordre décroissant
                                     $stmt = $pdo->prepare('
-                                        SELECT users.username, users.avatar, SUM(CA.CA_prevision) AS CA_prevision
+                                        SELECT users.nom AS user_nom, SUM(CA.CA_prevision) AS CA_prevision
                                         FROM users
                                         LEFT JOIN CA ON users.id = CA.commercial_id OR users.id = CA.second_commercial_id
                                         JOIN clients ON CA.client_id = clients.id
-                                        WHERE CA.CA_realise IS NULL AND users.rang = "commercial" AND clients.statut = "actif"
-                                        GROUP BY users.username
+                                        WHERE CA.CA_realise IS NULL AND clients.statut = "actif" AND MONTH(CA.date) = MONTH(CURRENT_DATE())
+                                        GROUP BY users.nom
                                         ORDER BY CA_prevision DESC
                                     ');
                                     $stmt->execute();
@@ -21,7 +21,14 @@
                                         $CA_prevision = $row['CA_prevision'];
                                         $progress = ($CA_prevision / 40000) * 100;
                                         $progressColor = '';
-
+                                        
+                                        if ($position == 1) {
+                                            echo '<i class="bi bi-trophy-fill text-gold"></i>';
+                                        } elseif ($position == 2) {
+                                            echo '<i class="bi bi-trophy-fill text-silver"></i>';
+                                        } elseif ($position == 3) {
+                                            echo '<i class="bi bi-trophy-fill text-bronze"></i>';
+                                        }
                                         // Déterminer la couleur de la barre de progression en fonction des seuils
                                         if ($CA_prevision < 30000) {
                                             $progressColor = 'bg-danger';
