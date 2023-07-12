@@ -21,7 +21,7 @@ foreach ($result as $row) {
     $username = $row['username'];
     $avatar = $row['avatar'];
     $CA_options = $row['CA_options'];
-    $progress = ($CA_options / 30000) * 100;
+    $progress = ($CA_options / 2500) * 100;
     $progressColor = '';
 
     // Déterminer la couleur de la barre de progression en fonction des seuils
