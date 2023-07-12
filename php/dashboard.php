@@ -386,6 +386,13 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                     Cabinets
                                                 </button>
                                             </li>
+                                            <li class="nav-item">
+                                                <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#navs-pills-os" aria-controls="navs-pills-os"
+                                                    aria-selected="false">
+                                                    Options
+                                                </button>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="tab-content pt-0">
