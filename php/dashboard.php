@@ -481,6 +481,8 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script src="../assets/js/extended-ui-sweetalert2.js"></script>
     <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
