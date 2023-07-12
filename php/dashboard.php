@@ -207,15 +207,14 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                     aujourd'hui ?
                                                 </p>
                                                 <?php 
-                                                  if ($_SESSION['rang'] == 'commercial' && $_SESSION['rang'] == 'administrateur') { ?>
+                                                if ($userRang == 'commercial' || $userRang == 'administrateur') { ?>
                                                 <a href="ca/update_ca.php" class="btn btn-sm btn-label-warning">Mettre à
                                                     jour mon C.A</a>
                                                 <a href="ca/update_options_ca.php"
                                                     class="btn btn-sm btn-label-warning">Mettre à jour le C.A
                                                     options</a>
-                                                <?php
-                                                  }
-                                                    ?>
+                                                <?php } ?>
+
                                                 <?php 
                                                   if ($userDirecteur == '1') { ?>
                                                 <button type="button" class="btn btn-sm btn-label-primary ms-1"
