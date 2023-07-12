@@ -53,30 +53,7 @@
                     </li>
                     <!--/ Style Switcher -->
                     <!-- Notification -->
-                    <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 col-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Button for updating CA -->
-                                    <a href="update_ca.php" class="btn btn-sm btn-label-primary">
-                                        Mettre à jour C.A
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Button for updating options CA -->
-                                    <a href="update_options_ca.php" class="btn btn-sm btn-label-primary">
-                                        Mettre à jour C.A options
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
+
                     <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">

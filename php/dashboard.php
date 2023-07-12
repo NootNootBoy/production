@@ -264,7 +264,29 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                             <div class="col-lg-4 col-md-4 order-1">
                                 <div class="row">
                                     <?php if (isset($_SESSION['user_id']) && $_SESSION['rang'] == 'commercial') {?>
-
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 col-6 mb-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <!-- Button for updating CA -->
+                                                    <a href="update_ca.php" class="btn btn-sm btn-label-primary">
+                                                        Mettre à jour C.A
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-6 mb-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <!-- Button for updating options CA -->
+                                                    <a href="update_options_ca.php"
+                                                        class="btn btn-sm btn-label-primary">
+                                                        Mettre à jour C.A options
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
                                             <div class="card-body">
