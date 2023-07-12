@@ -311,8 +311,8 @@ button.list-group-item-primary.active {
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .btn-primary.show.dropdown-toggle, .show > .btn-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #595cd9 !important;
-  border-color: #595cd9 !important;
+  background-color: #ff9109 !important;
+  border-color: #ff9109 !important;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .btn-primary.show.dropdown-toggle:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: none;
@@ -344,7 +344,7 @@ button.list-group-item-primary.active {
 }
 .btn-label-primary:active, .btn-label-primary.active, .btn-label-primary.show.dropdown-toggle, .show > .btn-label-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #595cd9 !important;
+  background-color: #ff9109 !important;
   border-color: transparent !important;
 }
 .btn-label-primary:active:focus, .btn-label-primary.active:focus, .btn-label-primary.show.dropdown-toggle:focus, .show > .btn-label-primary.dropdown-toggle:focus {
@@ -377,8 +377,8 @@ button.list-group-item-primary.active {
 }
 .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #fff !important;
-  background-color: #595cd9 !important;
-  border-color: #595cd9 !important;
+  background-color: #ff9109 !important;
+  border-color: #ff9109 !important;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
   box-shadow: none;
@@ -1104,8 +1104,8 @@ li.ui-timepicker-selected,
 }
 .btn-check:checked + .shepherd-element .shepherd-button:not(:disabled).btn-primary, .btn-check:active + .shepherd-element .shepherd-button:not(:disabled).btn-primary, .shepherd-element .shepherd-button:not(:disabled).btn-primary:active, .shepherd-element .shepherd-button:not(:disabled).btn-primary.active, .shepherd-element .shepherd-button:not(:disabled).btn-primary.show.dropdown-toggle, .show > .shepherd-element .shepherd-button:not(:disabled).btn-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #595cd9 !important;
-  border-color: #595cd9 !important;
+  background-color: #ff9109 !important;
+  border-color: #ff9109 !important;
 }
 .btn-check:checked + .shepherd-element .shepherd-button:not(:disabled).btn-primary:focus, .btn-check:active + .shepherd-element .shepherd-button:not(:disabled).btn-primary:focus, .shepherd-element .shepherd-button:not(:disabled).btn-primary:active:focus, .shepherd-element .shepherd-button:not(:disabled).btn-primary.active:focus, .shepherd-element .shepherd-button:not(:disabled).btn-primary.show.dropdown-toggle:focus, .show > .shepherd-element .shepherd-button:not(:disabled).btn-primary.dropdown-toggle:focus {
   box-shadow: none;

@@ -14,7 +14,7 @@
     borderColor = config.colors_dark.borderColor;
     shadeColor = 'dark';
     heatMap1 = '#4f51c0';
-    heatMap2 = '#595cd9';
+    heatMap2 = '#ff9109';
     heatMap3 = '#8789ff';
     heatMap4 = '#c3c4ff';
   } else {
