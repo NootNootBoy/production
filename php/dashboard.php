@@ -269,7 +269,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                             <div class="card">
                                                 <div class="card-body">
                                                     <!-- Button for updating CA -->
-                                                    <a href="update_ca.php" class="btn btn-sm btn-label-primary">
+                                                    <a href="./ca/update_ca.php" class="btn btn-sm btn-label-primary">
                                                         Mettre à jour C.A
                                                     </a>
                                                 </div>
@@ -279,7 +279,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                             <div class="card">
                                                 <div class="card-body">
                                                     <!-- Button for updating options CA -->
-                                                    <a href="update_options_ca.php"
+                                                    <a href="./ca/update_options_ca.php"
                                                         class="btn btn-sm btn-label-primary">
                                                         Mettre à jour C.A options
                                                     </a>
