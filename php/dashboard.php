@@ -501,12 +501,12 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     document.addEventListener("DOMContentLoaded", function() {
         // Vérifie les paramètres dans l'URL
         var urlParams = new URLSearchParams(window.location.search);
-        var optionUpated = urlParams.get('optionUpated');
+        var optionsUpated = urlParams.get('optionsUpated');
         var error = urlParams.get('error');
         var errorMessage = urlParams.get('errorMessage');
 
         // Si 'userAdded' est vrai, affiche l'alerte de succès
-        if (optionUpated === 'true') {
+        if (optionsUpated === 'true') {
             Swal.fire({
                 title: 'Bien joué!',
                 text: "Les C.A des options a été mise à jour avec succès!",

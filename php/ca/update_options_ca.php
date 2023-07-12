@@ -78,12 +78,13 @@ try {
         }
     // Redirection avec message de succès
     $_SESSION['success_message'] = "Le client a été ajouté avec succès.";
-    header('Location: ./dashboard.php?optionsUpdated=true');
+    header('Location: ../dashboard.php?optionsUpdated=true');
     exit();
 } catch(PDOException $e) {
     // En cas d'erreur, rediriger avec message d'erreur
     $error_message = "L'insertion a échoué.";
-    header('Location: dashboard.php?error=true&errorMessage=' . urlencode($error_message));
+    header('Location: ../dashboard.php?error=true&errorMessage=' . urlencode($error_message));
     exit();
 }
+
 ?>
