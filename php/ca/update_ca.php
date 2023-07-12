@@ -2,7 +2,7 @@
 session_start();
 include '../db_connection.php';
 include '../notifications/notifications.php';
-
+try{
 // Récupérer tous les clients
 $stmt = $pdo->query('SELECT * FROM clients');
 $clients = $stmt->fetchAll();
@@ -27,5 +27,15 @@ foreach ($clients as $client) {
     // Mettre à jour le C.A dans la table CA
     $stmt = $pdo->prepare('UPDATE CA SET CA_prevision = ?, CA_realise = ? WHERE client_id = ?');
     $stmt->execute([$CA_prevision, $CA_realise, $client['id']]);
+}
+// Redirection avec message de succès
+$_SESSION['success_message'] = "Le client a été ajouté avec succès.";
+header('Location: ../dashboard.php?caUpdated=true');
+exit();
+} catch(PDOException $e) {
+// En cas d'erreur, rediriger avec message d'erreur
+$error_message = "La mise à jour a échoué.";
+header('Location: ../dashboard.php?error=true&errorMessage=' . urlencode($error_message));
+exit();
 }
 ?>

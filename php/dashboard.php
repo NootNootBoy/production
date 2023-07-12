@@ -504,6 +504,40 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
         }
     });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Vérifie les paramètres dans l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var caUpdated = urlParams.get('caUpdated');
+        var error = urlParams.get('error');
+        var errorMessage = urlParams.get('errorMessage');
+
+        // Si 'userAdded' est vrai, affiche l'alerte de succès
+        if (caUpdated === 'true') {
+            Swal.fire({
+                title: 'Bien joué!',
+                text: "Votre C.A a été mise à jour avec succès!",
+                icon: 'success',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+        // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
+        else if (error === 'true') {
+            Swal.fire({
+                title: 'Erreur!',
+                text: errorMessage,
+                icon: 'error',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+    });
+    </script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
