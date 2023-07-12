@@ -423,6 +423,23 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                 </table>
                                             </div>
                                         </div>
+                                        <div class="tab-pane fade show active" id="navs-pills-browser" role="tabpanel">
+                                            <div class="table-responsive text-start">
+                                                <table class="table table-borderless text-nowrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Consultant</th>
+                                                            <th>C.A</th>
+                                                            <th class="w-50">Objectif options</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php include 'components/classement_options_commercial.php' ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
