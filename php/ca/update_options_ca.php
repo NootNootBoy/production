@@ -78,7 +78,7 @@ try {
         }
     // Redirection avec message de succès
     $_SESSION['success_message'] = "Le client a été ajouté avec succès.";
-    header('Location: dashboard.php?optionsUpdated=true');
+    header('Location: ./dashboard.php?optionsUpdated=true');
     exit();
 } catch(PDOException $e) {
     // En cas d'erreur, rediriger avec message d'erreur
