@@ -496,6 +496,41 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     </script>
     <script src="/assets/js/dashboards-crm.js"></script>
 
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Vérifie les paramètres dans l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var optionUpated = urlParams.get('optionUpated');
+        var error = urlParams.get('error');
+        var errorMessage = urlParams.get('errorMessage');
+
+        // Si 'userAdded' est vrai, affiche l'alerte de succès
+        if (optionUpated === 'true') {
+            Swal.fire({
+                title: 'Bien joué!',
+                text: "Les C.A des options a été mise à jour avec succès!",
+                icon: 'success',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+        // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
+        else if (error === 'true') {
+            Swal.fire({
+                title: 'Erreur!',
+                text: errorMessage,
+                icon: 'error',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+    });
+    </script>
 </body>
 
 </html>
