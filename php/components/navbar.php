@@ -1,204 +1,238 @@
-        <?php
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
+    // Vérifiez si l'utilisateur est connecté
+    if (isset($_SESSION['user_id'])) {
+        // Récupérez les informations de l'utilisateur à partir de la base de données
+        $user_id = $_SESSION['user_id'];
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$user_id]);
+        $user = $stmt->fetch();
 
-            // Vérifiez si l'utilisateur est connecté
-            if (isset($_SESSION['user_id'])) {
-                // Récupérez les informations de l'utilisateur à partir de la base de données
-                $user_id = $_SESSION['user_id'];
-                $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?"); 
-                $stmt->execute([$user_id]);
-                $user = $stmt->fetch();
+        if ($user) {
+            //
+        } else {
+            echo "Utilisateur non trouvé";
+        }
+    } else {
+        echo "Vous n'êtes pas connecté";
+    }
+?>
 
-                if ($user) {
-                    //
-                } else {
-                    echo "Utilisateur non trouvé";
-                }
-            } else {
-                echo "Vous n'êtes pas connecté";
-            }
+<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+    id="layout-navbar" style="background: #222!important;">
+    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+        </a>
+    </div>
 
-        ?>
-        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar" style="background: #222!important;">
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-                <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                    <i class="bx bx-menu bx-sm"></i>
+    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+        <!-- Search -->
+        <div class="navbar-nav align-items-center">
+            <div class="nav-item navbar-search-wrapper mb-0">
+                <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+                    <span class="d-none d-md-inline-block text-muted">Intranet Mindset</span>
                 </a>
             </div>
+        </div>
+        <!-- /Search -->
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                <!-- Search -->
-                <div class="navbar-nav align-items-center">
-                    <div class="nav-item navbar-search-wrapper mb-0">
-                        <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-                            <span class="d-none d-md-inline-block text-muted">Intranet Mindset</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- /Search -->
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- Language -->
+            <!--/ Language -->
 
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    <!-- Language -->
-                    <!--/ Language -->
-
-                    <!-- Style Switcher -->
-                    <li class="nav-item me-2 me-xl-0">
-                        <a class="nav-link style-switcher-toggle hide-arrow" href="javascript:void(0);">
-                            <i class="bx bx-sm"></i>
-                        </a>
+            <!-- Style Switcher -->
+            <li class="nav-item me-2 me-xl-0">
+                <a class="nav-link style-switcher-toggle hide-arrow" href="javascript:void(0);">
+                    <i class="bx bx-sm"></i>
+                </a>
+            </li>
+            <!--/ Style Switcher -->
+            <!-- Notification -->
+            <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside" aria-expanded="false">
+                    <i class="bx bx-bell bx-sm"></i>
+                    <span class="badge bg-danger rounded-pill badge-notifications"><?php 
+                    $unreadNotificationCount = getUnreadNotificationCount($user_id);
+                    echo $unreadNotificationCount;
+                    ?></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end py-0">
+                    <li class="dropdown-menu-header border-bottom">
+                        <div class="dropdown-header d-flex align-items-center py-3">
+                            <h5 class="text-body mb-0 me-auto">Notification</h5>
+                            <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
+                                data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read">
+                                <i class="bx fs-4 bx-envelope-open"></i>
+                            </a>
+                        </div>
                     </li>
-                    <!--/ Style Switcher -->
-                    <!-- Notification -->
-
-                    <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <i class="bx bx-bell bx-sm"></i>
-                            <span class="badge bg-danger rounded-pill badge-notifications"><?php 
-                            $unreadNotificationCount = getUnreadNotificationCount($user_id);
-                            echo $unreadNotificationCount;
-                            ?></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end py-0">
-                            <li class="dropdown-menu-header border-bottom">
-                                <div class="dropdown-header d-flex align-items-center py-3">
-                                    <h5 class="text-body mb-0 me-auto">Notification</h5>
-                                    <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
-                                            class="bx fs-4 bx-envelope-open"></i></a>
-                                </div>
-                            </li>
-                            <li class="dropdown-notifications-list scrollable-container">
-                                <ul class="list-group list-group-flush">
-                                    <?php
-                                        $notifications = getNotificationsForUser($user_id);
-                                        foreach ($notifications as $notification) {
-                                        ?>
-                                    <li
-                                        class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 me-3">
-                                                <div class="avatar">
-                                                    <span class="avatar-initial rounded-circle bg-label-success"><i
-                                                            class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1"><?php echo htmlspecialchars($notification['title']); ?>
-                                                </h6>
-                                                <p class="mb-0">
-                                                    <?php echo htmlspecialchars($notification['description']); ?></p>
-                                                <small
-                                                    class="text-muted"><?php echo htmlspecialchars($notification['timestamp']); ?>
-                                                    ago</small>
-                                            </div>
-                                            <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                <a href="#" class="dropdown-notifications-read"><span
-                                                        class="badge badge-dot"></span></a>
-                                                <a href="#" id="markAsRead-<?php echo $notification['id']; ?>"
-                                                    class="dropdown-notifications-archive"><span
-                                                        class="bx bx-x"></span></a>
-                                            </div>
-                                    </li>
-                                    <?php
-                                        }
-                                        ?>
-                                </ul>
-                            </li>
-                            <li class="dropdown-menu-footer border-top">
-                                <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center p-3">
-                                    Voir les notfications
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--/ Notification -->
-                    <!-- User -->
-                    <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                            data-bs-toggle="dropdown">
-                            <div class="avatar avatar-online">
-                                <img src="<?php echo $user['avatar']?>" alt class="w-px-40 h-auto rounded-circle" />
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="/php/profil/settings.php">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 me-3">
-                                            <div class="avatar avatar-online">
-                                                <img src="<?php echo $user['avatar']?>" alt
-                                                    class="w-px-40 h-auto rounded-circle" />
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <span
-                                                class="fw-semibold d-block"><?php echo htmlspecialchars($user['prenom'])?></span>
-                                            <small
-                                                class="text-muted"><?php echo htmlspecialchars($user['rang'])?></small>
+                    <li class="dropdown-notifications-list scrollable-container">
+                        <ul class="list-group list-group-flush">
+                            <?php
+                                $notifications = getNotificationsForUser($user_id);
+                                foreach ($notifications as $notification) {
+                            ?>
+                            <li
+                                class="list-group-item list-group-item-action dropdown-notifications-item <?php echo $notification['read'] ? 'marked-as-read' : ''; ?>">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0 me-3">
+                                        <div class="avatar">
+                                            <span class="avatar-initial rounded-circle bg-label-success">
+                                                <i
+                                                    class="bx <?php echo htmlspecialchars($notification['icon']); ?>"></i>
+                                            </span>
                                         </div>
                                     </div>
-                                </a>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1"><?php echo htmlspecialchars($notification['title']); ?></h6>
+                                        <p class="mb-0"><?php echo htmlspecialchars($notification['description']); ?>
+                                        </p>
+                                        <small class="text-muted">
+                                            <?php echo htmlspecialchars($notification['timestamp']); ?> ago
+                                        </small>
+                                    </div>
+                                    <div class="flex-shrink-0 dropdown-notifications-actions">
+                                        <a href="#" class="dropdown-notifications-read">
+                                            <span class="badge badge-dot"></span>
+                                        </a>
+                                        <a href="#" id="markAsRead-<?php echo $notification['id']; ?>"
+                                            class="dropdown-notifications-archive">
+                                            <span class="bx bx-x"></span>
+                                        </a>
+                                    </div>
                             </li>
-                            <li>
-                                <div class="dropdown-divider"></div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/php/profil/settings.php">
-                                    <i class="bx bx-user me-2"></i>
-                                    <span class="align-middle">Mes informations</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="pages-account-settings-account.html">
-                                    <i class="bx bx-cog me-2"></i>
-                                    <span class="align-middle">Mes clients</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="dropdown-divider"></div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="pages-help-center-landing.html">
-                                    <i class="bx bx-support me-2"></i>
-                                    <span class="align-middle">Support</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="pages-faq.html">
-                                    <i class="bx bx-help-circle me-2"></i>
-                                    <span class="align-middle">FAQ</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="dropdown-divider"></div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/php/logout.php">
-                                    <i class="bx bx-power-off me-2"></i>
-                                    <span class="align-middle">Se deconnecter</span>
-                                </a>
-                            </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                     </li>
-                    <!--/ User -->
+                    <li class="dropdown-menu-footer border-top">
+                        <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center p-3">
+                            Voir les notfications
+                        </a>
+                    </li>
                 </ul>
-            </div>
+            </li>
+            <!--/ Notification -->
+            <!-- User -->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                        <img src="<?php echo $user['avatar']?>" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="/php/profil/settings.php">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar avatar-online">
+                                        <img src="<?php echo $user['avatar']?>" alt
+                                            class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <span
+                                        class="fw-semibold d-block"><?php echo htmlspecialchars($user['prenom'])?></span>
+                                    <small class="text-muted"><?php echo htmlspecialchars($user['rang'])?></small>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/php/profil/settings.php">
+                            <i class="bx bx-user me-2"></i>
+                            <span class="align-middle">Mes informations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                            <i class="bx bx-cog me-2"></i>
+                            <span class="align-middle">Mes clients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="pages-help-center-landing.html">
+                            <i class="bx bx-support me-2"></i>
+                            <span class="align-middle">Support</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="pages-faq.html">
+                            <i class="bx bx-help-circle me-2"></i>
+                            <span class="align-middle">FAQ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/php/logout.php">
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Se deconnecter</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--/ User -->
+            <!-- Buttons -->
+            <li class="nav-item">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="./ca/update_ca.php" class="btn btn-sm btn-primary">Mettre à jour C.A</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="./ca/update_options_ca.php" class="btn btn-sm btn-primary">Mettre à jour C.A
+                                options</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Sélectionner une période
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Mois précédent</a></li>
+                        <li><a class="dropdown-item" href="#">Mois en cours</a></li>
+                        <li><a class="dropdown-item" href="#">Trimestre en cours</a></li>
+                    </ul>
+                </div>
+            </li>
+            <!--/ Buttons -->
+        </ul>
+    </div>
 
-            <!-- Search Small Screens -->
-            <div class="navbar-search-wrapper search-input-wrapper d-none">
-                <input type="text" class="form-control search-input container-xxl border-0" placeholder="Search..."
-                    aria-label="Search..." />
-                <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
-            </div>
-        </nav>
+    <!-- Search Small Screens -->
+    <div class="navbar-search-wrapper search-input-wrapper d-none">
+        <input type="text" class="form-control search-input container-xxl border-0" placeholder="Search..."
+            aria-label="Search..." />
+        <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
+    </div>
+</nav>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
 $(document).ready(function() {
     $("[id^='markAsRead-']").click(function(e) {
         e.preventDefault();
@@ -215,4 +249,4 @@ $(document).ready(function() {
         });
     });
 });
-        </script>
+</script>

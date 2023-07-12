@@ -194,39 +194,6 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="d-grid gap-2">
-                                                <a href="./ca/update_ca.php" class="btn btn-sm btn-primary">Mettre à
-                                                    jour C.A</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="d-grid gap-2">
-                                                <a href="./ca/update_options_ca.php"
-                                                    class="btn btn-sm btn-primary">Mettre à jour C.A
-                                                    options</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown mt-3">
-                                        <button class="btn btn-sm btn-primary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Sélectionner une période
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">Mois précédent</a></li>
-                                            <li><a class="dropdown-item" href="#">Mois en cours</a></li>
-                                            <li><a class="dropdown-item" href="#">Trimestre en cours</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-lg-8 mb-4 order-0">
                                 <div class="card">
                                     <div class="d-flex align-items-end row">
