@@ -20,34 +20,40 @@ $stmt->execute();
 $clients = $stmt->fetchAll();
 
 foreach ($clients as $client) {
-    // Calculer le C.A des options pour ce client
+    // Récupérer les options pour ce client
     $stmt = $pdo->prepare('
-        SELECT SUM(options.prix) AS CA_options
+        SELECT option_id
         FROM client_options
-        JOIN options ON client_options.option_id = options.id
-        WHERE client_options.client_id = ?
+        WHERE client_id = ?
     ');
     $stmt->execute([$client['id']]);
-    $result = $stmt->fetch();
-    $CA_options = $result['CA_options'];
+    $options = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-    // Si un second commercial est impliqué, diviser le C.A des options par deux
-    if (!empty($client['second_commercial_id'])) {
-        $CA_options /= 2;
+    foreach ($options as $option_id) {
+        // Récupérer le prix de l'option
+        $stmt = $pdo->prepare('SELECT prix FROM options WHERE id = ?');
+        $stmt->execute([$option_id]);
+        $option = $stmt->fetch();
+        $option_price = $option['prix'];
+    
+        // Si un second commercial est impliqué, diviser le prix de l'option par deux
+        if (!empty($client['second_commercial_id'])) {
+            $option_price /= 2;
+        }
+    
+        // Mettre à jour ou insérer une ligne dans la table CA_options pour chaque commercial
+        $commercials = [$client['commercial_id']];
+        if (!empty($client['second_commercial_id'])) {
+            $commercials[] = $client['second_commercial_id'];
+        }
+        foreach ($commercials as $commercial_id) {
+            $stmt = $pdo->prepare('
+                INSERT INTO CA_options (client_id, commercial_id, option_id, CA_options, date_realisation)
+                VALUES (?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE CA_options = ?
+            ');
+            $stmt->execute([$client['id'], $commercial_id, $option_id, $option_price, $client['created_at'], $option_price]);
+        }
     }
-
-    // Mettre à jour ou insérer une ligne dans la table C.A pour chaque commercial
-    $commercials = [$client['commercial_id']];
-    if (!empty($client['second_commercial_id'])) {
-        $commercials[] = $client['second_commercial_id'];
-    }
-    foreach ($commercials as $commercial_id) {
-        $stmt = $pdo->prepare('
-            INSERT INTO CA_options (client_id, commercial_id, offre_id, CA_options, date_realisation)
-            VALUES (?, ?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE CA_options = ?
-        ');
-        $stmt->execute([$client['id'], $commercial_id, $client['offre_id'], $CA_options, $client['created_at'], $CA_options]);
-    }    
 }
 ?>
