@@ -132,6 +132,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
 
 <head>
     <meta charset="utf-8" />
+    <title>Tableau de bord</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <!-- Favicon -->
@@ -174,7 +175,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
 </head>
-88
+
 
 <body>
     <!-- Layout wrapper -->
