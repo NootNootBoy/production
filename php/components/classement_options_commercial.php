@@ -25,9 +25,9 @@ foreach ($result as $row) {
     $progressColor = '';
 
     // Déterminer la couleur de la barre de progression en fonction des seuils
-    if ($CA_options < 6500) {
+    if ($CA_options < 300) {
         $progressColor = 'bg-danger';
-    } elseif ($CA_options < 14500) {
+    } elseif ($CA_options < 750) {
         $progressColor = 'bg-warning';
     } else {
         $progressColor = 'bg-success';
