@@ -1,6 +1,4 @@
  <?php
-                            // Effectuer votre requête pour obtenir les chiffres d'affaires en prévision des agences
-                            // et les trier par ordre décroissant
                             $stmt = $pdo->prepare('
                             SELECT agences.nom AS agence_nom, SUM(CA.CA_prevision) AS CA_prevision, objectifs.objectif AS objectif
                             FROM users
@@ -8,10 +6,13 @@
                             JOIN agences ON users.agence_id = agences.id
                             LEFT JOIN objectifs ON agences.id = objectifs.agence_id AND MONTH(objectifs.mois) = MONTH(CURRENT_DATE())
                             JOIN clients ON CA.client_id = clients.id
-                            WHERE CA.CA_realise IS NULL AND clients.statut = "actif"
+                            WHERE CA.CA_realise IS NULL 
+                            AND clients.statut = "actif"
+                            AND MONTH(CA.date_realisation) = MONTH(CURRENT_DATE())
+                            AND YEAR(CA.date_realisation) = YEAR(CURRENT_DATE())
                             GROUP BY agences.nom
                             ORDER BY CA_prevision DESC
-                        ');
+                            ');
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     
