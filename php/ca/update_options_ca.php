@@ -47,12 +47,31 @@ foreach ($clients as $client) {
             $commercials[] = $client['second_commercial_id'];
         }
         foreach ($commercials as $commercial_id) {
+            // Vérifier si une ligne avec le même client_id, commercial_id et option_id existe déjà
             $stmt = $pdo->prepare('
-                INSERT INTO CA_options (client_id, commercial_id, option_id, CA_options, date_realisation)
-                VALUES (?, ?, ?, ?, ?)
-                ON DUPLICATE KEY UPDATE CA_options = ?
+                SELECT *
+                FROM CA_options
+                WHERE client_id = ? AND commercial_id = ? AND option_id = ?
             ');
-            $stmt->execute([$client['id'], $commercial_id, $option_id, $option_price, $client['date_signature'], $option_price]);
+            $stmt->execute([$client['id'], $commercial_id, $option_id]);
+            $existing_row = $stmt->fetch();
+        
+            if ($existing_row) {
+                // Si une telle ligne existe, mettre à jour la colonne CA_options
+                $stmt = $pdo->prepare('
+                    UPDATE CA_options
+                    SET CA_options = ?
+                    WHERE client_id = ? AND commercial_id = ? AND option_id = ?
+                ');
+                $stmt->execute([$option_price, $client['id'], $commercial_id, $option_id]);
+            } else {
+                // Sinon, insérer une nouvelle ligne
+                $stmt = $pdo->prepare('
+                    INSERT INTO CA_options (client_id, commercial_id, option_id, CA_options, date_realisation)
+                    VALUES (?, ?, ?, ?, ?)
+                ');
+                $stmt->execute([$client['id'], $commercial_id, $option_id, $option_price, $client['created_at']]);
+            }
         }
     }
 }
