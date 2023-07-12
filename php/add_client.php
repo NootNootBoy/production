@@ -60,12 +60,9 @@ foreach ($options as $option_id) {
   $stmt->execute([$client_id, $option_id]);
 }
 
-// Insérer les options sélectionnées dans la table client_options et calculer le coût total
+// Calculer le coût total des options sélectionnées
 $CA_options = 0;
 foreach ($options as $option_id) {
-  $stmt = $pdo->prepare('INSERT INTO client_options (client_id, option_id) VALUES (?, ?)');
-  $stmt->execute([$client_id, $option_id]);
-
   $stmt = $pdo->prepare('SELECT prix FROM options WHERE id = ?');
   $stmt->execute([$option_id]);
   $option = $stmt->fetch();
@@ -76,7 +73,6 @@ foreach ($options as $option_id) {
 if (!empty($second_commercial_id)) {
     $CA_options /= 2;
 }
-
 // Insérer le C.A des options dans la table
 $stmt = $pdo->prepare('UPDATE CA SET CA_options = ? WHERE client_id = ?');
 $stmt->execute([$CA_options, $client_id]);
