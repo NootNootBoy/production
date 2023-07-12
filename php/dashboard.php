@@ -160,7 +160,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="../../assets/vendor/libs/sweetalert2/sweetalert2.css" />
     <!-- Row Group CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
     <!-- Form Validation -->
@@ -470,7 +470,40 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <div class="layout-overlay layout-menu-toggle"></div>
 
     <!-- / Layout wrapper -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Vérifie les paramètres dans l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var optionsUpdated = urlParams.get('optionsUpdated');
+        var error = urlParams.get('error');
+        var errorMessage = urlParams.get('errorMessage');
 
+        // Si 'userAdded' est vrai, affiche l'alerte de succès
+        if (optionsUpdated === 'true') {
+            Swal.fire({
+                title: 'Bien joué!',
+                text: "Les C.A des options a été mise à jour avec succès!",
+                icon: 'success',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+        // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
+        else if (error === 'true') {
+            Swal.fire({
+                title: 'Erreur!',
+                text: errorMessage,
+                icon: 'error',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        }
+    });
+    </script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -500,40 +533,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <script src="/assets/js/dashboards-crm.js"></script>
 
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Vérifie les paramètres dans l'URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var optionsUpated = urlParams.get('optionsUpated');
-        var error = urlParams.get('error');
-        var errorMessage = urlParams.get('errorMessage');
 
-        // Si 'userAdded' est vrai, affiche l'alerte de succès
-        if (optionsUpated === 'true') {
-            Swal.fire({
-                title: 'Bien joué!',
-                text: "Les C.A des options a été mise à jour avec succès!",
-                icon: 'success',
-                customClass: {
-                    confirmButton: 'btn btn-primary'
-                },
-                buttonsStyling: false
-            });
-        }
-        // Sinon, s'il y a une erreur, affiche l'alerte d'erreur
-        else if (error === 'true') {
-            Swal.fire({
-                title: 'Erreur!',
-                text: errorMessage,
-                icon: 'error',
-                customClass: {
-                    confirmButton: 'btn btn-primary'
-                },
-                buttonsStyling: false
-            });
-        }
-    });
-    </script>
 </body>
 
 </html>
