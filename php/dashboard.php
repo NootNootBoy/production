@@ -160,8 +160,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
-    <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
-    <script src="../assets/js/extended-ui-sweetalert2.js"></script>
+    <link rel="stylesheet" href="../assets/vendor/libs/sweetalert2/sweetalert2.css" />
     <!-- Row Group CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
     <!-- Form Validation -->
