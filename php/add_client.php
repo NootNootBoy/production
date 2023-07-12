@@ -60,23 +60,6 @@ foreach ($options as $option_id) {
   $stmt->execute([$client_id, $option_id]);
 }
 
-// Calculer le coût total des options sélectionnées
-$CA_options = 0;
-foreach ($options as $option_id) {
-  $stmt = $pdo->prepare('SELECT prix FROM options WHERE id = ?');
-  $stmt->execute([$option_id]);
-  $option = $stmt->fetch();
-  $CA_options += $option['prix'];
-}
-
-// Si un second commercial est impliqué, diviser le C.A des options par deux
-if (!empty($second_commercial_id)) {
-    $CA_options /= 2;
-}
-// Insérer le C.A des options dans la table
-$stmt = $pdo->prepare('UPDATE CA SET CA_options = ? WHERE client_id = ?');
-$stmt->execute([$CA_options, $client_id]);
-
 $associe_nom = $_POST['associe_nom'];
 $associe_prenom = $_POST['associe_prenom'];
 $associe_email = $_POST['associe_email'];
