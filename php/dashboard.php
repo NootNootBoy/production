@@ -430,7 +430,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade show active" id="navs-pills-options" role="tabpanel">
+                                        <div class="tab-pane fade" id="navs-pills-options" role="tabpanel">
                                             <div class="table-responsive text-start">
                                                 <table class="table table-borderless text-nowrap">
                                                     <thead>
@@ -447,6 +447,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                 </table>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
