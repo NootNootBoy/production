@@ -52,7 +52,7 @@ foreach ($clients as $client) {
                 VALUES (?, ?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE CA_options = ?
             ');
-            $stmt->execute([$client['id'], $commercial_id, $option_id, $option_price, $client['created_at'], $option_price]);
+            $stmt->execute([$client['id'], $commercial_id, $option_id, $option_price, $client['date_signature'], $option_price]);
         }
     }
 }
