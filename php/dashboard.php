@@ -6,11 +6,12 @@ if (isset($_SESSION['username'])) {
 include 'db_connection.php';
 include './notifications/notifications.php';
 
-$stmt = $pdo->prepare("SELECT id, directeur, agence_id FROM users WHERE username = ?");
+$stmt = $pdo->prepare("SELECT id, directeur, agence_id, rang FROM users WHERE username = ?");
 $stmt->execute([$username]); // Remplacez $username par la valeur appropriée
 $user = $stmt->fetch();
 $userId = $user['id']; // Changez $user_id en $userId
 $userDirecteur = $user['directeur']; // Changez $user_id en $userId
+$userRang = $user['rang'];
 $agenceId = $user['agence_id']; // Changez $user_id en $userId
 
 if (!isset($_SESSION['username'])) {
@@ -205,12 +206,16 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                     Êtes-vous prêt à faire grimper votre chiffre d'affaire
                                                     aujourd'hui ?
                                                 </p>
-
+                                                <?php 
+                                                  if ($_SESSION['rang'] !== 'commercial' && $_SESSION['rang'] !== 'administrateur') { ?>
                                                 <a href="ca/update_ca.php" class="btn btn-sm btn-label-warning">Mettre à
                                                     jour mon C.A</a>
                                                 <a href="ca/update_options_ca.php"
                                                     class="btn btn-sm btn-label-warning">Mettre à jour le C.A
                                                     options</a>
+                                                <?php
+                                                  }
+                                                    ?>
                                                 <?php 
                                                   if ($userDirecteur == '1') { ?>
                                                 <button type="button" class="btn btn-sm btn-label-primary ms-1"
