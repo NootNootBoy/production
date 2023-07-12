@@ -43,8 +43,8 @@ foreach ($clients as $client) {
     }
     foreach ($commercials as $commercial_id) {
         $stmt = $pdo->prepare('
-            INSERT INTO CA (client_id, commercial_id, CA_options)
-            VALUES (?, ?, ?)
+            INSERT INTO CA_options (client_id, commercial_id, CA_options, date_realisation)
+            VALUES (?, ?, ?, CURDATE())
             ON DUPLICATE KEY UPDATE CA_options = ?
         ');
         $stmt->execute([$client['id'], $commercial_id, $CA_options, $CA_options]);
