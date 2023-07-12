@@ -388,8 +388,8 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                             </li>
                                             <li class="nav-item">
                                                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                                    data-bs-target="#navs-pills-os" aria-controls="navs-pills-os"
-                                                    aria-selected="false">
+                                                    data-bs-target="#navs-pills-options"
+                                                    aria-controls="navs-pills-options" aria-selected="false">
                                                     Options
                                                 </button>
                                             </li>
@@ -430,7 +430,7 @@ $percentageOffer = ($clients_with_offer_1 / $total_clients) * 100;
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade show active" id="navs-pills-browser" role="tabpanel">
+                                        <div class="tab-pane fade show active" id="navs-pills-options" role="tabpanel">
                                             <div class="table-responsive text-start">
                                                 <table class="table table-borderless text-nowrap">
                                                     <thead>
