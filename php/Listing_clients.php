@@ -471,17 +471,15 @@ $pendingClients = $stmt->fetch()['pending'];
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="remise_options">
                                                         Remise Options</label>
-                                                    <input type="text" id="remise_options" name="remise_options"
-                                                        class="form-control" placeholder="Remise Options">
+                                                    <input type="number" id="remise_options" name="remise_options"
+                                                        class="form-control" placeholder="100€... HT">
                                                 </div>
-                                            </div>
-                                            <div class="row g-3">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="remise_frais_services">
                                                         Remise FDS</label>
-                                                    <input type="text" id="remise_frais_services"
+                                                    <input type="number" id="remise_frais_services"
                                                         name="remise_frais_services" class="form-control"
-                                                        placeholder="Remise">
+                                                        placeholder="560€... HT">
                                                 </div>
                                             </div>
                                             <div class="pt-4">
