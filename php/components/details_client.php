@@ -502,6 +502,20 @@ include '../notifications/notifications.php';
                                                         value="<?php echo htmlspecialchars($client['code_assurance']); ?>">
                                                 </div>
                                             </div>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="remise_options">
+                                                        Remise Options</label>
+                                                    <input type="number" id="remise_options" name="remise_options"
+                                                        class="form-control" value="">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="remise_frais_services">
+                                                        Remise FDS</label>
+                                                    <input type="number" id="remise_frais_services"
+                                                        name="remise_frais_services" class="form-control" value="">
+                                                </div>
+                                            </div>
 
                                             <input type="hidden" name="client_id" value="<?php echo $client_id; ?>">
                                             <div class="pt-4">
