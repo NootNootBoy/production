@@ -93,10 +93,10 @@ $CA_realise = !empty($code_assurance) ? $CA_prevision : null;
 
 // Insérer les remises HT dans la table CA_options pour le client
 $stmt = $pdo->prepare('
-    INSERT INTO CA_options (client_id, remise_options, remise_frais_services)
-    VALUES (?, ?, ?)
+    INSERT INTO CA_options (client_id, commercial_id, second_commercial_id, remise_options, remise_frais_services, date_realisation)
+    VALUES (?, ?, ?,?,?,  CURDATE())
 ');
-$stmt->execute([$client_id, $remise_options, $remise_frais_services]);
+$stmt->execute([$client_id, $commercial_id, $second_commercial_id, $remise_options, $remise_frais_services]);
 
 
 // Insérer le C.A dans la nouvelle table
