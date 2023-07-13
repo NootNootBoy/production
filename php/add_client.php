@@ -32,7 +32,8 @@ $commercial_id = $_POST['commercial_id'];
 $second_commercial_id = $_POST['second_commercial_id'] != "" ? $_POST['second_commercial_id'] : NULL;
 $offre_id = $_POST['offre_id'];
 $code_assurance = $_POST['code_assurance'] != "" ? $_POST['code_assurance'] : NULL;;
-
+$remise_options = $_POST['remise_options'];
+$remise_frais_services = $_POST['remise_frais_services'];
 
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
 if (!preg_match('/^(\+33|0)[1-9](\d{2}){4}$/', $phoneNumber)) {
@@ -90,9 +91,18 @@ if (!empty($second_commercial_id)) {
 // Si le code d'assurance est fourni, stocker le C.A comme C.A réalisé
 $CA_realise = !empty($code_assurance) ? $CA_prevision : null;
 
+// Insérer les remises HT dans la table CA_options pour le client
+$stmt = $pdo->prepare('
+    INSERT INTO CA_options (client_id, remise_options, remise_frais_services)
+    VALUES (?, ?, ?)
+');
+$stmt->execute([$client_id, $remise_options, $remise_frais_services]);
+
+
 // Insérer le C.A dans la nouvelle table
 $stmt = $pdo->prepare('INSERT INTO CA (client_id, commercial_id, second_commercial_id, CA_prevision, CA_realise, date_realisation) VALUES (?, ?, ?, ?, ?, CURDATE())');
 $stmt->execute([$client_id, $commercial_id, $second_commercial_id, $CA_prevision, $CA_realise]);
+
 
 if ($stmt->rowCount() > 0) {
 

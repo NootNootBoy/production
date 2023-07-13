@@ -458,7 +458,7 @@ $pendingClients = $stmt->fetch()['pending'];
                                             </div>
 
                                             <hr class="my-4 mx-n4" />
-                                            <h6>5. Code assurance (optionnel)</h6>
+                                            <h6>5. Assurance & Remise (optionnel)</h6>
                                             <div class="row g-3">
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="code_assurance">Code de validation
@@ -467,7 +467,23 @@ $pendingClients = $stmt->fetch()['pending'];
                                                         class="form-control" placeholder="DJZ82....">
                                                 </div>
                                             </div>
-
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="remise_options">
+                                                        Remise Options</label>
+                                                    <input type="text" id="remise_options" name="remise_options"
+                                                        class="form-control" placeholder="Remise Options">
+                                                </div>
+                                            </div>
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="remise_frais_services">
+                                                        Remise FDS</label>
+                                                    <input type="text" id="remise_frais_services"
+                                                        name="remise_frais_services" class="form-control"
+                                                        placeholder="Remise">
+                                                </div>
+                                            </div>
                                             <div class="pt-4">
                                                 <button type="submit" class="btn btn-primary me-sm-3 me-1">Ajouter le
                                                     Client</button>
