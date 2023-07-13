@@ -20,6 +20,11 @@ try {
     $stmt->execute();
     $clients = $stmt->fetchAll();
 
+    // Récupérer toutes les options existantes
+    $stmt = $pdo->prepare('SELECT option_id FROM CA_options');
+    $stmt->execute();
+    $existing_options = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
         foreach ($clients as $client) {
             // Récupérer les options pour ce client
             $stmt = $pdo->prepare('
@@ -29,6 +34,19 @@ try {
             ');
             $stmt->execute([$client['id']]);
             $options = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+             // Parcourir les options existantes
+            foreach ($existing_options as $existing_option_id) {
+                // Vérifier si l'option existe toujours parmi les options cochées actuelles
+                if (!in_array($existing_option_id, $options)) {
+                    // Supprimer la ligne correspondante de la table CA_options
+                    $stmt = $pdo->prepare('
+                        DELETE FROM CA_options
+                        WHERE client_id = ? AND option_id = ?
+                    ');
+                    $stmt->execute([$client['id'], $existing_option_id]);
+                }
+            }
 
             foreach ($options as $option_id) {
                 // Récupérer le prix de l'option
