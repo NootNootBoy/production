@@ -463,15 +463,13 @@ include '../notifications/notifications.php';
                                                     <label class="form-label" for="username">Nom d'utilisateur</label>
                                                     <input type="text" id="username" name="username"
                                                         class="form-control" placeholder="MI-societéXXXX" required
-                                                        value="<?php echo htmlspecialchars($client['username']); ?>"
-                                                        readonly>
+                                                        value="<?php echo htmlspecialchars($client['username']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="password">Mot de passe</label>
                                                     <input type="password" id="password" name="password"
                                                         class="form-control" placeholder="********" required
-                                                        value="<?php echo htmlspecialchars($client['password']); ?>"
-                                                        readonly>
+                                                        value="<?php echo htmlspecialchars($client['password']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="id_analytics">ID Analytics</label>
