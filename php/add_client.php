@@ -34,6 +34,13 @@ $offre_id = $_POST['offre_id'];
 $code_assurance = $_POST['code_assurance'] != "" ? $_POST['code_assurance'] : NULL;;
 $remise_options = $_POST['remise_options'];
 $remise_frais_services = $_POST['remise_frais_services'];
+$domain_name = $_POST['domain_name'];
+
+// Génération du nom d'utilisateur
+$username = "MI-" . $societe . rand(1000, 9999);
+
+// Génération d'un mot de passe aléatoire
+$password = bin2hex(random_bytes(8)); // 16 caractères
 
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
 if (!preg_match('/^(\+33|0)[1-9](\d{2}){4}$/', $phoneNumber)) {
@@ -50,8 +57,9 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 
-$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id, code_assurance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance]);
+// Insérer les données dans la table clients
+$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id, code_assurance, domain_name, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance, $domain_name, $username, $password]);
 
 $client_id = $pdo->lastInsertId();
 

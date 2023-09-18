@@ -200,6 +200,26 @@ include '../notifications/notifications.php';
                                                     <span class="badge bg-label-success">
                                                         <?php echo $client['statut']?></span>
                                                 </li>
+                                                <li class="mb-3">
+                                                    <span class="fw-bold me-2">Nom de domaine:</span>
+                                                    <?php echo $client['domain_name']?>
+                                                </li>
+                                                <li class="mb-3">
+                                                    <span class="fw-bold me-2">Nom d'utilisateur:</span>
+                                                    <?php echo $client['username']?>
+                                                </li>
+                                                <li class="mb-3">
+                                                    <span class="fw-bold me-2">Mot de passe:</span>
+                                                    <?php echo $client['password']?>
+                                                </li>
+                                                <li class="mb-3">
+                                                    <span class="fw-bold me-2">ID Analytics:</span>
+                                                    <?php echo $client['id_analytics']?>
+                                                </li>
+                                                <li class="mb-3">
+                                                    <span class="fw-bold me-2">ID Search Console:</span>
+                                                    <?php echo $client['id_searchconsole']?>
+                                                </li>
                                                 <?php
                                             // Récupérer l'associé du client actuel
                                             $stmt = $pdo->prepare('SELECT * FROM associes WHERE client_id = ?');
@@ -432,6 +452,39 @@ include '../notifications/notifications.php';
                                                     <input type="date" id="date_signature" name="date_signature"
                                                         class="form-control" placeholder="Dupont" required
                                                         value="<?php echo htmlspecialchars($client['date_signature']); ?>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="domain_name">Nom de domaine</label>
+                                                    <input type="text" id="domain_name" name="domain_name"
+                                                        class="form-control" placeholder="exemple.com" required
+                                                        value="<?php echo htmlspecialchars($client['domain_name']); ?>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="username">Nom d'utilisateur</label>
+                                                    <input type="text" id="username" name="username"
+                                                        class="form-control" placeholder="MI-societéXXXX" required
+                                                        value="<?php echo htmlspecialchars($client['username']); ?>"
+                                                        readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="password">Mot de passe</label>
+                                                    <input type="password" id="password" name="password"
+                                                        class="form-control" placeholder="********" required
+                                                        value="<?php echo htmlspecialchars($client['password']); ?>"
+                                                        readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="id_analytics">ID Analytics</label>
+                                                    <input type="text" id="id_analytics" name="id_analytics"
+                                                        class="form-control" placeholder="ID Analytics"
+                                                        value="<?php echo htmlspecialchars($client['id_analytics']); ?>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="id_searchconsole">ID Search
+                                                        Console</label>
+                                                    <input type="text" id="id_searchconsole" name="id_searchconsole"
+                                                        class="form-control" placeholder="ID Search Console"
+                                                        value="<?php echo htmlspecialchars($client['id_searchconsole']); ?>">
                                                 </div>
                                             </div>
                                             <hr class="my-4 mx-n4" />

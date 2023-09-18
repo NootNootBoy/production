@@ -344,6 +344,12 @@ $pendingClients = $stmt->fetch()['pending'];
                                                     <input type="date" id="date_signature" name="date_signature"
                                                         class="form-control" required>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label" for="domain_name">Nom de domaine</label>
+                                                    <input type="text" id="domain_name" name="domain_name"
+                                                        class="form-control" placeholder="exemple.com" required
+                                                        value="<?php echo htmlspecialchars($client['domain_name']); ?>">
+                                                </div>
                                             </div>
 
                                             <hr class="my-4 mx-n4" />
