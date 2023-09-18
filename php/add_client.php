@@ -36,8 +36,11 @@ $remise_options = $_POST['remise_options'];
 $remise_frais_services = $_POST['remise_frais_services'];
 $domain_name = $_POST['domain_name'];
 
+$societe_clean = str_replace(' ', '-', $societe);
+
+
 // Génération du nom d'utilisateur
-$username = "MI-" . $societe . rand(1000, 9999);
+$username = "MI-" . $societe_clean . rand(1000, 9999);
 
 // Génération d'un mot de passe aléatoire
 $password = bin2hex(random_bytes(8)); // 16 caractères
