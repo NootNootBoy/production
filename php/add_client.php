@@ -41,6 +41,7 @@ $username = "MI-" . $societe . rand(1000, 9999);
 
 // Génération d'un mot de passe aléatoire
 $password = bin2hex(random_bytes(8)); // 16 caractères
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Vérification de la validité du numéro de téléphone (exemple pour un numéro français)
 if (!preg_match('/^(\+33|0)[1-9](\d{2}){4}$/', $phoneNumber)) {
@@ -59,7 +60,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // Insérer les données dans la table clients
 $stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id, code_assurance, domain_name, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance, $domain_name, $username, $password]);
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance, $domain_name, $username, $hashed_password]);
 
 $client_id = $pdo->lastInsertId();
 

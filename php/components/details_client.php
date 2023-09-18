@@ -549,7 +549,7 @@ include '../notifications/notifications.php';
                                                     <label class="form-label" for="code_assurance">Code
                                                         Assurance</label>
                                                     <input type="text" id="code_assurance" name="code_assurance"
-                                                        class="form-control" placeholder="code_assurance" required
+                                                        class="form-control" placeholder="code_assurance"
                                                         value="<?php echo htmlspecialchars($client['code_assurance']); ?>">
                                                 </div>
                                             </div>
