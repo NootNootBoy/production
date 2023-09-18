@@ -209,10 +209,6 @@ include '../notifications/notifications.php';
                                                     <?php echo $client['username']?>
                                                 </li>
                                                 <li class="mb-3">
-                                                    <span class="fw-bold me-2">Mot de passe:</span>
-                                                    <?php echo $client['password']?>
-                                                </li>
-                                                <li class="mb-3">
                                                     <span class="fw-bold me-2">ID Analytics:</span>
                                                     <?php echo $client['id_analytics']?>
                                                 </li>
