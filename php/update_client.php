@@ -32,7 +32,7 @@ $code_postal = $_POST['code_postal'];
 $pays = $_POST['pays'];
 $commercial_id = $_POST['commercial_id'];
 $code_assurance = $_POST['code_assurance'];
-$domain_name = $_POST['domain_name'];
+$domaine = $_POST['domaine'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $id_analytics = $_POST['id_analytics'];
@@ -40,8 +40,8 @@ $id_searchconsole = $_POST['id_searchconsole'];
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = $pdo->prepare('UPDATE clients SET nom = ?, prenom = ?, societe = ?, siret = ?, email = ?, phone_number = ?, temps_engagement = ?, date_signature = ?, adresse = ?, ville = ?, code_postal = ?, pays = ?, code_assurance = ?, commercial_id = ?, domain_name = ?, id_analytics = ?, id_searchconsole = ?, username = ?, password = ? WHERE id = ?');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $code_assurance, $commercial_id, $domain_name, $id_analytics, $id_searchconsole, $username, $hashed_password, $client_id]);
+$stmt = $pdo->prepare('UPDATE clients SET nom = ?, prenom = ?, societe = ?, siret = ?, email = ?, phone_number = ?, temps_engagement = ?, date_signature = ?, adresse = ?, ville = ?, code_postal = ?, pays = ?, code_assurance = ?, commercial_id = ?, domaine = ?, id_analytics = ?, id_searchconsole = ?, username = ?, password = ? WHERE id = ?');
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $code_assurance, $commercial_id, $domaine, $id_analytics, $id_searchconsole, $username, $hashed_password, $client_id]);
 
 // Mettre à jour les options ici si nécessaire...
 

@@ -202,7 +202,7 @@ include '../notifications/notifications.php';
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Nom de domaine:</span>
-                                                    <?php echo $client['domain_name']?>
+                                                    <?php echo $client['domaine']?>
                                                 </li>
                                                 <li class="mb-3">
                                                     <span class="fw-bold me-2">Nom d'utilisateur:</span>
@@ -450,10 +450,10 @@ include '../notifications/notifications.php';
                                                         value="<?php echo htmlspecialchars($client['date_signature']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="form-label" for="domain_name">Nom de domaine</label>
-                                                    <input type="text" id="domain_name" name="domain_name"
-                                                        class="form-control" placeholder="exemple.com" required
-                                                        value="<?php echo htmlspecialchars($client['domain_name']); ?>">
+                                                    <label class="form-label" for="domaine">Nom de domaine</label>
+                                                    <input type="text" id="domaine" name="domaine" class="form-control"
+                                                        placeholder="exemple.com" required
+                                                        value="<?php echo htmlspecialchars($client['domaine']); ?>">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label" for="username">Nom d'utilisateur</label>

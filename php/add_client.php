@@ -34,7 +34,7 @@ $offre_id = $_POST['offre_id'];
 $code_assurance = $_POST['code_assurance'] != "" ? $_POST['code_assurance'] : NULL;;
 $remise_options = $_POST['remise_options'];
 $remise_frais_services = $_POST['remise_frais_services'];
-$domain_name = $_POST['domain_name'];
+$domaine = $_POST['domaine'];
 
 $societe_clean = str_replace(' ', '-', $societe);
 
@@ -62,8 +62,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 
 // Insérer les données dans la table clients
-$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id, code_assurance, domain_name, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance, $domain_name, $username, $hashed_password]);
+$stmt = $pdo->prepare('INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, temps_engagement, date_signature, adresse, ville, code_postal, pays, commercial_id, second_commercial_id, offre_id, code_assurance, domaine, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+$stmt->execute([$nom, $prenom, $societe, $siret, $email, $phoneNumber, $temps_engagement, $date_signature, $adresse, $ville, $code_postal, $pays, $commercial_id, $second_commercial_id, $offre_id, $code_assurance, $domaine, $username, $hashed_password]);
 
 $client_id = $pdo->lastInsertId();
 
