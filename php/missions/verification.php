@@ -4,19 +4,13 @@ session_start();
 include '../notifications/notifications.php';
 
 if (!isset($_SESSION['user_id'])) {
-    // L'utilisateur n'est pas connecté. Redirigez-le vers la page de connexion.
     header('Location: index.php');
     exit;
 }
+
 if ($_SESSION['rang'] !== 'administrateur' && $_SESSION['rang'] !== 'assistant' && $_SESSION['rang'] !== 'developpeur') {
-    // L'utilisateur n'est pas un administrateur. Redirigez-le vers une page d'erreur.
     header('Location: /php/access_denied.html');
     exit;
-}
-
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    
 }
 
 $host = '176.31.132.185';
@@ -31,24 +25,73 @@ $opt = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
-    $pdo = new PDO($dsn, $user, $pass, $opt);
+$pdo = new PDO($dsn, $user, $pass, $opt);
 
-    $id_mission = $_GET['id_mission'];
+$id_mission = $_GET['id_mission'];
 
+// Récupérer les informations de la mission
+$stmt = $pdo->prepare("SELECT * FROM missions WHERE id_mission = :id_mission");
+$stmt->bindParam(':id_mission', $id_mission);
+$stmt->execute();
+$mission = $stmt->fetch();
 
-    // Préparer la requête SQL pour récupérer tous les projets
+// Récupérer les informations du client associé à cette mission via le projet
+$stmt = $pdo->prepare("SELECT clients.* FROM clients INNER JOIN Projets ON clients.id = Projets.id_client WHERE Projets.id_projet = :id_projet");
+$stmt->bindParam(':id_projet', $mission['id_projet']);
+$stmt->execute();
+$client = $stmt->fetch();
 
-   // Récupérer les informations de la mission
-    $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_mission = :id_mission");
-    $stmt->bindParam(':id_mission', $id_mission);
-    $stmt->execute();
-    $mission = $stmt->fetch();
+// Traitement du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $societe = $_POST['societe'];
+    $username = $_POST['username'];
+    $password = $_POST['password']; // Vous devrez probablement gérer cela différemment car il est hashé
+    $id_analytics = $_POST['id_analytics'];
+    $id_searchconsole = $_POST['id_searchconsole'];
+    $domaine = $_POST['domaine'];
+    $mailcontact = $_POST['mailcontact'];
+    $mailpassword = $_POST['mailpassword'];
+    $mailhost = $_POST['mailhost'];
+    $aristatut = $_POST['aristatut'];
+    $ari_activation_date = $_POST['ari_activation_date'];
+    $ari_expiration_date = $_POST['ari_expiration_date'];
+    $redirection_emails = $_POST['redirection_emails'];
+    $generation = $_POST['generation'];
 
-    // Récupérer les informations du client associé à cette mission via le projet
-    $stmt = $pdo->prepare("SELECT clients.* FROM clients INNER JOIN Projets ON clients.id = Projets.id_client WHERE Projets.id_projet = :id_projet");
-    $stmt->bindParam(':id_projet', $mission['id_projet']);
-    $stmt->execute();
-    $client = $stmt->fetch();
+    $updates = [];
+
+    if ($nom !== $client['nom']) $updates['nom'] = $nom;
+    if ($prenom !== $client['prenom']) $updates['prenom'] = $prenom;
+    if ($societe !== $client['societe']) $updates['societe'] = $societe;
+    if ($username !== $client['username']) $updates['username'] = $username;
+    if ($password !== $client['password']) $updates['password'] = $password; // Assurez-vous de traiter le mot de passe correctement, comme mentionné précédemment
+    if ($id_analytics !== $client['id_analytics']) $updates['id_analytics'] = $id_analytics;
+    if ($id_searchconsole !== $client['id_searchconsole']) $updates['id_searchconsole'] = $id_searchconsole;
+    if ($domaine !== $client['domaine']) $updates['domaine'] = $domaine;
+    if ($mailcontact !== $client['mailcontact']) $updates['mailcontact'] = $mailcontact;
+    if ($mailpassword !== $client['mailpassword']) $updates['mailpassword'] = $mailpassword;
+    if ($mailhost !== $client['mailhost']) $updates['mailhost'] = $mailhost;
+    if ($aristatut !== $client['aristatut']) $updates['aristatut'] = $aristatut;
+    if ($ari_activation_date !== $client['ari_activation_date']) $updates['ari_activation_date'] = $ari_activation_date;
+    if ($ari_expiration_date !== $client['ari_expiration_date']) $updates['ari_expiration_date'] = $ari_expiration_date;
+    if ($redirection_emails !== $client['redirection_emails']) $updates['redirection_emails'] = $redirection_emails;
+    if ($generation !== $client['generation']) $updates['generation'] = $generation;    
+
+    foreach ($updates as $key => $value) {
+        $stmt = $pdo->prepare("UPDATE clients SET $key = :value WHERE id = :id");
+        $stmt->execute(['value' => $value, 'id' => $client['id']]);
+    }
+
+    // Mettre à jour la mission comme vérifiée
+    $stmt = $pdo->prepare("UPDATE missions SET verify_done = true WHERE id_mission = :id_mission");
+    $stmt->execute(['id_mission' => $id_mission]);
+
+    header("Location: verification.php?id_mission=$id_mission");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -116,12 +159,64 @@ $opt = [
     <h2><?php echo $mission['nom_mission']; ?></h2>
     <p>Progression : <?php echo $mission['progression']; ?>%</p>
 
-    <h1>Informations du client</h1>
-    <p>Nom : <?php echo $client['nom']; ?></p>
-    <!-- Ajoutez d'autres informations du client ici -->
+    <form action="verification.php?id_mission=<?php echo $id_mission; ?>" method="post">
+        <h1>Informations du client</h1>
 
-    <a href="confirmer_mission.php?id_mission=<?php echo $mission['id_mission']; ?>">Confirmer les informations</a>
-    <a href="modifier_mission.php?id_mission=<?php echo $mission['id_mission']; ?>">Modifier les informations</a>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" value="<?php echo $client['nom']; ?>"><br>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" value="<?php echo $client['prenom']; ?>"><br>
+
+        <label for="societe">Société:</label>
+        <input type="text" id="societe" name="societe" value="<?php echo $client['societe']; ?>"><br>
+
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="username" value="<?php echo $client['username']; ?>"><br>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" value="<?php echo $client['password']; ?>"><br>
+
+        <label for="id_analytics">ID Analytics:</label>
+        <input type="text" id="id_analytics" name="id_analytics" value="<?php echo $client['id_analytics']; ?>"><br>
+
+        <label for="id_searchconsole">ID Search Console:</label>
+        <input type="text" id="id_searchconsole" name="id_searchconsole"
+            value="<?php echo $client['id_searchconsole']; ?>"><br>
+
+        <label for="domaine">Domaine:</label>
+        <input type="text" id="domaine" name="domaine" value="<?php echo $client['domaine']; ?>"><br>
+
+        <label for="mailcontact">Mail de contact:</label>
+        <input type="email" id="mailcontact" name="mailcontact" value="<?php echo $client['mailcontact']; ?>"><br>
+
+        <label for="mailpassword">Mot de passe du mail:</label>
+        <input type="password" id="mailpassword" name="mailpassword" value="<?php echo $client['mailpassword']; ?>"><br>
+
+        <label for="mailhost">Hôte du mail:</label>
+        <input type="text" id="mailhost" name="mailhost" value="<?php echo $client['mailhost']; ?>"><br>
+
+        <label for="aristatut">Aristatut (oui ou non):</label>
+        <input type="text" id="aristatut" name="aristatut" value="<?php echo $client['aristatut']; ?>"><br>
+
+        <label for="ari_activation_date">Date d'activation ARI:</label>
+        <input type="date" id="ari_activation_date" name="ari_activation_date"
+            value="<?php echo $client['ari_activation_date']; ?>"><br>
+
+        <label for="ari_expiration_date">Date d'expiration ARI:</label>
+        <input type="date" id="ari_expiration_date" name="ari_expiration_date"
+            value="<?php echo $client['ari_expiration_date']; ?>"><br>
+
+        <label for="redirection_emails">Redirection des e-mails:</label>
+        <input type="text" id="redirection_emails" name="redirection_emails"
+            value="<?php echo $client['redirection_emails']; ?>"><br>
+
+        <label for="generation">Génération:</label>
+        <input type="text" id="generation" name="generation" value="<?php echo $client['generation']; ?>"><br>
+
+        <input type="submit" value="Mettre à jour">
+    </form>
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
