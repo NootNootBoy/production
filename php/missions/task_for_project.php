@@ -75,7 +75,7 @@ $opt = [
     <div class="container mt-5">
         <div class="card shadow-lg">
             <div class="card-header bg-primary text-white">
-                <h5 style="margin-top: 10px;">Gestion des Tâches</h5>
+                <h5>Gestion des Tâches</h5>
             </div>
             <div class="card-body">
                 <?php
@@ -85,7 +85,7 @@ $opt = [
                 $mission = $stmt->fetch();
 
                 if ($mission) {
-                    echo "<h2 class='mb-4'>" . $mission['nom_mission'] . "</h2>";
+                    echo "<h2 class='mb-4 mt-4'>" . $mission['nom_mission'] . "</h2>";
                     $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache, taches_predefinies.categorie_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission ORDER BY taches_predefinies.categorie_tache");
                     $stmt->bindParam(':id_mission', $id_mission);
                     $stmt->execute();
