@@ -75,7 +75,7 @@ $opt = [
     <div class="container mt-5">
         <div class="card shadow-lg">
             <div class="card-header bg-primary text-white">
-                <h5>Gestion des Tâches</h5>
+                <h5 style="margin-top: 10px;">Gestion des Tâches</h5>
             </div>
             <div class="card-body">
                 <?php
@@ -108,7 +108,7 @@ $opt = [
                             echo "</div>";
                         }
                     }
-                    echo "<button type='submit' class='btn btn-success mt-3'>Mettre à jour les tâches</button>";
+                    echo "<button type='submit' class='btn btn-warning mt-3'>Mettre à jour les tâches</button>";
                     echo "</form>";
                 } else {
                     echo "<div class='alert alert-danger'>Mission non trouvée.</div>";
