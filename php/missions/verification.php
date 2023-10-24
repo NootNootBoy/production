@@ -92,7 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE missions SET verify_done = true WHERE id_mission = :id_mission");
     $stmt->execute(['id_mission' => $id_mission]);
 
-    header("Location: missions/listing_all_missions.php");
+        // Mettre à jour l'état de la mission comme "terminée"
+        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminée' WHERE id_mission = :id_mission");
+        $stmt->execute(['id_mission' => $id_mission]);
+
+    header("Location: listing_all_missions.php");
     exit;
 }
 
