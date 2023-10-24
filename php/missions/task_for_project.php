@@ -79,13 +79,17 @@ $opt = [
             </div>
             <div class="card-body">
                 <?php
-                $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_mission = :id_mission");
-                $stmt->bindParam(':id_mission', $id_mission);
-                $stmt->execute();
-                $mission = $stmt->fetch();
+                    $stmt = $pdo->prepare("SELECT * FROM missions WHERE id_mission = :id_mission");
+                    $stmt->bindParam(':id_mission', $id_mission);
+                    $stmt->execute();
+                    $mission = $stmt->fetch();
 
-                if ($mission) {
-                    echo "<h2 class='mb-4 mt-4'>" . $mission['nom_mission'] . "</h2>";
+                    if ($mission) {
+                    echo "<h2 class='mb-4 mt-4 font-weight-bold'>" . $mission['nom_mission'] . " (" . $mission['progression'] . "%)</h2>";
+                    echo "<div class='progress mb-4'>";
+                    echo "<div class='progress-bar' role='progressbar' style='width: " . $mission['progression'] . "%;' aria-valuenow='" . $mission['progression'] . "' aria-valuemin='0' aria-valuemax='100'>" . $mission['progression'] . "%</div>";
+                    echo "</div>";
+
                     $stmt = $pdo->prepare("SELECT taches.*, taches_predefinies.nom_tache, taches_predefinies.categorie_tache FROM taches INNER JOIN taches_predefinies ON taches.id_tache_predefinie = taches_predefinies.id_tache_predefinie WHERE id_mission = :id_mission ORDER BY taches_predefinies.categorie_tache");
                     $stmt->bindParam(':id_mission', $id_mission);
                     $stmt->execute();
@@ -93,26 +97,26 @@ $opt = [
 
                     $taches_par_categorie = [];
                     foreach ($taches as $tache) {
-                        $taches_par_categorie[$tache['categorie_tache']][] = $tache;
+                    $taches_par_categorie[$tache['categorie_tache']][] = $tache;
                     }
 
                     echo "<form action='update_taches.php' method='post' class='mt-3'>";
                     echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
                     echo "<input type='hidden' name='id_user' value='" . $mission['id_user'] . "'>";
                     foreach ($taches_par_categorie as $categorie => $taches_categorie) {
-                        echo "<h4 class='mb-3'>" . $categorie . "</h4>";
-                        foreach ($taches_categorie as $tache) {
-                            echo "<div class='form-check mb-2'>";
-                            echo "<input type='checkbox' class='form-check-input' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
-                            echo "<label class='form-check-label' for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
-                            echo "</div>";
-                        }
+                    echo "<h4 class='mb-3'>" . $categorie . "</h4>";
+                    foreach ($taches_categorie as $tache) {
+                        echo "<div class='form-check mb-2'>";
+                        echo "<input type='checkbox' class='form-check-input' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
+                        echo "<label class='form-check-label' for='tache" . $tache['id_tache'] . "'>" . $tache['nom_tache'] . "</label>";
+                        echo "</div>";
+                    }
                     }
                     echo "<button type='submit' class='btn btn-warning mt-3'>Mettre à jour les tâches</button>";
                     echo "</form>";
-                } else {
+                    } else {
                     echo "<div class='alert alert-danger'>Mission non trouvée.</div>";
-                }
+                    }
                 ?>
             </div>
         </div>
