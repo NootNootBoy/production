@@ -254,21 +254,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <!-- Date d'activation ARI -->
                 <div class="col-md-6">
                     <label class="form-label" for="ari_activation_date">Date d'activation ARI</label>
-                    <input type="date" id="ari_activation_date" name="ari_activation_date" class="form-control" required
+                    <input type="date" id="ari_activation_date" name="ari_activation_date" class="form-control"
                         value="<?php echo htmlspecialchars($client['ari_activation_date']); ?>">
                 </div>
 
                 <!-- Date d'expiration ARI -->
                 <div class="col-md-6">
                     <label class="form-label" for="ari_expiration_date">Date d'expiration ARI</label>
-                    <input type="date" id="ari_expiration_date" name="ari_expiration_date" class="form-control" required
+                    <input type="date" id="ari_expiration_date" name="ari_expiration_date" class="form-control"
                         value="<?php echo htmlspecialchars($client['ari_expiration_date']); ?>">
                 </div>
 
                 <!-- Redirection des e-mails -->
                 <div class="col-md-6">
                     <label class="form-label" for="redirection_emails">Redirection des e-mails</label>
-                    <input type="text" id="redirection_emails" name="redirection_emails" class="form-control" required
+                    <input type="text" id="redirection_emails" name="redirection_emails" class="form-control"
                         value="<?php echo htmlspecialchars($client['redirection_emails']); ?>">
                 </div>
 
