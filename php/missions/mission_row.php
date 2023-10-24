@@ -40,8 +40,8 @@
                         class="bx bx-edit-alt me-1"></i> Voir les tâches</a>
                 <?php 
                 if($mission['verify_done']){
-                    echo "<a class='dropdown-item text-success' href='mission_completed.php?id_mission=" . $mission['id_mission'] . "'><i
-                    class='bx bx-check-square me-1'></i> Marquer comme terminée</a>";
+                    echo "<a class='dropdown-item text-success' href='verification.php?id_mission=" . $mission['id_mission'] . "'><i
+                    class='bx bx-check-square me-1'></i> Passer à la vérification</a>";
                 }?>
             </div>
         </div>
