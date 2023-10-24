@@ -66,7 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($prenom !== $client['prenom']) $updates['prenom'] = $prenom;
     if ($societe !== $client['societe']) $updates['societe'] = $societe;
     if ($username !== $client['username']) $updates['username'] = $username;
-    if ($password !== $client['password']) $updates['password'] = $password; // Assurez-vous de traiter le mot de passe correctement, comme mentionné précédemment
+    if (isset($_POST['password']) && $_POST['password'] !== $client['password']) {
+        $password = $_POST['password'];
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $updates['password'] = $hashed_password;
+    }
     if ($id_analytics !== $client['id_analytics']) $updates['id_analytics'] = $id_analytics;
     if ($id_searchconsole !== $client['id_searchconsole']) $updates['id_searchconsole'] = $id_searchconsole;
     if ($domaine !== $client['domaine']) $updates['domaine'] = $domaine;
@@ -88,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE missions SET verify_done = true WHERE id_mission = :id_mission");
     $stmt->execute(['id_mission' => $id_mission]);
 
-    header("Location: verification.php?id_mission=$id_mission");
+    header("Location: missions/listing_all_missions.php");
     exit;
 }
 
@@ -159,63 +163,127 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2><?php echo $mission['nom_mission']; ?></h2>
     <p>Progression : <?php echo $mission['progression']; ?>%</p>
 
-    <form action="verification.php?id_mission=<?php echo $id_mission; ?>" method="post">
-        <h1>Informations du client</h1>
+    <div class="container mt-5">
+        <form action="verification.php?id_mission=<?php echo $id_mission; ?>" method="post">
+            <h1 class="mb-4">Informations du client</h1>
+            <div class="row">
+                <!-- Nom -->
+                <div class="col-md-6">
+                    <label class="form-label" for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['nom']); ?>">
+                </div>
 
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" value="<?php echo $client['nom']; ?>"><br>
+                <!-- Prénom -->
+                <div class="col-md-6">
+                    <label class="form-label" for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['prenom']); ?>">
+                </div>
 
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" value="<?php echo $client['prenom']; ?>"><br>
+                <!-- Société -->
+                <div class="col-md-6">
+                    <label class="form-label" for="societe">Société</label>
+                    <input type="text" id="societe" name="societe" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['societe']); ?>">
+                </div>
 
-        <label for="societe">Société:</label>
-        <input type="text" id="societe" name="societe" value="<?php echo $client['societe']; ?>"><br>
+                <!-- Nom d'utilisateur -->
+                <div class="col-md-6">
+                    <label class="form-label" for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="MI-societéXXXX"
+                        required value="<?php echo htmlspecialchars($client['username']); ?>">
+                </div>
 
-        <label for="username">Nom d'utilisateur:</label>
-        <input type="text" id="username" name="username" value="<?php echo $client['username']; ?>"><br>
+                <!-- Mot de passe -->
+                <div class="col-md-6">
+                    <label class="form-label" for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="********"
+                        required value="<?php echo htmlspecialchars($client['password']); ?>">
+                </div>
 
-        <label for="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" value="<?php echo $client['password']; ?>"><br>
+                <!-- ID Analytics -->
+                <div class="col-md-6">
+                    <label class="form-label" for="id_analytics">ID Analytics</label>
+                    <input type="text" id="id_analytics" name="id_analytics" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['id_analytics']); ?>">
+                </div>
 
-        <label for="id_analytics">ID Analytics:</label>
-        <input type="text" id="id_analytics" name="id_analytics" value="<?php echo $client['id_analytics']; ?>"><br>
+                <!-- ID Search Console -->
+                <div class="col-md-6">
+                    <label class="form-label" for="id_searchconsole">ID Search Console</label>
+                    <input type="text" id="id_searchconsole" name="id_searchconsole" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['id_searchconsole']); ?>">
+                </div>
 
-        <label for="id_searchconsole">ID Search Console:</label>
-        <input type="text" id="id_searchconsole" name="id_searchconsole"
-            value="<?php echo $client['id_searchconsole']; ?>"><br>
+                <!-- Domaine -->
+                <div class="col-md-6">
+                    <label class="form-label" for="domaine">Domaine</label>
+                    <input type="text" id="domaine" name="domaine" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['domaine']); ?>">
+                </div>
 
-        <label for="domaine">Domaine:</label>
-        <input type="text" id="domaine" name="domaine" value="<?php echo $client['domaine']; ?>"><br>
+                <!-- Mail de contact -->
+                <div class="col-md-6">
+                    <label class="form-label" for="mailcontact">Mail de contact</label>
+                    <input type="email" id="mailcontact" name="mailcontact" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['mailcontact']); ?>">
+                </div>
 
-        <label for="mailcontact">Mail de contact:</label>
-        <input type="email" id="mailcontact" name="mailcontact" value="<?php echo $client['mailcontact']; ?>"><br>
+                <!-- Mot de passe du mail -->
+                <div class="col-md-6">
+                    <label class="form-label" for="mailpassword">Mot de passe du mail</label>
+                    <input type="password" id="mailpassword" name="mailpassword" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['mailpassword']); ?>">
+                </div>
 
-        <label for="mailpassword">Mot de passe du mail:</label>
-        <input type="password" id="mailpassword" name="mailpassword" value="<?php echo $client['mailpassword']; ?>"><br>
+                <!-- Hôte du mail -->
+                <div class="col-md-6">
+                    <label class="form-label" for="mailhost">Hôte du mail</label>
+                    <input type="text" id="mailhost" name="mailhost" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['mailhost']); ?>">
+                </div>
 
-        <label for="mailhost">Hôte du mail:</label>
-        <input type="text" id="mailhost" name="mailhost" value="<?php echo $client['mailhost']; ?>"><br>
+                <!-- Aristatut -->
+                <div class="col-md-6">
+                    <label class="form-label" for="aristatut">Aristatut (oui ou non)</label>
+                    <input type="text" id="aristatut" name="aristatut" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['aristatut']); ?>">
+                </div>
 
-        <label for="aristatut">Aristatut (oui ou non):</label>
-        <input type="text" id="aristatut" name="aristatut" value="<?php echo $client['aristatut']; ?>"><br>
+                <!-- Date d'activation ARI -->
+                <div class="col-md-6">
+                    <label class="form-label" for="ari_activation_date">Date d'activation ARI</label>
+                    <input type="date" id="ari_activation_date" name="ari_activation_date" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['ari_activation_date']); ?>">
+                </div>
 
-        <label for="ari_activation_date">Date d'activation ARI:</label>
-        <input type="date" id="ari_activation_date" name="ari_activation_date"
-            value="<?php echo $client['ari_activation_date']; ?>"><br>
+                <!-- Date d'expiration ARI -->
+                <div class="col-md-6">
+                    <label class="form-label" for="ari_expiration_date">Date d'expiration ARI</label>
+                    <input type="date" id="ari_expiration_date" name="ari_expiration_date" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['ari_expiration_date']); ?>">
+                </div>
 
-        <label for="ari_expiration_date">Date d'expiration ARI:</label>
-        <input type="date" id="ari_expiration_date" name="ari_expiration_date"
-            value="<?php echo $client['ari_expiration_date']; ?>"><br>
+                <!-- Redirection des e-mails -->
+                <div class="col-md-6">
+                    <label class="form-label" for="redirection_emails">Redirection des e-mails</label>
+                    <input type="text" id="redirection_emails" name="redirection_emails" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['redirection_emails']); ?>">
+                </div>
 
-        <label for="redirection_emails">Redirection des e-mails:</label>
-        <input type="text" id="redirection_emails" name="redirection_emails"
-            value="<?php echo $client['redirection_emails']; ?>"><br>
-
-        <label for="generation">Génération:</label>
-        <input type="text" id="generation" name="generation" value="<?php echo $client['generation']; ?>"><br>
-
-        <input type="submit" value="Mettre à jour">
-    </form>
+                <!-- Génération -->
+                <div class="col-md-6">
+                    <label class="form-label" for="generation">Génération</label>
+                    <input type="text" id="generation" name="generation" class="form-control" required
+                        value="<?php echo htmlspecialchars($client['generation']); ?>">
+                </div>
+            </div>
+            <div class="mt-4">
+                <input type="submit" value="Mettre à jour" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
 
 
     <!-- Core JS -->
