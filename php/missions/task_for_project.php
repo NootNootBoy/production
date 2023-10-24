@@ -106,7 +106,7 @@ $opt = [
                                 echo "<input type='hidden' name='id_mission' value='" . $mission['id_mission'] . "'>";
                                 echo "<input type='hidden' name='id_user' value='" . $mission['id_user'] . "'>";
                                 foreach ($taches_par_categorie as $categorie => $taches_categorie) {
-                                    echo "<h3 style='padding: 10px;'>" . $categorie . "</h3>"; // Titre de la catégorie
+                                    echo "<h3 style='margin-bottom: 10px; margin-top: 10px'>" . $categorie . "</h3>"; // Titre de la catégorie
                                     foreach ($taches_categorie as $tache) {
                                         echo "<div>";
                                         echo "<input type='checkbox' id='tache" . $tache['id_tache'] . "' name='tache" . $tache['id_tache'] . "' " . ($tache['est_complete'] == '1' ? 'checked' : '') . ">";
