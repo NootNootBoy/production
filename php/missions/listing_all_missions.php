@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
 }
-if ($_SESSION['rang'] !== 'administrateur' && $_SESSION['rang'] !== 'assistant') {
+if ($_SESSION['rang'] !== 'administrateur' && $_SESSION['rang'] !== 'assistant' && $_SESSION['rang'] !== 'developpeur') {
     // L'utilisateur n'est pas un administrateur. Redirigez-le vers une page d'erreur.
     header('Location: /php/access_denied.html');
     exit;
