@@ -175,14 +175,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h1>Récapitulatif de la mission</h1>
-    <h2><?php echo $mission['nom_mission']; ?></h2>
-    <p>Progression : <?php echo $mission['progression']; ?>%</p>
-
     <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1>Récapitulatif de la mission</h1>
+            <h2 class="mt-3"><?php echo $mission['nom_mission']; ?></h2>
+            <p class="mt-2">Progression : <?php echo $mission['progression']; ?>%</p>
+        </div>
+
         <form action="verification.php?id_mission=<?php echo $id_mission; ?>" method="post">
-            <h1 class="mb-4">Informations du client</h1>
-            <div class="row">
+            <h3 class="mb-4">Informations du client</h3>
+            <div class="row g-3">
                 <!-- Nom -->
                 <div class="col-md-6">
                     <label class="form-label" for="nom">Nom</label>
@@ -301,6 +303,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
     </div>
+
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="updateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
