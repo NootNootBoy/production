@@ -298,8 +298,7 @@ if (isset($_POST['complete'])) {
             </div>
             <div class="mt-4 d-flex justify-content-between">
                 <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
-                <input type="submit" id="completeButton" name="complete" value="Marquer comme terminée"
-                    class="btn btn-success">
+                <input type="submit" id="completeButton" value="Marquer comme terminée" class="btn btn-success">
             </div>
         </form>
     </div>
