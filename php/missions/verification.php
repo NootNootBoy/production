@@ -298,7 +298,7 @@ if (isset($_POST['complete'])) {
             </div>
             <div class="mt-4 d-flex justify-content-between">
                 <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
-                <input type="submit" id="completeButton" value="Marquer comme terminée" class="btn btn-success">
+                <input type="button" id="completeButton" value="Marquer comme terminée" class="btn btn-success">
             </div>
         </form>
     </div>
@@ -350,6 +350,7 @@ if (isset($_POST['complete'])) {
 
     <script>
     document.getElementById('completeButton').addEventListener('click', function() {
+        event.preventDefault(); // Empêche le comportement par défaut du bouton
         Swal.fire({
             title: 'Êtes-vous sûr?',
             text: "Voulez-vous vraiment marquer cette mission comme terminée?",
