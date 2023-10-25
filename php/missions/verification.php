@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container mt-5">
         <div class="text-center mb-5">
             <h1>Récapitulatif de la mission</h1>
-            <h2 class="mt-3"><?php echo $mission['nom_mission']; ?></h2>
+            <h2 class="mt-3">Mission : <?php echo $mission['nom_mission']; ?></h2>
             <p class="mt-2">Progression : <?php echo $mission['progression']; ?>%</p>
         </div>
 
@@ -305,10 +305,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="updateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="updateToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto">Notification</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
             <div class="toast-body">
                 Mise à jour effectuée avec succès !
