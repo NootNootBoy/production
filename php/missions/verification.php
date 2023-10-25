@@ -95,8 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-    // Si le bouton "Marquer comme terminée" a été cliqué
-    if (isset($_POST['complete'])) {
+if (isset($_POST['complete'])) {
     // Mettre à jour la mission comme vérifiée
     $stmt = $pdo->prepare("UPDATE missions SET verify_done = true WHERE id_mission = :id_mission");
     $stmt->execute(['id_mission' => $id_mission]);
@@ -105,9 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminée' WHERE id_mission = :id_mission");
     $stmt->execute(['id_mission' => $id_mission]);
 
-    header("Location: listing_all_missions.php");
+    echo json_encode(['success' => true]);
     exit;
-    }
+}
 
     
 }
@@ -299,7 +298,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mt-4 d-flex justify-content-between">
                 <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
-                <input type="submit" name="complete" value="Marquer comme terminée" class="btn btn-success">
+                <input type="submit" id="completeButton" name="complete" value="Marquer comme terminée"
+                    class="btn btn-success">
             </div>
         </form>
     </div>
@@ -348,6 +348,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Page JS -->
     <script src="../../assets/js/tables-datatables-basic.js"></script>
+
+    <script>
+    document.getElementById('completeButton').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Êtes-vous sûr?',
+            text: "Voulez-vous vraiment marquer cette mission comme terminée?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Oui, terminée!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                markMissionAsComplete();
+            }
+        });
+    });
+
+    function markMissionAsComplete() {
+        // Utilisez AJAX pour envoyer une demande POST à votre serveur
+        const formData = new FormData();
+        formData.append('complete', true);
+
+        fetch('verification.php?id_mission=<?php echo $id_mission; ?>', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire(
+                        'Terminée!',
+                        'La mission a été marquée comme terminée.',
+                        'success'
+                    ).then(() => {
+                        window.location.href = 'listing_all_missions.php';
+                    });
+                } else {
+                    Swal.fire(
+                        'Erreur!',
+                        'Une erreur s\'est produite lors de la mise à jour de la mission.',
+                        'error'
+                    );
+                }
+            });
+    }
+    </script>
 
     <?php 
     
