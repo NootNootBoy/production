@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ari_expiration_date = $_POST['ari_expiration_date'];
     $redirection_emails = $_POST['redirection_emails'];
     $generation = $_POST['generation'];
+    $_SESSION['updated'] = true;
 
     $updates = [];
 
@@ -88,6 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($updates as $key => $value) {
         $stmt = $pdo->prepare("UPDATE clients SET $key = :value WHERE id = :id");
         $stmt->execute(['value' => $value, 'id' => $client['id']]);
+    }
+
+    if (isset($_SESSION['updated']) && $_SESSION['updated']) {
+        echo "<script>$(document).ready(function() { var toast = new bootstrap.Toast(document.getElementById('updateToast')); toast.show(); });</script>";
+        unset($_SESSION['updated']); // Réinitialisez la variable de session pour ne pas afficher le Toast à chaque rafraîchissement
     }
 
     header("Location: verification.php?id_mission=$id_mission");
@@ -299,6 +305,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="submit" name="complete" value="Marquer comme terminée" class="btn btn-success">
             </div>
         </form>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="updateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Notification</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Mise à jour effectuée avec succès !
+                </div>
+            </div>
+        </div>
     </div>
 
 
