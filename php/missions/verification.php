@@ -43,6 +43,8 @@ $client = $stmt->fetch();
 
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['update'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $societe = $_POST['societe'];
@@ -88,16 +90,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute(['value' => $value, 'id' => $client['id']]);
     }
 
+    header("Location: verification.php?id_mission=$id_mission");
+    exit;
+}
+
+    // Si le bouton "Marquer comme terminée" a été cliqué
+    if (isset($_POST['complete'])) {
     // Mettre à jour la mission comme vérifiée
     $stmt = $pdo->prepare("UPDATE missions SET verify_done = true WHERE id_mission = :id_mission");
     $stmt->execute(['id_mission' => $id_mission]);
 
-        // Mettre à jour l'état de la mission comme "terminée"
-        $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminée' WHERE id_mission = :id_mission");
-        $stmt->execute(['id_mission' => $id_mission]);
+    // Mettre à jour l'état de la mission comme "terminée"
+    $stmt = $pdo->prepare("UPDATE missions SET etat = 'terminée' WHERE id_mission = :id_mission");
+    $stmt->execute(['id_mission' => $id_mission]);
 
     header("Location: listing_all_missions.php");
     exit;
+    }
+
+    
 }
 
 ?>
@@ -283,8 +294,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         value="<?php echo htmlspecialchars($client['generation']); ?>">
                 </div>
             </div>
-            <div class="mt-4">
-                <input type="submit" value="Mettre à jour" class="btn btn-primary">
+            <div class="mt-4 d-flex justify-content-between">
+                <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
+                <input type="submit" name="complete" value="Marquer comme terminée" class="btn btn-success">
             </div>
         </form>
     </div>
