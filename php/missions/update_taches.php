@@ -77,7 +77,23 @@ try {
     }
 
     $_SESSION['success_message'] = 'Les tâches ont été mises à jour avec succès.';
-    header('Location: listing_missions.php?userAdded=true');
+    
+    // Vérifiez si l'utilisateur est connecté et récupérez son rôle
+    if (isset($_SESSION['user_id']) && isset($_SESSION['user_rang'])) {
+        $user_id = $_SESSION['user_id'];
+        $user_rang = $_SESSION['user_rang'];
+
+        // Vous pouvez maintenant utiliser $user_role pour des conditions ou des redirections
+        // Par exemple :
+        if ($user_rang == 'developpeur') {
+            header('Location: listing_missions.php?userAdded=true');
+        } elseif ($user_rang == 'administrateur') {
+            header('Location: listing_all_missions.php?userAdded=true');
+        }
+    } else {
+        header('Location: listing_missions.php');
+    }
+
 } catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
