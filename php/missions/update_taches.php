@@ -1,5 +1,7 @@
 <?php
 
+session_start(); // Ajoutez cette ligne au début du fichier
+
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
