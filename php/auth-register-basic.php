@@ -140,14 +140,14 @@ $agences = explode("','", $matches[1]);
                                 </select>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="agence">Agence:</label>
                                 <select name="agence" id="agence" class="form-control" required>
                                     <?php foreach ($agences as $agence): ?>
                                     <option value="<?php echo $agence; ?>"><?php echo ucfirst($agence); ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                            </div>
+                            </div> -->
 
 
                             <div class="mb-3">

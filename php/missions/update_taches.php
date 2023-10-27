@@ -1,8 +1,5 @@
 <?php
 
-session_start();
-
-
 $host = '176.31.132.185';
 $db   = 'vesqbc_producti_db';
 $user = 'vesqbc_producti_db';
