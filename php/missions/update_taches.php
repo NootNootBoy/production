@@ -78,13 +78,12 @@ try {
 
     $_SESSION['success_message'] = 'Les tâches ont été mises à jour avec succès.';
     
-    // Vérifiez si l'utilisateur est connecté et récupérez son rôle
-    if (isset($_SESSION['user_id']) && isset($_SESSION['user_rang'])) {
+       // Vérifiez si l'utilisateur est connecté et récupérez son rôle
+       if (isset($_SESSION['user_id']) && isset($_SESSION['rang'])) {
         $user_id = $_SESSION['user_id'];
-        $user_rang = $_SESSION['user_rang'];
+        $user_rang = $_SESSION['rang'];
 
-        // Vous pouvez maintenant utiliser $user_role pour des conditions ou des redirections
-        // Par exemple :
+        // Redirection en fonction du rôle de l'utilisateur
         if ($user_rang == 'developpeur') {
             header('Location: listing_missions.php?userAdded=true');
         } elseif ($user_rang == 'administrateur') {
@@ -95,7 +94,8 @@ try {
     }
 
 } catch(PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
+    $_SESSION['error_message'] = "Erreur : " . $e->getMessage();
+    header('Location: listing_missions.php');
 }
 
 $pdo = null;
