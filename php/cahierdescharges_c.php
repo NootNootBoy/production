@@ -274,26 +274,21 @@ try {
                 document.getElementById('nouveau_client_champs').style.display = 'none';
                 document.getElementById('client_existant_champs').style.display = 'block';
             });
-            </script>
 
-
-            <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Masquer toutes les sous-rubriques au chargement de la page
                 masquerToutesSousRubriques();
             });
 
             function masquerToutesSousRubriques() {
-                document.getElementById('sous_rubriques_rubrique1').style.display = 'none';
-                document.getElementById('sous_rubriques_rubrique2').style.display = 'none';
-                document.getElementById('sous_rubriques_rubrique3').style.display = 'none';
+                var sousRubriques = document.querySelectorAll('.tree-view ul ul');
+                sousRubriques.forEach(function(sousRubrique) {
+                    sousRubrique.style.display = 'none';
+                });
             }
 
             document.getElementById('select_offre').addEventListener('change', function() {
                 var offreId = this.value;
-                var sousRubriques1 = document.getElementById('sous_rubriques_rubrique1');
-                var sousRubriques2 = document.getElementById('sous_rubriques_rubrique2');
-                var sousRubriques3 = document.getElementById('sous_rubriques_rubrique3');
 
                 // Masquer toutes les sous-rubriques par défaut
                 masquerToutesSousRubriques();
@@ -301,22 +296,28 @@ try {
                 // Afficher les sous-rubriques en fonction de l'offre sélectionnée
                 switch (offreId) {
                     case '1': // ID de l'offre Ambition
-                        sousRubriques1.style.display = 'block';
+                        afficherSousRubriques(1);
                         break;
                     case '2': // ID de l'offre Performance
-                        sousRubriques1.style.display = 'block';
-                        sousRubriques2.style.display = 'block';
+                        afficherSousRubriques(2);
                         break;
                     case '3': // ID de l'offre Excellence
-                        sousRubriques1.style.display = 'block';
-                        sousRubriques2.style.display = 'block';
-                        sousRubriques3.style.display = 'block';
+                        afficherSousRubriques(3);
                         break;
                 }
 
                 // Désactiver l'option par défaut
                 document.querySelector('#select_offre option[value=""]').disabled = true;
             });
+
+            function afficherSousRubriques(nombreRubriques) {
+                for (var i = 1; i <= nombreRubriques; i++) {
+                    var sousRubriques = document.querySelector('.tree-view ul li:nth-child(' + i + ') ul');
+                    if (sousRubriques) {
+                        sousRubriques.style.display = 'block';
+                    }
+                }
+            }
             </script>
 </body>
 
