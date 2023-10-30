@@ -61,8 +61,8 @@ try {
     $stmt->execute([
         $_POST['nom_projet'],
         $client_id,
-        $id_user_developpeur,
-        $id_user_assistant,
+        null, // Assistant en NULL
+        null, // Développeur en NULL
         $_POST['nom_domaine'],
         'Description du projet', // Vous pouvez ajouter un champ dans le formulaire pour cela
         'en attente' // Statut initial du projet

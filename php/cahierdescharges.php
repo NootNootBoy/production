@@ -30,55 +30,68 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création de Projet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <form action="traitement_projet.php" method="post">
-        <h2>Créer ou Sélectionner un Client</h2>
+    <div class="container mt-5">
+        <form action="traitement_projet.php" method="post">
+            <h2 class="mb-4">Créer ou Sélectionner un Client</h2>
 
-        <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked>
-        <label for="nouveau_client">Nouveau Client</label><br>
+            <div class="form-check mb-3">
+                <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked
+                    class="form-check-input">
+                <label for="nouveau_client" class="form-check-label">Nouveau Client</label>
+            </div>
 
-        <input type="radio" id="client_existant" name="type_client" value="existant">
-        <label for="client_existant">Client Existant</label><br>
+            <div class="form-check mb-3">
+                <input type="radio" id="client_existant" name="type_client" value="existant" class="form-check-input">
+                <label for="client_existant" class="form-check-label">Client Existant</label>
+            </div>
 
-        <!-- Champs pour un nouveau client -->
-        <div id="nouveau_client_champs">
-            <input type="text" name="nom" placeholder="Nom">
-            <input type="text" name="prenom" placeholder="Prénom">
-            <input type="text" name="societe" placeholder="Société">
-            <input type="text" name="siret" placeholder="SIRET">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="phone_number" placeholder="Numéro de téléphone">
-        </div>
+            <!-- Champs pour un nouveau client -->
+            <div id="nouveau_client_champs">
+                <input type="text" name="nom" placeholder="Nom" class="form-control mb-3">
+                <input type="text" name="prenom" placeholder="Prénom" class="form-control mb-3">
+                <input type="text" name="societe" placeholder="Société" class="form-control mb-3">
+                <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
+                <input type="email" name="email" placeholder="Email" class="form-control mb-3">
+                <input type="text" name="phone_number" placeholder="Numéro de téléphone" class="form-control mb-3">
+            </div>
 
-        <!-- Champs pour sélectionner un client existant -->
-        <div id="client_existant_champs" style="display: none;">
-            <select name="client_id">
-                <?php foreach ($clients as $client): ?>
-                <option value="<?php echo $client['id']; ?>">
-                    <?php echo htmlspecialchars($client['nom']) . " " . htmlspecialchars($client['prenom']); ?>
-                </option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+            <!-- Champs pour sélectionner un client existant -->
+            <div id="client_existant_champs" style="display: none;">
+                <select name="client_id" class="form-select mb-3">
+                    <?php foreach ($clients as $client): ?>
+                    <option value="<?php echo $client['id']; ?>">
+                        <?php echo htmlspecialchars($client['nom']) . " " . htmlspecialchars($client['prenom']); ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <h2>Créer un Cahier des Charges</h2>
+            <h2 class="mb-4">Créer un Cahier des Charges</h2>
 
-        <input type="text" name="nom_projet" placeholder="Nom du Projet" required>
-        <textarea name="longues_traines" placeholder="Longues Traînes"></textarea>
-        <input type="text" name="nom_domaine" placeholder="Nom de Domaine" required>
-        <input type="text" name="code_transfert_domaine" placeholder="Code de Transfert de Domaine">
-        <textarea name="rubriques" placeholder="Rubriques"></textarea>
-        <textarea name="infos_complementaires" placeholder="Informations Complémentaires"></textarea>
-        <input type="checkbox" name="charte_graphique_existante" value="1"> Charte Graphique Existante<br>
-        <textarea name="idee_site" placeholder="Idée du Site"></textarea>
-        <textarea name="concurrents" placeholder="Concurrents"></textarea>
-        <textarea name="partenaires" placeholder="Partenaires"></textarea>
-        <textarea name="villes" placeholder="Villes"></textarea>
+            <input type="text" name="nom_projet" placeholder="Nom du Projet" required class="form-control mb-3">
+            <textarea name="longues_traines" placeholder="Longues Traînes" class="form-control mb-3"></textarea>
+            <input type="text" name="nom_domaine" placeholder="Nom de Domaine" required class="form-control mb-3">
+            <input type="text" name="code_transfert_domaine" placeholder="Code de Transfert de Domaine"
+                class="form-control mb-3">
+            <textarea name="rubriques" placeholder="Rubriques" class="form-control mb-3"></textarea>
+            <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
+                class="form-control mb-3"></textarea>
+            <div class="form-check mb-3">
+                <input type="checkbox" name="charte_graphique_existante" value="1" class="form-check-input">
+                <label class="form-check-label">Charte Graphique Existante</label>
+            </div>
+            <textarea name="idee_site" placeholder="Idée du Site" class="form-control mb-3"></textarea>
+            <textarea name="concurrents" placeholder="Concurrents" class="form-control mb-3"></textarea>
+            <textarea name="partenaires" placeholder="Partenaires" class="form-control mb-3"></textarea>
+            <textarea name="villes" placeholder="Villes" class="form-control mb-3"></textarea>
 
-        <input type="submit" value="Créer Projet">
-    </form>
+            <button type="submit" class="btn btn-primary">Créer Projet</button>
+        </form>
+    </div>
 
     <script>
     // Script pour afficher/masquer les champs en fonction du choix de l'utilisateur
