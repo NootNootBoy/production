@@ -84,7 +84,7 @@ try {
     $stmt->execute([$projet_id, $cahier_des_charges_id]);
 
     // Redirection ou traitement supplémentaire
-    header("Location: /project/listing_project.php");
+    header("Location: /php/project/listing_project.php");
     exit;
 
 } catch(PDOException $e) {
