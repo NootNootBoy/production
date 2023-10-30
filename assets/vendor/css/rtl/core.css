@@ -2030,11 +2030,11 @@ progress {
   height: 1.53em;
 }
 .form-control::-moz-placeholder {
-  color: #b4bdc6;
+  color: #fff;
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #b4bdc6;
+  color: #fff;
   opacity: 1;
 }
 .form-control:disabled {
