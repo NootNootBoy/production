@@ -53,8 +53,8 @@ try {
     $cahier_des_charges_id = $pdo->lastInsertId();
 
     // Supposons que vous ayez déjà des identifiants pour le développeur et l'assistant
-    $id_user_developpeur = 1; // Remplacer par l'ID réel du développeur
-    $id_user_assistant = 2; // Remplacer par l'ID réel de l'assistant
+    $id_user_developpeur = 16; // Remplacer par l'ID réel du développeur
+    $id_user_assistant = 17; // Remplacer par l'ID réel de l'assistant
 
     // Création d'un projet et association du cahier des charges et du client
     $stmt = $pdo->prepare("INSERT INTO Projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine, desc_projet, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
