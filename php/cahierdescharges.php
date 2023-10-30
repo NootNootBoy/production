@@ -66,6 +66,24 @@ try {
 
         <input type="submit" value="Continuer">
     </form>
+    <!-- Formulaire pour créer un cahier des charges -->
+    <form action="traitement_cahier_des_charges.php" method="post">
+        <h2>Créer un Cahier des Charges</h2>
+
+        <input type="text" name="nom_projet" placeholder="Nom du Projet" required>
+        <textarea name="longues_traines" placeholder="Longues Traînes"></textarea>
+        <input type="text" name="nom_domaine" placeholder="Nom de Domaine" required>
+        <input type="text" name="code_transfert_domaine" placeholder="Code de Transfert de Domaine">
+        <textarea name="rubriques" placeholder="Rubriques"></textarea>
+        <textarea name="infos_complementaires" placeholder="Informations Complémentaires"></textarea>
+        <input type="checkbox" name="charte_graphique_existante" value="1"> Charte Graphique Existante<br>
+        <textarea name="idee_site" placeholder="Idée du Site"></textarea>
+        <textarea name="concurrents" placeholder="Concurrents"></textarea>
+        <textarea name="partenaires" placeholder="Partenaires"></textarea>
+        <textarea name="villes" placeholder="Villes"></textarea>
+
+        <input type="submit" value="Créer Cahier des Charges">
+    </form>
 
     <script>
     // Script pour afficher/masquer les champs en fonction du choix de l'utilisateur
