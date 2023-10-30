@@ -16,6 +16,15 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+// Récupérer les offres de la base de données
+try {
+    $stmt = $pdo->prepare("SELECT id, nom FROM offres");
+    $stmt->execute();
+    $offres = $stmt->fetchAll();
+} catch(PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
 // Récupérer les clients de la base de données
 try {
     $stmt = $pdo->prepare("SELECT id, nom, prenom FROM clients");
@@ -36,7 +45,7 @@ try {
 <body>
     <div class="container mt-5">
         <form action="traitement_projet.php" method="post">
-            <h2 class="mb-4">Créer ou Sélectionner un Client</h2>
+            <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
 
             <div class="form-check mb-3">
                 <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked
@@ -57,6 +66,14 @@ try {
                 <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
                 <input type="email" name="email" placeholder="Email" class="form-control mb-3">
                 <input type="text" name="phone_number" placeholder="Numéro de téléphone" class="form-control mb-3">
+                <h2 class="mb-4">3) Sélectionner une Offre</h2>
+                <select name="offre_id" class="form-select mb-3" id="select_offre">
+                    <?php foreach ($offres as $offre): ?>
+                    <option value="<?php echo $offre['id']; ?>">
+                        <?php echo htmlspecialchars($offre['nom']); ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <!-- Champs pour sélectionner un client existant -->
@@ -70,14 +87,16 @@ try {
                 </select>
             </div>
 
-            <h2 class="mb-4">Créer un Cahier des Charges</h2>
+            <h2 class="mb-4">2) Créer un Cahier des Charges</h2>
 
             <input type="text" name="nom_projet" placeholder="Nom du Projet" required class="form-control mb-3">
-            <textarea name="longues_traines" placeholder="Longues Traînes" class="form-control mb-3"></textarea>
-            <input type="text" name="nom_domaine" placeholder="Nom de Domaine" required class="form-control mb-3">
-            <input type="text" name="code_transfert_domaine" placeholder="Code de Transfert de Domaine"
+            <textarea name="longues_traines" placeholder="Longues Traînes (séparer par des virgules)"
+                class="form-control mb-3"></textarea>
+            <input type="text" name="nom_domaine" placeholder="Potentiel nom de domaine" required
                 class="form-control mb-3">
-            <textarea name="rubriques" placeholder="Rubriques" class="form-control mb-3"></textarea>
+            <div id="rubriques_container" class="mb-3">
+
+            </div>
             <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
                 class="form-control mb-3"></textarea>
             <div class="form-check mb-3">
@@ -103,6 +122,48 @@ try {
     document.getElementById('client_existant').addEventListener('change', function() {
         document.getElementById('nouveau_client_champs').style.display = 'none';
         document.getElementById('client_existant_champs').style.display = 'block';
+    });
+    </script>
+    <script>
+    document.getElementById('select_offre').addEventListener('change', function() {
+        var offreId = this.value;
+        var rubriquesContainer = document.getElementById('rubriques_container');
+
+        // Effacer les rubriques existantes
+        rubriquesContainer.innerHTML = '';
+
+        // Ajouter les rubriques en fonction de l'offre sélectionnée
+        switch (offreId) {
+            case '1': // ID de l'offre Ambition
+                for (let i = 1; i <= 3; i++) {
+                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
+                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
+                    rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i +
+                        '" placeholder="Sous-Rubrique ' + i + '" class="form-control mb-3">';
+                }
+                break;
+            case '2': // ID de l'offre Performance
+                for (let i = 1; i <= 3; i++) {
+                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
+                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
+                    for (let j = 1; j <= 2; j++) {
+                        rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i + '_' +
+                            j + '" placeholder="Sous-Rubrique ' + i + '.' + j + '" class="form-control mb-2">';
+                    }
+                }
+                break;
+            case '3': // ID de l'offre Excellence
+                for (let i = 1; i <= 3; i++) {
+                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
+                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
+                    for (let j = 1; j <= 3; j++) {
+                        rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i + '_' +
+                            j + '" placeholder="Sous-Rubrique ' + i + '.' + j + '" class="form-control mb-2">';
+                    }
+                }
+                break;
+                // Ajouter d'autres cas si nécessaire
+        }
     });
     </script>
 </body>
