@@ -167,37 +167,45 @@ try {
                                 class="form-control mb-3"></textarea>
                             <input type="text" name="nom_domaine" placeholder="Potentiel nom de domaine" required
                                 class="form-control mb-3">
-                            <h3>Rubrique 1</h3>
-                            <input type="text" name="rubrique1" placeholder="Rubrique 1" class="form-control mb-3">
-                            <div id="sous_rubriques_rubrique1">
-                                <input type="text" name="sous_rubrique1" placeholder="Sous-rubrique 1"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique2" placeholder="Sous-rubrique 2"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique3" placeholder="Sous-rubrique 3"
-                                    class="form-control mb-3">
-                            </div>
-
-                            <h3>Rubrique 2</h3>
-                            <input type="text" name="rubrique2" placeholder="Rubrique 2" class="form-control mb-3">
-                            <div id="sous_rubriques_rubrique2">
-                                <input type="text" name="sous_rubrique4" placeholder="Sous-rubrique 4"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique5" placeholder="Sous-rubrique 5"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique6" placeholder="Sous-rubrique 6"
-                                    class="form-control mb-3">
-                            </div>
-
-                            <h3>Rubrique 3</h3>
-                            <input type="text" name="rubrique3" placeholder="Rubrique 3" class="form-control mb-3">
-                            <div id="sous_rubriques_rubrique3">
-                                <input type="text" name="sous_rubrique7" placeholder="Sous-rubrique 7"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique8" placeholder="Sous-rubrique 8"
-                                    class="form-control mb-3">
-                                <input type="text" name="sous_rubrique9" placeholder="Sous-rubrique 9"
-                                    class="form-control mb-3">
+                            <div class="tree-view">
+                                <ul class="mb-3">
+                                    <li>
+                                        <input type="text" name="rubrique1" placeholder="Rubrique 1"
+                                            class="form-control mb-2">
+                                        <ul>
+                                            <li><input type="text" name="sous_rubrique1" placeholder="Sous-rubrique 1"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique2" placeholder="Sous-rubrique 2"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique3" placeholder="Sous-rubrique 3"
+                                                    class="form-control mb-2"></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="rubrique2" placeholder="Rubrique 2"
+                                            class="form-control mb-2">
+                                        <ul>
+                                            <li><input type="text" name="sous_rubrique4" placeholder="Sous-rubrique 4"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique5" placeholder="Sous-rubrique 5"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique6" placeholder="Sous-rubrique 6"
+                                                    class="form-control mb-2"></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="text" name="rubrique3" placeholder="Rubrique 3"
+                                            class="form-control mb-2">
+                                        <ul>
+                                            <li><input type="text" name="sous_rubrique7" placeholder="Sous-rubrique 7"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique8" placeholder="Sous-rubrique 8"
+                                                    class="form-control mb-2"></li>
+                                            <li><input type="text" name="sous_rubrique9" placeholder="Sous-rubrique 9"
+                                                    class="form-control mb-2"></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
 
                             <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
