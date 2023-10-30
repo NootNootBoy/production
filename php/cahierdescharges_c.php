@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include './notifications/notifications.php';
 
 // Connexion à la base de données
 $host = '176.31.132.185';
@@ -99,12 +100,12 @@ try {
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-            <?php include 'components/menu.php'; ?>
+            <?php include 'php/components/menu.php'; ?>
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <?php include 'components/navbar.php'; ?>
+                <?php include 'php/components/navbar.php'; ?>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
