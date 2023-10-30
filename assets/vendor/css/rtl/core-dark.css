@@ -2024,11 +2024,11 @@ progress {
   height: 1.53em;
 }
 .form-control::-moz-placeholder {
-  color: #cf8946;
+  color: #fff;
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #cf8946;
+  color: #fff;
   opacity: 1;
 }
 .form-control:disabled {
@@ -9749,16 +9749,16 @@ html:not([dir=rtl]) .input-group-merge .form-control:not(:last-child) {
 }
 
 .form-floating > .form-control:focus::-moz-placeholder, .form-floating > .form-control:not(:placeholder-shown)::-moz-placeholder {
-  color: #cf8946;
+  color: #fff;
 }
 
 .form-floating > .form-control:not(:-moz-placeholder-shown)::placeholder {
-  color: #cf8946;
+  color: #fff;
 }
 
 .form-floating > .form-control:focus::placeholder,
 .form-floating > .form-control:not(:placeholder-shown)::placeholder {
-  color: #cf8946;
+  color: #fff;
 }
 
 [dir=rtl] .form-floating > label {
