@@ -57,7 +57,7 @@ try {
     $id_user_assistant = 2; // Remplacer par l'ID réel de l'assistant
 
     // Création d'un projet et association du cahier des charges et du client
-    $stmt = $pdo->prepare("INSERT INTO projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine, desc_projet, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO Projets (nom_projet, id_client, id_user_developpeur, id_user_assistant, nom_domaine, desc_projet, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([
         $_POST['nom_projet'],
         $client_id,
