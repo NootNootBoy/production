@@ -74,7 +74,7 @@ try {
         null, // Assistant en NULL
         null, // Développeur en NULL
         $_POST['nom_domaine'],
-        'Description du projet', // Vous pouvez ajouter un champ dans le formulaire pour cela
+        '', // Vous pouvez ajouter un champ dans le formulaire pour cela
         'en attente' // Statut initial du projet
     ]);
     $projet_id = $pdo->lastInsertId();
@@ -84,7 +84,7 @@ try {
     $stmt->execute([$projet_id, $cahier_des_charges_id]);
 
     // Redirection ou traitement supplémentaire
-    header("Location: confirmation.php");
+    header("Location: /project/listing_project.php");
     exit;
 
 } catch(PDOException $e) {
