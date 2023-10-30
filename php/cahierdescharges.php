@@ -151,6 +151,17 @@ try {
 
 
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Masquer toutes les sous-rubriques au chargement de la page
+        masquerToutesSousRubriques();
+    });
+
+    function masquerToutesSousRubriques() {
+        document.getElementById('sous_rubriques_rubrique1').style.display = 'none';
+        document.getElementById('sous_rubriques_rubrique2').style.display = 'none';
+        document.getElementById('sous_rubriques_rubrique3').style.display = 'none';
+    }
+
     document.getElementById('select_offre').addEventListener('change', function() {
         var offreId = this.value;
         var sousRubriques1 = document.getElementById('sous_rubriques_rubrique1');
@@ -158,9 +169,7 @@ try {
         var sousRubriques3 = document.getElementById('sous_rubriques_rubrique3');
 
         // Masquer toutes les sous-rubriques par défaut
-        sousRubriques1.style.display = 'none';
-        sousRubriques2.style.display = 'none';
-        sousRubriques3.style.display = 'none';
+        masquerToutesSousRubriques();
 
         // Afficher les sous-rubriques en fonction de l'offre sélectionnée
         switch (offreId) {
@@ -176,8 +185,10 @@ try {
                 sousRubriques2.style.display = 'block';
                 sousRubriques3.style.display = 'block';
                 break;
-                // Ajouter d'autres cas si nécessaire
         }
+
+        // Désactiver l'option par défaut
+        document.querySelector('#select_offre option[value=""]').disabled = true;
     });
     </script>
 
