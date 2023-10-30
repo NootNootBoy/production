@@ -35,13 +35,23 @@ try {
     }
 
     // Traitement du cahier des charges
-    $stmt = $pdo->prepare("INSERT INTO cahier_des_charges (projet_id, longues_traines, nom_domaine, code_transfert_domaine, rubriques, infos_complementaires, charte_graphique_existante, idee_site, concurrents, partenaires, villes, nom_projet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO cahier_des_charges (projet_id, longues_traines, nom_domaine, rubrique1, sous_rubrique1, sous_rubrique2, sous_rubrique3, rubrique2, sous_rubrique4, sous_rubrique5, sous_rubrique6, rubrique3, sous_rubrique7, sous_rubrique8, sous_rubrique9, infos_complementaires, charte_graphique_existante, idee_site, concurrents, partenaires, villes, nom_projet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([
         null, // projet_id sera défini plus tard
         $_POST['longues_traines'],
         $_POST['nom_domaine'],
-        $_POST['code_transfert_domaine'],
-        $_POST['rubriques'],
+        $_POST['rubrique1'],
+        $_POST['sous_rubrique1'],
+        $_POST['sous_rubrique2'],
+        $_POST['sous_rubrique3'],
+        $_POST['rubrique2'],
+        $_POST['sous_rubrique4'],
+        $_POST['sous_rubrique5'],
+        $_POST['sous_rubrique6'],
+        $_POST['rubrique3'],
+        $_POST['sous_rubrique7'],
+        $_POST['sous_rubrique8'],
+        $_POST['sous_rubrique9'],
         $_POST['infos_complementaires'],
         $_POST['charte_graphique_existante'] ?? 0,
         $_POST['idee_site'],
