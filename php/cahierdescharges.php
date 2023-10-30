@@ -97,9 +97,30 @@ try {
                 class="form-control mb-3"></textarea>
             <input type="text" name="nom_domaine" placeholder="Potentiel nom de domaine" required
                 class="form-control mb-3">
-            <div id="rubriques_container" class="mb-3">
-
+            <h3>Rubrique 1</h3>
+            <input type="text" name="rubrique1" placeholder="Rubrique 1" class="form-control mb-3">
+            <div id="sous_rubriques_rubrique1">
+                <input type="text" name="sous_rubrique1" placeholder="Sous-rubrique 1" class="form-control mb-3">
+                <input type="text" name="sous_rubrique2" placeholder="Sous-rubrique 2" class="form-control mb-3">
+                <input type="text" name="sous_rubrique3" placeholder="Sous-rubrique 3" class="form-control mb-3">
             </div>
+
+            <h3>Rubrique 2</h3>
+            <input type="text" name="rubrique2" placeholder="Rubrique 2" class="form-control mb-3">
+            <div id="sous_rubriques_rubrique2">
+                <input type="text" name="sous_rubrique4" placeholder="Sous-rubrique 4" class="form-control mb-3">
+                <input type="text" name="sous_rubrique5" placeholder="Sous-rubrique 5" class="form-control mb-3">
+                <input type="text" name="sous_rubrique6" placeholder="Sous-rubrique 6" class="form-control mb-3">
+            </div>
+
+            <h3>Rubrique 3</h3>
+            <input type="text" name="rubrique3" placeholder="Rubrique 3" class="form-control mb-3">
+            <div id="sous_rubriques_rubrique3">
+                <input type="text" name="sous_rubrique7" placeholder="Sous-rubrique 7" class="form-control mb-3">
+                <input type="text" name="sous_rubrique8" placeholder="Sous-rubrique 8" class="form-control mb-3">
+                <input type="text" name="sous_rubrique9" placeholder="Sous-rubrique 9" class="form-control mb-3">
+            </div>
+
             <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
                 class="form-control mb-3"></textarea>
             <div class="form-check mb-3">
@@ -132,40 +153,28 @@ try {
     <script>
     document.getElementById('select_offre').addEventListener('change', function() {
         var offreId = this.value;
-        var rubriquesContainer = document.getElementById('rubriques_container');
+        var sousRubriques1 = document.getElementById('sous_rubriques_rubrique1');
+        var sousRubriques2 = document.getElementById('sous_rubriques_rubrique2');
+        var sousRubriques3 = document.getElementById('sous_rubriques_rubrique3');
 
-        // Effacer les rubriques existantes
-        rubriquesContainer.innerHTML = '';
+        // Masquer toutes les sous-rubriques par défaut
+        sousRubriques1.style.display = 'none';
+        sousRubriques2.style.display = 'none';
+        sousRubriques3.style.display = 'none';
 
-        // Ajouter les rubriques en fonction de l'offre sélectionnée
+        // Afficher les sous-rubriques en fonction de l'offre sélectionnée
         switch (offreId) {
             case '1': // ID de l'offre Ambition
-                for (let i = 1; i <= 3; i++) {
-                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
-                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
-                    rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i +
-                        '" placeholder="Sous-Rubrique ' + i + '" class="form-control mb-3">';
-                }
+                sousRubriques1.style.display = 'block';
                 break;
             case '2': // ID de l'offre Performance
-                for (let i = 1; i <= 3; i++) {
-                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
-                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
-                    for (let j = 1; j <= 2; j++) {
-                        rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i + '_' +
-                            j + '" placeholder="Sous-Rubrique ' + i + '.' + j + '" class="form-control mb-2">';
-                    }
-                }
+                sousRubriques1.style.display = 'block';
+                sousRubriques2.style.display = 'block';
                 break;
             case '3': // ID de l'offre Excellence
-                for (let i = 1; i <= 3; i++) {
-                    rubriquesContainer.innerHTML += '<input type="text" name="rubrique_' + i +
-                        '" placeholder="Rubrique ' + i + '" class="form-control mb-2">';
-                    for (let j = 1; j <= 3; j++) {
-                        rubriquesContainer.innerHTML += '<input type="text" name="sous_rubrique_' + i + '_' +
-                            j + '" placeholder="Sous-Rubrique ' + i + '.' + j + '" class="form-control mb-2">';
-                    }
-                }
+                sousRubriques1.style.display = 'block';
+                sousRubriques2.style.display = 'block';
+                sousRubriques3.style.display = 'block';
                 break;
                 // Ajouter d'autres cas si nécessaire
         }
