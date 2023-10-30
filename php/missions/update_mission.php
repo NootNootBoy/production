@@ -41,7 +41,7 @@ try {
             $stmt->execute();
         }
     
-        echo "Mission acceptée et tâches créées avec succès";
+        header("Location: listing_missions.php"); // Redirection vers une page de succès
     } else if ($action == 'Refuser') {
         // Si l'utilisateur a refusé la mission, mettre à jour l'état de la mission
 
