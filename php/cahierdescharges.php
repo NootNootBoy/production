@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
 // Connexion à la base de données
 $host = '176.31.132.185';
@@ -24,17 +26,14 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Création de Projet</title>
 </head>
 
 <body>
-    <form action="traitement_client.php" method="post">
+    <form action="traitement_projet.php" method="post">
         <h2>Créer ou Sélectionner un Client</h2>
 
         <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked>
@@ -45,11 +44,11 @@ try {
 
         <!-- Champs pour un nouveau client -->
         <div id="nouveau_client_champs">
-            <input type="text" name="nom" placeholder="Nom" required>
-            <input type="text" name="prenom" placeholder="Prénom" required>
-            <input type="text" name="societe" placeholder="Société" required>
-            <input type="text" name="siret" placeholder="SIRET" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="nom" placeholder="Nom">
+            <input type="text" name="prenom" placeholder="Prénom">
+            <input type="text" name="societe" placeholder="Société">
+            <input type="text" name="siret" placeholder="SIRET">
+            <input type="email" name="email" placeholder="Email">
             <input type="text" name="phone_number" placeholder="Numéro de téléphone">
         </div>
 
@@ -64,10 +63,6 @@ try {
             </select>
         </div>
 
-        <input type="submit" value="Continuer">
-    </form>
-    <!-- Formulaire pour créer un cahier des charges -->
-    <form action="traitement_cahier_des_charges.php" method="post">
         <h2>Créer un Cahier des Charges</h2>
 
         <input type="text" name="nom_projet" placeholder="Nom du Projet" required>
@@ -82,7 +77,7 @@ try {
         <textarea name="partenaires" placeholder="Partenaires"></textarea>
         <textarea name="villes" placeholder="Villes"></textarea>
 
-        <input type="submit" value="Créer Cahier des Charges">
+        <input type="submit" value="Créer Projet">
     </form>
 
     <script>
@@ -97,7 +92,6 @@ try {
         document.getElementById('client_existant_champs').style.display = 'block';
     });
     </script>
-
 </body>
 
 </html>
