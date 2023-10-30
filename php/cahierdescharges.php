@@ -66,7 +66,8 @@ try {
                 <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
                 <input type="email" name="email" placeholder="Email" class="form-control mb-3">
                 <input type="text" name="phone_number" placeholder="Numéro de téléphone" class="form-control mb-3">
-                <h2 class="mb-4">3) Sélectionner une Offre</h2>
+
+                <h2 class="mb-4">1.1) Sélectionner une Offre</h2>
                 <select name="offre_id" class="form-select mb-3" id="select_offre">
                     <?php foreach ($offres as $offre): ?>
                     <option value="<?php echo $offre['id']; ?>">
@@ -124,6 +125,8 @@ try {
         document.getElementById('client_existant_champs').style.display = 'block';
     });
     </script>
+
+
     <script>
     document.getElementById('select_offre').addEventListener('change', function() {
         var offreId = this.value;
@@ -166,6 +169,7 @@ try {
         }
     });
     </script>
+
 </body>
 
 </html>
