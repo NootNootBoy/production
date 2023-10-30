@@ -66,16 +66,6 @@ try {
                 <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
                 <input type="email" name="email" placeholder="Email" class="form-control mb-3">
                 <input type="text" name="phone_number" placeholder="Numéro de téléphone" class="form-control mb-3">
-
-                <h2 class="mb-4">2) Sélectionner une Offre</h2>
-                <select name="offre_id" class="form-select mb-3" id="select_offre">
-                    <option value="">Sélectionner une offre...</option>
-                    <?php foreach ($offres as $offre): ?>
-                    <option value="<?php echo $offre['id']; ?>">
-                        <?php echo htmlspecialchars($offre['nom']); ?>
-                    </option>
-                    <?php endforeach; ?>
-                </select>
             </div>
 
             <!-- Champs pour sélectionner un client existant -->
@@ -88,6 +78,17 @@ try {
                     <?php endforeach; ?>
                 </select>
             </div>
+
+            <h2 class="mb-4">2) Sélectionner une Offre</h2>
+            <select name="offre_id" class="form-select mb-3" id="select_offre">
+                <option value="">Sélectionner une offre...</option>
+                <?php foreach ($offres as $offre): ?>
+                <option value="<?php echo $offre['id']; ?>">
+                    <?php echo htmlspecialchars($offre['nom']); ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+
 
             <h2 class="mb-4">3) Créer un Cahier des Charges</h2>
 
