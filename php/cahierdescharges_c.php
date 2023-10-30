@@ -108,115 +108,119 @@ try {
                 <?php include 'components/navbar.php'; ?>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
-                <div class="content-wrapper" style="padding: 50px;">
-                    <form action="traitement_projet.php" method="post">
-                        <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
 
-                        <div class="form-check mb-3">
-                            <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked
-                                class="form-check-input">
-                            <label for="nouveau_client" class="form-check-label">Nouveau Client</label>
-                        </div>
+                        <form action="traitement_projet.php" method="post">
+                            <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
 
-                        <div class="form-check mb-3">
-                            <input type="radio" id="client_existant" name="type_client" value="existant"
-                                class="form-check-input">
-                            <label for="client_existant" class="form-check-label">Client Existant</label>
-                        </div>
+                            <div class="form-check mb-3">
+                                <input type="radio" id="nouveau_client" name="type_client" value="nouveau" checked
+                                    class="form-check-input">
+                                <label for="nouveau_client" class="form-check-label">Nouveau Client</label>
+                            </div>
 
-                        <!-- Champs pour un nouveau client -->
-                        <div id="nouveau_client_champs">
-                            <input type="text" name="nom" placeholder="Nom" class="form-control mb-3">
-                            <input type="text" name="prenom" placeholder="Prénom" class="form-control mb-3">
-                            <input type="text" name="societe" placeholder="Société" class="form-control mb-3">
-                            <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
-                            <input type="email" name="email" placeholder="Email" class="form-control mb-3">
-                            <input type="text" name="phone_number" placeholder="Numéro de téléphone"
-                                class="form-control mb-3">
-                        </div>
+                            <div class="form-check mb-3">
+                                <input type="radio" id="client_existant" name="type_client" value="existant"
+                                    class="form-check-input">
+                                <label for="client_existant" class="form-check-label">Client Existant</label>
+                            </div>
 
-                        <!-- Champs pour sélectionner un client existant -->
-                        <div id="client_existant_champs" style="display: none;">
-                            <select name="client_id" class="form-select mb-3">
-                                <?php foreach ($clients as $client): ?>
-                                <option value="<?php echo $client['id']; ?>">
-                                    <?php echo htmlspecialchars($client['nom']) . " " . htmlspecialchars($client['prenom']); ?>
+                            <!-- Champs pour un nouveau client -->
+                            <div id="nouveau_client_champs">
+                                <input type="text" name="nom" placeholder="Nom" class="form-control mb-3">
+                                <input type="text" name="prenom" placeholder="Prénom" class="form-control mb-3">
+                                <input type="text" name="societe" placeholder="Société" class="form-control mb-3">
+                                <input type="text" name="siret" placeholder="SIRET" class="form-control mb-3">
+                                <input type="email" name="email" placeholder="Email" class="form-control mb-3">
+                                <input type="text" name="phone_number" placeholder="Numéro de téléphone"
+                                    class="form-control mb-3">
+                            </div>
+
+                            <!-- Champs pour sélectionner un client existant -->
+                            <div id="client_existant_champs" style="display: none;">
+                                <select name="client_id" class="form-select mb-3">
+                                    <?php foreach ($clients as $client): ?>
+                                    <option value="<?php echo $client['id']; ?>">
+                                        <?php echo htmlspecialchars($client['nom']) . " " . htmlspecialchars($client['prenom']); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <h2 class="mb-4">2) Sélectionner une Offre</h2>
+                            <select name="offre_id" class="form-select mb-3" id="select_offre">
+                                <option value="">Sélectionner une offre...</option>
+                                <?php foreach ($offres as $offre): ?>
+                                <option value="<?php echo $offre['id']; ?>">
+                                    <?php echo htmlspecialchars($offre['nom']); ?>
                                 </option>
                                 <?php endforeach; ?>
                             </select>
-                        </div>
-
-                        <h2 class="mb-4">2) Sélectionner une Offre</h2>
-                        <select name="offre_id" class="form-select mb-3" id="select_offre">
-                            <option value="">Sélectionner une offre...</option>
-                            <?php foreach ($offres as $offre): ?>
-                            <option value="<?php echo $offre['id']; ?>">
-                                <?php echo htmlspecialchars($offre['nom']); ?>
-                            </option>
-                            <?php endforeach; ?>
-                        </select>
 
 
-                        <h2 class="mb-4">3) Créer un Cahier des Charges</h2>
+                            <h2 class="mb-4">3) Créer un Cahier des Charges</h2>
 
-                        <input type="text" name="nom_projet" placeholder="Nom du Projet" required
-                            class="form-control mb-3">
-                        <textarea name="longues_traines" placeholder="Longues Traînes (séparer par des virgules)"
-                            class="form-control mb-3"></textarea>
-                        <input type="text" name="nom_domaine" placeholder="Potentiel nom de domaine" required
-                            class="form-control mb-3">
-                        <h3>Rubrique 1</h3>
-                        <input type="text" name="rubrique1" placeholder="Rubrique 1" class="form-control mb-3">
-                        <div id="sous_rubriques_rubrique1">
-                            <input type="text" name="sous_rubrique1" placeholder="Sous-rubrique 1"
+                            <input type="text" name="nom_projet" placeholder="Nom du Projet" required
                                 class="form-control mb-3">
-                            <input type="text" name="sous_rubrique2" placeholder="Sous-rubrique 2"
+                            <textarea name="longues_traines" placeholder="Longues Traînes (séparer par des virgules)"
+                                class="form-control mb-3"></textarea>
+                            <input type="text" name="nom_domaine" placeholder="Potentiel nom de domaine" required
                                 class="form-control mb-3">
-                            <input type="text" name="sous_rubrique3" placeholder="Sous-rubrique 3"
-                                class="form-control mb-3">
-                        </div>
+                            <h3>Rubrique 1</h3>
+                            <input type="text" name="rubrique1" placeholder="Rubrique 1" class="form-control mb-3">
+                            <div id="sous_rubriques_rubrique1">
+                                <input type="text" name="sous_rubrique1" placeholder="Sous-rubrique 1"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique2" placeholder="Sous-rubrique 2"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique3" placeholder="Sous-rubrique 3"
+                                    class="form-control mb-3">
+                            </div>
 
-                        <h3>Rubrique 2</h3>
-                        <input type="text" name="rubrique2" placeholder="Rubrique 2" class="form-control mb-3">
-                        <div id="sous_rubriques_rubrique2">
-                            <input type="text" name="sous_rubrique4" placeholder="Sous-rubrique 4"
-                                class="form-control mb-3">
-                            <input type="text" name="sous_rubrique5" placeholder="Sous-rubrique 5"
-                                class="form-control mb-3">
-                            <input type="text" name="sous_rubrique6" placeholder="Sous-rubrique 6"
-                                class="form-control mb-3">
-                        </div>
+                            <h3>Rubrique 2</h3>
+                            <input type="text" name="rubrique2" placeholder="Rubrique 2" class="form-control mb-3">
+                            <div id="sous_rubriques_rubrique2">
+                                <input type="text" name="sous_rubrique4" placeholder="Sous-rubrique 4"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique5" placeholder="Sous-rubrique 5"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique6" placeholder="Sous-rubrique 6"
+                                    class="form-control mb-3">
+                            </div>
 
-                        <h3>Rubrique 3</h3>
-                        <input type="text" name="rubrique3" placeholder="Rubrique 3" class="form-control mb-3">
-                        <div id="sous_rubriques_rubrique3">
-                            <input type="text" name="sous_rubrique7" placeholder="Sous-rubrique 7"
-                                class="form-control mb-3">
-                            <input type="text" name="sous_rubrique8" placeholder="Sous-rubrique 8"
-                                class="form-control mb-3">
-                            <input type="text" name="sous_rubrique9" placeholder="Sous-rubrique 9"
-                                class="form-control mb-3">
-                        </div>
+                            <h3>Rubrique 3</h3>
+                            <input type="text" name="rubrique3" placeholder="Rubrique 3" class="form-control mb-3">
+                            <div id="sous_rubriques_rubrique3">
+                                <input type="text" name="sous_rubrique7" placeholder="Sous-rubrique 7"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique8" placeholder="Sous-rubrique 8"
+                                    class="form-control mb-3">
+                                <input type="text" name="sous_rubrique9" placeholder="Sous-rubrique 9"
+                                    class="form-control mb-3">
+                            </div>
 
-                        <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
-                            class="form-control mb-3"></textarea>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" name="charte_graphique_existante" value="1" class="form-check-input">
-                            <label class="form-check-label">Charte Graphique Existante</label>
-                        </div>
-                        <textarea name="idee_site" placeholder="Idée du Site" class="form-control mb-3"></textarea>
-                        <textarea name="concurrents" placeholder="Concurrents" class="form-control mb-3"></textarea>
-                        <textarea name="partenaires" placeholder="Partenaires" class="form-control mb-3"></textarea>
-                        <textarea name="villes" placeholder="Villes" class="form-control mb-3"></textarea>
+                            <textarea name="infos_complementaires" placeholder="Informations Complémentaires"
+                                class="form-control mb-3"></textarea>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" name="charte_graphique_existante" value="1"
+                                    class="form-check-input">
+                                <label class="form-check-label">Charte Graphique Existante</label>
+                            </div>
+                            <textarea name="idee_site" placeholder="Idée du Site" class="form-control mb-3"></textarea>
+                            <textarea name="concurrents" placeholder="Concurrents" class="form-control mb-3"></textarea>
+                            <textarea name="partenaires" placeholder="Partenaires" class="form-control mb-3"></textarea>
+                            <textarea name="villes" placeholder="Villes" class="form-control mb-3"></textarea>
 
-                        <button type="submit" class="btn btn-primary">Créer Projet</button>
-                    </form>
-                    <!-- / Layout page -->
+                            <button type="submit" class="btn btn-primary">Créer Projet</button>
+                        </form>
+                        <!-- / Layout page -->
+                    </div>
+                    <!-- Overlay -->
+                    <div class="layout-overlay layout-menu-toggle"></div>
+                    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+                    <div class="drag-target"></div>
                 </div>
-                <!-- Overlay -->
-                <div class="layout-overlay layout-menu-toggle"></div>
-                <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-                <div class="drag-target"></div>
             </div>
             <!-- / Layout wrapper -->
             <!-- Core JS -->
