@@ -108,7 +108,7 @@ try {
                 <?php include 'components/navbar.php'; ?>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
-                <div class="content-wrapper">
+                <div class="content-wrapper" style="padding: 10px;">
                     <form action="traitement_projet.php" method="post">
                         <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
 
