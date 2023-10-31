@@ -160,49 +160,13 @@ $cahier_des_charges = $stmt->fetch(PDO::FETCH_ASSOC);
                                     <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Photos en annexes
                                     </h5>
                                     <?php 
-if (!empty($cahier_des_charges['image1'])) {
-    echo '<img src="https://intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image1']) . '" alt="Image 1" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal1">';
-}
-if (!empty($cahier_des_charges['image2'])) {
-    echo '<img src="https://intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image2']) . '" alt="Image 2" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal2">';
-}
-?>
-
-                                    <!-- Modal pour l'image 1 -->
-                                    <div class="modal fade" id="imageModal1" tabindex="-1"
-                                        aria-labelledby="imageModalLabel1" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="imageModalLabel1">Image 1</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img src="https://intranet-mindset.com/<?php echo htmlspecialchars($cahier_des_charges['image1']); ?>"
-                                                        class="img-fluid">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Modal pour l'image 2 -->
-                                    <div class="modal fade" id="imageModal2" tabindex="-1"
-                                        aria-labelledby="imageModalLabel2" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="imageModalLabel2">Image 2</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img src="https://intranet-mindset.com/<?php echo htmlspecialchars($cahier_des_charges['image2']); ?>"
-                                                        class="img-fluid">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    if (!empty($cahier_des_charges['image1'])) {
+                                        echo '<img src="https://intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image1']) . '" alt="Image 1">';
+                                    }
+                                    if (!empty($cahier_des_charges['image2'])) {
+                                        echo '<img src="https://intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image2']) . '" alt="Image 2">';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
