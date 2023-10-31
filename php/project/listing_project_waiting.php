@@ -251,7 +251,7 @@ try {
         completerProjetModal.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget;
             var idProjet = button.getAttribute('data-id');
-            var modalBodyInput = completerProjetModal.querySelector('.modal-body #idProjet');
+            var modalBodyInput = completerProjetModal.querySelector('.modal-body #id_projet');
             modalBodyInput.value = idProjet;
 
             // Charger les informations existantes du projet ici
