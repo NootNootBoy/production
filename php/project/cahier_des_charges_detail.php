@@ -90,11 +90,8 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Projets en
-                            Attente</h4>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-header mb-4">Liste des projets en attente :</h5>
-                        </div>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard / Projets /</span>
+                            Cahier des charges</h4>
                         <div class="container">
                             <div class="card">
                                 <div class="card-header">
