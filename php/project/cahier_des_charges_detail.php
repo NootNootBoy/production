@@ -92,78 +92,138 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Projets en
                             Attente</h4>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-header mb-4">Liste des projets en attente :</h5>
-                        </div>
-                        <div class="container">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h1>Cahier des charges pour le projet :
-                                        <?php echo htmlspecialchars($cahier_des_charges['nom_projet']); ?></h1>
-                                </div>
-                                <div class="card-body">
-                                    <?php if (!empty($cahier_des_charges['longues_traines'])): ?>
-                                    <p class="card-text"><strong>Longues traines:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['longues_traines']); ?></p>
-                                    <?php endif; ?>
 
-                                    <?php if (!empty($cahier_des_charges['nom_domaine'])): ?>
-                                    <p class="card-text"><strong>Nom de domaine:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['nom_domaine']); ?></p>
-                                    <?php endif; ?>
+                        <div class="card">
+                            <div class="card-header">
+                                <h1>Cahier des charges pour le projet :
+                                    <?php echo htmlspecialchars($cahier_des_charges['nom_projet']); ?></h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="accordion" id="accordionCahier">
+                                    <!-- Infos générales -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingGeneral">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseGeneral" aria-expanded="true"
+                                                aria-controls="collapseGeneral">
+                                                Infos générales
+                                            </button>
+                                        </h2>
+                                        <div id="collapseGeneral" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingGeneral" data-bs-parent="#accordionCahier">
+                                            <div class="accordion-body">
+                                                <?php if (!empty($cahier_des_charges['nom_domaine'])): ?>
+                                                <p class="card-text"><strong>Nom de domaine:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['nom_domaine']); ?>
+                                                </p>
+                                                <?php endif; ?>
 
-                                    <?php if (!empty($cahier_des_charges['charte_graphique_existante'])): ?>
-                                    <p class="card-text"><strong>Charte graphique existante:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['charte_graphique_existante']); ?>
-                                    </p>
-                                    <?php endif; ?>
+                                                <?php if (!empty($cahier_des_charges['charte_graphique_existante'])): ?>
+                                                <p class="card-text"><strong>Charte graphique existante:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['charte_graphique_existante']); ?>
+                                                </p>
+                                                <?php endif; ?>
 
-                                    <?php if (!empty($cahier_des_charges['idee_site'])): ?>
-                                    <p class="card-text"><strong>Idée du site:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['idee_site']); ?></p>
-                                    <?php endif; ?>
+                                                <?php if (!empty($cahier_des_charges['idee_site'])): ?>
+                                                <p class="card-text"><strong>Idée du site:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['idee_site']); ?>
+                                                </p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <?php if (!empty($cahier_des_charges['concurrents'])): ?>
-                                    <p class="card-text"><strong>Concurrents:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['concurrents']); ?></p>
-                                    <?php endif; ?>
+                                    <!-- Menu -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingMenu">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseMenu"
+                                                aria-expanded="false" aria-controls="collapseMenu">
+                                                Menu
+                                            </button>
+                                        </h2>
+                                        <div id="collapseMenu" class="accordion-collapse collapse"
+                                            aria-labelledby="headingMenu" data-bs-parent="#accordionCahier">
+                                            <div class="accordion-body">
+                                                <?php for ($i = 1; $i <= 3; $i++): ?>
+                                                <?php if (!empty($cahier_des_charges['rubrique' . $i])): ?>
+                                                <p class="card-title">Rubrique <?php echo $i; ?>:
+                                                    <?php echo htmlspecialchars($cahier_des_charges['rubrique' . $i]); ?>
+                                                </p>
+                                                <ul class="list-group list-group-flush">
+                                                    <?php for ($j = ($i - 1) * 3 + 1; $j <= $i * 3; $j++): ?>
+                                                    <?php if (!empty($cahier_des_charges['sous_rubrique' . $j])): ?>
+                                                    <li class="list-group-item">
+                                                        <?php echo htmlspecialchars($cahier_des_charges['sous_rubrique' . $j]); ?>
+                                                    </li>
+                                                    <?php endif; ?>
+                                                    <?php endfor; ?>
+                                                </ul>
+                                                <?php endif; ?>
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <?php if (!empty($cahier_des_charges['partenaires'])): ?>
-                                    <p class="card-text"><strong>Partenaires:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['partenaires']); ?></p>
-                                    <?php endif; ?>
+                                    <!-- SEO -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingSEO">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSEO"
+                                                aria-expanded="false" aria-controls="collapseSEO">
+                                                SEO
+                                            </button>
+                                        </h2>
+                                        <div id="collapseSEO" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSEO" data-bs-parent="#accordionCahier">
+                                            <div class="accordion-body">
+                                                <?php if (!empty($cahier_des_charges['villes'])): ?>
+                                                <p class="card-text"><strong>Villes:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['villes']); ?></p>
+                                                <?php endif; ?>
 
-                                    <?php if (!empty($cahier_des_charges['villes'])): ?>
-                                    <p class="card-text"><strong>Villes:</strong>
-                                        <?php echo htmlspecialchars($cahier_des_charges['villes']); ?></p>
-                                    <?php endif; ?>
+                                                <?php if (!empty($cahier_des_charges['longues_traines'])): ?>
+                                                <p class="card-text"><strong>Longues traines:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['longues_traines']); ?>
+                                                </p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <?php for ($i = 1; $i <= 3; $i++): ?>
-                                    <?php if (!empty($cahier_des_charges['rubrique' . $i])): ?>
-                                    <p class="card-title">Rubrique <?php echo $i; ?>:
-                                        <?php echo htmlspecialchars($cahier_des_charges['rubrique' . $i]); ?></p>
-                                    <ul class="list-group list-group-flush">
-                                        <?php for ($j = ($i - 1) * 3 + 1; $j <= $i * 3; $j++): ?>
-                                        <?php if (!empty($cahier_des_charges['sous_rubrique' . $j])): ?>
-                                        <li class="list-group-item">
-                                            <?php echo htmlspecialchars($cahier_des_charges['sous_rubrique' . $j]); ?>
-                                        </li>
-                                        <?php endif; ?>
-                                        <?php endfor; ?>
-                                    </ul>
-                                    <?php endif; ?>
-                                    <?php endfor; ?>
+                                    <!-- Concurrents & Partenaires -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingConcurrents">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseConcurrents"
+                                                aria-expanded="false" aria-controls="collapseConcurrents">
+                                                Concurrents & Partenaires
+                                            </button>
+                                        </h2>
+                                        <div id="collapseConcurrents" class="accordion-collapse collapse"
+                                            aria-labelledby="headingConcurrents" data-bs-parent="#accordionCahier">
+                                            <div class="accordion-body">
+                                                <?php if (!empty($cahier_des_charges['concurrents'])): ?>
+                                                <p class="card-text"><strong>Concurrents:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['concurrents']); ?>
+                                                </p>
+                                                <?php endif; ?>
+
+                                                <?php if (!empty($cahier_des_charges['partenaires'])): ?>
+                                                <p class="card-text"><strong>Partenaires:</strong>
+                                                    <?php echo htmlspecialchars($cahier_des_charges['partenaires']); ?>
+                                                </p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--/ DataTable with Buttons -->
-                    <hr class="my-5" />
                     <!-- / Content -->
-                    <!-- Edit User Modal -->
-
                 </div>
-                <!-- Content wrapper -->
+                <!-- / Content wrapper -->
             </div>
             <!-- / Layout page -->
         </div>
