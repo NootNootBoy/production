@@ -156,6 +156,17 @@ $cahier_des_charges = $stmt->fetch(PDO::FETCH_ASSOC);
                                     <p class="card-text"><strong>Partenaires:</strong>
                                         <?php echo htmlspecialchars($cahier_des_charges['partenaires']); ?></p>
                                     <?php endif; ?>
+
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Photos en annexes
+                                    </h5>
+                                    <?php 
+                                    if (!empty($cahier_des_charges['image1'])) {
+                                        echo '<img src="' . htmlspecialchars($cahier_des_charges['image1']) . '" alt="Image 1">';
+                                    }
+                                    if (!empty($cahier_des_charges['image2'])) {
+                                        echo '<img src="' . htmlspecialchars($cahier_des_charges['image2']) . '" alt="Image 2">';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
