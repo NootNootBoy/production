@@ -91,13 +91,13 @@
 
                 <li class="menu-item">
                     <a href="/php/project/listing_project_waiting.php" class="menu-link">
-                        <div data-i18n="Créer un projet">Projets en attentes</div>
+                        <div data-i18n="Projets en attentes">Projets en attentes</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
                     <a href="/php/project/listing_project.php" class="menu-link">
-                        <div data-i18n="Listes des projets">Projets en cours</div>
+                        <div data-i18n="Projets en cours">Projets en cours</div>
                     </a>
                 </li>
 

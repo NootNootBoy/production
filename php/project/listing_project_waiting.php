@@ -127,7 +127,7 @@ try {
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Projets en
                             Attente</h4>
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-header">Liste des projets en attente :</h5>
+                            <h5 class="card-header mb-4">Liste des projets en attente :</h5>
                         </div>
                         <div class="row g-4">
                             <?php
