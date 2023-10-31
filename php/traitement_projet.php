@@ -83,7 +83,7 @@ try {
     $stmt = $pdo->prepare("UPDATE cahier_des_charges SET projet_id = ? WHERE id = ?");
     $stmt->execute([$projet_id, $cahier_des_charges_id]);
 
-    $target_dir = "../assets/img/cahierdescharges";
+    $target_dir = "../assets/img/cahierdescharge/";
     if (!file_exists($target_dir)) {
         mkdir($target_dir, 0755, true);
     }    
