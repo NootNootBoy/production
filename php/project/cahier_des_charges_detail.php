@@ -10,8 +10,6 @@ $stmt = $pdo->prepare('SELECT * FROM cahier_des_charges WHERE projet_id = ?');
 $stmt->execute([$projet_id]);
 $cahier_des_charges = $stmt->fetch(PDO::FETCH_ASSOC);
 
-echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_charges['nom_projet']) . "</h1>";
-
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +145,7 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                         <?php echo htmlspecialchars($cahier_des_charges['longues_traines']); ?></p>
                                     <?php endif; ?>
 
-                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">concurrents &
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Concurrents &
                                         Partenaires</h5>
                                     <?php if (!empty($cahier_des_charges['concurrents'])): ?>
                                     <p class="card-text"><strong>Concurrents:</strong>
