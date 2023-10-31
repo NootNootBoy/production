@@ -102,7 +102,8 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                         <?php echo htmlspecialchars($cahier_des_charges['nom_projet']); ?></h1>
                                 </div>
                                 <div class="card-body">
-                                    <h5>Infos générales</h5>
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Infos générales
+                                    </h5>
                                     <?php if (!empty($cahier_des_charges['nom_domaine'])): ?>
                                     <p class="card-text"><strong>Nom de domaine:</strong>
                                         <?php echo htmlspecialchars($cahier_des_charges['nom_domaine']); ?></p>
@@ -119,7 +120,7 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                         <?php echo htmlspecialchars($cahier_des_charges['idee_site']); ?></p>
                                     <?php endif; ?>
 
-                                    <h5>Menu</h5>
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Menu</h5>
 
                                     <?php for ($i = 1; $i <= 3; $i++): ?>
                                     <?php if (!empty($cahier_des_charges['rubrique' . $i])): ?>
@@ -137,7 +138,7 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                     <?php endif; ?>
                                     <?php endfor; ?>
 
-                                    <h5>SEO</h5>
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">SEO</h5>
 
                                     <?php if (!empty($cahier_des_charges['villes'])): ?>
                                     <p class="card-text"><strong>Villes:</strong>
@@ -149,7 +150,8 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                         <?php echo htmlspecialchars($cahier_des_charges['longues_traines']); ?></p>
                                     <?php endif; ?>
 
-                                    <h5>concurrents & Partenaires</h5>
+                                    <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">concurrents &
+                                        Partenaires</h5>
                                     <?php if (!empty($cahier_des_charges['concurrents'])): ?>
                                     <p class="card-text"><strong>Concurrents:</strong>
                                         <?php echo htmlspecialchars($cahier_des_charges['concurrents']); ?></p>
