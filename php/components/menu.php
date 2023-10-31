@@ -72,7 +72,7 @@
 
                 </li>
                 <li class="menu-item">
-                    <a href="https://intranet-mindset.com/php/cahierdescharges_c.php" class="menu-link" target="_blank">
+                    <a href="https://intranet-mindset.com/php/cahierdescharges_c.php" class="menu-link">
                         <div data-i18n="Créer un cahier des charges">Créer un cahier des charges</div>
                     </a>
                 </li>

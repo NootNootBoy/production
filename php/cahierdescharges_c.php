@@ -111,7 +111,7 @@ try {
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
 
-                        <form action="traitement_projet.php" method="post">
+                        <form action="traitement_projet.php" method="post" enctype="multipart/form-data">>
                             <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
 
                             <div class="form-check mb-3">
