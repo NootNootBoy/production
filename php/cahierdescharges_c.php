@@ -219,7 +219,9 @@ try {
                             <textarea name="concurrents" placeholder="Concurrents" class="form-control mb-3"></textarea>
                             <textarea name="partenaires" placeholder="Partenaires" class="form-control mb-3"></textarea>
                             <textarea name="villes" placeholder="Villes" class="form-control mb-3"></textarea>
-
+                            <h5>Images annexes</h5>
+                            <input type="file" name="image1" id="image1" class="form-control mb-3">
+                            <input type="file" name="image2" id="image2" class="form-control mb-3">
                             <button type="submit" class="btn btn-primary">Créer Projet</button>
                         </form>
                         <!-- / Layout page -->
