@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nom_mission = $nom_projet . " mission";
 
-// Créer une nouvelle mission
-$stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_mission, etat)
-VALUES (:id_projet, :id_user, :nom_mission, 'en attente')");
-$stmt->bindParam(':id_projet', $id_projet);
-$stmt->bindParam(':id_user', $id_user_developpeur);
-$stmt->bindParam(':nom_mission', $nom_mission);
-$stmt->execute();
+    // Créer une nouvelle mission
+    $stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_mission, etat)
+    VALUES (:id_projet, :id_user, :nom_mission, 'en attente')");
+    $stmt->bindParam(':id_projet', $id_projet);
+    $stmt->bindParam(':id_user', $id_user_developpeur);
+    $stmt->bindParam(':nom_mission', $nom_mission);
+    $stmt->execute();
 
     // Envoyer une notification
     $title = "Mission ajoutée";
