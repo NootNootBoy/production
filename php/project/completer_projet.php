@@ -24,18 +24,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
     $pdo = new PDO($dsn, $user, $pass, $opt);
     
+        // Récupérer le nom du projet
+    $stmt = $pdo->prepare("SELECT nom_projet FROM Projets WHERE id_projet = ?");
+    $stmt->execute([$id_projet]);
+    $projet = $stmt->fetch();
+    $nom_projet = $projet['nom_projet'];
 
     // Préparer la requête pour mettre à jour le projet
     $stmt = $pdo->prepare("UPDATE Projets SET id_user_developpeur = ?, id_user_assistant = ?, status = 'en cours' WHERE id_projet = ?");
     $stmt->execute([$id_user_developpeur, $id_user_assistant, $id_projet]);
 
-    // Créer une nouvelle mission
-    $stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_mission, etat)
-    VALUES (:id_projet, :id_user, :nom_mission, 'en attente')");
-    $stmt->bindParam(':id_projet', $id_projet);
-    $stmt->bindParam(':id_user', $_POST['id_user_developpeur']);
-    $stmt->bindParam(':nom_mission', $_POST['nom_projet']);
-    $stmt->execute();
+
+    $nom_mission = $nom_projet . " mission";
+
+// Créer une nouvelle mission
+$stmt = $pdo->prepare("INSERT INTO missions (id_projet, id_user, nom_mission, etat)
+VALUES (:id_projet, :id_user, :nom_mission, 'en attente')");
+$stmt->bindParam(':id_projet', $id_projet);
+$stmt->bindParam(':id_user', $id_user_developpeur);
+$stmt->bindParam(':nom_mission', $nom_mission);
+$stmt->execute();
 
     // Envoyer une notification
     $title = "Mission ajoutée";
