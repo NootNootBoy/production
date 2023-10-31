@@ -161,10 +161,10 @@ $cahier_des_charges = $stmt->fetch(PDO::FETCH_ASSOC);
                                     </h5>
                                     <?php 
                                     if (!empty($cahier_des_charges['image1'])) {
-                                        echo '<img src="' . htmlspecialchars($cahier_des_charges['image1']) . '" alt="Image 1">';
+                                        echo '<img src="intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image1']) . '" alt="Image 1">';
                                     }
                                     if (!empty($cahier_des_charges['image2'])) {
-                                        echo '<img src="' . htmlspecialchars($cahier_des_charges['image2']) . '" alt="Image 2">';
+                                        echo '<img src="intranet-mindset.com/' . htmlspecialchars($cahier_des_charges['image2']) . '" alt="Image 2">';
                                     }
                                     ?>
                                 </div>
