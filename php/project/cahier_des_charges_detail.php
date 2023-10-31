@@ -95,7 +95,7 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="card-header mb-4">Liste des projets en attente :</h5>
                         </div>
-                        <div class="container my-5">
+                        <div class="container">
                             <div class="card">
                                 <div class="card-header">
                                     <h1>Cahier des charges pour le projet :
@@ -106,14 +106,42 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                                     <p class="card-text"><strong>Longues traines:</strong>
                                         <?php echo htmlspecialchars($cahier_des_charges['longues_traines']); ?></p>
                                     <?php endif; ?>
+
                                     <?php if (!empty($cahier_des_charges['nom_domaine'])): ?>
                                     <p class="card-text"><strong>Nom de domaine:</strong>
                                         <?php echo htmlspecialchars($cahier_des_charges['nom_domaine']); ?></p>
                                     <?php endif; ?>
+
+                                    <?php if (!empty($cahier_des_charges['charte_graphique_existante'])): ?>
+                                    <p class="card-text"><strong>Charte graphique existante:</strong>
+                                        <?php echo htmlspecialchars($cahier_des_charges['charte_graphique_existante']); ?>
+                                    </p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($cahier_des_charges['idee_site'])): ?>
+                                    <p class="card-text"><strong>Idée du site:</strong>
+                                        <?php echo htmlspecialchars($cahier_des_charges['idee_site']); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($cahier_des_charges['concurrents'])): ?>
+                                    <p class="card-text"><strong>Concurrents:</strong>
+                                        <?php echo htmlspecialchars($cahier_des_charges['concurrents']); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($cahier_des_charges['partenaires'])): ?>
+                                    <p class="card-text"><strong>Partenaires:</strong>
+                                        <?php echo htmlspecialchars($cahier_des_charges['partenaires']); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($cahier_des_charges['villes'])): ?>
+                                    <p class="card-text"><strong>Villes:</strong>
+                                        <?php echo htmlspecialchars($cahier_des_charges['villes']); ?></p>
+                                    <?php endif; ?>
+
                                     <?php for ($i = 1; $i <= 3; $i++): ?>
                                     <?php if (!empty($cahier_des_charges['rubrique' . $i])): ?>
-                                    <h5 class="card-title">Rubrique <?php echo $i; ?>:
-                                        <?php echo htmlspecialchars($cahier_des_charges['rubrique' . $i]); ?></h5>
+                                    <p class="card-title">Rubrique <?php echo $i; ?>:
+                                        <?php echo htmlspecialchars($cahier_des_charges['rubrique' . $i]); ?></p>
                                     <ul class="list-group list-group-flush">
                                         <?php for ($j = ($i - 1) * 3 + 1; $j <= $i * 3; $j++): ?>
                                         <?php if (!empty($cahier_des_charges['sous_rubrique' . $j])): ?>

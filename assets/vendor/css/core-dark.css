@@ -2014,7 +2014,7 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #ffffff;
+  color: #f2f2f2b6;
   background-color: #222222;
   border-color: white;
   outline: 0;
@@ -2024,11 +2024,11 @@ progress {
   height: 1.53em;
 }
 .form-control::-moz-placeholder {
-  color: #fff;
+  color: #f2f2f2b6;
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #fff;
+  color: #f2f2f2b6;
   opacity: 1;
 }
 .form-control:disabled {
@@ -2040,7 +2040,7 @@ progress {
   margin: -0.4375rem -0.875rem;
   -webkit-margin-end: 0.875rem;
           margin-inline-end: 0.875rem;
-  color: #ffffff;
+  color: #f2f2f2b6;
   background-color: #222222;
   pointer-events: none;
   border-color: inherit;
