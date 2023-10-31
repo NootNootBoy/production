@@ -95,8 +95,8 @@ echo "<h1>Cahier des charges pour le projet : " . htmlspecialchars($cahier_des_c
                         <div class="container">
                             <div class="card">
                                 <div class="card-header">
-                                    <h1>Cahier des charges pour le projet :
-                                        <?php echo htmlspecialchars($cahier_des_charges['nom_projet']); ?></h1>
+                                    <h2>Cahier des charges pour le projet :
+                                        <?php echo htmlspecialchars($cahier_des_charges['nom_projet']); ?></h2>
                                 </div>
                                 <div class="card-body">
                                     <h5 style="color: #ff810a; margin-bottom: 20px; margin-top: 20px">Infos générales
