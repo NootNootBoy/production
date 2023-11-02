@@ -19,14 +19,15 @@ try {
 
     if ($type_client == 'nouveau') {
         // Création d'un nouveau client
-        $stmt = $pdo->prepare("INSERT INTO clients (nom, prenom, societe, siret, email, phone_number) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO clients (nom, prenom, societe, siret, email, phone_number, commercial_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([
             $_POST['nom'],
             $_POST['prenom'],
             $_POST['societe'],
             $_POST['siret'],
             $_POST['email'],
-            $_POST['phone_number']
+            $_POST['phone_number'],
+            $_POST['commercial_id'] // Ajout de l'ID du commercial sélectionné
         ]);
         $client_id = $pdo->lastInsertId();
     } else {

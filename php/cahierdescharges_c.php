@@ -111,7 +111,7 @@ try {
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
 
-                        <form action="traitement_projet.php" method="post" enctype="multipart/form-data">>
+                        <form action="traitement_projet.php" method="post" enctype="multipart/form-data">
                             <h2 class="mb-4">1) Créer ou Sélectionner un Client</h2>
 
                             <div class="form-check mb-3">
@@ -135,6 +135,20 @@ try {
                                 <input type="email" name="email" placeholder="Email" class="form-control mb-3">
                                 <input type="text" name="phone_number" placeholder="Numéro de téléphone"
                                     class="form-control mb-3">
+                                <div class="mb-3">
+                                    <label for="commercial_id" class="form-label">Commercial</label>
+                                    <select name="commercial_id" id="commercial_id" class="form-select">
+                                        <?php 
+                                        $stmt = $pdo->prepare("SELECT * FROM users WHERE rang = 'commercial' OR rang = 'administrateur'");
+                                        $stmt->execute();
+                                        $commerciaux = $stmt->fetchAll();
+                                        foreach ($commerciaux as $commercial): ?>
+                                        <option value="<?php echo $commercial['id']; ?>">
+                                            <?php echo $commercial['prenom'] . ' ' . $commercial['nom']; ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
 
                             <!-- Champs pour sélectionner un client existant -->
