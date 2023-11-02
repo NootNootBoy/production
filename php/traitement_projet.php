@@ -95,32 +95,6 @@ try {
     move_uploaded_file($_FILES["image1"]["tmp_name"], $image1_path);
     move_uploaded_file($_FILES["image2"]["tmp_name"], $image2_path);
 
-    // Vérification et traitement de l'image1
-if (isset($_FILES["image1"]) && $_FILES["image1"]["size"] > 0) {
-    if ($_FILES["image1"]["size"] > 500000) {
-        echo "Désolé, votre fichier est trop volumineux.";
-        exit;
-    }
-    if (!in_array(strtolower(pathinfo($image1_path, PATHINFO_EXTENSION)), ['jpg', 'png', 'jpeg', 'gif'])) {
-        echo "Désolé, seuls les fichiers JPG, JPEG, PNG & GIF sont autorisés.";
-        exit;
-    }
-    move_uploaded_file($_FILES["image1"]["tmp_name"], $image1_path);
-}
-
-// Vérification et traitement de l'image2
-if (isset($_FILES["image2"]) && $_FILES["image2"]["size"] > 0) {
-    if ($_FILES["image2"]["size"] > 500000) {
-        echo "Désolé, votre fichier est trop volumineux.";
-        exit;
-    }
-    if (!in_array(strtolower(pathinfo($image2_path, PATHINFO_EXTENSION)), ['jpg', 'png', 'jpeg', 'gif'])) {
-        echo "Désolé, seuls les fichiers JPG, JPEG, PNG & GIF sont autorisés.";
-        exit;
-    }
-    move_uploaded_file($_FILES["image2"]["tmp_name"], $image2_path);
-}
-
     // Stocker les chemins des images dans la base de données
     $stmt = $pdo->prepare("UPDATE cahier_des_charges SET image1 = ?, image2 = ? WHERE id = ?");
     $stmt->execute([$image1_path, $image2_path, $cahier_des_charges_id]);
